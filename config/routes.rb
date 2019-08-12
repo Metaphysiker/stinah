@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'calendar', to: 'calendar#calendar'
   devise_for :users
   resources :posts
   root 'static_pages#welcome'
