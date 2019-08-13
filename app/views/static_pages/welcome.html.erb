@@ -30,6 +30,8 @@
       </div>
 
   <div class="jumbotron bg-white my-4">
+    <% if user_signed_in? %>
+    <% end %>
     <h1 class="text-center">Neuigkeiten</h1>
     <hr />
     <%= render partial: "posts/show", collection: @posts, as: :post %>

@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.0'
 
+#devise I18n
+gem 'devise-i18n'
+# rails I18n
+gem 'rails-i18n'
+#simple form
+gem 'simple_form'
 #devise
 gem 'devise'
 # jQuery
