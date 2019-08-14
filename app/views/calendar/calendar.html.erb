@@ -1,32 +1,53 @@
-<div class="container">
-  <table class="table table-striped table-bordered rounded">
-  <thead>
-    <tr>
-      <th>Montag</th>
-      <th>Dienstag</th>
-      <th>Mittwoch</th>
-      <th>Donnerstag</th>
-      <th>Freitag</th>
-      <th>Samstag</th>
-      <th>sonntag</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% month = @date.month %>
-    <% first_day = @date.beginning_of_month.beginning_of_week %>
-    <% last_day = @date.end_of_month.end_of_week %>
-    <% all_month_days = first_day..last_day %>
+<% month = @date.month %>
+<% first_day = @date.beginning_of_month.beginning_of_week %>
+<% last_day = @date.end_of_month.end_of_week %>
+<% all_month_days = first_day..last_day %>
 
-    <% all_month_days.to_a.in_groups_of(7).each do |week| %>
+<div class="container-fluid bg-white">
+  <div class="jumbotron bg-white">
+    <div class="text-center m-2">
+      <%= link_to calendar_path(@date - 1.month) do %>
+        <div class="btn btn-primary">
+          &#8249; &#8249;
+        </div>
+      <% end %>
+      <span class="mx-3">
+        <%= I18n.t("date.month_names")[month] %>
+      </span>
+      <%= link_to calendar_path(@date + 1.month) do %>
+        <div class="btn btn-primary">
+          &#8250; &#8250;
+        </div>
+      <% end %>
+    </div>
+    <table class="table table-bordered rounded">
+    <thead>
       <tr>
-        <% week.each do |day| %>
-        <td>
-          <%= day.to_s %>
-        </td>
-        <% end %>
+        <th class="text-center small-text">Montag</th>
+        <th class="text-center small-text">Dienstag</th>
+        <th class="text-center small-text">Mittwoch</th>
+        <th class="text-center small-text">Donnerstag</th>
+        <th class="text-center small-text">Freitag</th>
+        <th class="text-center small-text">Samstag</th>
+        <th class="text-center small-text">Sonntag</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% all_month_days.to_a.in_groups_of(7).each do |week| %>
+        <tr>
+          <% week.each do |day| %>
+          <% backgroundcolorforday = "bg-lightgray" unless day.between?(@date.beginning_of_month, @date.end_of_month) %>
+          <% backgroundcolorforday = "bg-lightcyan" if day === Date.today %>
+          <td class="<%= backgroundcolorforday %>">
+            <div class="float-right small-text"><small><%= day.strftime("%d") %></small></div>
+            <br>
 
-  </tbody>
-</table>
+          </td>
+          <% end %>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+  </div>
 </div>

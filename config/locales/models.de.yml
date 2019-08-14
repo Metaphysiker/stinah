@@ -1,0 +1,10 @@
+de:
+  activerecord:
+    models:
+      post:
+        one: "Eintrag"
+        other: "Einträge"
+    attributes:
+      post:
+        title: "Titel"
+        content: "Inhalt"
