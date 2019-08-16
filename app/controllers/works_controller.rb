@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_work, only: [:show, :edit, :update, :destroy]
+  before_action :set_work, only: [:show, :edit, :update, :destroy, :delete_for_calendar]
 
   # GET /works
   # GET /works.json
@@ -70,6 +70,14 @@ class WorksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to works_url, notice: 'Work was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def delete_for_calendar
+    date = @work.date
+    @work.destroy
+    respond_to do |format|
+      format.html { redirect_to calendar_path(date), notice: 'Einsatz wurde gelöscht!' }
     end
   end
 

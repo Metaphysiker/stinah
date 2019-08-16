@@ -41,13 +41,14 @@
           <td class="day-td <%= day.strftime("%d-%m-%Y") %> <%= backgroundcolorforday %>" style="width: 14.28%">
             <div class="float-right small-text"><small><%= day.strftime("%d") %></small></div>
             <br>
-            <% Work.where(date: day).each do |work| %>
+            <% works = Work.where(date: day)%>
+            <% works.each do |work| %>
             <div class="my-1">
               <button type="button" class="btn btn-primary btn-sm"><%= work.user.username %></button>
-              <%= link_to 'x', work_path(work), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-sm btn-danger" %>
+              <%= link_to 'x', delete_for_calendar_path(work), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-sm btn-danger" %>
             </div>
             <% end %>
-            <% unless day.past? %>
+            <% unless day.past? || works.where(user_id: current_user.id).any? %>
             <div class="enter-work" style="display: none">
               <hr />
               <button type="button" class="btn btn-outline-primary btn-sm enter-work-button" value=" <%= day.to_s %>">Einsatz eintragen</button>
