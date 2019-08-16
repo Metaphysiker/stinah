@@ -42,8 +42,10 @@
             <div class="float-right small-text"><small><%= day.strftime("%d") %></small></div>
             <br>
             <% Work.where(date: day).each do |work| %>
-              <%= work.id %>
-              <br />
+            <div class="my-1">
+              <button type="button" class="btn btn-primary btn-sm"><%= work.user.username %></button>
+              <%= link_to 'x', work_path(work), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-sm btn-danger" %>
+            </div>
             <% end %>
             <% unless day.past? %>
             <div class="enter-work" style="display: none">

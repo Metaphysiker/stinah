@@ -1,4 +1,5 @@
 class WorksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_work, only: [:show, :edit, :update, :destroy]
 
   # GET /works
@@ -39,6 +40,7 @@ class WorksController < ApplicationController
 
   def create_for_calendar
     @work = Work.new(work_params)
+    @work.user_id = current_user.id if current_user
 
     respond_to do |format|
       if @work.save
