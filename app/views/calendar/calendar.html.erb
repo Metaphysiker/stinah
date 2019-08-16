@@ -41,10 +41,14 @@
           <td class="day-td <%= day.strftime("%d-%m-%Y") %> <%= backgroundcolorforday %>" style="width: 14.28%">
             <div class="float-right small-text"><small><%= day.strftime("%d") %></small></div>
             <br>
+            <% Work.where(date: day).each do |work| %>
+              <%= work.id %>
+              <br />
+            <% end %>
             <% unless day.past? %>
             <div class="enter-work" style="display: none">
               <hr />
-              <button type="button" class="btn btn-outline-primary btn-sm">Einsatz eintragen</button>
+              <button type="button" class="btn btn-outline-primary btn-sm enter-work-button" value=" <%= day.to_s %>">Einsatz eintragen</button>
             </div>
             <% end %>
           </td>
@@ -59,10 +63,24 @@
 
 <script>
   $( document ).ready(function() {
+    $( ".enter-work-button" ).click(function() {
+      var date = $(this).val();
+      console.log(date);
+      $.ajax({
+        url: "/works/create_for_calendar",
+        method: 'POST',
+        data: {
+          work: { date: date}
+        },
+        headers: {
+          'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
+        }
+
+      });
+    });
 
     $( ".day-td" ).hover(
       function() {
-        console.log("toggle!");
         $(this).children(".enter-work").toggle();
       }, function(){
         $(this).children(".enter-work").toggle();

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :works
   get 'calendar/(:date)', to: 'calendar#calendar', as: "calendar"
+  post '/works/create_for_calendar/', to: "works#create_for_calendar", as: 'create_for_calendar'
   devise_for :users
   resources :posts
   root 'static_pages#welcome'
