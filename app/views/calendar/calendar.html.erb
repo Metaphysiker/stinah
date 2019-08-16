@@ -38,10 +38,15 @@
           <% week.each do |day| %>
           <% backgroundcolorforday = "bg-lightgray" unless day.between?(@date.beginning_of_month, @date.end_of_month) %>
           <% backgroundcolorforday = "bg-lightcyan" if day === Date.today %>
-          <td class="<%= backgroundcolorforday %>">
+          <td class="day-td <%= day.strftime("%d-%m-%Y") %> <%= backgroundcolorforday %>" style="width: 14.28%">
             <div class="float-right small-text"><small><%= day.strftime("%d") %></small></div>
             <br>
-
+            <% unless day.past? %>
+            <div class="enter-work" style="display: none">
+              <hr />
+              <button type="button" class="btn btn-outline-primary btn-sm">Einsatz eintragen</button>
+            </div>
+            <% end %>
           </td>
           <% end %>
         </tr>
@@ -51,3 +56,18 @@
   </table>
   </div>
 </div>
+
+<script>
+  $( document ).ready(function() {
+
+    $( ".day-td" ).hover(
+      function() {
+        console.log("toggle!");
+        $(this).children(".enter-work").toggle();
+      }, function(){
+        $(this).children(".enter-work").toggle();
+      }
+    );
+
+  });
+</script>

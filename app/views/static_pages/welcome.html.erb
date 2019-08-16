@@ -33,9 +33,9 @@
 
   <div class="jumbotron bg-white my-4">
     <% if user_signed_in? %>
-      <div class="float-right">
+      <div class="text-center">
         <%= link_to 'Neuer Eintrag', new_post_path, class: "btn btn-primary" %>
-      </div><br><br>
+      </div><hr />
     <% end %>
     <h1 class="text-center">Neuigkeiten</h1>
     <hr />
