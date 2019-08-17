@@ -1,5 +1,8 @@
 <div class="container">
+  <% if user_signed_in? %>
+    <div class="text-center">
+      <%= link_to 'Neuer Eintrag', new_post_path, class: "btn btn-primary my-2" %>
+    </div><hr />
+  <% end %>
   <%= render partial: "posts/show", collection: @posts, as: :post %>
 </div>
-
-<%= link_to 'New Post', new_post_path %>
