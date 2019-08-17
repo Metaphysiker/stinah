@@ -54,7 +54,6 @@
                    </div>
                  <% end %>
                </div>
-
               </div>
               <% end %>
               <% unless day.past? || works.where(user_id: current_user.id).any? %>
@@ -92,7 +91,28 @@
       </div>
       <% only_month_days.to_a.each do |day| %>
       <div class="my-3 text-center rounded border">
-        <h2><%= day.strftime("%d-%m-%Y") %></h2>
+        <u>
+          <%= I18n.l(day, format: '%A') %> - <%= day.strftime("%d/%m/%Y") %>
+        </u>
+        <% works = Work.where(date: day)%>
+        <% works.each do |work| %>
+          <div class="my-1">
+            <div class="border border-primary rounded p-2">
+             <%= work.user.username %>
+             <% if work.user_id == current_user.id %>
+               <div class="float-right">
+                 | <%= link_to 'x', delete_for_calendar_path(work), method: :delete, data: {confirm: 'Bist du sicher?'} %>
+               </div>
+             <% end %>
+           </div>
+          </div>
+        <% end %>
+        <% unless works.where(user_id: current_user.id).any? %>
+        <div class="enter-work my-1">
+          <hr />
+          <button type="button" class="btn btn-outline-primary btn-sm enter-work-button" value=" <%= day.to_s %>">Einsatz eintragen</button>
+        </div>
+        <% end %>
       </div>
       <% end %>
     </div>
