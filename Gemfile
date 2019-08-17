@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.0'
 
+#TinyMCE
+#gem 'tinymce-rails'
 #devise I18n
 gem 'devise-i18n'
 # rails I18n

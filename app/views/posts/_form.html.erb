@@ -1,5 +1,7 @@
 <%= simple_form_for post do |f| %>
   <%= f.input :title %>
-  <%= f.input :content, input_html: { rows: 10 } %>
+  <%= f.label :content %>
+  <%= f.rich_text_area :content, cols: "30", rows: "10" %>
+  <br />
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
