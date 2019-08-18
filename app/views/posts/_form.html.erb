@@ -1,4 +1,8 @@
 <%= simple_form_for post do |f| %>
+  <%= f.label :cover %>
+  <br />
+  <%= f.file_field :cover %>
+  <br />
   <%= f.input :title %>
   <%= f.label :content %>
   <%= f.rich_text_area :content, size: "30x10" %>
