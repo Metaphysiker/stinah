@@ -12,7 +12,7 @@ gem 'rails-i18n'
 #simple form
 gem 'simple_form'
 #devise
-gem 'devise'
+gem 'devise', '~> 4.6.2'
 # jQuery
 #gem 'jquery-rails'
 # Bootstrap
