@@ -17,8 +17,8 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 //import 'bootstrap'
-require("bootstrap")
 //import '../stylesheets/application'
+require("bootstrap")
 require("../stylesheets/application")
 
 window.jQuery = $;
@@ -26,7 +26,7 @@ window.$ = $;
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
-})
+});
 
 require("trix")
 require("@rails/actiontext")
