@@ -1,0 +1,46 @@
+$base-color: #D0E2D7;
+$darker-base-color: darken($base-color, 50%);
+
+body {
+  background-color: $base-color;
+}
+
+.base-color {
+  background-color: $base-color;
+}
+
+.text-base-color {
+  color: $base-color;
+}
+
+.darker-base-color {
+  background-color: $darker-base-color;
+}
+
+.text-darker-base-color {
+  color: $darker-base-color;
+}
+
+.small-text {
+  font-size: 0.8rem;
+}
+
+.bg-lightgray {
+  background-color: LightGray;
+}
+
+.bg-lightcyan {
+  background-color: LightCyan;
+}
+
+.text-lightgray {
+  color: LightGray;
+}
+
+.bg-lightskyblue {
+  background-color: LightSkyBlue;
+}
+
+.max-height-300 {
+  max-height: 300px;
+}

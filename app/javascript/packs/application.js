@@ -19,7 +19,7 @@ require("channels")
 //import 'bootstrap'
 //import '../stylesheets/application'
 require("bootstrap")
-require("../stylesheets/application")
+//require("../stylesheets/application")
 
 window.jQuery = $;
 window.$ = $;
