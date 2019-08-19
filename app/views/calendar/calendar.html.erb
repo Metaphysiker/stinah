@@ -75,6 +75,9 @@
   <div class="d-md-none">
     <div class="jumbotron bg-white">
       <div class="text-center m-2">
+        Nächster Einsatz: <span class="text-success"><u><b><%= current_user.next_work %></b></u></span>
+      </div>
+      <div class="text-center m-2">
         <%= link_to calendar_path(@date - 1.month) do %>
           <div class="btn btn-primary">
             &#8249; &#8249;
