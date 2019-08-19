@@ -34,7 +34,9 @@ class User < ApplicationRecord
 
   def next_work
     #returns work with closest date
-    works.where("date >= ?", Date.today).order(:date).first.date
+    message = "Noch kein Einsatz geplant."
+    message = works.where("date >= ?", Date.today).order(:date).first.date unless works.where("date >= ?", Date.today).empty?
+    message
   end
 
   def self.roles
