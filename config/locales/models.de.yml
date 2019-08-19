@@ -4,7 +4,15 @@ de:
       post:
         one: "Eintrag"
         other: "Einträge"
+      horse:
+        one: "Pferd"
+        other: "Pferde"
     attributes:
       post:
         title: "Titel"
         content: "Inhalt"
+      horse:
+        name: "Name"
+        race: "Rasse"
+        birth: "Geburtstag"
+        description: "Beschreibung"

@@ -33,8 +33,12 @@ class User < ApplicationRecord
   has_many :posts
 
   def next_work
-    #returns closest date
+    #returns work with closest date
     works.where("date >= ?", Date.today).order(:date).first.date
+  end
+
+  def self.roles
+    ['admin', 'member']
   end
 
 end
