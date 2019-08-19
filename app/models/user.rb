@@ -32,4 +32,9 @@ class User < ApplicationRecord
   has_many :works
   has_many :posts
 
+  def next_work
+    #returns closest date
+    works.where("date >= ?", Date.today).order(:date).first.date
+  end
+
 end

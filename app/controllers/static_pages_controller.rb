@@ -6,4 +6,20 @@ class StaticPagesController < ApplicationController
   def newhome
 
   end
+
+  def about
+
+  end
+
+  def animalsofstinah
+
+  end
+
+  def faq
+
+  end
+
+  def contact
+
+  end
 end

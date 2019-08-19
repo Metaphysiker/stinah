@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light height-200 border-top">
+  <%= link_to root_path, class: "navbar-brand" do %>
+      Mitglieder
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+        <%= link_to "Einsatzkalender", calendar_path, class:"nav-link"  %>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link">
+                  Nächster Einsatz: <span class="text-success"><b><u><%= current_user.next_work %></u></b></span>
+        </div>
+      </li>
+    </ul>
+    </ul>
+  </div>
+</nav>
