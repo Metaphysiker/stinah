@@ -107,7 +107,7 @@
            </div>
           </div>
         <% end %>
-        <% unless works.where(user_id: current_user.id).any? %>
+        <% unless day.past? || works.where(user_id: current_user.id).any? %>
         <div class="enter-work my-1">
           <hr />
           <button type="button" class="btn btn-outline-primary btn-sm enter-work-button" value=" <%= day.to_s %>">Einsatz eintragen</button>
