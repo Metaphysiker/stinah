@@ -2,7 +2,7 @@
   <div class="jumbotron bg-white">
     <h1>Meine Patenschaften</h1>
     <% @sponsorships.each do |sponsorship| %>
-    <div class="card my-2">
+    <div class="card my-4">
       <% if sponsorship.animal.cover.attached? %>
         <div class="card-header text-center">
           <%= image_tag sponsorship.animal.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
