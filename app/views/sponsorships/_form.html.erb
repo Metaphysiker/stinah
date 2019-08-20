@@ -1,7 +1,11 @@
 <%= simple_form_for sponsorship, url: add_sponsorship_path, method: :post do |f| %>
   <%= f.hidden_field :user_id, value: user.id %>
   <%= f.hidden_field :animal_id, value: animal.id %>
-  <%= f.input :donation, input_html: {value: '30'} %>
+  <%= f.label :donation, 'Monatliche Spende' %>
+  <%= f.input :donation, label: false, input_html: {value: '30'} %>
   <br />
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= label :q, "Laaabel" %>
+  <%= text_field_tag :q, nil, class: 'form-control' %>
+  <br />
+  <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
