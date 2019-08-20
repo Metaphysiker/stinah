@@ -11,7 +11,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= sponsorship.animal.name %></h5>
         <p class="card-text">
-          <b>Monatliche Spende: </b> <%=sponsorship.donation %>
+          <b>Monatliche Spende: </b> <%= number_with_precision(sponsorship.donation, precision: 2, separator: '.') %> CHF
         </p>
       </div>
     </div>
