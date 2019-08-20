@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about', as: "about"
   get '/faq', to: 'static_pages#faq', as: "faq"
   get '/contact', to: 'static_pages#contact', as: "contact"
+
   post '/works/create_for_calendar/', to: "works#create_for_calendar", as: 'create_for_calendar'
   delete '/works/delete_for_calendar/:id', to: "works#delete_for_calendar", as: 'delete_for_calendar'
+
+  get '/my_sponsorships', to: "sponsorships#my_sponsorships", as: 'my_sponsorships'
+  post '/add_sponsorship', to: "sponsorships#add_sponsorship", as: 'add_sponsorship'
+
   devise_for :users
   resources :posts
   root 'static_pages#welcome'

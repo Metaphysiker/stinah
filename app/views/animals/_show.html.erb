@@ -1,4 +1,4 @@
-<div class="card my-3">
+<div class="card my-3 <%= dom_id(animal) %>">
   <% if animal.cover.attached? %>
     <div class="card-header text-center">
           <%= image_tag animal.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
@@ -15,11 +15,45 @@
     </div>
   </div>
   <div class="card-footer text-muted">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-success m-2 float-right" data-toggle="modal" data-target="#<%= dom_id(animal) %>_sponsorship_modal">
+      Ich möchte Pate von <%= animal.name %> werden!
+    </button>
   <% if user_signed_in? %>
+  <br />
+  <br />
+  <hr />
     <div class="text-center m-2">
       <%= link_to 'Eintrag bearbeiten', edit_animal_path(animal), class: "btn btn-primary m-2" %>
       <%= link_to 'Eintrag löschen', animal_path(animal), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
     </div>
   <% end %>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="<%= dom_id(animal) %>_sponsorship_modal" tabindex="-1" role="dialog" aria-labelledby="sponsorshipModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Pate für <%= animal.name %> werden!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(url: "/add_sponsorship", method: "post") do %>
+          <%= hidden_field_tag(:animal_id, animal.id) %>
+          <%= hidden_field_tag(:user_id, current_user.id) %>
+          <%= label_tag(:donation, "Spendebeitrag (Mindestens 30.-)") %>
+          <%= number_field_tag(:donation) %>
+          <%= submit_tag("Pate werden!") %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
