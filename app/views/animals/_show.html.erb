@@ -16,7 +16,7 @@
   </div>
   <div class="card-footer text-muted">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success m-2 float-right" data-toggle="modal" data-target="#<%= dom_id(animal) %>_sponsorship_modal">
+    <button type="button" class="btn btn-success m-2 float-right <%= dom_id(animal) %>_sponsorship_modal_button" data-toggle="modal" data-target="#<%= dom_id(animal) %>_sponsorship_modal">
       Ich möchte Pate von <%= animal.name %> werden!
     </button>
   <% if user_signed_in? %>
@@ -42,13 +42,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= form_with(url: "/add_sponsorship", method: "post") do %>
-          <%= hidden_field_tag(:animal_id, animal.id) %>
-          <%= hidden_field_tag(:user_id, current_user.id) %>
-          <%= label_tag(:donation, "Spendebeitrag (Mindestens 30.-)") %>
-          <%= number_field_tag(:donation) %>
-          <%= submit_tag("Pate werden!") %>
-        <% end %>
+         <%= render 'sponsorships/form', sponsorship: Sponsorship.new, user: current_user, animal: animal %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

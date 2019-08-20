@@ -32,7 +32,7 @@ class User < ApplicationRecord
   has_many :works
   has_many :posts
   has_many :sponsorships
-  has_many :animals, :through => :sponsorships
+  has_many :animals, through: :sponsorships, dependent: :destroy
 
   def next_work
     #returns work with closest date

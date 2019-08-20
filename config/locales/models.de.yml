@@ -4,15 +4,21 @@ de:
       post:
         one: "Eintrag"
         other: "Einträge"
-      horse:
-        one: "Pferd"
-        other: "Pferde"
+      animal:
+        one: "Tier"
+        other: "Tiere"
+      sponsorship:
+        one: "Patenschaft"
+        other: "Patenschaften"
     attributes:
       post:
         title: "Titel"
         content: "Inhalt"
-      horse:
+      animal:
         name: "Name"
         race: "Rasse"
         birth: "Geburtstag"
         description: "Beschreibung"
+        species: "Tierart"
+      sponsorship:
+        donation: "Spende"
