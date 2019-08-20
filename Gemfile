@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#mini_magick
+gem "mini_magick"
 #AWS for storage
 gem "aws-sdk-s3", require: false
 #TinyMCE
