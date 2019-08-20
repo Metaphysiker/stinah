@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :horses
+  resources :animals
   resources :works
   get 'calendar/(:date)', to: 'calendar#calendar', as: "calendar"
   get '/newhome', to: 'static_pages#newhome', as: "newhome"

@@ -1,18 +1,19 @@
 
-<%= simple_form_for(@horse) do |f| %>
+<%= simple_form_for(@animal) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.label :portrait %>
+    <%= f.label :cover %>
     <br />
-    <%= f.file_field :portrait %>
+    <%= f.file_field :cover %>
     <br />
     <br />
+    <%= f.input :name %>
     <%= f.label :description %>
     <%= f.rich_text_area :description %>
     <br />
-    <%= f.input :name %>
+    <%= f.input :species %>
     <%= f.input :race %>
     <%= f.input :birth %>
   </div>

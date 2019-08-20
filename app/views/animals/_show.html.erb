@@ -1,0 +1,25 @@
+<div class="card my-3">
+  <% if animal.cover.attached? %>
+    <div class="card-header text-center">
+          <%= image_tag animal.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
+    </div>
+  <% end %>
+  <div class="card-body text-darker-base-color">
+    <h3 class="card-title"><%= animal.name %></h3>
+    <div class="text-justify">
+      <p class="card-text"><%= animal.description %></p>
+      <hr />
+      <p class="card-text"><b>Tierart: </b><%= animal.species %></p>
+      <p class="card-text"><b>Rasse: </b><%= animal.race %></p>
+      <p class="card-text"><b>Geburtstag: </b><%= animal.birth %></p>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+  <% if user_signed_in? %>
+    <div class="text-center m-2">
+      <%= link_to 'Eintrag bearbeiten', edit_animal_path(animal), class: "btn btn-primary m-2" %>
+      <%= link_to 'Eintrag löschen', animal_path(animal), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+    </div>
+  <% end %>
+  </div>
+</div>

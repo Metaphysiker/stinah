@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Horses", type: :request do
-  describe "GET /horses" do
+RSpec.describe "Animals", type: :request do
+  describe "GET /animals" do
     it "works! (now write some real specs)" do
-      get horses_path
+      get animals_path
       expect(response).to have_http_status(200)
     end
   end

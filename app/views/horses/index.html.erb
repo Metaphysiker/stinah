@@ -1,8 +1,0 @@
-<div class="container">
-  <% if user_signed_in? %>
-    <div class="text-center">
-      <%= link_to 'Neuer Eintrag', new_horse_path, class: "btn btn-primary my-2" %>
-    </div><hr />
-  <% end %>
-  <%= render partial: "horses/show", collection: @horses, as: :horse %>
-</div>
