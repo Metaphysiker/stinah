@@ -1,5 +1,9 @@
 class AnimalsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :is_user_allowed?, only: [:new, :edit, :update, :destroy]
+
+  include ApplicationHelper
 
   # GET /animals
   # GET /animals.json
@@ -70,5 +74,14 @@ class AnimalsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
       params.require(:animal).permit(:name, :description, :species, :race, :birth, :cover)
+    end
+
+    def is_user_allowed?
+      if !is_current_user_admin?
+        #raise "not authorized"
+        sign_out current_user
+        flash[:notice] = "Sie sind nicht authorisiert!"
+        redirect_to root_path
+      end
     end
 end

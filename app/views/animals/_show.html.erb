@@ -9,7 +9,7 @@
     <div class="text-justify">
       <p class="card-text"><%= animal.description %></p>
       <hr />
-      <p class="card-text"><b>Tierart: </b><%= animal.species %></p>
+      <p class="card-text"><b>Tierart: </b><%= t(animal.species) %></p>
       <p class="card-text"><b>Rasse: </b><%= animal.race %></p>
       <p class="card-text"><b>Geburtstag: </b><%= animal.birth %></p>
     </div>
@@ -19,7 +19,7 @@
     <button type="button" class="btn btn-success m-2 float-right <%= dom_id(animal) %>_sponsorship_modal_button" data-toggle="modal" data-target="#<%= dom_id(animal) %>_sponsorship_modal">
       Ich möchte Pate von <%= animal.name %> werden!
     </button>
-  <% if user_signed_in? %>
+  <% if is_current_user_admin? %>
   <br />
   <br />
   <hr />

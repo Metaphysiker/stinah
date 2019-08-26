@@ -22,6 +22,7 @@ class User < ApplicationRecord
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
   validate :validate_username
+  after_create :create_sponsor_role
 
   def validate_username
     if User.where(email: username).exists?
@@ -45,8 +46,8 @@ class User < ApplicationRecord
     message
   end
 
-  def self.roles
-    ['admin', 'member']
+  def create_sponsor_role
+    roles << Role.create(role: "sponsor")
   end
 
 end
