@@ -12,7 +12,7 @@
   </div>
   <div class="card-footer text-muted">
     von <%= post.user.username %> - <%= post.created_at.strftime("%d-%m-%Y") %>
-  <% if user_signed_in? %>
+  <% if is_current_user_admin? %>
     <div class="text-center m-2">
       <hr />
       <%= link_to 'Eintrag bearbeiten', edit_post_path(post), class: "btn btn-primary m-2" %>
