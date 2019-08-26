@@ -31,8 +31,12 @@ class User < ApplicationRecord
 
   has_many :works
   has_many :posts
+
   has_many :sponsorships
   has_many :animals, through: :sponsorships, dependent: :destroy
+
+  has_many :user_roles
+  has_many :roles, through: :user_roles, dependent: :destroy
 
   def next_work
     #returns work with closest date
