@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_201921) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "role"
+    t.string "role", default: "sponsor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

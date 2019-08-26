@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :is_user_allowed?, only: [:new, :edit, :update, :destroy]
+
+  include ApplicationHelper
 
   # GET /posts
   # GET /posts.json
@@ -72,5 +75,14 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :content, :area, :cover)
+    end
+
+    def is_user_allowed?
+      if !is_current_user_admin?
+        #raise "not authorized"
+        sign_out current_user
+        flash[:notice] = "Sie sind nicht authorisiert!"
+        redirect_to root_path
+      end
     end
 end
