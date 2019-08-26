@@ -1,7 +1,6 @@
 class AnimalsSearch
-  def initialize(name: nil, description: nil, species: nil, race: nil, birth: nil)
-    @name = name
-    @description = description
+  def initialize(search_term: nil, species: nil, race: nil, birth: nil)
+    @search_term = search_term
     @species = species
     @race = race
     @birth = birth
@@ -10,9 +9,17 @@ class AnimalsSearch
   def search
     query = Animal.all
 
-    unless @name.nil? || @name.blank?
-      query = query.search_records_ilike("%#{@name}%")
+    unless @search_term.nil? || @search_term.blank?
+      query = query.animals_ilike("%#{@search_term}%")
     end
+
+    unless @species.nil? || @species.blank?
+      query = query.where(species: @species)
+    end
+
+    #unless @race.nil? || @race.blank?
+    #  query = query.where(race: @race)
+    #end
 
     query.distinct
   end
