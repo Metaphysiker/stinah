@@ -5,6 +5,6 @@ class AddInformationToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :street, :string, default: ""
     add_column :users, :city, :string, default: ""
     add_column :users, :plz, :string, default: ""
-    add_column :users, :telefon, :string, default: ""
+    add_column :users, :phone, :string, default: ""
   end
 end

@@ -1,0 +1,42 @@
+<%= simple_form_for sponsorship, url: add_sponsorship_with_new_user_path, method: :post do |f| %>
+  <%= f.hidden_field :animal_id, value: animal.id %>
+  <%= f.label :donation, "Meine monatliche Spende an #{animal.name}: " %>
+  <%= f.input :donation, label: false, input_html: {value: '200'} %>
+  <div class="alert alert-info">
+    Die monatlichen Kosten für Pflege und Unterhalt betragen etwa 700 Franken.
+    <br />
+    <br />
+    Leider können wir keine Spenden unter 30 Franken pro Monat annehmen,
+    da der administrative Aufwand für kleine Spenden zu gross ist.
+  </div>
+  <%= f.input :public, label: " Ich möchte namentlich als Pate für #{animal.name} erwähnt werden." %>
+  <%#= label :q, "Laaabel" %>
+  <%#= text_field_tag :q, nil, class: 'form-control' %>
+  <hr />
+  <%= f.simple_fields_for :users do |ff| %>
+    <div class="form-inputs">
+      <div class="row">
+        <div class="col-6">
+          <%= ff.input :firstname, placeholder: 'Max', required: true %>
+        </div>
+        <div class="col-6">
+          <%= ff.input :lastname, placeholder: 'Mustermann', required: true %>
+        </div>
+      </div>
+      <hr />
+      <%= ff.input :street, placeholder: 'Hauptstrasse 5', required: true %>
+      <div class="row">
+        <div class="col-6">
+          <%= ff.input :city, placeholder: 'Zürich', required: true %>
+        </div>
+        <div class="col-6">
+          <%= ff.input :plz, placeholder: '8000', required: true %>
+        </div>
+      </div>
+      <hr />
+      <%= ff.input :email, placeholder: 'max@mustermann.ch', required: true %>
+      <%= ff.input :phone, placeholder: '0791234567', required: true %>
+    <% end %>
+  <br />
+  <%= f.button :submit, class: "btn btn-success" %>
+<% end %>

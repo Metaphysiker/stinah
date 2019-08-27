@@ -12,13 +12,31 @@
       <p class="card-text"><b>Tierart: </b><%= t(animal.species) %></p>
       <p class="card-text"><b>Rasse: </b><%= animal.race %></p>
       <p class="card-text"><b>Geburtstag: </b><%= animal.birth %></p>
+      <% if animal.sponsorships.where(public: true).exists? %>
+      <hr />
+      <b>Wir danken den Paten von <%= animal.name %>: </b>
+      <ul>
+        <% animal.sponsorships.where(public: true).each do |sponsorship| %>
+          <li>
+            <%= sponsorship.user.firstname %> <%= sponsorship.user.lastname %>
+          </li>
+        <% end %>
+      </ul>
+      <% end %>
     </div>
   </div>
   <div class="card-footer text-muted">
+    <% if !current_user.nil? && current_user.animals.exists?(animal.id) %>
+    <div class="float-right m-2">
+      Du bist Pate von <%= animal.name %>!
+    </div>
+    <% else %>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-success m-2 float-right <%= dom_id(animal) %>_sponsorship_modal_button" data-toggle="modal" data-target="#<%= dom_id(animal) %>_sponsorship_modal">
       Ich möchte Pate von <%= animal.name %> werden!
     </button>
+    <% end %>
+
   <% if is_current_user_admin? %>
   <br />
   <br />
@@ -42,7 +60,11 @@
         </button>
       </div>
       <div class="modal-body">
-         <%= render 'sponsorships/form', sponsorship: Sponsorship.new, user: current_user, animal: animal %>
+        <% if current_user.nil? %>
+          <%= render 'sponsorships/form_with_new_user', sponsorship: Sponsorship.new, user: current_user, animal: animal %>
+        <% else %>
+          <%= render 'sponsorships/form', sponsorship: Sponsorship.new, user: current_user, animal: animal %>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Schliessen</button>

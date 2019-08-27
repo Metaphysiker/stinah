@@ -10,7 +10,18 @@ de:
       sponsorship:
         one: "Patenschaft"
         other: "Patenschaften"
+      user:
+        one: "User"
+        other: "User"
     attributes:
+      user:
+        firstname: "Vorname"
+        lastname: "Nachname"
+        city: "Stadt"
+        street: "Strasse"
+        plz: "Postleitzahl"
+        email: "e-Mail"
+        phone: "Telefon"
       post:
         title: "Titel"
         content: "Inhalt"

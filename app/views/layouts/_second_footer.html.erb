@@ -1,0 +1,22 @@
+<footer class="footer text-muted even-darker-base-color">
+  <div class="container even-darker-base-color">
+    <div class="p-3">
+
+    </div>
+    <div class="text-center">
+      <%= link_to "Home", root_path, class: "h4 p-2 text-white" %>
+      <%= link_to "News", posts_path, class: "h4 p-2 text-white" %>
+      <%= link_to "Unsere Tiere", animals_path, class: "h4 p-2 text-white" %>
+      <%= link_to "Neues Zuhause gesucht", newhome_path, class: "h4 p-2 text-white" %>
+      <%= link_to "Unterstützen!", root_path, class: "h4 p-2 text-white" %>
+      <%= link_to "Über Stinah", root_path, class: "h4 p-2 text-white" %>
+    </div>
+
+    <hr class="bg-lightgray">
+    <div class="pb-5 pt-2 text-lightgray">
+        Impressum | Cookie-Richtlinie
+        <br />
+        © <%= Date.today.year %> stinah.ch | Webdesign brigittekreisl.ch
+    </div>
+  </div>
+</footer>

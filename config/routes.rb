@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/my_sponsorships', to: "sponsorships#my_sponsorships", as: 'my_sponsorships'
   post '/add_sponsorship', to: "sponsorships#add_sponsorship", as: 'add_sponsorship'
+  post '/add_sponsorship_with_new_user', to: "sponsorships#add_sponsorship_with_new_user", as: 'add_sponsorship_with_new_user'
 
   devise_for :users
   resources :posts

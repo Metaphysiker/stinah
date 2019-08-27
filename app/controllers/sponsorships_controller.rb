@@ -12,10 +12,16 @@ class SponsorshipsController < ApplicationController
     redirect_to my_sponsorships_path
   end
 
+  def add_sponsorship_with_new_user
+
+    Sponsorship.create(sponsorship_params)
+    redirect_to my_sponsorships_path
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def sponsorship_params
-    params.require(:sponsorship).permit(:user_id, :animal_id, :donation)
+    params.require(:sponsorship).permit(:user_id, :animal_id, :donation, :public)
   end
 end

@@ -1,5 +1,7 @@
 $base-color: #D0E2D7;
 $darker-base-color: darken($base-color, 50%);
+$even-darker-base-color: darken($base-color, 65%);
+
 
 body {
   background-color: $base-color;
@@ -19,6 +21,14 @@ body {
 
 .text-darker-base-color {
   color: $darker-base-color;
+}
+
+.even-darker-base-color {
+  background-color: $even-darker-base-color;
+}
+
+.text-even-darker-base-color {
+  color: $even-darker-base-color;
 }
 
 .small-text {

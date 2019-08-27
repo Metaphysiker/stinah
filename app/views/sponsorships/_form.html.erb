@@ -3,9 +3,16 @@
 <%= simple_form_for sponsorship, url: add_sponsorship_path, method: :post do |f| %>
   <%= f.hidden_field :user_id, value: user_id %>
   <%= f.hidden_field :animal_id, value: animal.id %>
-  <%= f.label :donation, 'Monatliche Spende' %>
-  <%= f.input :donation, label: false, input_html: {value: '30'} %>
-  <br />
+  <%= f.label :donation, "Meine monatliche Spende an #{animal.name}: " %>
+  <%= f.input :donation, label: false, input_html: {value: '200'} %>
+  <div class="alert alert-info">
+    Die monatlichen Kosten für Pflege und Unterhalt betragen etwa 700 Franken.
+    <br />
+    <br />
+    Leider können wir keine Spenden unter 30 Franken pro Monat annehmen,
+    da der administrative Aufwand für kleine Spenden zu gross ist.
+  </div>
+  <%= f.input :public, label: " Ich möchte namentlich als Pate für #{animal.name} erwähnt werden." %>
   <%#= label :q, "Laaabel" %>
   <%#= text_field_tag :q, nil, class: 'form-control' %>
   <br />

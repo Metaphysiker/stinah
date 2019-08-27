@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_201921) do
   create_table "sponsorships", force: :cascade do |t|
     t.bigint "animal_id"
     t.bigint "user_id"
+    t.boolean "public", default: false
     t.decimal "donation", precision: 10, scale: 2
     t.index ["animal_id"], name: "index_sponsorships_on_animal_id"
     t.index ["user_id"], name: "index_sponsorships_on_user_id"
@@ -103,7 +104,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_201921) do
     t.string "street", default: ""
     t.string "city", default: ""
     t.string "plz", default: ""
-    t.string "telefon", default: ""
+    t.string "phone", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
