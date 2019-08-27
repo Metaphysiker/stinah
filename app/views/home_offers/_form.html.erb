@@ -1,0 +1,33 @@
+
+<%= simple_form_for(@home_offer) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :firstname, placeholder: 'Max', required: true %>
+    <%= f.input :lastname, placeholder: 'Mustermann', required: true %>
+    <%= f.input :street, placeholder: 'Hauptstrasse 5', required: true %>
+    <%= f.input :plz, placeholder: '8000', required: true %>
+    <%= f.input :city, placeholder: 'Zürich', required: true %>
+    <%= f.input :phone, placeholder: '0791234567', required: true %>
+    <%= f.input :email, placeholder: 'max.mustermann@gmail.com', required: true %>
+    <%= f.input :year, placeholder: '1988', required: true %>
+    <%= f.input :experience, placeholder: 'z.B. Ausbildung als Pferdefachfrau', required: true %>
+    <%= f.input :motivation, placeholder: '', required: true  %>
+    <%= f.input :plans, placeholder: '', required: true %>
+    <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]}, required: true %>
+    <%= f.input :race, placeholder: 'z.B. "Araber"', required: true %>
+    <%= f.input :age, placeholder: '1-5', required: true %>
+    <%= f.input :size, placeholder: '145cm - 155cm', required: true %>
+    <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, required: true %>
+    <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, required: true %>
+    <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>
+    <%= f.input :stable_alt %>
+    <%= f.input :from_then_on %>
+    <%= f.input :privacy_statement %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

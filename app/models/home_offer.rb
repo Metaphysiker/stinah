@@ -1,0 +1,2 @@
+class HomeOffer < ApplicationRecord
+end

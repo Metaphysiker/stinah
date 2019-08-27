@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :home_offers
   resources :animals
   resources :works
   get 'calendar/(:date)', to: 'calendar#calendar', as: "calendar"

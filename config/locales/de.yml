@@ -40,3 +40,8 @@ de:
   horse: "Pferd"
   dog: "Hund"
   cat: "Katze"
+  male: "männlich"
+  female: "weiblich"
+  "yes": "Ja"
+  "no": "Nein"
+  whatever: "egal"

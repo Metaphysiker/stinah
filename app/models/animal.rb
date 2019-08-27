@@ -11,4 +11,16 @@ class Animal < ApplicationRecord
     ['pig', 'donkey', 'cow', 'sheep', 'chicken', 'horse', 'dog', 'cat']
   end
 
+  def self.genders
+    ['male', 'female', 'whatever']
+  end
+
+  def self.castrated
+    ['yes', 'no', 'whatever']
+  end
+
+  def self.stables
+    ["Offenstall", "Auslaufhaltung mit Boxe", "Auslaufboxe", "Anderes"]
+  end
+
 end

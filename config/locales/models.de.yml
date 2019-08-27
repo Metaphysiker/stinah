@@ -1,6 +1,9 @@
 de:
   activerecord:
     models:
+      home_offer:
+        one: "Platz-Angebot"
+        other: "Platz-Angebote"
       post:
         one: "Eintrag"
         other: "Einträge"
@@ -33,3 +36,25 @@ de:
         species: "Tierart"
       sponsorship:
         donation: "Spende"
+      home_offer:
+        firstname: "Vorname"
+        lastname: "Nachname"
+        street: "Strasse"
+        plz: "Postleitzahl"
+        city: "Ort"
+        phone: "Telefon"
+        email: "e-Mail"
+        year: "Jahrgang"
+        experience: "Verfügen Sie über eine Ausbildung oder gleichwertige Erfahrung mit der gewünschten Tierart?"
+        motivation: "Was bewegt Sie dazu, ein Tier aufzunehmen?"
+        plans: "Was sind Ihre Pläne mit dem Tier?"
+        species: "Tierart"
+        race: "Rasse"
+        age: "Alter"
+        size: "Grösse"
+        gender: "Geschlecht"
+        castrated: "Kastriert"
+        stable: "Beschrieb des angebotenen Platzes"
+        stable_alt: 'Sofern Sie oben "anderes" angegeben haben, bitten wir Sie um einen kurzen Beschrieb:'
+        privacy_statement: "Ich bin mit der Datenschutzerklärung einverstanden."
+        from_then_on: "Ich biete einen Lebensplatz ab: "
