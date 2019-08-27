@@ -32,6 +32,27 @@
       <li class="nav-item">
         <%= link_to "Über Stinah", about_path, class:"nav-link"  %>
       </li>
+      <li class="nav-item">
+        <%= link_to "FAQ / Links", faq_path, class:"nav-link"  %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Kontakt", contact_path, class:"nav-link"  %>
+      </li>
+      <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Profil bearbeiten', edit_user_registration_path, :class => 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+          </li>
+      <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, :class => 'nav-link'  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Registrieren", new_user_registration_path, :class => 'nav-link'  %>
+          </li>
+      <% end %>
     </ul>
     </ul>
   </div>

@@ -1,8 +1,22 @@
 <footer class="footer text-muted darker-base-color">
   <div class="container darker-base-color">
-    <div class="p-5">
-
+    <div class="row pt-4 mb-n4">
+      <div class="col-sm-12 col-md-4">
+      </div>
+      <div class="col-sm-12 col-md-4">
+      </div>
+      <div class="col-sm-12 col-md-4 text-white">
+        <% if user_signed_in? %>
+          <%= link_to 'Profil bearbeiten', edit_user_registration_path, class: "text-white" %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white"  %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "text-white"  %> |
+          <%= link_to "Registrieren", new_user_registration_path, class: "text-white"  %>
+        <% end %>
+      </div>
     </div>
+    <br />
+    <hr class="bg-white">
     <div class="row">
       <div class="col-sm-12 col-md-4">
         <h3 class="text-lightgray">Laufend:</h3>
