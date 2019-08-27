@@ -14,6 +14,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    set_meta_tags title: @post.title, reverse: true,
+              description: ActionController::Base.helpers.strip_tags(@post.content.to_s).squish.truncate(150)
   end
 
   # GET /posts/new
