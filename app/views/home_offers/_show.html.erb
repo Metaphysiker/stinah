@@ -1,0 +1,23 @@
+<div class="card my-3">
+  <div class="card-body">
+    <h3 class="card-title">Platzangebot - <b>ID: </b><%= home_offer.id %> - <b>Erstellt: </b><%= home_offer.created_at.strftime("%d-%m-%Y") %></h3>
+    <div class="text-justify">
+      <% home_offer.attributes.each_pair do |name, value| %>
+        <b><%= home_offer.class.human_attribute_name(name) %></b>
+        <p class="border rounded p-2">
+          <%= value %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <%= home_offer.created_at.strftime("%d-%m-%Y") %>
+  <% if is_current_user_admin? %>
+    <div class="text-center m-2">
+      <hr />
+      <%= link_to 'Eintrag bearbeiten', edit_home_offer_path(home_offer), class: "btn btn-primary m-2" %>
+      <%= link_to 'Eintrag löschen', home_offer_path(home_offer), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+    </div>
+  <% end %>
+  </div>
+</div>
