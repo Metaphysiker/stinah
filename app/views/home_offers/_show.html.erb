@@ -5,7 +5,11 @@
       <% home_offer.attributes.each_pair do |name, value| %>
         <b><%= home_offer.class.human_attribute_name(name) %></b>
         <p class="border rounded p-2">
-          <%= value %>
+          <% if I18n.exists?(value, I18n.locale) %>
+            <%= t(value) %>
+          <% else %>
+            <%= value %>
+          <% end %>
         </p>
       <% end %>
     </div>
