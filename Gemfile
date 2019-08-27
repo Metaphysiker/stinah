@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#meta tags
+gem 'meta-tags'
 #mini_magick
 gem "mini_magick"
 #AWS for storage
