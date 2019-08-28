@@ -19,8 +19,8 @@
     <%= f.input :race, placeholder: 'z.B. "Araber"', required: true %>
     <%= f.input :age, placeholder: '1-5', required: true %>
     <%= f.input :size, placeholder: '145cm - 155cm', required: true %>
-    <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
-    <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+    <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, required: true %>
+    <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>
     <%= f.input :stable_alt %>
     <%= f.input :from_then_on, required: true %>
@@ -28,6 +28,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
