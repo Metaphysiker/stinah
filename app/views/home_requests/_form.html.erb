@@ -31,13 +31,13 @@
     <%= f.input :date_of_killing %>
     <hr />
     <h4>Angaben zum Abgabetier</h4>
-    <%= f.input :species %>
+    <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :race %>
     <%= f.input :age %>
     <%= f.input :size %>
     <%= f.input :color %>
-    <%= f.input :gender %>
-    <%= f.input :castrated %>
+    <%= f.input :gender, collection: Animal.genders.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
+    <%= f.input :castrated, collection: Animal.castrated.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :current_location %>
     <%= f.input :features %>
     <hr />
@@ -58,6 +58,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
