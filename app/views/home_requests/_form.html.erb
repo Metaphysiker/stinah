@@ -13,22 +13,28 @@
     <%= f.input :owner_city %>
     <%= f.input :owner_phone %>
     <%= f.input :owner_email %>
-    <%= f.input :does_owner_agree_with_mediation %>
+    <div class="messenger_fields">
+          <%= f.input :does_owner_agree_with_mediation %>
+    </div>
     <%= f.input :do_you_own_authority_of_mediation %>
     <hr />
-    <h4>Angaben zum Melder</h4>
-    <%= f.input :messenger_firstname %>
-    <%= f.input :messenger_lastname %>
-    <%= f.input :messenger_street %>
-    <%= f.input :messenger_plz %>
-    <%= f.input :messenger_city %>
-    <%= f.input :messenger_mail %>
-    <%= f.input :messenger_phone %>
-    <hr />
+    <div class="messenger_fields">
+      <h4>Angaben zum Melder</h4>
+      <%= f.input :messenger_firstname %>
+      <%= f.input :messenger_lastname %>
+      <%= f.input :messenger_street %>
+      <%= f.input :messenger_plz %>
+      <%= f.input :messenger_city %>
+      <%= f.input :messenger_mail %>
+      <%= f.input :messenger_phone %>
+      <hr />
+    </div>
     <h4>Angaben zur Dringlichkeit</h4>
     <%= f.input :killing_of_animal_intended %>
     <%= f.input :killing_of_animal_scheduled %>
-    <%= f.input :date_of_killing %>
+    <div class="date_of_killing_field" style="display: none;">
+      <%= f.input :date_of_killing %>
+    </div>
     <hr />
     <h4>Angaben zum Abgabetier</h4>
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]}, required: true %>
@@ -61,3 +67,20 @@
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script>
+  $( document ).ready(function() {
+    $("#home_request_are_you_owner").change(function(){
+      $(".messenger_fields").toggle();
+    });
+
+    $("#home_request_killing_of_animal_intended").change(function(){
+      $(".killing_of_animal_scheduled_field").toggle();
+    });
+
+    $("#home_request_killing_of_animal_scheduled").change(function(){
+      $(".date_of_killing_field").toggle();
+    });
+
+  });
+</script>

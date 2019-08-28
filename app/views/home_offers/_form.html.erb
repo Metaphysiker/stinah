@@ -22,7 +22,9 @@
     <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>
-    <%= f.input :stable_alt %>
+    <div class="stable_alt_field"  style="display: none;">
+      <%= f.input :stable_alt %>
+    </div>
     <%= f.input :from_then_on, required: true %>
     <%= f.input :privacy_statement, required: true %>
   </div>
@@ -31,3 +33,13 @@
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script>
+  $( document ).ready(function() {
+    $("#home_offer_stable").change(function(){
+      if ($(this).val().toLowerCase() === "anderes") {
+        $(".stable_alt_field").toggle();
+      }
+    });
+  });
+</script>

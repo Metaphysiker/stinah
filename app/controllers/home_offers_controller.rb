@@ -1,7 +1,7 @@
 class HomeOffersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   before_action :set_home_offer, only: [:show, :edit, :update, :destroy]
-  before_action :is_user_allowed?, only: [:edit, :update, :destroy]
+  before_action :is_user_allowed?, except: [:new, :create]
 
   include ApplicationHelper
 
