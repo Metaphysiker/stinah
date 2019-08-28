@@ -1,0 +1,2 @@
+class HomeRequest < ApplicationRecord
+end

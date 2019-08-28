@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_181844) do
+ActiveRecord::Schema.define(version: 2019_08_28_053737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,51 @@ ActiveRecord::Schema.define(version: 2019_08_27_181844) do
     t.text "stable_alt"
     t.boolean "privacy_statement"
     t.date "from_then_on"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "home_requests", force: :cascade do |t|
+    t.boolean "are_you_owner"
+    t.string "owner_firstname"
+    t.string "owner_lastname"
+    t.string "owner_street"
+    t.string "owner_plz"
+    t.string "owner_city"
+    t.string "owner_phone"
+    t.string "owner_email"
+    t.boolean "does_owner_agree_with_mediation"
+    t.boolean "do_you_own_authority_of_mediation"
+    t.string "messenger_firstname"
+    t.string "messenger_lastname"
+    t.string "messenger_street"
+    t.string "messenger_plz"
+    t.string "messenger_city"
+    t.string "messenger_phone"
+    t.string "messenger_mail"
+    t.boolean "killing_of_animal_intended"
+    t.boolean "killing_of_animal_scheduled"
+    t.date "date_of_killing"
+    t.string "species"
+    t.string "race"
+    t.string "age"
+    t.string "size"
+    t.string "color"
+    t.string "gender"
+    t.string "castrated"
+    t.string "current_location"
+    t.text "features"
+    t.string "stable_owner_firstname"
+    t.string "stable_owner_lastname"
+    t.string "stable_street"
+    t.string "stable_plz"
+    t.string "stable_city"
+    t.string "stable_phone"
+    t.text "how_was_animal_held"
+    t.text "how_was_animal_used"
+    t.text "reason_of_request"
+    t.text "is_animal_healthy"
+    t.boolean "privacy_statement"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

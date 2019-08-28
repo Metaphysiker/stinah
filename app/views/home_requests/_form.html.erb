@@ -1,0 +1,52 @@
+
+<%= simple_form_for(@home_request) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :are_you_owner %>
+    <%= f.input :owner_firstname %>
+    <%= f.input :owner_lastname %>
+    <%= f.input :owner_street %>
+    <%= f.input :owner_plz %>
+    <%= f.input :owner_city %>
+    <%= f.input :owner_phone %>
+    <%= f.input :owner_email %>
+    <%= f.input :does_owner_agree_with_mediation %>
+    <%= f.input :do_you_own_authority_of_mediation %>
+    <%= f.input :messenger_firstname %>
+    <%= f.input :messenger_lastname %>
+    <%= f.input :messenger_street %>
+    <%= f.input :messenger_plz %>
+    <%= f.input :messenger_city %>
+    <%= f.input :messenger_phone %>
+    <%= f.input :messenger_mail %>
+    <%= f.input :killing_of_animal_intended %>
+    <%= f.input :killing_of_animal_scheduled %>
+    <%= f.input :date_of_killing %>
+    <%= f.input :species %>
+    <%= f.input :race %>
+    <%= f.input :age %>
+    <%= f.input :size %>
+    <%= f.input :color %>
+    <%= f.input :gender %>
+    <%= f.input :castrated %>
+    <%= f.input :current_location %>
+    <%= f.input :features %>
+    <%= f.input :stable_owner_firstname %>
+    <%= f.input :stable_owner_lastname %>
+    <%= f.input :stable_street %>
+    <%= f.input :stable_plz %>
+    <%= f.input :stable_city %>
+    <%= f.input :stable_phone %>
+    <%= f.input :how_was_animal_held %>
+    <%= f.input :how_was_animal_used %>
+    <%= f.input :reason_of_request %>
+    <%= f.input :is_animal_healthy %>
+    <%= f.input :privacy_statement %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

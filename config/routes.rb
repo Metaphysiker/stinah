@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :home_requests
   resources :home_offers
   resources :animals
   resources :works
