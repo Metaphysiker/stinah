@@ -1,0 +1,27 @@
+<div class="card my-3">
+  <div class="card-body">
+    <h3 class="card-title">Platz-Anfrage - <b>ID: </b><%= home_request.id %> - <b>Erstellt: </b><%= home_request.created_at.strftime("%d-%m-%Y") %></h3>
+    <div class="text-justify">
+      <% home_request.attributes.each_pair do |name, value| %>
+        <b><%= home_request.class.human_attribute_name(name) %></b>
+        <p class="border rounded p-2">
+          <% if !value.to_s.blank? && I18n.exists?(value, I18n.locale) %>
+            <%= t(value) %>
+          <% else %>
+            <%= value %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <%= home_request.created_at.strftime("%d-%m-%Y") %>
+  <% if is_current_user_admin? %>
+    <div class="text-center m-2">
+      <hr />
+      <%= link_to 'Eintrag bearbeiten', edit_home_request_path(home_request), class: "btn btn-primary m-2" %>
+      <%= link_to 'Eintrag löschen', home_request_path(home_request), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+    </div>
+  <% end %>
+  </div>
+</div>

@@ -1,11 +1,11 @@
 <div class="card my-3">
   <div class="card-body">
-    <h3 class="card-title">Platzangebot - <b>ID: </b><%= home_offer.id %> - <b>Erstellt: </b><%= home_offer.created_at.strftime("%d-%m-%Y") %></h3>
+    <h3 class="card-title">Platz-Angebot - <b>ID: </b><%= home_offer.id %> - <b>Erstellt: </b><%= home_offer.created_at.strftime("%d-%m-%Y") %></h3>
     <div class="text-justify">
       <% home_offer.attributes.each_pair do |name, value| %>
         <b><%= home_offer.class.human_attribute_name(name) %></b>
         <p class="border rounded p-2">
-          <% if I18n.exists?(value, I18n.locale) %>
+          <% if !value.to_s.blank? && I18n.exists?(value, I18n.locale) %>
             <%= t(value) %>
           <% else %>
             <%= value %>
