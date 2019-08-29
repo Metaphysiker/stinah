@@ -20,7 +20,7 @@ class Animal < ApplicationRecord
   end
 
   def self.sizes
-    ['100 - 120', '120-130', '130-140']
+    ['0 - 20', '20 - 40', '100 - 120', '120-130', '130-140']
   end
 
   def self.stables
