@@ -38,3 +38,30 @@
     </tr>
   </tbody>
 </table>
+
+<% comparison = RequestOfferComparison.new(home_request, home_offer).compare %>
+
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th scope="col">Attribut</th>
+      <th scope="col">Platz-Anfrage</th>
+      <th scope="col">Platz-Angebot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% comparison.each do |c| %>
+    <tr class="<%= c[3] %>">
+      <td>
+        <%= c[0] %>
+      </td>
+      <td>
+        <%= c[1] %>
+      </td>
+      <td>
+        <%= c[2] %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
