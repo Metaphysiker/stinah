@@ -19,6 +19,10 @@ class Animal < ApplicationRecord
     ['yes', 'no', 'whatever']
   end
 
+  def self.sizes
+    ['100 - 120', '120-130', '130-140']
+  end
+
   def self.stables
     ["Offenstall", "Auslaufhaltung mit Boxe", "Auslaufboxe", "Anderes"]
   end

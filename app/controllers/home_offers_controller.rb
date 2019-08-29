@@ -68,7 +68,7 @@ class HomeOffersController < ApplicationController
   def matches_for_home_offer
     @home_offer = HomeOffer.last
     @home_request = HomeRequest.last
-    @matches_for_home_offer = find_matches_for_home_offer(@home_offer)
+    #@matches_for_home_offer = find_matches_for_home_offer(@home_offer)
   end
 
   private
@@ -79,7 +79,7 @@ class HomeOffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_offer_params
-      params.require(:home_offer).permit(:firstname, :lastname, :street, :plz, :city, :phone, :email, :year, :experience, :motivation, :plans, :species, :age, :size, :gender, :castrated, :stable, :stable_alt, :privacy_statement, :from_then_on, :race)
+      params.require(:home_offer).permit(:firstname, :lastname, :street, :plz, :city, :phone, :email, :year, :experience, :motivation, :plans, :species, :age, :gender, :castrated, :stable, :stable_alt, :privacy_statement, :from_then_on, :race, size: [])
     end
 
     def is_user_allowed?

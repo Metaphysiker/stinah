@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_053737) do
     t.string "species"
     t.string "race"
     t.string "age"
-    t.string "size"
+    t.string "size", array: true
     t.string "gender"
     t.string "castrated"
     t.string "stable"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_053737) do
     t.date "from_then_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["size"], name: "index_home_offers_on_size", using: :gin
   end
 
   create_table "home_requests", force: :cascade do |t|

@@ -18,7 +18,10 @@
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :race, placeholder: 'z.B. "Araber"', required: true %>
     <%= f.input :age, placeholder: '1-5', required: true %>
-    <%= f.input :size, placeholder: '145cm - 155cm', required: true %>
+    <%#= f.input :size, placeholder: '145cm - 155cm', required: true %>
+    <%#= f.collection_check_boxes :size, [[true, 'Yes'], [false, 'No'],[true, 'Kant']], :first, :last %>
+    <%#= f.input :size, :collection => ["Asian","Black", "Hispanic/Latino", "Indian", "Middle Eastern", "Native American", "Pacific Islander", "White", "Other"], :include_blank => "Anything", wrapper_html: { class: 'form-group' }, :as => :check_boxes, include_hidden: false, :input_html => {:name => "search[ethnicity][]", :multiple => true} %>
+    <%= f.collection_check_boxes :size, Animal.sizes.map {|p| [p, p]}, :first, :last %>
     <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>

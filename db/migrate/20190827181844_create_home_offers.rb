@@ -15,7 +15,7 @@ class CreateHomeOffers < ActiveRecord::Migration[6.0]
       t.string :species
       t.string :race
       t.string :age
-      t.string :size
+      t.string :size, array: true
       t.string :gender
       t.string :castrated
       t.string :stable
@@ -25,5 +25,6 @@ class CreateHomeOffers < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :home_offers, :size, using: 'gin'
   end
 end
