@@ -90,20 +90,25 @@ class RequestOfferComparison
     #Comparison of date
     date_match = "table-warning"
     date_sentence = "Vorhandene Zeit"
+    date_of_killing_sentence = "Kein Termin festgelegt."
+
     if @home_request.date_of_killing.blank?
       date_match = "table-success"
+      date_of_killing_sentence = "Kein Termin festgelegt."
     elsif @home_request.date_of_killing > @home_offer.from_then_on
       date_match = "table-success"
       date_sentence = "Vorhandene Zeit: #{(@home_offer.from_then_on..@home_request.date_of_killing).count} Tage"
+      date_of_killing_sentence = "Schlachttermin: #{I18n.l(@home_request.date_of_killing)}"
     else
       date_match = "table-danger"
+      date_of_killing_sentence = "Schlachttermin: #{I18n.l(@home_request.date_of_killing)}"
     end
 
     comparison_result.push(
       [
         date_sentence,
-        I18n.t(@home_request.castrated),
-        I18n.t(@home_offer.castrated),
+        date_of_killing_sentence,
+        "ab: #{I18n.l(@home_offer.from_then_on)}",
         date_match
       ]
     )
