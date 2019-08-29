@@ -47,3 +47,6 @@ de:
   "true": "Wahr"
   "false": "Falsch"
   whatever: "egal"
+  date:
+    formats:
+      default: "%d-%m-%Y"

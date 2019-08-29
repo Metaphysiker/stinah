@@ -1,0 +1,40 @@
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th scope="col">Attribut</th>
+      <th scope="col">Platz-Angebot</th>
+      <th scope="col">Platz-Anfrage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% attributes = ["species", "race", "age", "size", "gender", "castrated"] %>
+    <% attributes.each do |attribute| %>
+    <tr class="table-success">
+      <td>
+        <%= HomeOffer.human_attribute_name(attribute) %>
+      </td>
+      <td>
+        <%= t(home_offer.attributes[attribute]) %>
+      </td>
+      <td>
+        <%= t(home_request.attributes[attribute]) %>
+      </td>
+    </tr>
+    <% end %>
+    <tr>
+      <td>
+        Datum
+      </td>
+      <td>
+        Lebensplatz ab: <%= l(home_offer.attributes["from_then_on"]) %>
+      </td>
+      <td>
+        <% if home_request.date_of_killing.nil? %>
+          Kein Schlachttermin festgelegt.
+        <% else %>
+          Schlachttermin an: <%= l(home_request.attributes["date_of_killing"]) unless home_request.date_of_killing.nil? %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

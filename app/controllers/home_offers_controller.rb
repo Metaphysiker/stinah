@@ -65,6 +65,12 @@ class HomeOffersController < ApplicationController
     end
   end
 
+  def matches_for_home_offer
+    @home_offer = HomeOffer.last
+    @home_request = HomeRequest.last
+    @matches_for_home_offer = find_matches_for_home_offer(@home_offer)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_home_offer
@@ -83,5 +89,9 @@ class HomeOffersController < ApplicationController
         flash[:notice] = "Sie sind nicht authorisiert!"
         redirect_to root_path
       end
+    end
+
+    def find_matches_for_home_offer(home_offer)
+      HomeRequest.where('date_of_killing > ?', home_offer.from_then_on)
     end
 end

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  resources :home_requests
-  resources :home_offers
-  resources :animals
-  resources :works
+
   get 'calendar/(:date)', to: 'calendar#calendar', as: "calendar"
   get '/newhome', to: 'static_pages#newhome', as: "newhome"
   get '/about', to: 'static_pages#about', as: "about"
@@ -16,8 +13,14 @@ Rails.application.routes.draw do
   post '/add_sponsorship', to: "sponsorships#add_sponsorship", as: 'add_sponsorship'
   post '/add_sponsorship_with_new_user', to: "sponsorships#add_sponsorship_with_new_user", as: 'add_sponsorship_with_new_user'
 
+  get '/home_offers/matches_for_home_offer', to: "home_offers#matches_for_home_offer", as: "matches_for_home_offer"
+
   devise_for :users
   resources :posts
+  resources :home_requests
+  resources :home_offers
+  resources :animals
+  resources :works
   root 'static_pages#welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
