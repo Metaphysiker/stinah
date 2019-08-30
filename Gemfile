@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#paginate kaminari
+gem 'kaminari'
 #fuzzy-string-match
 gem "fuzzy-string-match"
 #meta tags
