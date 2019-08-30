@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
               description: 'Die Stiftung "Tiere in Not - Animal Help" engagiert sich seit Jahren sowohl im institutionellen als auch im individuellen Tierschutz.',
               keywords: 'Tierschutz, Tierrechte, Tiere in Not, Hilfe für Tiere, Animal Help, Lebenshof, Gnadenhof'
 
-    @posts = Post.all.order("created_at").reverse_order.first(3)
+    @posts = Post.all.order("created_at").reverse_order.first(5)
   end
 
   def newhome
