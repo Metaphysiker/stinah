@@ -59,7 +59,10 @@
               <% unless day.past? || works.where(user_id: current_user.id).any? %>
               <div class="enter-work" style="display: none">
                 <hr />
-                <button type="button" class="btn btn-outline-primary btn-sm enter-work-button" value=" <%= day.to_s %>">Einsatz eintragen</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-primary btn-sm enter-work-button" value=" <%= day.to_s %>" data-toggle="modal" data-target="#enter-work-modal">
+                  Einsatz eintragen
+                </button>
               </div>
               <% end %>
             </td>
@@ -122,16 +125,106 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="enter-work-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Arbeitszeit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+        <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">:</button>
+        </div>
+        <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Uhr</button>
+        </div>
+      </div>
+        <div class="form-group form-inline">
+          <select class="form-control" id="startzeithourselect">
+            <% (6..18).each do |t| %>
+              <option><%= t %></option>
+            <% end %>
+          </select>
+           :
+          <select class="form-control" id="startzeitminutesselect">
+            <% [0, 15, 30, 45].each do |t| %>
+              <option><%= t %></option>
+            <% end %>
+          </select>
+        </div>
+        <br />
+        <%= time_select :open_time, { prompt: {hour: '9', minute: '30'} }, { class: 'form-control' } %>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Startzeit</label>
+          <div class="row">
+            <div class="col-5 text-center">
+              <select class="form-control" id="startzeithourselect">
+                <% (6..18).each do |t| %>
+                  <option><%= t %></option>
+                <% end %>
+              </select>
+            </div>
+            <div class="col-2">
+             :
+            </div>
+            <div class="col-5">
+              <select class="form-control" id="startzeitminutesselect">
+                <% (0..59).each do |t| %>
+                  <option><%= t %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   $( document ).ready(function() {
+    var date = "<%= Date.today %>";
+    var start_time = "8:00";
+    var end_time = "17:00"
+
     $( ".enter-work-button" ).click(function() {
-      var date = $(this).val();
+      date = $(this).val();
       console.log(date);
+    });
+
+    $( ".enter-work-button-with-time" ).click(function() {
+      start_time = $(this).val();
+      end_time = $(this).val();
+
+      console.log(start_time + " " + end_time);
+
       $.ajax({
         url: "/works/create_for_calendar",
         method: 'POST',
         data: {
-          work: { date: date}
+          work: { start_time: date, end_time: date}
         },
         headers: {
           'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
