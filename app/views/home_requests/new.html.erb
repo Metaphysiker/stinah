@@ -1,5 +1,6 @@
-<div class="container-fluid">
-  <div class="jumbotron bg-white text-justify text-darker-base-color">
+<div class="container bg-white">
+  <div class="jumbotron bg-white text-justify">
+    <div class="text-darker-base-color">
     <h2 class="text-center">Ich suche ein neues Zuhause für mein Tier</h2>
     <p>
       Leider müssen wir darauf hinweisen, dass die Stiftung keine Gewähr dafür bieten kann, einem Tier einen neuen Lebensplatz bieten oder vermitteln zu können. Je mehr Informationen Sie uns weiterleiten und je früher wir uns engagieren können, desto grösser sind die Erfolgsaussichten.
@@ -14,8 +15,12 @@ Die von Stinah angebotene Vermittlungshilfe erfolgt unentgeltlich und ausschlies
 </p>
 <p><b>
 Bitte beachten Sie, dass nur vollständig ausgefüllte Formulare berücksichtigt werden können.
-    </b></p>
-    <hr />
-    <%= render 'form', home_request: @home_request %>
-  </div>
+</b></p></div>
+</div>
+    <div class="jumbotron">
+      <%= render 'form', home_request: @home_request %>
+    </div>
+    <p class="p-2">
+
+    </p>
 </div>

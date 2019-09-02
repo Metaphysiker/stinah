@@ -5,62 +5,155 @@
 
   <div class="form-inputs">
     <h4>Angaben zum Eigentümer</h4>
-    <%= f.input :are_you_owner %>
-    <%= f.input :owner_firstname %>
-    <%= f.input :owner_lastname %>
-    <%= f.input :owner_street %>
-    <%= f.input :owner_plz %>
-    <%= f.input :owner_city %>
-    <%= f.input :owner_phone %>
-    <%= f.input :owner_email %>
+    <hr />
+    <div class="">
+      <%= f.input :are_you_owner, required: true %>
+      <hr />
+      <div class="row">
+        <div class="col-12">
+            <p>
+              Name des Eigentümers *
+            </p>
+        </div>
+        <div class="col-6">
+          <%= f.input :owner_firstname, label: false, placeholder: "Vorname", required: true %>
+        </div>
+        <div class="col-6">
+          <%= f.input :owner_lastname, label: false, placeholder: "Nachname", required: true %>
+        </div>
+        <div class="col-12">
+          <hr />
+            Adresse des Eigentümers *
+        </div>
+        <div class="col-12">
+          <p>
+            <%= f.input :owner_street, label: false, placeholder: "Hauptstrasse 5" %>
+          </p>
+        </div>
+        <div class="col-6">
+          <%= f.input :owner_city, label: false, placeholder: "Zürich", required: true  %>
+        </div>
+        <div class="col-6">
+          <%= f.input :owner_plz, label: false, placeholder: "8000", required: true  %>
+        </div>
+      </div>
+      <hr />
+    <%= f.input :owner_phone, placeholder: "0791234567", required: true %>
+    <%= f.input :owner_email, placeholder: "beispiel@email.com", required: true %>
+    <hr />
     <div class="messenger_fields">
           <%= f.input :does_owner_agree_with_mediation %>
     </div>
     <%= f.input :do_you_own_authority_of_mediation %>
+    </div>
     <hr />
     <div class="messenger_fields">
       <h4>Angaben zum Melder</h4>
-      <%= f.input :messenger_firstname %>
-      <%= f.input :messenger_lastname %>
-      <%= f.input :messenger_street %>
-      <%= f.input :messenger_plz %>
-      <%= f.input :messenger_city %>
-      <%= f.input :messenger_mail %>
-      <%= f.input :messenger_phone %>
+      <hr />
+      <div class="row">
+        <div class="col-12">
+            <p>
+              Name des Melders *
+            </p>
+        </div>
+        <div class="col-6">
+          <%= f.input :messenger_firstname, label: false, placeholder: "Vorname", required: true %>
+        </div>
+        <div class="col-6">
+          <%= f.input :messenger_lastname, label: false, placeholder: "Nachname", required: true %>
+        </div>
+        <div class="col-12">
+          <hr />
+            Adresse des Melders *
+        </div>
+        <div class="col-12">
+          <p>
+            <%= f.input :messenger_street, label: false, placeholder: "Hauptstrasse 5" %>
+          </p>
+        </div>
+        <div class="col-6">
+          <%= f.input :messenger_city, label: false, placeholder: "Zürich", required: true  %>
+        </div>
+        <div class="col-6">
+          <%= f.input :messenger_plz, label: false, placeholder: "8000", required: true  %>
+        </div>
+      </div>
+      <hr />
+      <%= f.input :messenger_phone, placeholder: "0791234567", required: true %>
+      <%= f.input :messenger_mail, placeholder: "beispiel@email.com", required: true %>
       <hr />
     </div>
     <h4>Angaben zur Dringlichkeit</h4>
+    <hr />
     <%= f.input :killing_of_animal_intended %>
-    <%= f.input :killing_of_animal_scheduled %>
-    <div class="date_of_killing_field" style="display: none;">
-      <%= f.input :date_of_killing, include_blank: true %>
-    </div>
+    <p>
+      Ist ein Euthanasie- oder Schlachttermin vereinbart?
+
+      <b>Falls ja: Wann?</b>
+      <br />(Falls nicht: Feld leerlassen)
+    </p>
+    <%= f.input :date_of_killing, label: false, include_blank: true %>
     <hr />
     <h4>Angaben zum Abgabetier</h4>
+    <hr />
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]}, required: true %>
-    <%= f.input :race %>
-    <%= f.input :age %>
-    <%= f.input :size %>
-    <%= f.input :color %>
+    <%= f.input :race, placeholder: "Araber", required: true %>
+    <p>
+      Alter (in Jahren) *
+    </p>
+    <%= f.input :age, label: false, placeholder: "4", required: true %>
+    <p>
+      Grösse (in Centimeter) *
+    </p>
+    <%= f.input :size, label: false, placeholder: "145", required: true  %>
+    <%= f.input :color, placeholder: "Braun", required: true %>
     <%= f.input :gender, collection: Animal.genders.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :castrated, collection: Animal.castrated.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
-    <%= f.input :current_location %>
-    <%= f.input :features %>
+    <%= f.input :current_location, required: true %>
+    <%= f.input :features, required: true %>
     <hr />
     <h4>Angaben zum Standort des Abgabetiers</h4>
-    <%= f.input :stable_owner_firstname %>
-    <%= f.input :stable_owner_lastname %>
-    <%= f.input :stable_street %>
-    <%= f.input :stable_plz %>
-    <%= f.input :stable_city %>
-    <%= f.input :stable_phone %>
+    <hr />
+    <div class="row">
+      <div class="col-12">
+          <p>
+            Name des Stallbetreibers *
+          </p>
+      </div>
+      <div class="col-6">
+        <%= f.input :stable_owner_firstname, label: false, placeholder: "Vorname", required: true %>
+      </div>
+      <div class="col-6">
+        <%= f.input :stable_owner_lastname, label: false, placeholder: "Nachname", required: true %>
+      </div>
+      <div class="col-12">
+        <hr />
+          Adresse des Stalls *
+      </div>
+      <div class="col-12">
+        <p>
+          <%= f.input :stable_street, label: false, placeholder: "Hauptstrasse 5" %>
+        </p>
+      </div>
+      <div class="col-6">
+        <%= f.input :stable_city, label: false, placeholder: "Zürich", required: true  %>
+      </div>
+      <div class="col-6">
+        <%= f.input :stable_plz, label: false, placeholder: "8000", required: true  %>
+      </div>
+    </div>
+    <hr />
+    <%= f.input :stable_phone, placeholder: "0791234567", required: true %>
     <hr />
     <h4>Bisherige Haltung und bisheriger Einsatz des Tieres</h4>
-    <%= f.input :how_was_animal_held %>
-    <%= f.input :how_was_animal_used %>
-    <%= f.input :reason_of_request %>
-    <%= f.input :is_animal_healthy %>
-    <%= f.input :privacy_statement %>
+    <hr />
+    <%= f.input :how_was_animal_held, required: true %>
+    <%= f.input :how_was_animal_used, required: true %>
+    <%= f.input :reason_of_request, required: true %>
+    <%= f.input :is_animal_healthy, required: true %>
+    <hr />
+    <%= f.input :privacy_statement, required: true %>
+    <hr />
   </div>
 
   <div class="form-actions">
