@@ -44,8 +44,8 @@ de:
   female: "weiblich"
   "yes": "Ja"
   "no": "Nein"
-  "true": "Wahr"
-  "false": "Falsch"
+  "true": "Ja"
+  "false": "Nein"
   whatever: "egal"
   date:
     formats:
