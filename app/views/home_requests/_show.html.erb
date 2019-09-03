@@ -1,7 +1,67 @@
 <div class="card my-3">
   <div class="card-body">
     <h3 class="card-title">Platz-Anfrage - <b>ID: </b><%= home_request.id %> - <b>Erstellt: </b><%= home_request.created_at.strftime("%d-%m-%Y") %></h3>
+    <hr />
     <div class="text-justify">
+      <h4>Angaben zum Eigentümer</h4>
+      <hr />
+      <p>
+        <b><%= home_request.class.human_attribute_name("are_you_owner") %></b> <%= t(home_request.are_you_owner) %>
+      </p>
+      <p>
+        <%= home_request.owner_firstname %> <%= home_request.owner_lastname %>
+        <br />
+        <%= home_request.owner_street %>
+        <br />
+        <%= home_request.owner_city %> <%= home_request.owner_plz %>
+        <br />
+        <%= home_request.owner_phone %>
+        <br />
+        <%= mail_to home_request.owner_email %>
+      </p>
+      <p>
+        <b><%= home_request.class.human_attribute_name("does_owner_agree_with_mediation") %></b> <%= t(home_request.does_owner_agree_with_mediation) %>
+        <br />
+        <b><%= home_request.class.human_attribute_name("do_you_own_authority_of_mediation") %></b> <%= t(home_request.do_you_own_authority_of_mediation) %>
+      </p>
+      <hr />
+      <h4>Angaben zum Eigentümer</h4>
+      <hr />
+      <p>
+        <%= home_request.messenger_firstname %> <%= home_request.messenger_lastname %>
+        <br />
+        <%= home_request.messenger_street %>
+        <br />
+        <%= home_request.messenger_city %> <%= home_request.messenger_plz %>
+        <br />
+        <%= home_request.messenger_phone %>
+        <br />
+        <%= mail_to home_request.messenger_mail %>
+      </p>
+      <hr />
+      <h4>Angaben zur Dringlichkeit</h4>
+      <hr />
+      <p>
+        <b><%= home_request.class.human_attribute_name("killing_of_animal_intended") %></b> <%= t(home_request.killing_of_animal_intended) %>
+        <br />
+        <b><%= home_request.class.human_attribute_name("date_of_killing") %></b> <%= l(home_request.date_of_killing) %>
+      </p>
+      <hr />
+      <h4>Angaben zur Abgabgetier</h4>
+      <hr />
+      <b><%= home_request.class.human_attribute_name("species") %></b>: <%= t(home_request.species) %>
+      <br />
+      <%= t(home_request.age) %>
+      <br />
+      <%= t(home_request.size) %>
+      <br />
+      <%= t(home_request.color) %>
+      <br />
+      <%= t(home_request.gender) %>
+      <br />
+      <%= t(home_request.castrated) %>
+      <br />
+
       <% home_request.attributes.each_pair do |name, value| %>
         <b><%= home_request.class.human_attribute_name(name) %></b>
         <p class="border rounded p-2">
