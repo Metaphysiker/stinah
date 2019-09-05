@@ -98,17 +98,12 @@
     <hr />
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :race, placeholder: "Araber", required: true %>
-    <p>
-      Alter (in Jahren) *
-    </p>
-    <%= f.input :age, label: false, placeholder: "4", required: true %>
-    <p>
-      Grösse (in Centimeter) *
-    </p>
-    <%= f.input :size, label: false, placeholder: "145", required: true  %>
+    <%= f.input :age, placeholder: "4", required: true %>
+    <%= f.input :size, placeholder: "145", required: true  %>
     <%= f.input :color, placeholder: "Braun", required: true %>
     <%= f.input :gender, collection: Animal.genders.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :castrated, collection: Animal.castrated.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
+    <%= f.input :rideable, required: true %>
     <%= f.input :current_location, required: true %>
     <%= f.input :features, required: true %>
     <hr />
@@ -151,6 +146,9 @@
     <%= f.input :how_was_animal_used, required: true %>
     <%= f.input :reason_of_request, required: true %>
     <%= f.input :is_animal_healthy, required: true %>
+    <hr />
+    <h4>Bilder hochladen (optional)</h4>
+    <%= f.file_field :pictures, multiple: true %>
     <hr />
     <%= f.input :privacy_statement, required: true %>
     <hr />

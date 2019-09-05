@@ -79,7 +79,7 @@ class HomeOffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_offer_params
-      params.require(:home_offer).permit(:firstname, :lastname, :street, :plz, :city, :phone, :email, :year, :experience, :motivation, :plans, :species, :age, :gender, :castrated, :stable, :stable_alt, :privacy_statement, :from_then_on, :race, size: [])
+      params.require(:home_offer).permit(:firstname, :lastname, :street, :plz, :city, :phone, :email, :year, :experience, :motivation, :plans, :species, :age, :gender, :castrated, :stable, :stable_alt, :privacy_statement, :from_then_on, :race, :rideable, :min_age, :max_age, :min_size, :max_size)
     end
 
     def is_user_allowed?

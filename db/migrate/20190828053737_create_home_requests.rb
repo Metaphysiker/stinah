@@ -23,7 +23,7 @@ class CreateHomeRequests < ActiveRecord::Migration[6.0]
       t.date :date_of_killing
       t.string :species
       t.string :race
-      t.string :age
+      t.integer :age
       t.string :size
       t.string :color
       t.string :gender

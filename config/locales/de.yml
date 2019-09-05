@@ -50,3 +50,6 @@ de:
   date:
     formats:
       default: "%d-%m-%Y"
+  datetime:
+    formats:
+      default: "%d-%m-%Y %m:%s"

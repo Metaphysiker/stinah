@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_31_203320) do
+ActiveRecord::Schema.define(version: 2019_09_05_163643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,8 +70,6 @@ ActiveRecord::Schema.define(version: 2019_08_31_203320) do
     t.text "plans"
     t.string "species"
     t.string "race"
-    t.string "age"
-    t.string "size", array: true
     t.string "gender"
     t.string "castrated"
     t.string "stable"
@@ -80,7 +78,13 @@ ActiveRecord::Schema.define(version: 2019_08_31_203320) do
     t.date "from_then_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["size"], name: "index_home_offers_on_size", using: :gin
+    t.string "age"
+    t.string "size"
+    t.boolean "rideable"
+    t.integer "min_age"
+    t.integer "max_age"
+    t.integer "min_size"
+    t.integer "max_size"
   end
 
   create_table "home_requests", force: :cascade do |t|
@@ -106,8 +110,8 @@ ActiveRecord::Schema.define(version: 2019_08_31_203320) do
     t.date "date_of_killing"
     t.string "species"
     t.string "race"
-    t.string "age"
-    t.string "size"
+    t.integer "age"
+    t.integer "size"
     t.string "color"
     t.string "gender"
     t.string "castrated"
@@ -126,6 +130,7 @@ ActiveRecord::Schema.define(version: 2019_08_31_203320) do
     t.boolean "privacy_statement"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "rideable"
   end
 
   create_table "posts", force: :cascade do |t|

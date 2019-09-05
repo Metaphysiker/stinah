@@ -8,7 +8,7 @@ class RequestOfferComparison
 
   def compare
     #attributes to compare
-    attributes = ["species", "race", "age", "size", "gender", "castrated"]
+    attributes = ["species", "race", "age", "size", "gender", "castrated", "rideable"]
     comparison_result = []
 
     #Comparison of species
@@ -49,6 +49,40 @@ class RequestOfferComparison
       ]
     )
 
+    #age
+    age_match = "table-warning"
+    if @home_request.age.between?(@home_offer.min_age, @home_offer.max_age)
+      age_match = "table-success"
+    else
+      age_match = "table-danger"
+    end
+
+    comparison_result.push(
+      [
+        "Alter (in Jahren)",
+        @home_request.age,
+        "#{@home_offer.min_age}-#{@home_offer.max_age}",
+        age_match
+      ]
+    )
+
+    #size
+    size_match = "table-warning"
+    if @home_request.size.between?(@home_offer.min_size, @home_offer.max_size)
+      size_match = "table-success"
+    else
+      size_match = "table-danger"
+    end
+
+    comparison_result.push(
+      [
+        "Grösse (in Centimeter)",
+        @home_request.size,
+        "#{@home_offer.min_size}-#{@home_offer.max_size}",
+        size_match
+      ]
+    )
+
     #Comparison of gender
     gender_match = "table-warning"
     if @home_offer.gender == "whatever"
@@ -84,6 +118,23 @@ class RequestOfferComparison
         I18n.t(@home_request.castrated),
         I18n.t(@home_offer.castrated),
         castrated_match
+      ]
+    )
+
+    #rideable
+    rideable_match = "table-warning"
+    if !(!@home_request.rideable && @home_offer.rideable)
+      rideable_match = "table-success"
+    else
+      rideable_match = "table-danger"
+    end
+
+    comparison_result.push(
+      [
+        "Reitbar? / Wird es geritten?",
+        I18n.t(@home_request.rideable),
+        I18n.t(@home_offer.rideable),
+        rideable_match
       ]
     )
 
