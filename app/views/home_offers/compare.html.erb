@@ -1,25 +1,33 @@
 <div class="container-fluid">
   <div class="jumbotron bg-white text-justify text-darker-base-color">
-    <%= matches = RequestOfferComparison.new.find_matches_for_offer(home_offer) %>
-    <p>
-      Platzanfrage: <%= @home_offer.id %><br />
-      Anzahl Matches: <%= matches.count %>
-    </p>
-
     <div class="row">
       <div class="col-6">
         <p>
-          Platz-Angebot: <%= @home_offer.firstname %> <%= @home_offer.lastname %>
+          Platz-Angebot: <%= @home_offer.id %><br />
         </p>
 
       </div>
       <div class="col-6">
-        Platz-Nachfrage-ID: <%#= @matches_for_home_offer.last.id %>
-
+        <p>
+          <b>Anzahl Matches: </b><%= @matches.count %>
+        </p>
+        <p>
+          <% @matches.each do |match| %>
+            <%= link_to match.id, compare_path(@home_offer, match) %>
+          <% end %>
+        </p>
       </div>
     </div>
       <%= render 'shared/comparison_home_offer_home_request', home_offer: @home_offer, home_request: @home_request unless @home_request.nil? || @home_offer.nil? %>
       <%#= render 'shared/comparison_home_offer_home_request', home_offer: @homer_offer, home_request: @home_request %>
+      <div class="row">
+        <div class="col-6">
+          <%= render 'home_offers/show', home_offer: @home_offer %>
+        </div>
+        <div class="col-6">
+          <%= render 'home_requests/show', home_request: @home_request %>
 
+        </div>
+      </div>
   </div>
 </div>

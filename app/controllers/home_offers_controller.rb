@@ -71,6 +71,12 @@ class HomeOffersController < ApplicationController
     #@matches_for_home_offer = find_matches_for_home_offer(@home_offer)
   end
 
+  def compare
+    @home_offer = HomeOffer.find(params[:home_offer_id])
+    @home_request = HomeRequest.find(params[:home_request_id])
+    @matches = RequestOfferComparison.new.find_matches_for_offer(@home_offer)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_home_offer
