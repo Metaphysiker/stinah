@@ -1,4 +1,4 @@
-<% comparison = RequestOfferComparison.new(home_request, home_offer).compare %>
+<% comparison = RequestOfferComparison.new.compare(home_request, home_offer) %>
 
 <table class="table table-bordered text-center">
   <thead>
@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <% comparison.each do |c| %>
+    <% comparison[0].each do |c| %>
     <tr class="<%= c[3] %>">
       <td>
         <%= c[0] %>

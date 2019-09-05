@@ -1,17 +1,66 @@
 <div class="card my-3">
   <div class="card-body">
-    <h3 class="card-title">Platz-Angebot - <b>ID: </b><%= home_offer.id %> - <b>Erstellt: </b><%= home_offer.created_at.strftime("%d-%m-%Y") %></h3>
+    <h3 class="card-title"><%= home_offer.id %> - Platz-Angebot - <%= l(home_offer.created_at) %></h3>
     <div class="text-justify">
-      <% home_offer.attributes.each_pair do |name, value| %>
-        <b><%= home_offer.class.human_attribute_name(name) %></b>
-        <p class="border rounded p-2">
-          <% if false && !value.to_s.blank? && I18n.exists?(value, I18n.locale) %>
-            <%= t(value) %>
-          <% else %>
-            <%= value %>
-          <% end %>
-        </p>
-      <% end %>
+      <h4>Angaben zur Person</h4>
+      <hr />
+      <p>
+        <%= home_offer.firstname %> <%= home_offer.lastname %>
+        <br />
+        <%= home_offer.street %>
+        <br />
+        <%= home_offer.city %> <%= home_offer.plz %>
+        <br />
+        <%= home_offer.phone %>
+        <br />
+        <%= mail_to home_offer.email %>
+      </p>
+      <hr />
+      <h4>Angaben zur Erfahrung und Motivation</h4>
+      <hr />
+      <p>
+        <b><%= home_offer.class.human_attribute_name("experience") %></b> <br />
+        <%= home_offer.experience %>
+      </p>
+      <p>
+        <b><%= home_offer.class.human_attribute_name("motivation") %></b> <br />
+        <%= home_offer.motivation %>
+      </p>
+      <p>
+        <b><%= home_offer.class.human_attribute_name("plans") %></b> <br />
+        <%= home_offer.plans %>
+      </p>
+      <hr />
+      <h4>Angaben zum gewünschten Tier</h4>
+      <hr />
+      <p>
+        <b><%= home_offer.class.human_attribute_name("species") %></b>: <%= t(home_offer.species) %>
+        <br />
+        <b><%= home_offer.class.human_attribute_name("race") %></b>: <%= t(home_offer.race) %>
+        <br />
+        <b>Alter (in Jahren)</b>: <%= home_offer.min_age %> - <%= home_offer.max_age %>
+        <br />
+        <b>Grösse (in Centimeter)</b>: <%= home_offer.min_size %> - <%= home_offer.max_size %>
+        <br />
+        <b><%= home_offer.class.human_attribute_name("gender") %></b>: <%= t(home_offer.gender) %>
+        <br />
+        <b><%= home_offer.class.human_attribute_name("castrated") %></b>: <%= t(home_offer.castrated) %>
+        <br />
+        <br />
+      </p>
+      <hr />
+      <h4>Angaben zum angebotenen Platz</h4>
+      <hr />
+      <p>
+        <b><%= home_offer.class.human_attribute_name("stable") %></b>: <%= t(home_offer.stable) %>
+        <br />
+        <br />
+        <b><%= home_offer.class.human_attribute_name("stable_alt") %></b><br />
+         <%= home_offer.stable_alt %>
+        <br />
+        <b><%= home_offer.class.human_attribute_name("from_then_on") %></b> <%= l(home_offer.from_then_on) %>
+        <br />
+      </p>
     </div>
   </div>
   <div class="card-footer text-muted">
