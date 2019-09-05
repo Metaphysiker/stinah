@@ -1,3 +1,25 @@
 <div class="container">
-  <%= render partial: "home_offers/show", collection: @home_offers, as: :home_offer %>
+  <div class="jumbotron bg-white my-4">
+    <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>Platz-Angebote (Ich biete ein Heim)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @home_offers.each do |home_offer| %>
+        <tr>
+          <td>
+            <%= home_offer.id %>
+          </td>
+          <td><%= link_to "#{home_offer.class.model_name.human} - #{l(home_offer.created_at)}", home_offer_path(home_offer) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+    <%#= render partial: "home_offers/show", collection: @home_offers, as: :home_offer %>
+  </div>
 </div>

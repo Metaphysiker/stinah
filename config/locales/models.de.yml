@@ -103,4 +103,8 @@ de:
         stable_alt: 'Sofern Sie oben "anderes" angegeben haben, bitten wir Sie um einen kurzen Beschrieb:'
         privacy_statement: "Ich bin mit der Datenschutzerklärung einverstanden."
         from_then_on: "Ich biete einen Lebensplatz ab: "
-        rideable: "Werden Sie oder jemand anderes das Tier reiten?"
+        rideable: "Haben Sie oder jemand anderes vor, das Tier zu reiten?"
+        min_age: "Mindestalter (in Jahren)"
+        max_age: "Höchstalter (in Jahren)"
+        min_size: "Mindestgrösse (in Centimeter)"
+        max_size: "Maximalgrösse (in Centimeter)"
