@@ -205,9 +205,9 @@ class RequestOfferComparison
 
     comparison_result.push(
       [
-        "Reitbar? / Wird es geritten?",
-        I18n.t(home_request.rideable),
-        I18n.t(home_offer.rideable),
+        "Reiten",
+        "Reitbar: #{I18n.t(home_request.rideable)}",
+        "Wird es geritten: #{I18n.t(home_offer.rideable)}",
         rideable_match
       ]
     )
