@@ -2,20 +2,21 @@
   <div class="jumbotron bg-white text-justify text-darker-base-color">
     <div class="row">
       <div class="col-6">
-        <p>
-          Platz-Angebot: <%= @home_request.id %><br />
-        </p>
+        <%= render 'home_requests/mini_header', home_request: @home_request %>
 
       </div>
       <div class="col-6">
-        <p>
-          <b>Anzahl Matches: </b><%= @matches.count %>
-        </p>
-        <p>
+        <ul class="list-group">
+          <li class="list-group-item"><b>Anzahl Matches: </b><%= @matches.count %></li>
           <% @matches.each do |match| %>
-            <%= link_to match.id, home_requests_compare_path(@home_request, match) %>
+            <% if match.id == @home_offer.id %>
+              <%= link_to match.name, home_requests_compare_path(@home_request, match), class: "list-group-item list-group-item-action list-group-item-primary" %>
+            <% else %>
+              <%= link_to match.name, home_requests_compare_path(@home_request, match), class: "list-group-item list-group-item-action" %>
+            <% end %>
+
           <% end %>
-        </p>
+        </ul>
       </div>
     </div>
       <%= render 'shared/comparison_home_offer_home_request', home_offer: @home_offer, home_request: @home_request unless @home_request.nil? || @home_offer.nil? %>

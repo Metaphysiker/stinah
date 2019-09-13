@@ -74,8 +74,8 @@ class HomeOffersController < ApplicationController
   def compare
     @home_offer = HomeOffer.find(params[:home_offer_id])
     @home_request = HomeRequest.find(params[:home_request_id])
-    @matches_for_offer = RequestOfferComparison.new.find_matches_for_offer(@home_offer)
-    @matches_for_request = RequestOfferComparison.new.find_matches_for_request(@home_request)
+    #@matches_for_offer = RequestOfferComparison.new.find_matches_for_offer(@home_offer)
+    @matches = RequestOfferComparison.new.find_matches_for_offer(@home_offer)
   end
 
   private

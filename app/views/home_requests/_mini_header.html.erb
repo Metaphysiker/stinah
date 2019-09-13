@@ -1,0 +1,9 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <h5 class="card-title"><%= home_request.class.model_name.human %></h5>
+    <hr />
+    <b>Eigentümer / Melder: </b> <%= home_request.messenger_or_owner %><br />
+    <b>Erstellt: </b> <%= l(home_request.created_at) %><br />
+    <b>ID: </b> <%= home_request.id %>
+  </div>
+</div>

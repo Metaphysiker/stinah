@@ -1,0 +1,9 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <h5 class="card-title"><%= home_offer.class.model_name.human %></h5>
+    <hr />
+    <b>Anbieter: </b> <%= home_offer.firstname %> <%= home_offer.lastname %><br />
+    <b>Erstellt: </b> <%= l(home_offer.created_at) %><br />
+    <b>ID: </b> <%= home_offer.id %>
+  </div>
+</div>

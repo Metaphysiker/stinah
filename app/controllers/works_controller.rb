@@ -77,7 +77,7 @@ class WorksController < ApplicationController
     date = @work.date
     @work.destroy
     respond_to do |format|
-      format.html { redirect_to calendar_path(date), notice: 'Einsatz wurde gelöscht!' }
+      format.html { redirect_to work_calendar_path(date), notice: 'Einsatz wurde gelöscht!' }
     end
   end
 
