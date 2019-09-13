@@ -37,6 +37,34 @@ class RequestOfferComparison
     home_requests = home_requests.where(id: ids_of_matching_requests)
   end
 
+  def find_matches_for_request(home_request)
+    #only same species
+    home_offers = HomeOffer.where(species: home_request.species)
+
+    #only before killing date or blank
+    ids_of_timely_requests = []
+    home_offers.each do |home_offer|
+      if home_request.date_of_killing.blank?
+        ids_of_timely_requests.push(home_request.id)
+      elsif home_request.date_of_killing > home_offer.from_then_on
+        ids_of_timely_requests.push(home_request.id)
+      end
+    end
+
+    home_offers = home_offers.where(id: ids_of_timely_requests)
+
+    #only where 4 matches exist
+    ids_of_matching_requests = []
+    home_offers.each do |home_offer|
+      if compare(home_request, home_offer)[1] > 3
+        ids_of_matching_requests.push(home_request.id)
+      end
+    end
+
+    home_offers = home_offers.where(id: ids_of_matching_requests)
+  end
+
+
   def compare(home_request, home_offer)
     #attributes to compare
     #attributes = ["species", "race", "age", "size", "gender", "castrated", "rideable"]
