@@ -13,7 +13,7 @@
         </p>
         <p>
           <% @matches.each do |match| %>
-            <%= link_to match.id, compare_path(@home_request, match) %>
+            <%= link_to match.id, home_requests_compare_path(@home_request, match) %>
           <% end %>
         </p>
       </div>

@@ -42,27 +42,30 @@ class RequestOfferComparison
     home_offers = HomeOffer.where(species: home_request.species)
 
     #only before killing date or blank
-    ids_of_timely_requests = []
-    home_offers.each do |home_offer|
-      if home_request.date_of_killing.blank?
-        ids_of_timely_requests.push(home_request.id)
-      elsif home_request.date_of_killing > home_offer.from_then_on
-        ids_of_timely_requests.push(home_request.id)
-      end
+    unless home_request.date_of_killing.blank?
+      home_offers = home_offers.where('from_then_on < ?', home_request.date_of_killing)
     end
 
-    home_offers = home_offers.where(id: ids_of_timely_requests)
+    #ids_of_timely_requests = []
+    #home_offers.each do |home_offer|
+    #  if home_request.date_of_killing.blank?
+    #    ids_of_timely_requests.push(home_offer.id)
+    #  elsif home_request.date_of_killing > home_offer.from_then_on
+    #    ids_of_timely_requests.push(home_offer.id)
+    #  end
+    #end
+
+    #home_offers = home_offers.where(id: ids_of_timely_requests)
 
     #only where 4 matches exist
     ids_of_matching_requests = []
     home_offers.each do |home_offer|
       if compare(home_request, home_offer)[1] > 3
-        ids_of_matching_requests.push(home_request.id)
+        ids_of_matching_requests.push(home_offer.id)
       end
     end
 
     home_offers = home_offers.where(id: ids_of_matching_requests)
-    byebug
   end
 
 
