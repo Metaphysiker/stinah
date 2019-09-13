@@ -1,0 +1,27 @@
+<div class="float-right small-text"><small><%= day.strftime("%d") %></small></div>
+<br>
+<% works = Work.where(date: day)%>
+<% works.each do |work| %>
+<div class="my-1">
+  <div class="border border-primary rounded p-1">
+   <%= work.user.username %>
+   <% if work.user_id == current_user.id %>
+     | <%= link_to 'x', delete_for_calendar_path(work), method: :delete, data: {confirm: 'Bist du sicher?'} %>
+   <% end %>
+   <br />
+   <small>
+     <%= work.shift_start.strftime("%H:%M") %> - <%= work.shift_end.strftime("%H:%M") %>
+   </small>
+ </div>
+</div>
+<% end %>
+
+<% unless day.past? || works.where(user_id: current_user.id).any? %>
+<div class="enter-work">
+  <hr />
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-outline-primary btn-sm enter-work-button" value=" <%= day.to_s %>" data-toggle="modal" data-target="#enter-work-modal">
+    Einsatz eintragen
+  </button>
+</div>
+<% end %>

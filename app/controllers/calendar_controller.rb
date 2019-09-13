@@ -1,6 +1,6 @@
 class CalendarController < ApplicationController
   before_action :authenticate_user!
-  def calendar
+  def work_calendar
 
     date = params[:date]
 

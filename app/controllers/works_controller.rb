@@ -44,7 +44,7 @@ class WorksController < ApplicationController
 
     respond_to do |format|
       if @work.save
-        format.html { redirect_to calendar_path(@work.date), notice: 'Einsatz wurde erstellt!' }
+        format.html { redirect_to work_calendar_path(@work.date), notice: 'Einsatz wurde erstellt!' }
       end
     end
   end
