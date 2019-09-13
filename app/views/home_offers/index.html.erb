@@ -1,12 +1,17 @@
 <div class="container">
   <div class="jumbotron bg-white my-4">
+      <h3>Platz-Angebote (Ich biete ein Heim)</h3>
+      <br />
     <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <th>
           ID
         </th>
-        <th>Platz-Angebote (Ich biete ein Heim)</th>
+        <th>Anbieter</th>
+        <th>
+          Erstellt
+        </th>
         <th>
           Matches
         </th>
@@ -16,12 +21,14 @@
       <% @home_offers.each do |home_offer| %>
         <tr>
           <td>
-            <%= home_offer.id %>
+            <%= link_to home_offer.id, home_offer_path(home_offer) %>
           </td>
-          <td><%= link_to "#{home_offer.class.model_name.human} - #{l(home_offer.created_at)}", home_offer_path(home_offer) %></td>
           <td>
-            <% matches = RequestOfferComparison.new.find_matches_for_offer(home_offer) %>
-            <%= link_to "#{matches.count} Matches gefunden", home_offers_compare_path(home_offer, matches.first), class: "btn btn-info" %>
+            <%= link_to "#{home_offer.firstname} #{home_offer.lastname}", home_offer_path(home_offer) %>
+          </td>
+          <td><%= link_to "#{l(home_offer.created_at)}", home_offer_path(home_offer) %></td>
+          <td>
+            <%= render "home_offers/matches", home_offer: home_offer %>
           </td>
         </tr>
       <% end %>

@@ -1,0 +1,8 @@
+<% matches = RequestOfferComparison.new.find_matches_for_offer(home_offer) %>
+<% if matches.empty? %>
+<div class="btn btn-info">
+    Keine Matches
+</div>
+<% else %>
+  <%= link_to "#{matches.count} Matches gefunden", home_offers_compare_path(home_offer, matches.first), class: "btn btn-info" %>
+<% end %>

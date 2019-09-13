@@ -128,6 +128,7 @@
   <% if is_current_user_admin? %>
     <div class="text-center m-2">
       <hr />
+      <%= render "home_requests/matches", home_request: home_request %>
       <%= link_to 'Eintrag bearbeiten', edit_home_request_path(home_request), class: "btn btn-primary m-2" %>
       <%= link_to 'Eintrag löschen', home_request_path(home_request), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
     </div>
