@@ -13,7 +13,7 @@
         </p>
         <p>
           <% @matches_for_offer.each do |match| %>
-            <%= link_to match.id, compare_path(@home_offer, match) %>
+            <%= link_to match.id, home_offers_compare_path(@home_offer, match) %>
           <% end %>
         </p>
       </div>
@@ -22,12 +22,11 @@
       <%#= render 'shared/comparison_home_offer_home_request', home_offer: @homer_offer, home_request: @home_request %>
       <div class="row">
         <div class="col-6">
-          <%= render 'home_requests/show', home_request: @home_request %>
-        </div>
-        <div class="col-6">
           <%= render 'home_offers/show', home_offer: @home_offer %>
         </div>
-
+        <div class="col-6">
+          <%= render 'home_requests/show', home_request: @home_request %>
+        </div>
       </div>
   </div>
 </div>

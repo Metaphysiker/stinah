@@ -54,7 +54,7 @@ class HomeRequestsController < ApplicationController
   def compare
     @home_offer = HomeOffer.find(params[:home_offer_id])
     @home_request = HomeRequest.find(params[:home_request_id])
-    @matches = RequestOfferComparison.new.find_matches_for_offer(@home_offer)
+    @matches = RequestOfferComparison.new.find_matches_for_request(@home_request)
   end
 
   # DELETE /home_requests/1

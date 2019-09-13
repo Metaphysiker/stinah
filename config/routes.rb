@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   post '/add_sponsorship_with_new_user', to: "sponsorships#add_sponsorship_with_new_user", as: 'add_sponsorship_with_new_user'
 
   get '/home_offers/matches_for_home_offer', to: "home_offers#matches_for_home_offer", as: "matches_for_home_offer"
-  get '/home_offers/compare/:home_offer_id/:home_request_id', to: "home_offers#compare", as: "compare"
-  #get '/home_requests/compare/:home_request_id/:home_offer_id', to: "home_requests#compare", as: "compare_home_request_with_home_offer"
+  get '/home_offers/compare/:home_offer_id/:home_request_id', to: "home_offers#compare", as: "home_offers_compare"
+  get '/home_requests/compare/:home_request_id/:home_offer_id', to: "home_requests#compare", as: "home_requests_compare"
 
   devise_for :users
   resources :posts

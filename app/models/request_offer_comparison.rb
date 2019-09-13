@@ -62,6 +62,7 @@ class RequestOfferComparison
     end
 
     home_offers = home_offers.where(id: ids_of_matching_requests)
+    byebug
   end
 
 

@@ -30,7 +30,19 @@ def create_request
   fill_in "home_request_owner_street", :with => Faker::Address.street_address
   fill_in "home_request_owner_city", :with => Faker::Address.city
   fill_in "home_request_owner_plz", :with => Faker::Address.zip_code
-  page.save_screenshot('request.png')
+  fill_in "home_request_owner_phone", :with => Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
+  fill_in "home_request_owner_email", :with => Faker::Internet.email
+  find(:css, "#home_request_does_owner_agree_with_mediation").set(true)
+  find(:css, "#home_request_do_you_own_authority_of_mediation").set(true)
+  fill_in "home_request_messenger_firstname", :with => Faker::Name.first_name
+  fill_in "home_request_messenger_lastname", :with => Faker::Name.last_name
+  fill_in "home_request_messenger_street", :with => Faker::Address.street_address
+  fill_in "home_request_messenger_city", :with => Faker::Address.city
+  fill_in "home_request_messenger_plz", :with => Faker::Address.zip_code
+  fill_in "home_request_messenger_phone", :with => Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
+  fill_in "home_request_messenger_mail", :with => Faker::Internet.email
+
+  #save_screenshot("request.png")
 end
 
 def create_offer

@@ -7,6 +7,9 @@
           ID
         </th>
         <th>Platz-Anfragen (Ich suche ein Heim)</th>
+        <th>
+          Matches
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +19,14 @@
             <%= home_request.id %>
           </td>
           <td><%= link_to "#{home_request.class.model_name.human} - #{l(home_request.created_at)}", home_request_path(home_request) %></td>
+          <td>
+            <% matches = RequestOfferComparison.new.find_matches_for_request(home_request) %>
+            <% if matches.empty? %>
+              Keine Matches
+            <% else %>
+              <%= link_to "#{matches.count} Matches gefunden", home_requests_compare_path(home_request, matches.first), class: "btn btn-info" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

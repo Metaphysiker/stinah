@@ -1,6 +1,9 @@
 <div class="card my-3">
   <div class="card-body">
-    <h3 class="card-title"><%= home_offer.id %> - Platz-Angebot - <%= l(home_offer.created_at) %></h3>
+    <h4><%= home_offer.class.model_name.human %></h4>
+    <b>Anbieter: </b> <%= home_offer.firstname %> <%= home_offer.lastname %><br />
+    <b>Erstellt: </b> <%= l(home_offer.created_at) %><br />
+    <b>ID: </b> <%= home_offer.id %>
     <hr />
     <div class="text-justify">
       <h4>Angaben zur Person</h4>
@@ -70,7 +73,7 @@
     <div class="text-center m-2">
       <hr />
       <% matches = RequestOfferComparison.new.find_matches_for_offer(home_offer) %>
-      <%= link_to "#{matches.count} Matches gefunden", compare_path(home_offer, matches.first), class: "btn btn-info" %>
+      <%= link_to "#{matches.count} Matches gefunden", home_offers_compare_path(home_offer, matches.first), class: "btn btn-info" %>
       <%= link_to 'Eintrag bearbeiten', edit_home_offer_path(home_offer), class: "btn btn-primary m-2" %>
       <%= link_to 'Eintrag löschen', home_offer_path(home_offer), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
     </div>

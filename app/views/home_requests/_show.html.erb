@@ -1,6 +1,9 @@
 <div class="card my-3">
   <div class="card-body">
-    <h3 class="card-title"><%= home_request.id %> - Platz-Anfrage - <%= l(home_request.created_at) %></h3>
+    <h4><%= home_request.class.model_name.human %></h4>
+    <b>Eigentümer / Melder: </b> <%= home_request.messenger_or_owner %><br />
+    <b>Erstellt: </b> <%= l(home_request.created_at) %><br />
+    <b>ID: </b> <%= home_request.id %>
     <hr />
     <div class="text-justify">
       <h4>Angaben zum Eigentümer</h4>
