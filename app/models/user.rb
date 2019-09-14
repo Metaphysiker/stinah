@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
   validate :validate_username
-  after_create :create_sponsor_role
+  #after_create :create_sponsor_role
 
   def validate_username
     if User.where(email: username).exists?
