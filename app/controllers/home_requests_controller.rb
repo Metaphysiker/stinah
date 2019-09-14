@@ -3,6 +3,8 @@ class HomeRequestsController < ApplicationController
   before_action :is_user_allowed?, except: [:new, :create]
   before_action :set_home_request, only: [:show, :edit, :update, :destroy]
 
+  include ApplicationHelper
+
   # GET /home_requests
   # GET /home_requests.json
   def index
