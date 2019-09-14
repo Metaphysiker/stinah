@@ -60,11 +60,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <% if current_user.nil? %>
-          <%= render 'sponsorships/form_with_new_user', sponsorship: Sponsorship.new, user: current_user, animal: animal %>
-        <% else %>
-          <%= render 'sponsorships/form', sponsorship: Sponsorship.new, user: current_user, animal: animal %>
-        <% end %>
+        <%= render 'sponsorships/form', sponsorship: Sponsorship.new, user: current_user, animal: animal %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Schliessen</button>

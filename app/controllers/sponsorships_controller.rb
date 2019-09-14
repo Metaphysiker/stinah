@@ -9,7 +9,10 @@ class SponsorshipsController < ApplicationController
     #animal = Animal.find(params[:animal_id])
     #donation = params[:donation].to_d
     Sponsorship.create(sponsorship_params)
-    redirect_to my_sponsorships_path
+    redirect_back(fallback_location: root_path)
+    #redirect_to my_sponsorships_path
+
+    SponsorshipMailer.bank_information("s.raess@me.com").deliver_now
   end
 
   def add_sponsorship_with_new_user
