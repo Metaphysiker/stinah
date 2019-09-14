@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="jumbotron bg-white">
+    <h1>Patenschaften</h1>
+    <% @sponsorships.each do |sponsorship| %>
+    <div class="card my-4">
+      <% if sponsorship.animal.cover.attached? %>
+        <div class="card-header text-center">
+          <%= image_tag sponsorship.animal.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
+        </div>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= sponsorship.animal.name %></h5>
+        <p class="card-text">
+          <b>Monatliche Spende: </b> <%= number_with_precision(sponsorship.donation, precision: 2, separator: '.') %> CHF
+        </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

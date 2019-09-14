@@ -4,6 +4,10 @@ class SponsorshipsController < ApplicationController
     @sponsorships = current_user.sponsorships
   end
 
+  def index
+    @sponsorships = Sponsorship.all
+  end
+
   def add_sponsorship
     #user = User.find(params[:user_id])
     #animal = Animal.find(params[:animal_id])

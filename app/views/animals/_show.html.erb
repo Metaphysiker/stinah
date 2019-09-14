@@ -18,7 +18,7 @@
       <ul>
         <% animal.sponsorships.where(public: true).each do |sponsorship| %>
           <li>
-            <%= sponsorship.user.firstname %> <%= sponsorship.user.lastname %>
+            <%#= sponsorship.user.firstname %> <%#= sponsorship.user.lastname %>
           </li>
         <% end %>
       </ul>

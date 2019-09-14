@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :home_offers
   resources :animals
   resources :works
+  resources :sponsorships
   root 'static_pages#welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

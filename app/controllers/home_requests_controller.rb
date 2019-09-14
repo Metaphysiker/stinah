@@ -1,4 +1,6 @@
 class HomeRequestsController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :create]
+  before_action :is_user_allowed?, except: [:new, :create]
   before_action :set_home_request, only: [:show, :edit, :update, :destroy]
 
   # GET /home_requests
@@ -71,6 +73,15 @@ class HomeRequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_home_request
       @home_request = HomeRequest.find(params[:id])
+    end
+
+    def is_user_allowed?
+      if !is_current_user_admin?
+        #raise "not authorized"
+        sign_out current_user
+        flash[:notice] = "Sie sind nicht authorisiert!"
+        redirect_to root_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
