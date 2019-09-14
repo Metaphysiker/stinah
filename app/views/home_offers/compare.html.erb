@@ -5,7 +5,7 @@
         <%= render 'home_offers/mini_header', home_offer: @home_offer %>
       </div>
       <div class="col-6">
-        <ul class="list-group">
+        <ul class="list-group mb-2">
           <li class="list-group-item"><b>Anzahl Matches: </b><%= @matches.count %></li>
           <% @matches.each do |match| %>
             <% if match.id == @home_request.id %>
