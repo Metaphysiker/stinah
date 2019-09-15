@@ -104,7 +104,7 @@
     <%= f.input :gender, collection: Animal.genders.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :castrated, collection: Animal.castrated.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :rideable, required: true %>
-    <%= f.input :current_location, required: true %>
+    <%#= f.input :current_location, required: true %>
     <%= f.input :features, required: true %>
     <hr />
     <h4>Angaben zum Standort des Abgabetiers</h4>

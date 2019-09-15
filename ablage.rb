@@ -4,13 +4,9 @@ admin.roles << Role.find_by_role("admin")
 Fotograf für Bilder überlegen
 
 Geburtsdatum unbekannt? .ca Jahresangab
-Geschlecht:
-Grösse
 
 
 Account mit Mail an Claudia senden
-
-Aktueller Standort des Tieres: Wegnehmen
 
 Rasse: Egal Möglichkeit
 

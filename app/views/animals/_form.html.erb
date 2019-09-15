@@ -17,6 +17,8 @@
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]} %>
     <%= f.input :race %>
     <%= f.input :birth %>
+    <%= f.input :gender, collection: Animal.genders.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
+    <%= f.input :size, placeholder: "145", required: true  %>
   </div>
 
   <div class="form-actions">

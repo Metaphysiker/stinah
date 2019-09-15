@@ -37,6 +37,8 @@ de:
         birth: "Geburtstag"
         description: "Beschreibung"
         species: "Tierart"
+        gender: "Geschlecht"
+        size: "Grösse (in Centimeter)"
       sponsorship:
         donation: "Spende"
       home_request:

@@ -9,9 +9,26 @@
     <div class="text-justify">
       <p class="card-text"><%= animal.description %></p>
       <hr />
+      <% unless animal.species.blank? %>
       <p class="card-text"><b>Tierart: </b><%= t(animal.species) %></p>
+      <% end %>
+      <% unless animal.race.blank? %>
       <p class="card-text"><b>Rasse: </b><%= animal.race %></p>
+      <% end %>
+      <% unless animal.birth.blank? %>
       <p class="card-text"><b>Geburtstag: </b><%= animal.birth %></p>
+      <% end %>
+      <% unless animal.gender.blank? %>
+      <p class="card-text">
+        <b><%= animal.class.human_attribute_name("gender") %>: </b><%= t(animal.gender) %>
+      </p>
+      <% end %>
+      <% unless animal.size.blank? %>
+      <p class="card-text">
+        <b><%= animal.class.human_attribute_name("size") %>: </b><%= animal.size %>
+      </p>
+      <% end %>
+
       <% if animal.sponsorships.where(public: true).exists? %>
       <hr />
       <b>Wir danken den Paten von <%= animal.name %>: </b>
