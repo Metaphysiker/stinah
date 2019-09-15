@@ -153,6 +153,18 @@
         </div>
       </div>
       <br />
+      <p>
+        Essen:
+      </p>
+      <div class="input-group">
+        <select class="custom-select" id="food">
+          <option value="Ich esse nichts." selected>Ich esse nichts.</option>
+          <option value="Ich bringe Essen für mich selber mit.">Ich bringe Essen für mich selber mit.</option>
+          <option value="Ich möchte gerne etwas essen.">Ich möchte gerne etwas essen.</option>
+          <option value="Ich bringe Essen für alle mit.">Ich bringe Essen für alle mit.</option>
+        </select>
+      </div>
+      <br />
       <button type="button" class="btn btn-primary create-work-button">Arbeitszeit eintragen</button>
       </div>
       <div class="modal-footer">
@@ -166,7 +178,8 @@
   $( document ).ready(function() {
     var date = "<%= Date.today %>";
     var start_time = "8:00";
-    var end_time = "17:00"
+    var end_time = "17:00";
+    var food = "Ich esse nichts.";
 
     $( ".enter-work-button" ).click(function() {
       date = $(this).val();
@@ -183,14 +196,17 @@
       depart_minutes = $("#departMinutes").val();
       depart = depart_hour + ":" + depart_minutes;
 
+      food = $("#food").val();
+
       console.log("Arrival: " + date + " " + arrival);
       console.log("Depart: " + date + " " + depart);
+      console.log(food);
 
       $.ajax({
         url: "/works/create_for_calendar",
         method: 'POST',
         data: {
-          work: { date: date, shift_start: date + " " + arrival , shift_end: date + " " + depart}
+          work: { date: date, shift_start: date + " " + arrival , shift_end: date + " " + depart, food: food}
         },
         headers: {
           'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content

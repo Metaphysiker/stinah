@@ -12,6 +12,12 @@
    <small>
      <%= work.shift_start.strftime("%H:%M") %> - <%= work.shift_end.strftime("%H:%M") %>
    </small>
+   <% unless work.food.blank? %>
+     <br />
+     <small>
+       <%= work.food unless work.food.blank? %>
+     </small>
+   <% end %>
  </div>
 </div>
 <% end %>

@@ -89,6 +89,6 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params.require(:work).permit(:date, :shift_start, :shift_end)
+      params.require(:work).permit(:date, :shift_start, :shift_end, :food)
     end
 end
