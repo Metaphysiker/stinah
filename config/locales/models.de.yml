@@ -41,6 +41,9 @@ de:
         size: "Grösse (in Centimeter)"
       sponsorship:
         donation: "Spende"
+        firstname: "Vorname"
+        lastname: "Nachname"
+        email: "e-Mail"
       home_request:
         are_you_owner: "Sind Sie Eigentümer/in des gemeldeten Tieres?"
         owner_firstname: "Vorname des Eigentümers"

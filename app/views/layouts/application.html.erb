@@ -13,7 +13,7 @@
   <body>
     <%= render "layouts/navigation" %>
     <%= render "layouts/navigation_for_volunteers" if current_user %>
-    <%= render "layouts/navigation_for_sponsors" if current_user %>
+    <%#= render "layouts/navigation_for_sponsors" if current_user %>
     <%= render "layouts/navigation_for_admins" if is_current_user_admin? %>
     <div class="container my-2">
       <%= flash_messages %>

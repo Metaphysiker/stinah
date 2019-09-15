@@ -1,11 +1,15 @@
 class SponsorshipsController < ApplicationController
+  #before_action :authenticate_user!, except: [:new, :create]
+  #before_action :is_user_allowed?, except: [:new, :create]
+  before_action :set_sponsorship, only: [:activate_sponsorship, :deactivate_sponsorship]
 
   def my_sponsorships
     @sponsorships = current_user.sponsorships
   end
 
   def index
-    @sponsorships = Sponsorship.all
+    #@sponsorships = Sponsorship.all
+    @animals_with_sponsorhips = Animal.joins(:sponsorships).distinct
   end
 
   def add_sponsorship
@@ -16,7 +20,15 @@ class SponsorshipsController < ApplicationController
     redirect_back(fallback_location: root_path)
     #redirect_to my_sponsorships_path
 
-    SponsorshipMailer.bank_information("s.raess@me.com").deliver_now
+    #mail to sponsor
+    SponsorshipMailer.bank_information(sponsorship_params[:email]).deliver_now
+
+    #mail to Admin
+    SponsorshipMailer.bank_information("s.raess@me.com").deliver_later
+
+    #mail to Claudia Steiger
+    #SponsorshipMailer.bank_information("steiger@stinah.ch").deliver_now
+
   end
 
   def add_sponsorship_with_new_user
@@ -25,10 +37,24 @@ class SponsorshipsController < ApplicationController
     redirect_to my_sponsorships_path
   end
 
+  def activate_sponsorship
+    @sponsorship.update(active: true)
+    redirect_back(fallback_location: root_path)
+  end
+
+  def deactivate_sponsorship
+    @sponsorship.update(active: false)
+    redirect_back(fallback_location: root_path)
+  end
+
   private
+
+  def set_sponsorship
+    @sponsorship = Sponsorship.find(params[:id])
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def sponsorship_params
-    params.require(:sponsorship).permit(:user_id, :animal_id, :donation, :public)
+    params.require(:sponsorship).permit(:user_id, :animal_id, :donation, :public, :firstname, :lastname, :email)
   end
 end
