@@ -35,5 +35,11 @@
     </tbody>
   </table>
     <%#= render partial: "home_requests/show", collection: @home_requests, as: :home_request %>
+    <br />
+    <% if @archived == "true" %>
+      <%= link_to "Nicht-archivierte Einträge anzeigen", home_requests_path(archived: false), class: "btn btn-primary m-2" %>
+    <% else %>
+      <%= link_to "Archivierte Einträge anzeigen", home_requests_path(archived: true), class: "btn btn-primary m-2" %>
+    <% end %>
   </div>
 </div>

@@ -3,9 +3,6 @@ admin.roles << Role.find_by_role("admin")
 
 Fotograf für Bilder überlegen
 
-Geburtsdatum unbekannt? .ca Jahresangab
-
-
 Account mit Mail an Claudia senden
 
 Rasse: Egal Möglichkeit

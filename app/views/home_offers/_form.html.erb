@@ -51,18 +51,18 @@
     <%= f.input :race, placeholder: 'z.B. "Araber" oder "egal"', required: true %>
     <div class="row">
       <div class="col-6">
-        <%= f.input :min_age, placeholder: '0', required: true %>
+        <%= f.input :min_age, input_html: {  value: 0 }, required: true %>
       </div>
       <div class="col-6">
-        <%= f.input :max_age, placeholder: '15', required: true %>
+        <%= f.input :max_age, input_html: {  value: 100 }, required: true %>
       </div>
     </div>
     <div class="row">
       <div class="col-6">
-        <%= f.input :min_size, placeholder: '0', required: true %>
+        <%= f.input :min_size, input_html: {  value: 0 }, required: true %>
       </div>
       <div class="col-6">
-        <%= f.input :max_size, placeholder: '160', required: true %>
+        <%= f.input :max_size, input_html: {  value: 300 }, required: true %>
       </div>
     </div>
 
@@ -70,8 +70,8 @@
     <%#= f.input :size, placeholder: '145cm - 155cm', required: true %>
     <%#= f.collection_check_boxes :size, [[true, 'Yes'], [false, 'No'],[true, 'Kant']], :first, :last %>
     <%#= f.input :size, :collection => ["Asian","Black", "Hispanic/Latino", "Indian", "Middle Eastern", "Native American", "Pacific Islander", "White", "Other"], :include_blank => "Anything", wrapper_html: { class: 'form-group' }, :as => :check_boxes, include_hidden: false, :input_html => {:name => "search[ethnicity][]", :multiple => true} %>
-    <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, required: true %>
-    <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, required: true %>
+    <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+    <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
     <%= f.input :rideable, required: true %>
     <hr />
     <h4>Angaben zum angebotenen Platz</h4>

@@ -13,7 +13,7 @@ class RequestOfferComparison
 
   def find_matches_for_offer(home_offer)
     #only same species
-    home_requests = HomeRequest.where(species: home_offer.species)
+    home_requests = HomeRequest.unarchived.where(species: home_offer.species)
 
     #only before killing date or blank
     ids_of_timely_requests = []
@@ -39,7 +39,7 @@ class RequestOfferComparison
 
   def find_matches_for_request(home_request)
     #only same species
-    home_offers = HomeOffer.where(species: home_request.species)
+    home_offers = HomeOffer.unarchived.where(species: home_request.species)
 
     #only before killing date or blank
     unless home_request.date_of_killing.blank?

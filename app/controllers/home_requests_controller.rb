@@ -8,7 +8,14 @@ class HomeRequestsController < ApplicationController
   # GET /home_requests
   # GET /home_requests.json
   def index
-    @home_requests = HomeRequest.unarchived.order(:created_at)
+    #@home_requests = HomeRequest.unarchived.order(:created_at)
+    @archived = params[:archived]
+    puts @archived
+    if @archived.blank? || @archived == "false"
+      @home_requests = HomeRequest.unarchived.order(:created_at)
+    else
+      @home_requests = HomeRequest.archived.order(:created_at)
+    end
   end
 
   # GET /home_requests/1
@@ -73,11 +80,11 @@ class HomeRequestsController < ApplicationController
 
   def archive
     if @home_request.archived
-      @home_request.update(archived: false)
-      flash[:notice] = "Eintrag wurde archiviert!"
-    else
-      @home_request.update(archived: true)
       flash[:notice] = "Eintrag wurde de-archiviert!"
+      @home_request.update(archived: false)
+    else
+      flash[:notice] = "Eintrag wurde archiviert!"
+      @home_request.update(archived: true)
     end
     redirect_to home_request_path(@home_request)
   end
