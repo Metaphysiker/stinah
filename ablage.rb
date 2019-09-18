@@ -45,13 +45,7 @@ Team
 
 
 Ziege
-
 Kaninchen
-
 Meerschweinchen
 Kameliden
 Anderes
-
-Hund rausnehmen
-
-Katz rausnehmen

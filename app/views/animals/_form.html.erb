@@ -16,7 +16,11 @@
     <%#= f.input :species %>
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]} %>
     <%= f.input :race %>
-    <%= f.input :birth %>
+    <%= f.input :birth, include_blank: true %>
+    <p>
+      Falls der Geburtstag nicht genau bekannt ist (ansonsten leerlassen)
+    </p>
+    <%= f.input :birth_ca, label: false, placeholder: 'z.B. "August 2016" oder "ca. 2016"' %>
     <%= f.input :gender, collection: Animal.genders.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :size, placeholder: "145", required: true  %>
   </div>

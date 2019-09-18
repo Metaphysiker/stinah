@@ -39,6 +39,7 @@ de:
         species: "Tierart"
         gender: "Geschlecht"
         size: "Grösse (in Centimeter)"
+        birth_ca: "Geburtstag"
       sponsorship:
         donation: "Spende"
         firstname: "Vorname"
