@@ -18,6 +18,9 @@
       <% unless animal.birth.blank? %>
       <p class="card-text"><b>Geburtstag: </b><%= animal.birth %></p>
       <% end %>
+      <% unless animal.birth_ca.blank? %>
+      <p class="card-text"><b>Geburtstag: </b><%= animal.birth_ca %></p>
+      <% end %>
       <% unless animal.gender.blank? %>
       <p class="card-text">
         <b><%= animal.class.human_attribute_name("gender") %>: </b><%= t(animal.gender) %>
