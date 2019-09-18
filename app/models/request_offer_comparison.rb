@@ -97,7 +97,10 @@ class RequestOfferComparison
     race_match = "table-warning"
     fuzzystringmatch = FuzzyStringMatch::JaroWinkler.create( :native )
     distance = fuzzystringmatch.getDistance(  home_request.race, home_offer.race)
-    if distance >= 0.7
+    if home_offer.race == "egal"
+      race_match = "table-success"
+      matches += 1
+    elsif distance >= 0.7
       race_match = "table-success"
       matches += 1
     elsif distance < 0.7 && distance >= 0.3

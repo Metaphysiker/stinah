@@ -5,17 +5,11 @@ Fotograf für Bilder überlegen
 
 Account mit Mail an Claudia senden
 
-Rasse: Egal Möglichkeit
-
 Möglichkeit ich biete Plätze für 3 Tiere an.
 
 Angebot: Mehrere für verschiedene Formular 3 Tiere eingeben können.
 
 Mehrere Tiere hinzufügen können und Plus hinzufügen
-
-Platz-Abgabe: Tier-Abgabe
-
-Neues Zuhause: Tiervermittlung
 
 Neue Patenschaft: Neue Mail an Stinah und User
 
