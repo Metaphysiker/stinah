@@ -1,9 +1,10 @@
 <div class="card my-3">
   <div class="card-body">
     <h4><%= home_request.class.model_name.human %></h4>
+    <b>ID: </b> <%= home_request.id %><br />
     <b>Eigentümer / Melder: </b> <%= home_request.messenger_or_owner %><br />
     <b>Erstellt: </b> <%= l(home_request.created_at) %><br />
-    <b>ID: </b> <%= home_request.id %>
+    <b>Im Archiv: </b> <%= t(home_request.archived) %><br />
     <hr />
     <div class="text-justify">
       <h4>Angaben zum Eigentümer</h4>
@@ -129,6 +130,7 @@
       <%= render "home_requests/matches", home_request: home_request %>
       <%= link_to 'Eintrag bearbeiten', edit_home_request_path(home_request), class: "btn btn-primary m-2" %>
       <%= link_to 'Eintrag löschen', home_request_path(home_request), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+      <%= link_to 'Eintrag ins Archiv verschieben', archive_home_offer_path(home_offer), method: :post, class: "btn btn-warning m-2" %>
     </div>
   <% end %>
   </div>

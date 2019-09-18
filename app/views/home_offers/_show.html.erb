@@ -1,9 +1,11 @@
 <div class="card my-3">
   <div class="card-body">
     <h4><%= home_offer.class.model_name.human %></h4>
+    <b>ID: </b> <%= home_offer.id %><br />
     <b>Anbieter: </b> <%= home_offer.firstname %> <%= home_offer.lastname %><br />
     <b>Erstellt: </b> <%= l(home_offer.created_at) %><br />
-    <b>ID: </b> <%= home_offer.id %>
+    <b>Im Archiv: </b> <%= t(home_offer.archived) %><br />
+
     <hr />
     <div class="text-justify">
       <h4>Angaben zur Person</h4>
@@ -75,6 +77,12 @@
       <%= render "home_offers/matches", home_offer: home_offer %>
       <%= link_to 'Eintrag bearbeiten', edit_home_offer_path(home_offer), class: "btn btn-primary m-2" %>
       <%= link_to 'Eintrag löschen', home_offer_path(home_offer), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+      <% if home_offer.archived %>
+        <%= link_to 'Eintrag aus dem Archiv holen', archive_home_offer_path(home_offer), method: :post, class: "btn btn-warning m-2" %>
+      <% else %>
+        <%= link_to 'Eintrag ins Archiv verschieben', archive_home_offer_path(home_offer), method: :post, class: "btn btn-warning m-2" %>
+      <% end %>
+
     </div>
   <% end %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_123454) do
+ActiveRecord::Schema.define(version: 2019_09_18_141523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_123454) do
     t.integer "max_age"
     t.integer "min_size"
     t.integer "max_size"
+    t.boolean "archived", default: false
   end
 
   create_table "home_requests", force: :cascade do |t|
@@ -133,6 +134,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_123454) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "rideable"
+    t.boolean "archived", default: false
   end
 
   create_table "posts", force: :cascade do |t|

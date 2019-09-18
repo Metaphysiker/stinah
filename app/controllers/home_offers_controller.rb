@@ -1,14 +1,20 @@
 class HomeOffersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
-  before_action :set_home_offer, only: [:show, :edit, :update, :destroy]
   before_action :is_user_allowed?, except: [:new, :create]
+  before_action :set_home_offer, only: [:show, :edit, :update, :destroy, :archive]
 
   include ApplicationHelper
 
   # GET /home_offers
   # GET /home_offers.json
   def index
-    @home_offers = HomeOffer.all
+    @archived = params[:archived]
+    puts @archived
+    if @archived.blank? || @archived == "false"
+      @home_offers = HomeOffer.unarchived.order(:created_at)
+    else
+      @home_offers = HomeOffer.archived.order(:created_at)
+    end
   end
 
   # GET /home_offers/1
@@ -76,6 +82,17 @@ class HomeOffersController < ApplicationController
     @home_request = HomeRequest.find(params[:home_request_id])
     #@matches_for_offer = RequestOfferComparison.new.find_matches_for_offer(@home_offer)
     @matches = RequestOfferComparison.new.find_matches_for_offer(@home_offer)
+  end
+
+  def archive
+    if @home_offer.archived
+      flash[:notice] = "Eintrag wurde de-archiviert!"
+      @home_offer.update(archived: false)
+    else
+      flash[:notice] = "Eintrag wurde archiviert!"
+      @home_offer.update(archived: true)
+    end
+    redirect_to home_offer_path(@home_offer)
   end
 
   private

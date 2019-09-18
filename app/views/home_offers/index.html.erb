@@ -1,6 +1,6 @@
 <div class="container">
   <div class="jumbotron bg-white my-4">
-      <h3>Platz-Angebote (Ich biete ein Heim)</h3>
+      <h3><%= HomeOffer.model_name.human %></h3>
       <br />
     <table class="table table-striped table-bordered">
     <thead>
@@ -35,5 +35,11 @@
     </tbody>
   </table>
     <%#= render partial: "home_offers/show", collection: @home_offers, as: :home_offer %>
+    <br />
+    <% if @archived == "true" %>
+      <%= link_to "Nicht-archivierte Einträge anzeigen", home_offers_path(archived: false), class: "btn btn-primary m-2" %>
+    <% else %>
+      <%= link_to "Archivierte Einträge anzeigen", home_offers_path(archived: true), class: "btn btn-primary m-2" %>
+    <% end %>
   </div>
 </div>

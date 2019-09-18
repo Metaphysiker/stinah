@@ -5,6 +5,9 @@ class HomeOffer < ApplicationRecord
             :race, :gender, :castrated,
             :stable, :from_then_on, :privacy_statement, presence: true
 
+  scope :archived, -> { where(archived: true) }
+  scope :unarchived, -> { where(archived: false) }
+
   def name
     "#{firstname} #{lastname}"
   end

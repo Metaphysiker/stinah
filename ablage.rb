@@ -42,10 +42,3 @@ Team
  Über stinah hat Team unter sich, Medienauftritt raus, Praktikum, Testimonials-> Praktikanten und Freiwillige sein
 
  Unsere Tiere: Aufklappen: Alle Tiere, Tiere, die Unterstützung brauchen
-
-
-Ziege
-Kaninchen
-Meerschweinchen
-Kameliden
-Anderes
