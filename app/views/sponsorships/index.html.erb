@@ -1,58 +1,8 @@
 <div class="container">
   <div class="jumbotron bg-white">
     <h1>Patenschaften</h1>
-
-    <% @animals_with_sponsorhips.each do |animal| %>
-    <div class="card my-4">
-      <% if animal.cover.attached? %>
-        <div class="card-header text-center">
-          <%= image_tag animal.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
-          <br />
-          <h5 class="card-title"><%= animal.name %></h5>
-        </div>
-      <% end %>
-      <div class="card-body">
-        <p class="card-text">
-          <% animal.sponsorships.each do |sponsorship| %>
-          <div class="row">
-            <div class="col-6">
-              <b>Pate: </b> <%= "#{sponsorship.firstname} #{sponsorship.lastname}" %>
-              <br />
-              <b>e-Mail: </b> <%= mail_to sponsorship.email %>
-              <br />
-              <b>Monatliche Spende: </b> <%= number_with_precision(sponsorship.donation, precision: 2, separator: '.') %> CHF
-              <br />
-              <b>Möchte öffentlich genannt werden:</b> <%= t(sponsorship.public) %>
-              <br />
-              <b>Aktiv:</b> <%= t(sponsorship.active) %>
-              <br />
-            </div>
-            <div class="col-3 text-center">
-              <% if sponsorship.active == true %>
-                <%= link_to "Aktiv", deactivate_sponsorship_path(sponsorship), class: "btn btn-success" %>
-                <br />
-                (wird öffentlich genannt, wenn gewollt)
-              <% else %>
-                <%= link_to "In-Aktiv", activate_sponsorship_path(sponsorship), class: "btn btn-danger" %>
-                <br />
-                (wird nicht öffentlich genannt)
-              <% end %>
-            </div>
-            <div class="col-3">
-              <div class="alert alert-warning" role="alert">
-                Kontrolle notwendig!
-                <br />
-
-              </div>
-            </div>
-          </div>
-
-            <hr />
-          <% end %>
-        </p>
-      </div>
-    </div>
-    <% end %>
-
+    <hr>
+    <%#= render partial: "sponsorships/animals_with_sponsorships", collection: @animals_with_sponsorships, as: :animals_with_sponsorships %>
+    <%= render "sponsorships/animals_with_sponsorships", animals_with_sponsorships: @animals_with_sponsorships %>
   </div>
 </div>

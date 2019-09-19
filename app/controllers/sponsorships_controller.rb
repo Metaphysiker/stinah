@@ -1,7 +1,7 @@
 class SponsorshipsController < ApplicationController
   #before_action :authenticate_user!, except: [:new, :create]
   #before_action :is_user_allowed?, except: [:new, :create]
-  before_action :set_sponsorship, only: [:activate_sponsorship, :deactivate_sponsorship]
+  before_action :set_sponsorship, only: [:activate_sponsorship, :deactivate_sponsorship, :check_payment]
 
   def my_sponsorships
     @sponsorships = current_user.sponsorships
@@ -9,7 +9,7 @@ class SponsorshipsController < ApplicationController
 
   def index
     #@sponsorships = Sponsorship.all
-    @animals_with_sponsorhips = Animal.joins(:sponsorships).distinct
+    @animals_with_sponsorships = Animal.joins(:sponsorships).distinct
   end
 
   def add_sponsorship
@@ -38,12 +38,17 @@ class SponsorshipsController < ApplicationController
   end
 
   def activate_sponsorship
-    @sponsorship.update(active: true)
+    @sponsorship.update(active: true, last_check_of_payment: Date.today)
     redirect_back(fallback_location: root_path)
   end
 
   def deactivate_sponsorship
-    @sponsorship.update(active: false)
+    @sponsorship.update(active: false, last_check_of_payment: Date.today)
+    redirect_back(fallback_location: root_path)
+  end
+
+  def check_payment
+    @sponsorship.update( last_check_of_payment: Date.today)
     redirect_back(fallback_location: root_path)
   end
 

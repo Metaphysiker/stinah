@@ -1,0 +1,68 @@
+<% animals_with_sponsorships.each do |animal| %>
+<div class="card my-4">
+
+    <div class="card-header text-center">
+      <% if animal.cover.attached? %>
+        <%= image_tag animal.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
+        <br />
+      <% end %>
+      <h5 class="card-title"><%= animal.name %></h5>
+    </div>
+  <div class="card-body">
+    <p class="card-text">
+      <% animal.sponsorships.each_with_index do |sponsorship, i| %>
+      <div class="row">
+        <div class="col-6 border-right">
+          <b>Pate: </b> <%= "#{sponsorship.firstname} #{sponsorship.lastname}" %>
+          <br />
+          <b>e-Mail: </b> <%= mail_to sponsorship.email %>
+          <br />
+          <b>Monatliche Spende: </b> <%= number_with_precision(sponsorship.donation, precision: 2, separator: '.') %> CHF
+          <br />
+          <b>Möchte öffentlich genannt werden:</b> <%= t(sponsorship.public) %>
+          <br />
+          <b>Aktiv:</b> <%= t(sponsorship.active) %>
+          <br />
+        </div>
+        <div class="col-3 text-center border-right">
+          <% if sponsorship.active == true %>
+            <%= link_to "Aktiv", deactivate_sponsorship_path(sponsorship), class: "btn btn-success" %>
+            <br />
+            (wird öffentlich genannt, wenn gewollt)
+          <% else %>
+            <%= link_to "In-Aktiv", activate_sponsorship_path(sponsorship), class: "btn btn-danger" %>
+            <br />
+            (wird nicht öffentlich genannt)
+          <% end %>
+        </div>
+        <div class="col-3">
+          <% if sponsorship.last_check_of_payment.nil? %>
+          <div class="alert alert-warning" role="alert">
+            Kontrolle fällig.
+            <br />
+          </div>
+          <%= link_to 'Kontrolliert', check_payment_path(sponsorship), method: :post, class: "btn btn-info m-2" %>
+          <% elsif sponsorship.last_check_of_payment + 13.weeks < Date.today %>
+          <div class="alert alert-warning" role="alert">
+            Letzte Kontrolle: <%= l(sponsorship.last_check_of_payment) %>
+            <br />
+            Kontrolle fällig.
+            <br />
+          </div>
+          <%= link_to 'Kontrolliert', check_payment_path(sponsorship), method: :post, class: "btn btn-info m-2" %>
+          <% else %>
+          <div class="alert alert-primary" role="alert">
+            Letzte Kontrolle: <%= l(sponsorship.last_check_of_payment) %>
+            <br />
+          </div>
+          <% end %>
+        </div>
+      </div>
+        <% unless animal.sponsorships.size-1 == i %>
+          <hr />
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+</div>
+<% end %>

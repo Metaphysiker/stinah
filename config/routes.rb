@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post '/add_sponsorship_with_new_user', to: "sponsorships#add_sponsorship_with_new_user", as: 'add_sponsorship_with_new_user'
   get '/sponsorships/activate_sponsorship/:id', to: "sponsorships#activate_sponsorship", as: 'activate_sponsorship'
   get '/sponsorships/deactivate_sponsorship/:id', to: "sponsorships#deactivate_sponsorship", as: 'deactivate_sponsorship'
+  post '/sponsorships/check_payment/:id', to: "sponsorships#check_payment", as: 'check_payment'
 
   post '/home_requests/archive/:id', to: "home_requests#archive", as: "archive_home_request"
   post '/home_offers/archive/:id', to: "home_offers#archive", as: "archive_home_offer"
