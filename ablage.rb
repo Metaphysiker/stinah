@@ -3,8 +3,6 @@ admin.roles << Role.find_by_role("admin")
 
 Fotograf für Bilder überlegen
 
-Account mit Mail an Claudia senden
-
 Möglichkeit ich biete Plätze für 3 Tiere an.
 
 Angebot: Mehrere für verschiedene Formular 3 Tiere eingeben können.

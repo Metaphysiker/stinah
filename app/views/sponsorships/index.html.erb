@@ -27,20 +27,23 @@
               <b>Aktiv:</b> <%= t(sponsorship.active) %>
               <br />
             </div>
-            <div class="col-3">
+            <div class="col-3 text-center">
               <% if sponsorship.active == true %>
-
                 <%= link_to "Aktiv", deactivate_sponsorship_path(sponsorship), class: "btn btn-success" %>
+                <br />
+                (wird öffentlich genannt, wenn gewollt)
               <% else %>
                 <%= link_to "In-Aktiv", activate_sponsorship_path(sponsorship), class: "btn btn-danger" %>
+                <br />
+                (wird nicht öffentlich genannt)
               <% end %>
             </div>
             <div class="col-3">
-              <% if sponsorship.active == false %>
-                <%= link_to "Aktivieren", activate_sponsorship_path(sponsorship), class: "btn btn-success" %>
-              <% else %>
-                <%= link_to "Deaktivieren", deactivate_sponsorship_path(sponsorship), class: "btn btn-danger" %>
-              <% end %>
+              <div class="alert alert-warning" role="alert">
+                Kontrolle notwendig!
+                <br />
+
+              </div>
             </div>
           </div>
 
