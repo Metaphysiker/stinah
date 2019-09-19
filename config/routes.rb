@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about', as: "about"
   get '/faq', to: 'static_pages#faq', as: "faq"
   get '/contact', to: 'static_pages#contact', as: "contact"
+  get '/team', to: 'static_pages#team', as: "team"
 
   post '/works/create_for_calendar/', to: "works#create_for_calendar", as: 'create_for_calendar'
   delete '/works/delete_for_calendar/:id', to: "works#delete_for_calendar", as: 'delete_for_calendar'

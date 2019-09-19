@@ -4,6 +4,6 @@
       <%= link_to 'Neuer Eintrag', new_post_path, class: "btn btn-primary my-2" %>
     </div><hr />
   <% end %>
-  <%= paginate @posts %>
   <%= render partial: "posts/show", collection: @posts, as: :post %>
+  <%= paginate @posts %>
 </div>

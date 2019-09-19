@@ -13,7 +13,7 @@ Neue Patenschaft: Neue Mail an Stinah und User
 
 Schön darstellung danke Bild vom Tier und schönes Bild.
 
-Vierteljährlich: Bestätigung für Patenschaft anfragen: Patenschaften 2 Buttons: Bezahlt ja, oder nein -> Fällt er aus.
+#Vierteljährlich: Bestätigung für Patenschaft anfragen: Patenschaften 2 Buttons: Bezahlt ja, oder nein -> Fällt er aus.
 
 
 
