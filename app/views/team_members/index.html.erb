@@ -6,10 +6,17 @@
       <h1 class="my-4 text-darker-base-color"><%= title %></h1>
     </div>
     <div class="text-justify text-darker-base-color">
+
+      <% if is_current_user_admin? %>
+        <div class="text-center">
+          <%= link_to 'Neuer Eintrag', new_team_member_path, class: "btn btn-primary my-2" %>
+        </div>
+      <% end %>
+
       <hr class="featurette-divider">
 
       <% @team_members.each_with_index do |team_member, i| %>
-        <% if i.odd? %>
+        <% if false #i.odd? %>
         <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading"><%= team_member.firstname %> <%= team_member.lastname %></h2>

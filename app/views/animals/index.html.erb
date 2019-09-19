@@ -2,7 +2,7 @@
   <% if is_current_user_admin? %>
     <div class="text-center">
       <%= link_to 'Neuer Eintrag', new_animal_path, class: "btn btn-primary my-2" %>
-    </div><hr />
+    </div>
   <% end %>
   <%= render partial: "animals/show", collection: @animals, as: :animal %>
 </div>

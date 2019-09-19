@@ -25,9 +25,6 @@ Unsere Tiere: Pop - Up Diese Tiere brauche noch Unterstützung!
 Wenn Klick: Alle Tiere ohne Unterstützung
 
 
-Teamseite: Bild von Fahrer, genannt "Team" für regelmässige Fahrer
-Team
-
  Über stinah hat Team unter sich, Medienauftritt raus, Praktikum, Testimonials-> Praktikanten und Freiwillige sein
 
  Unsere Tiere: Aufklappen: Alle Tiere, Tiere, die Unterstützung brauchen
