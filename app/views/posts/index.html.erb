@@ -1,9 +1,16 @@
 <div class="container">
-  <% if is_current_user_admin? %>
+  <div class="jumbotron bg-white my-4">
     <div class="text-center">
-      <%= link_to 'Neuer Eintrag', new_post_path, class: "btn btn-primary my-2" %>
-    </div><hr />
-  <% end %>
-  <%= render partial: "posts/show", collection: @posts, as: :post %>
-  <%= paginate @posts %>
+      <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+
+      <h1 class="my-4 text-darker-base-color"><%= title %></h1>
+    </div>
+    <% if is_current_user_admin? %>
+      <div class="text-center">
+        <%= link_to 'Neuer Eintrag', new_post_path, class: "btn btn-primary my-2" %>
+      </div><hr />
+    <% end %>
+    <%= render partial: "posts/show", collection: @posts, as: :post %>
+    <%= paginate @posts %>
+  </div>
 </div>

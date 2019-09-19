@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
   def welcome
-
     set_meta_tags title: 'Herzlich Wilkommen', reverse: true,
               description: 'Die Stiftung "Tiere in Not - Animal Help" engagiert sich seit Jahren sowohl im institutionellen als auch im individuellen Tierschutz.',
               keywords: 'Tierschutz, Tierrechte, Tiere in Not, Hilfe für Tiere, Animal Help, Lebenshof, Gnadenhof'
@@ -9,7 +8,9 @@ class StaticPagesController < ApplicationController
   end
 
   def newhome
-
+    set_meta_tags title: 'Tiervermittlung', reverse: true,
+              description: 'Stinah versucht für Tiere, die sich in Notsituationen befinden, ein neues Zuhause zu finden. Sie können einem Tier ein neues Zuhause bieten? Wir freuen uns über Ihre Kontaktaufnahme!',
+              keywords: 'Tiervermittlung, Ich suche ein neues Zuhause für mein Tier, Ich biete einem Tier ein neues Zuhause'
   end
 
   def about

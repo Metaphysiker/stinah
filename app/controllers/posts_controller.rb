@@ -9,6 +9,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all.page(params[:page])
+
+    set_meta_tags title: 'News', reverse: true,
+              description: 'Alle Neuigkeiten und Ereignisse zu Stinah.'
   end
 
   # GET /posts/1

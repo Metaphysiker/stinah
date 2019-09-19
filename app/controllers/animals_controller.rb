@@ -9,6 +9,9 @@ class AnimalsController < ApplicationController
   # GET /animals.json
   def index
     @animals = Animal.all
+
+    set_meta_tags title: 'Unsere Tiere', reverse: true,
+              description: 'Alle Tiere von STINAH im Überblick!'
   end
 
   # GET /animals/1

@@ -11,17 +11,14 @@
       <li class="nav-item">
         <%= link_to "News", posts_path, class:"nav-link"  %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Unsere Tiere", animals_path, class:"nav-link"  %>
-      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle new-home-request-or-offer-nav" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Unsere Tiere
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Alle Tiere", animals_path, class:"dropdown-item"  %>
+            <%= link_to "Alle Tiere im Überblick", animals_path, class:"dropdown-item"  %>
           <div class="dropdown-divider"></div>
-            <%= link_to "Tiere ohne Paten", animals_path, class:"dropdown-item"  %>
+            <%= link_to "Tiere, die deine Unterstützung brauchen!", animals_path, class:"dropdown-item"  %>
           <div class="dropdown-divider"></div>
           <%= link_to "Pferde", animals_path, class:"dropdown-item"  %>
         </div>
@@ -36,7 +33,6 @@
           <%= link_to "Ich suche ein neues Zuhause für mein Tier", new_home_request_path, class:"dropdown-item"  %>
           <div class="dropdown-divider"></div>
           <%= link_to "Ich biete einem Tier ein neues Zuhause", new_home_offer_path, class:"dropdown-item"  %>
-          <div class="dropdown-divider"></div>
         </div>
       </li>
       <li class="nav-item">

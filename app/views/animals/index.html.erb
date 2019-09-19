@@ -1,8 +1,15 @@
 <div class="container">
-  <% if is_current_user_admin? %>
+  <div class="jumbotron bg-white my-4">
     <div class="text-center">
-      <%= link_to 'Neuer Eintrag', new_animal_path, class: "btn btn-primary my-2" %>
+      <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+
+      <h1 class="my-4 text-darker-base-color"><%= title %></h1>
     </div>
-  <% end %>
-  <%= render partial: "animals/show", collection: @animals, as: :animal %>
+    <% if is_current_user_admin? %>
+      <div class="text-center">
+        <%= link_to 'Neuer Eintrag', new_animal_path, class: "btn btn-primary my-2" %>
+      </div>
+    <% end %>
+    <%= render partial: "animals/show", collection: @animals, as: :animal %>
+  </div>
 </div>

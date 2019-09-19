@@ -1,7 +1,7 @@
 class TeamMembersController < ApplicationController
   before_action :set_team_member, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!#, except: [:new, :create]
-  before_action :is_user_allowed?#, except: [:new, :create
+  before_action :authenticate_user!, except: [:index]
+  before_action :is_user_allowed?, except: [:index]
 
   include ApplicationHelper
 

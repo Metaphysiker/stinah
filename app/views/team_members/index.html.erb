@@ -28,7 +28,7 @@
             <% end %>
             <% unless team_member.email.blank? %>
             <p>
-              <b><%= team_member.class.human_attribute_name("email") %>: </b><%= t(team_member.email) %>
+              <b><%= team_member.class.human_attribute_name("email") %>: </b><%= mail_to team_member.email %>
             </p>
             <% end %>
           </div>
@@ -50,7 +50,7 @@
             <% end %>
             <% unless team_member.email.blank? %>
             <p>
-              <b><%= team_member.class.human_attribute_name("email") %>: </b><%= t(team_member.email) %>
+              <b><%= team_member.class.human_attribute_name("email") %>: </b><%= mail_to team_member.email %>
             </p>
             <% end %>
           </div>
