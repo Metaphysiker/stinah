@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :team_members
   get 'calendar/(:date)', to: 'calendar#work_calendar', as: "work_calendar"
   get '/newhome', to: 'static_pages#newhome', as: "newhome"
   get '/about', to: 'static_pages#about', as: "about"
   get '/faq', to: 'static_pages#faq', as: "faq"
   get '/contact', to: 'static_pages#contact', as: "contact"
-  get '/team', to: 'static_pages#team', as: "team"
+  #get '/team', to: 'team_members#index', as: "team"
 
   post '/works/create_for_calendar/', to: "works#create_for_calendar", as: 'create_for_calendar'
   delete '/works/delete_for_calendar/:id', to: "works#delete_for_calendar", as: 'delete_for_calendar'

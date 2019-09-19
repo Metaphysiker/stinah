@@ -19,6 +19,9 @@ de:
       user:
         one: "User"
         other: "User"
+      team_member:
+        one: "Team-Mitglied"
+        other: "Team-Mitglieder"
     attributes:
       user:
         firstname: "Vorname"
@@ -114,3 +117,9 @@ de:
         max_age: "Höchstalter (in Jahren)"
         min_size: "Mindestgrösse (in Centimeter)"
         max_size: "Maximalgrösse (in Centimeter)"
+      team_member:
+        firstname: "Vorname"
+        lastname: "Nachname"
+        description: "Beschreibung"
+        phone: "Telefon"
+        email: "e-Mail"

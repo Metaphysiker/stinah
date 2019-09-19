@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="jumbotron bg-white my-4">
+    <div class="text-center">
+      <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+
+      <h1 class="my-4 text-darker-base-color"><%= title %></h1>
+    </div>
+    <div class="text-justify text-darker-base-color">
+      <hr class="featurette-divider">
+
+      <% @team_members.each_with_index do |team_member, i| %>
+        <% if i.odd? %>
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading"><%= team_member.firstname %> <%= team_member.lastname %></h2>
+            <p class="lead"><%= team_member.description %></p>
+            <% unless team_member.phone.blank? %>
+            <p>
+              <b><%= team_member.class.human_attribute_name("phone") %>: </b><%= t(team_member.phone) %>
+            </p>
+            <% end %>
+            <% unless team_member.email.blank? %>
+            <p>
+              <b><%= team_member.class.human_attribute_name("email") %>: </b><%= t(team_member.email) %>
+            </p>
+            <% end %>
+          </div>
+          <div class="col-md-5">
+            <% if team_member.picture.attached? %>
+              <%= image_tag team_member.picture, class: "featurette-image img-fluid mx-auto" %>
+            <% end %>
+          </div>
+        </div>
+        <% else %>
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading"><%= team_member.firstname %> <%= team_member.lastname %></h2>
+            <p class="lead"><%= team_member.description %></p>
+            <% unless team_member.phone.blank? %>
+            <p>
+              <b><%= team_member.class.human_attribute_name("phone") %>: </b><%= t(team_member.phone) %>
+            </p>
+            <% end %>
+            <% unless team_member.email.blank? %>
+            <p>
+              <b><%= team_member.class.human_attribute_name("email") %>: </b><%= t(team_member.email) %>
+            </p>
+            <% end %>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <% if team_member.picture.attached? %>
+              <%= image_tag team_member.picture, class: "featurette-image img-fluid mx-auto" %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+        <hr class="featurette-divider">
+      <% end %>
+    </div>
+  </div>
+</div>

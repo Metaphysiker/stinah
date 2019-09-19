@@ -32,10 +32,4 @@ class StaticPagesController < ApplicationController
 
   end
 
-  def team
-    set_meta_tags title: 'Das Team von STINAH', reverse: true,
-              description: 'Auf dieser Seite finden Sie das Team von Stinah.',
-              keywords: 'Team, Helfer, Mithelfer, Freiwillige, Mitarbeitende, Fahrer'
-  end
-
 end
