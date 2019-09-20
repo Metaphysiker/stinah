@@ -1,10 +1,11 @@
 class AnimalsSearch
-  def initialize(search_term: nil, species: nil, birth: nil)
-    @search_term = search_term
-    @name = name
-    @species = species
-    @birth = birth
-  end
+
+  def initialize(search_inputs)
+  @search_term = search_inputs[:search_term] || nil
+  @species = search_inputs[:species] || nil
+  @gender = search_inputs[:gender] || nil
+
+end
 
   def search
     query = Animal.all
@@ -18,6 +19,9 @@ class AnimalsSearch
       query = query.where(species: @species)
     end
 
+    unless @gender.nil? || @gender.blank?
+      query = query.where(gender: @gender)
+    end
     #unless @race.nil? || @race.blank?
     #  query = query.where(race: @race)
     #end

@@ -66,7 +66,7 @@ class AnimalsController < ApplicationController
       format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
       format.json { head :no_content }
     end
-
+  end
 
     def search_animals
       if params[:search_inputs].present?
@@ -74,6 +74,7 @@ class AnimalsController < ApplicationController
       else
         @search_inputs = OpenStruct.new()
       end
+
     @animals = AnimalsSearch.new(@search_inputs).search
     @animals = @animals.page(params[:page])
 
@@ -84,7 +85,6 @@ class AnimalsController < ApplicationController
         format.js
       end
     end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

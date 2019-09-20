@@ -118,6 +118,8 @@ GEM
     erubi (1.8.0)
     ffi (1.11.1)
     ffi (1.11.1-x86-mingw32)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     fuzzy-string-match (1.0.1)
       RubyInline (>= 3.8.6)
     globalid (0.4.2)
@@ -306,6 +308,7 @@ DEPENDENCIES
   devise (~> 4.6.2)
   devise-i18n
   faker!
+  font-awesome-rails
   fuzzy-string-match
   jbuilder (~> 2.7)
   kaminari

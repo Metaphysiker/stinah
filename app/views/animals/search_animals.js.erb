@@ -1,0 +1,11 @@
+var records_div = ".animals";
+
+$( records_div ).fadeOut( "fast", function() {
+
+    content = $("<%= escape_javascript( render partial: 'animals/show', collection: @animals, as: :animal  ) %>")
+
+    $(records_div).fadeOut("fast", function(){
+      $(records_div).empty().append(content).fadeIn("fast");
+    });
+
+});

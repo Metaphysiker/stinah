@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#font awesome
+gem "font-awesome-rails"
 #faker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 #paginate kaminari
