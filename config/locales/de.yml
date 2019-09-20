@@ -52,6 +52,8 @@ de:
   "true": "Ja"
   "false": "Nein"
   whatever: "egal"
+  without_sponsorship: "Ohne Paten"
+  with_sponsorship: "Mit Paten"
   date:
     formats:
       default: "%d-%m-%Y"

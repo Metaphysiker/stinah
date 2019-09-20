@@ -9,4 +9,8 @@ class Sponsorship < ApplicationRecord
   def set_last_check_of_payment
     self.update(last_check_of_payment: Date.today)
   end
+
+  def self.sponsorship_statuses
+    ['without_sponsorship', 'with_sponsorship']
+  end
 end

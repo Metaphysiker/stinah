@@ -8,7 +8,14 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animals = Animal.all
+    #@animals = Animal.all
+    if params[:search_inputs].present?
+      @search_inputs = OpenStruct.new(params[:search_inputs])
+    else
+      @search_inputs = OpenStruct.new()
+    end
+  @animals = AnimalsSearch.new(@search_inputs).search
+  @animals = @animals.page(params[:page])
 
     set_meta_tags title: 'Unsere Tiere', reverse: true,
               description: 'Alle Tiere von STINAH im Überblick!'
@@ -74,7 +81,6 @@ class AnimalsController < ApplicationController
       else
         @search_inputs = OpenStruct.new()
       end
-
     @animals = AnimalsSearch.new(@search_inputs).search
     @animals = @animals.page(params[:page])
 

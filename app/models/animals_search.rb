@@ -4,7 +4,7 @@ class AnimalsSearch
   @search_term = search_inputs[:search_term] || nil
   @species = search_inputs[:species] || nil
   @gender = search_inputs[:gender] || nil
-
+  @sponsorship_status = search_inputs[:sponsorship_status] || nil
 end
 
   def search
@@ -21,6 +21,14 @@ end
 
     unless @gender.nil? || @gender.blank?
       query = query.where(gender: @gender)
+    end
+
+    unless @sponsorship_status.nil? || @sponsorship_status.blank?
+      if @sponsorship_status == "without_sponsorship"
+        query = query.left_outer_joins(:sponsorships).where( sponsorships: { id: nil } )
+      elsif @sponsorship_status == "with_sponsorship"
+        query = query.joins(:sponsorships)
+      end
     end
     #unless @race.nil? || @race.blank?
     #  query = query.where(race: @race)
