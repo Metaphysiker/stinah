@@ -21,16 +21,31 @@ class StaticPagesController < ApplicationController
               keywords: 'Stinah, Stiftung Tiere in Not Animal Help'
   end
 
-  def animalsofstinah
-
+  def faq
+    set_meta_tags title: 'FAQ', reverse: true,
+              description: 'Antworten auf die häufigsten gestellten Fragen.'
   end
 
-  def faq
-
+  def internship
+    set_meta_tags title: 'Praktikum bei Stinah', reverse: true,
+              description: 'Ein Praktikum bei Stinah machen! Wohnung ist im Praktikum inklusive.',
+              keywords: "Praktikum bei Stinah, Tierschutzarbeit"
   end
 
   def contact
+    set_meta_tags title: 'Kontakt', reverse: true,
+              description: 'Hier können Sie Kontakt mit der Stinah aufnehmen.'
+  end
 
+  def testimonials
+    set_meta_tags title: 'Erfahrungsberichte', reverse: true,
+              description: 'Praktikum? Auf einem Lebenshof arbeiten? Tierschutzarbeit? Die Erfahrungsberichte.'
+  end
+
+  def support
+    set_meta_tags title: 'Stinah unterstützen!', reverse: true,
+              description: 'Mit einer Spende helfen Sie der Stiftung, ihren täglichen Einsatz zugunsten der Tiere zu finanzieren.',
+              keywords: "Spende, Patenschaft, Tierschutz, Gönnerbeitrag, Naturalspende"
   end
 
 end

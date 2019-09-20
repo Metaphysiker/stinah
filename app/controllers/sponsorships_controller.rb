@@ -1,6 +1,6 @@
 class SponsorshipsController < ApplicationController
-  #before_action :authenticate_user!, except: [:new, :create]
-  #before_action :is_user_allowed?, except: [:new, :create]
+  before_action :authenticate_user!, only: [:index, :activate_sponsorship, :deactivate_sponsorship]
+  before_action :is_user_allowed?, only: [:index, :activate_sponsorship, :deactivate_sponsorship]
   before_action :set_sponsorship, only: [:activate_sponsorship, :deactivate_sponsorship, :check_payment]
 
   def my_sponsorships
@@ -61,5 +61,14 @@ class SponsorshipsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def sponsorship_params
     params.require(:sponsorship).permit(:user_id, :animal_id, :donation, :public, :firstname, :lastname, :email)
+  end
+
+  def is_user_allowed?
+    if !is_current_user_admin?
+      #raise "not authorized"
+      sign_out current_user
+      flash[:notice] = "Sie sind nicht authorisiert!"
+      redirect_to root_path
+    end
   end
 end

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about', as: "about"
   get '/faq', to: 'static_pages#faq', as: "faq"
   get '/contact', to: 'static_pages#contact', as: "contact"
+  get '/internship', to: 'static_pages#internship', as: "internship"
+  get '/testimonials', to: 'static_pages#testimonials', as: "testimonials"
+  get '/support', to: 'static_pages#support', as: "support"
   #get '/team', to: 'team_members#index', as: "team"
 
   post '/works/create_for_calendar/', to: "works#create_for_calendar", as: 'create_for_calendar'
