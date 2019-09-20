@@ -16,7 +16,7 @@
     <%#= f.input :species %>
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]} %>
     <%= f.input :race %>
-    <%= f.input :birth, include_blank: true %>
+    <%= f.input :birth, include_blank: true, start_year: Date.today.year - 50, end_year: Date.today.year %>
     <p>
       Falls der Geburtstag nicht genau bekannt ist (ansonsten leerlassen)
     </p>
