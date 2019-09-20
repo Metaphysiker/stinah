@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="jumbotron bg-white my-4">
     <div class="text-center">
       <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
@@ -12,7 +12,8 @@
     <% end %>
     <%= render "animals/search_form", animals: @animals %>
     <div class="animals">
-      <%= render partial: "animals/show", collection: @animals, as: :animal %>
+      <%#= render partial: "animals/show", collection: @animals, as: :animal %>
+      <%= render 'animals_in_groups_of_3', animals: @animals %>
     </div>
   </div>
 </div>

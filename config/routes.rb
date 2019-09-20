@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   #search
   get 'animals/search_animals', to: 'animals#search_animals', as: 'search_animals'
 
+  #redirects
+  #get '/team', to: redirect('/team_members')
+
   devise_for :users
   resources :posts
   resources :home_requests
