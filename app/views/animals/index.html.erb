@@ -10,6 +10,7 @@
         <%= link_to 'Neuer Eintrag', new_animal_path, class: "btn btn-primary my-2" %>
       </div>
     <% end %>
+    <%= render "animals/search_form", animals: @animals %>
     <%= render partial: "animals/show", collection: @animals, as: :animal %>
   </div>
 </div>

@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   get '/home_offers/compare/:home_offer_id/:home_request_id', to: "home_offers#compare", as: "home_offers_compare"
   get '/home_requests/compare/:home_request_id/:home_offer_id', to: "home_requests#compare", as: "home_requests_compare"
 
+  #search
+  get '/search_animals', to: 'animals#search_animals', as: 'search_animals'
+
   devise_for :users
   resources :posts
   resources :home_requests

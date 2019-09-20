@@ -1,14 +1,15 @@
 class AnimalsSearch
-  def initialize(search_term: nil, species: nil, race: nil, birth: nil)
+  def initialize(search_term: nil, species: nil, birth: nil)
     @search_term = search_term
+    @name = name
     @species = species
-    @race = race
     @birth = birth
   end
 
   def search
     query = Animal.all
 
+    #name, description, race
     unless @search_term.nil? || @search_term.blank?
       query = query.animals_ilike("%#{@search_term}%")
     end

@@ -15,16 +15,6 @@ Schön darstellung danke Bild vom Tier und schönes Bild.
 
 #Vierteljährlich: Bestätigung für Patenschaft anfragen: Patenschaften 2 Buttons: Bezahlt ja, oder nein -> Fällt er aus.
 
-
-
 Links: FAQ
 
 Kontakt:  rechts von Stinah
-
-Unsere Tiere: Pop - Up Diese Tiere brauche noch Unterstützung!
-Wenn Klick: Alle Tiere ohne Unterstützung
-
-
- Über stinah hat Team unter sich, Medienauftritt raus, Praktikum, Testimonials-> Praktikanten und Freiwillige sein
-
- Unsere Tiere: Aufklappen: Alle Tiere, Tiere, die Unterstützung brauchen
