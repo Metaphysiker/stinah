@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#plyr
+gem 'plyr-rails'
 #font awesome
 gem "font-awesome-rails"
 #faker

@@ -8,5 +8,12 @@
   <%= f.label :content %>
   <%= f.rich_text_area :content, size: "30x10" %>
   <br />
+  <%= f.input :video_src %>
+  <br />
+  <%= f.label :video %>
+  <br />
+  <%= f.file_field :video %>
+  <br />
+  <br />
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

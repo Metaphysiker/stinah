@@ -30,4 +30,5 @@ document.addEventListener("turbolinks:load", () => {
 
 require("trix")
 require("@rails/actiontext")
-require("packs/jssor")
+//require("packs/jssor")
+//require("plyr")

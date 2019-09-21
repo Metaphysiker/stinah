@@ -8,6 +8,22 @@
     <h3 class="card-title"><%= post.title %></h3>
     <div class="text-justify">
       <p class="card-text"><%= post.content %></p>
+      <% unless post.video_src.blank? %>
+        <p class="text-center">
+          <%= get_video_iframe(post.video_src) %>
+        </p>
+      <% end %>
+
+      <% if post.video.attached? %>
+        <p class="text-center">
+          <%= video_tag rails_blob_path(post.video), controls: true, id: "#{dom_id(post)}_video_field"  %>
+        </p>
+        <script>
+        $(document).ready(function(){
+          const player = new Plyr('<%= "##{dom_id(post)}_video_field" %>');
+        });
+        </script>
+      <% end %>
     </div>
   </div>
   <div class="card-footer text-muted">
