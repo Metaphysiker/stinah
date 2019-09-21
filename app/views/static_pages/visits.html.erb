@@ -11,7 +11,7 @@
   <h5>Besucher nach Ländern:</h5>
   <%= bar_chart Ahoy::Visit.group(:country).count %>
   <br>
-  <%#= bar_chart Ahoy::Visit.group(:region).count %>
+  <%= bar_chart Ahoy::Visit.group(:city).count %>
   <br>
   <h5>Besucher pro Woche:</h5>
   <br />
