@@ -41,3 +41,13 @@ Kontakt:  rechts von Stinah
     </div>
   <% end %>
 </div>
+
+<div>
+  <% animals.in_groups_of(3, false).each do |group| %>
+    <div class="card-deck">
+      <% group.each do |animal| %>
+        <%= render 'show', animal: animal %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
