@@ -51,3 +51,11 @@ Kontakt:  rechts von Stinah
     </div>
   <% end %>
 </div>
+
+<hr />
+<br />
+  <div class="d-flex justify-content-center">
+    <% animal.pictures.each do |picture| %>
+      <%= image_tag picture, class: "img-fluid mx-auto my-2" %>
+    <% end %>
+  </div>

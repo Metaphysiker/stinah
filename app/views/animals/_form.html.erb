@@ -23,6 +23,9 @@
     <%= f.input :birth_ca, label: false, placeholder: 'z.B. "August 2016" oder "um 2016"' %>
     <%= f.input :gender, collection: Animal.genders.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]} %>
     <%= f.input :size, placeholder: "145"  %>
+    <h5>Bilder für Gallerie hochladen</h5>
+    <%= f.file_field :pictures, multiple: true %>
+    <hr />
   </div>
 
   <div class="form-actions">

@@ -1,0 +1,42 @@
+  <!--Carousel Wrapper-->
+  <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <%= image_tag("chicken.png", class: "d-block w-100") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("goat.png", class: "d-block w-100") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("pig.jpg", class: "d-block w-100") %>
+      </div>
+    </div>
+    <div class="carousel-outer">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-thumb" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-thumb" data-slide-to="1"></li>
+        <li data-target="#carousel-thumb" data-slide-to="2"></li>
+      </ol>
+    </div>
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+  </div>
+  <!--/.Carousel Wrapper-->
+  <script>
+    $( document ).ready(function() {
+
+      $('#carousel-thumb').carousel({
+        interval: 2000
+      });
+    });
+  </script>

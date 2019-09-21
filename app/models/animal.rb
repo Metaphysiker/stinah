@@ -1,6 +1,7 @@
 class Animal < ApplicationRecord
   has_one_attached :cover
   has_rich_text :description
+  has_many_attached :pictures
 
   has_many :sponsorships
   has_many :users, through: :sponsorships, dependent: :destroy

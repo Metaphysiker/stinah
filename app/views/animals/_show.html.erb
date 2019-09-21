@@ -1,7 +1,9 @@
 <div class="card h-100 my-3 <%= dom_id(animal) %>">
   <% if animal.cover.attached? %>
     <div class="card-header text-center">
-          <%= image_tag animal.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
+      <%= link_to animal_path(animal) do %>
+        <%= image_tag animal.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
+      <% end %>
     </div>
   <% end %>
   <div class="card-body text-darker-base-color">
@@ -31,6 +33,11 @@
         <b><%= animal.class.human_attribute_name("size") %>: </b><%= animal.size %>
       </p>
       <% end %>
+
+      <% if animal.pictures.attached? %>
+        <%#= render "shared/thumbnail_carousel", images: animal.pictures %>
+      <% end %>
+
 
       <% if animal.sponsorships.where(public: true).where(active: true).exists? %>
       <hr />
