@@ -3,6 +3,8 @@ class SponsorshipsController < ApplicationController
   before_action :is_user_allowed?, only: [:index, :activate_sponsorship, :deactivate_sponsorship]
   before_action :set_sponsorship, only: [:activate_sponsorship, :deactivate_sponsorship, :check_payment]
 
+  include ApplicationHelper
+
   def my_sponsorships
     @sponsorships = current_user.sponsorships
   end
