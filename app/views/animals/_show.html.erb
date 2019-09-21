@@ -39,11 +39,6 @@
         <%= render "shared/simple_gallery", images: animal.pictures %>
       <% end %>
 
-      <% if local_assigns.has_key? :headline %>
-  Headline: <%= headline %>
-<% end %>
-
-
       <% if animal.sponsorships.where(public: true).where(active: true).exists? %>
       <hr />
       <b>Wir danken den Paten von <%= animal.name %>: </b>

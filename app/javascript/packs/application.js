@@ -32,3 +32,5 @@ require("trix")
 require("@rails/actiontext")
 //require("packs/jssor")
 //require("plyr")
+
+//import ahoy from "ahoy.js";
