@@ -33,3 +33,11 @@ Kontakt:  rechts von Stinah
     </div>
   <% end %>
 </div>
+
+<div class="row">
+  <% animals.each do |animal| %>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <%= render 'show', animal: animal %>
+    </div>
+  <% end %>
+</div>
