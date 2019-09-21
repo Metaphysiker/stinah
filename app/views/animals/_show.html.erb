@@ -34,9 +34,14 @@
       </p>
       <% end %>
 
-      <% if animal.pictures.attached? %>
+      <% if animal.pictures.attached? && local_assigns.has_key?(:show_gallery) %>
         <%#= render "shared/thumbnail_carousel", images: animal.pictures %>
+        <%= render "shared/simple_gallery", images: animal.pictures %>
       <% end %>
+
+      <% if local_assigns.has_key? :headline %>
+  Headline: <%= headline %>
+<% end %>
 
 
       <% if animal.sponsorships.where(public: true).where(active: true).exists? %>
