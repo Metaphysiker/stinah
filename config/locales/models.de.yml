@@ -34,8 +34,9 @@ de:
       post:
         title: "Titel"
         content: "Inhalt"
-        video_src: "URL von Youtube oder Vimeo"
+        video_src: "Youtube- oder Vimeo-Video einbinden"
         video: "Eigenes Video hochladen"
+        gallery: "Bilder-Gallerie einfügen"
       animal:
         name: "Name"
         race: "Rasse"
