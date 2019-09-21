@@ -52,8 +52,8 @@
     </div>
     <% end %>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success m-2 float-right <%= dom_id(animal) %>_sponsorship_modal_button" data-toggle="modal" data-target="#<%= dom_id(animal) %>_sponsorship_modal">
-      Ich möchte Pate von <%= animal.name %> werden!
+    <button type="button" class="btn btn-success m-2 float-right <%= dom_id(animal) %>_sponsorship_modal_button" data-toggle="modal" data-target=".<%= dom_id(animal) %>_sponsorship_modal">
+      Pate von <%= animal.name %> werden!
     </button>
 
   <% if is_current_user_admin? %>
@@ -69,7 +69,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="<%= dom_id(animal) %>_sponsorship_modal" tabindex="-1" role="dialog" aria-labelledby="sponsorshipModal" aria-hidden="true">
+<div class="modal fade <%= dom_id(animal) %>_sponsorship_modal" tabindex="-1" role="dialog" aria-labelledby="sponsorshipModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

@@ -18,3 +18,18 @@ Schön darstellung danke Bild vom Tier und schönes Bild.
 Links: FAQ
 
 Kontakt:  rechts von Stinah
+
+
+------------
+#komplementär zum unteren
+<div class="d-none d-lg-block">
+
+<div class="d-block d-lg-none">
+  <% animals.in_groups_of(2, false).each do |group| %>
+    <div class="card-deck">
+      <% group.each do |animal| %>
+        <%= render 'show', animal: animal %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
