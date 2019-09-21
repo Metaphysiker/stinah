@@ -1,4 +1,9 @@
 class StaticPagesController < ApplicationController
+  before_action :authenticate_user!, only: [:visits]
+  before_action :is_user_allowed?, only: [:visits]
+
+  include ApplicationHelper
+
   def welcome
     set_meta_tags title: 'Herzlich Wilkommen', reverse: true,
               description: 'Die Stiftung "Tiere in Not - Animal Help" engagiert sich seit Jahren sowohl im institutionellen als auch im individuellen Tierschutz.',
@@ -46,6 +51,21 @@ class StaticPagesController < ApplicationController
     set_meta_tags title: 'Stinah unterstützen!', reverse: true,
               description: 'Mit einer Spende helfen Sie der Stiftung, ihren täglichen Einsatz zugunsten der Tiere zu finanzieren.',
               keywords: "Spende, Patenschaft, Tierschutz, Gönnerbeitrag, Naturalspende"
+  end
+
+  def visits
+    set_meta_tags noindex: true
+  end
+
+  private
+
+  def is_user_allowed?
+    if !is_current_user_admin?
+      #raise "not authorized"
+      sign_out current_user
+      flash[:notice] = "Sie sind nicht authorisiert!"
+      redirect_to root_path
+    end
   end
 
 end

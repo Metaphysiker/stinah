@@ -34,3 +34,5 @@ require("@rails/actiontext")
 //require("plyr")
 
 //import ahoy from "ahoy.js";
+require("chartkick")
+require("chart.js")

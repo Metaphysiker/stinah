@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="jumbotron bg-white">
+  <h5>Besucher insgesamt: <%= Ahoy::Visit.all.count %></h5>
+  <br>
+  <h5>Aufrufe insgesamt: <%= Ahoy::Event.all.count %></h5>
+  <br>
+  <hr />
+
+  <%= geo_chart Ahoy::Visit.group(:country).count %>
+  <br>
+  <h5>Besucher nach Ländern:</h5>
+  <%= bar_chart Ahoy::Visit.group(:country).count %>
+  <br>
+  <%#= bar_chart Ahoy::Visit.group(:region).count %>
+  <br>
+  <h5>Besucher pro Woche:</h5>
+  <br />
+  <%= line_chart Ahoy::Visit.group_by_week(:started_at).count %>
+  <br>
+  <%#= bar_chart Ahoy::Event.select(:visit_id).distinct.group(:properties).count %>
+  </div>
+</div>

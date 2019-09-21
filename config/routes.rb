@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/internship', to: 'static_pages#internship', as: "internship"
   get '/testimonials', to: 'static_pages#testimonials', as: "testimonials"
   get '/support', to: 'static_pages#support', as: "support"
+  get '/visits', to: 'static_pages#visits', as: "visits"
   #get '/team', to: 'team_members#index', as: "team"
 
   post '/works/create_for_calendar/', to: "works#create_for_calendar", as: 'create_for_calendar'
