@@ -46,6 +46,7 @@ de:
         gender: "Geschlecht"
         size: "Grösse (in Centimeter)"
         birth_ca: "Geburtstag"
+        health_status: "Zustand"
       sponsorship:
         donation: "Spende"
         firstname: "Vorname"

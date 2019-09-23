@@ -8,6 +8,8 @@ class Animal < ApplicationRecord
 
   #scope :animals_ilike, ->(search_term) { where("name ILIKE ? OR description ILIKE ? OR race ILIKE ?", search_term, search_term, search_term) }
   scope :animals_ilike, ->(search_term) { where("search_field ILIKE ?", search_term) }
+  scope :alive, -> { where.not(health_status: "dead") }
+  scope :dead, -> { where(health_status: "dead") }
 
   before_save :update_search_field
 
@@ -21,6 +23,10 @@ class Animal < ApplicationRecord
 
   def self.castrated
     ['yes', 'no', 'whatever']
+  end
+
+  def self.health_status
+    ['healthy', 'dead']
   end
 
   def self.sizes
