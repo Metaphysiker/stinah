@@ -56,6 +56,22 @@ de:
   dead: "verstorben"
   without_sponsorship: "Ohne Paten"
   with_sponsorship: "Mit Paten"
+  routes:
+    work_calendar: "kalender"
+    newhome: "tiervermittlung"
+    about: "über-stinah"
+    faq: "faq"
+    contact: "kontakt"
+    internship: "praktikum-bei-stinah"
+    testimonials: "erfahrungsberichte"
+    support: "unterstuetzen"
+    team_members: "team"
+    posts: "aktuell"
+    home_requests: "tier-abgabe"
+    home_offers: "platz-angebot"
+    animals: "unsere-tiere"
+    works: "arbeit"
+    sponsorships: "patenschaft"
   date:
     formats:
       default: "%d-%m-%Y"

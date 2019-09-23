@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#translate routes
+gem 'route_translator'
 #charts
 gem "chartkick"
 gem 'groupdate'
@@ -33,7 +35,8 @@ gem 'rails-i18n'
 #simple form
 gem 'simple_form'
 #devise
-gem 'devise', '~> 4.6.2'
+#gem 'devise', '~> 4.6.2' REMOVED BECAUSE OF VULNERABILITY
+gem "devise", ">= 4.7.1"
 # jQuery
 #gem 'jquery-rails'
 # Bootstrap

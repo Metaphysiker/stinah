@@ -15,7 +15,6 @@ class AnimalsSearch
     unless @search_term.nil? || @search_term.blank?
       query = query.animals_ilike("%#{@search_term}%")
       #query = query. Animal.last.description.body.to_plain_text
-
     end
 
     unless @species.nil? || @species.blank?
