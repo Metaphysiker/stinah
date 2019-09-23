@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="jumbotron bg-white my-4">
     <div class="text-center">
-      <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      <%= link_to root_path do %>
+        <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      <% end %>
 
       <h1 class="my-4 text-darker-base-color"><%= title %></h1>
     </div>
