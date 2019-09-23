@@ -2,6 +2,7 @@
   <div class="jumbotron bg-white my-4">
       <h3><%= HomeOffer.model_name.human %></h3>
       <br />
+      <%= render "home_offers/search_form", home_offers: @home_offers %>
     <table class="table table-striped table-bordered">
     <thead>
       <tr>
