@@ -45,6 +45,10 @@
           });
         </script>
       <% end %>
+      <% if post.pictures.attached? %>
+        <%#= render "shared/thumbnail_carousel", images: animal.pictures %>
+        <%= render "shared/simple_gallery", images: post.pictures %>
+      <% end %>
     </div>
   </div>
   <div class="card-footer text-muted">

@@ -15,5 +15,8 @@
   <%= f.file_field :video %>
   <br />
   <br />
+  <h5>Bilder für Gallerie hochladen</h5>
+  <%= f.file_field :pictures, multiple: true %>
+  <hr />
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
