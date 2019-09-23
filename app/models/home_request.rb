@@ -4,6 +4,8 @@ class HomeRequest < ApplicationRecord
   scope :archived, -> { where(archived: true) }
   scope :unarchived, -> { where(archived: false) }
 
+  before_save :update_search_field
+
   def messenger_or_owner
     s = ""
     unless messenger_firstname.blank? || messenger_lastname.blank?
@@ -13,4 +15,18 @@ class HomeRequest < ApplicationRecord
     end
     s
   end
+
+  scope :home_requests_ilike, ->(search_term) { where("search_field ILIKE ?", search_term) }
+
+  def update_search_field
+
+    # Animal.find_each(&:save)
+    self.search_field =
+    [
+      owner_firstname,
+      owner_lastname,
+    ].compact.join(' ')
+
+  end
+
 end

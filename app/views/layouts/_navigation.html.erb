@@ -9,10 +9,10 @@
   <div class="collapse navbar-collapse" id="navbarMain">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <%= link_to "Aktuell", posts_path, class:"nav-link"  %>
+        <%= link_to "Aktuell", posts_path, class:"nav-link #{'active' unless @posts.nil?}"  %>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle new-home-request-or-offer-nav" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle new-home-request-or-offer-nav <%= 'active' unless @animals.nil? %>" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Unsere Tiere
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -28,7 +28,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle tiervermittlung-nav" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle tiervermittlung-nav <%= 'active' if (action_name == 'newhome') || (action_name == 'new') %>" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Tiervermittlung
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,8 +40,8 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle about-nav" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Über STINAH
+        <a class="nav-link dropdown-toggle about-nav  <%= 'active' if (action_name == 'about') || (action_name == 'internship') || (action_name == 'testimonials') || (!@team_members.nil?) %>" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Über STINAH <%= action_name %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Über Stinah", about_path, class:"dropdown-item"  %>
@@ -54,13 +54,13 @@
         </div>
       </li>
       <li class="nav-item">
-        <%= link_to "Unterstützen!", support_path, class:"nav-link"  %>
+        <%= link_to "Unterstützen!", support_path, class:"nav-link #{'active' if action_name == 'support'}"  %>
       </li>
       <li class="nav-item">
-        <%= link_to "FAQ",  faq_path, class:"nav-link"  %>
+        <%= link_to "FAQ",  faq_path, class:"nav-link #{'active' if action_name == 'faq'}"  %>
       </li>
       <li class="nav-item">
-        <%= link_to "Kontakt",  contact_path, class:"nav-link"  %>
+        <%= link_to "Kontakt",  contact_path, class:"nav-link  #{'active' if action_name == 'contact'}"  %>
       </li>
     </ul>
     </ul>

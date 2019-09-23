@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_063256) do
+ActiveRecord::Schema.define(version: 2019_09_23_175510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 2019_09_23_063256) do
     t.integer "min_size"
     t.integer "max_size"
     t.boolean "archived", default: false
+    t.text "search_field", default: ""
   end
 
   create_table "home_requests", force: :cascade do |t|
@@ -179,6 +180,7 @@ ActiveRecord::Schema.define(version: 2019_09_23_063256) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "rideable"
     t.boolean "archived", default: false
+    t.text "search_field", default: ""
   end
 
   create_table "posts", force: :cascade do |t|

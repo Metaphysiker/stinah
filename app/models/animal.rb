@@ -70,7 +70,6 @@ class Animal < ApplicationRecord
       birth_string,
       birth_ca
     ].compact.join(' ')
-    puts search_field
 
   end
 

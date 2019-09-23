@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   get '/visits', to: 'static_pages#visits', as: "visits"
   #get '/team', to: 'team_members#index', as: "team"
 
+  #get '/unsere-tiere', to: 'animals#index'
+  #scope(path_names: { new: 'neu', edit: 'bearbeiten' }) do
+  #  resources :animals, path: 'unsere-tiere'
+  #end
+
   post '/works/create_for_calendar/', to: "works#create_for_calendar", as: 'create_for_calendar'
   delete '/works/delete_for_calendar/:id', to: "works#delete_for_calendar", as: 'delete_for_calendar'
 

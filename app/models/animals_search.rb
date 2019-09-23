@@ -1,12 +1,12 @@
 class AnimalsSearch
 
   def initialize(search_inputs)
-  @search_term = search_inputs[:search_term] || nil
-  @species = search_inputs[:species] || nil
-  @gender = search_inputs[:gender] || nil
-  @sponsorship_status = search_inputs[:sponsorship_status] || nil
-  @health_status = search_inputs[:health_status] || nil
-end
+    @search_term = search_inputs[:search_term] || nil
+    @species = search_inputs[:species] || nil
+    @gender = search_inputs[:gender] || nil
+    @sponsorship_status = search_inputs[:sponsorship_status] || nil
+    @health_status = search_inputs[:health_status] || nil
+  end
 
   def search
     query = Animal.all
