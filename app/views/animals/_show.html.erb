@@ -37,6 +37,10 @@
       <% if animal.pictures.attached? && local_assigns.has_key?(:show_gallery) %>
         <%#= render "shared/thumbnail_carousel", images: animal.pictures %>
         <%= render "shared/simple_gallery", images: animal.pictures %>
+      <% elsif animal.pictures.attached? %>
+        <p class="card-text">
+          <%= link_to "Mehr von #{animal.name} sehen!", animal_path(animal) %>
+        </p>
       <% end %>
 
       <% if animal.sponsorships.where(public: true).where(active: true).exists? %>
@@ -53,15 +57,21 @@
     </div>
   </div>
   <div class="card-footer text-muted">
+
+    <%#= link_to "Mehr zu #{animal.name}", animal_path(animal), class: "btn btn-primary m-2" %>
+
     <% if false #!current_user.nil? && current_user.animals.exists?(animal.id) %>
     <div class="float-right m-2">
       Du bist Pate von <%= animal.name %>!
     </div>
     <% end %>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success m-2 float-right <%= dom_id(animal) %>_sponsorship_modal_button" data-toggle="modal" data-target=".<%= dom_id(animal) %>_sponsorship_modal">
-      Pate von <%= animal.name %> werden!
-    </button>
+
+    <% if animal.alive? %>
+      <button type="button" class="btn btn-success m-2 float-right <%= dom_id(animal) %>_sponsorship_modal_button" data-toggle="modal" data-target=".<%= dom_id(animal) %>_sponsorship_modal">
+        Pate von <%= animal.name %> werden!
+      </button>
+    <% end %>
 
   <% if is_current_user_admin? %>
   <br />

@@ -5,6 +5,7 @@ class AnimalsSearch
   @species = search_inputs[:species] || nil
   @gender = search_inputs[:gender] || nil
   @sponsorship_status = search_inputs[:sponsorship_status] || nil
+  @health_status = search_inputs[:health_status] || nil
 end
 
   def search
@@ -19,6 +20,13 @@ end
 
     unless @species.nil? || @species.blank?
       query = query.where(species: @species)
+    end
+
+    #if health_status is nil, only alive animals are shown
+    if @health_status.nil? || @health_status.blank?
+      query = query.alive
+    else
+      query = query.where(health_status: @health_status)
     end
 
     unless @gender.nil? || @gender.blank?

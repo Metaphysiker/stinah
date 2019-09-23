@@ -25,7 +25,7 @@ class Animal < ApplicationRecord
     ['yes', 'no', 'whatever']
   end
 
-  def self.health_status
+  def self.health_statuses
     ['healthy', 'dead']
   end
 
@@ -35,6 +35,10 @@ class Animal < ApplicationRecord
 
   def self.stables
     ["Offenstall", "Auslaufhaltung mit Boxe", "Auslaufboxe", "Anderes"]
+  end
+
+  def alive?
+    health_status != "dead"
   end
 
   def update_search_field

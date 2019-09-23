@@ -16,13 +16,15 @@
           Unsere Tiere
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Alle Tiere im Überblick", animals_path, class:"dropdown-item"  %>
+          <%= link_to "Alle Tiere im Überblick", animals_path, class:"dropdown-item"  %>
           <div class="dropdown-divider"></div>
-            <%= link_to "Tiere, die deine Unterstützung brauchen!", animals_path(params: {search_inputs: {sponsorship_status: "without_sponsorship"}}), class:"dropdown-item"  %>
-            <% Animal.species.each do |species| %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t(species), animals_path(params: {search_inputs: {species: species}}), class:"dropdown-item"  %>
-            <% end %>
+          <%= link_to "Tiere, die deine Unterstützung brauchen!", animals_path(params: {search_inputs: {sponsorship_status: "without_sponsorship"}}), class:"dropdown-item"  %>
+          <% Animal.species.each do |species| %>
+            <div class="dropdown-divider"></div>
+            <%= link_to t(species), animals_path(params: {search_inputs: {species: species}}), class:"dropdown-item"  %>
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Nachruf", animals_path(params: {search_inputs: {health_status: "dead"}}), class:"dropdown-item"  %>
         </div>
       </li>
       <li class="nav-item dropdown">
