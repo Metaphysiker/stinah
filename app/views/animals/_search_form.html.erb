@@ -16,6 +16,10 @@
     <br>
     <%= f.input :sponsorship_status, label: "Patenschafts-Status", required: false, collection: Sponsorship.sponsorship_statuses.map {|p| [t("#{p}"), p]} %>
     <br>
+    <div class="d-none">
+      <%= f.input :health_status, label: "Gesundheits-Status", required: false, collection: Animal.health_statuses.map {|p| [t("#{p}"), p]} %>
+    </div>
+    <br>
   </div>
 </div>
   <%= f.submit "Suchen", id: "trigger_search", class: "btn btn-primary" %>

@@ -59,3 +59,7 @@ Kontakt:  rechts von Stinah
       <%= image_tag picture, class: "img-fluid mx-auto my-2" %>
     <% end %>
   </div>
+
+  <hr />
+  Leider können wir keine Spenden unter 30 Franken pro Monat annehmen,
+  da der administrative Aufwand für kleine Spenden zu gross ist.

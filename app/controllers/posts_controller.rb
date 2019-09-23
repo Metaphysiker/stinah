@@ -10,8 +10,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.order("created_at").reverse_order.page(params[:page])
 
-    set_meta_tags title: 'News', reverse: true,
-              description: 'Alle Neuigkeiten und Ereignisse zu Stinah.'
+    set_meta_tags title: 'Aktuell', reverse: true,
+              description: 'Hier finden Sie alle Neuigkeiten und Ereignisse zu Stinah.'
   end
 
   # GET /posts/1
