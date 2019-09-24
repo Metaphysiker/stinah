@@ -9,11 +9,11 @@
   <div class="collapse navbar-collapse" id="navbarMain">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <%= link_to "Aktuell", posts_path, class:"nav-link #{'active' unless @posts.nil?}"  %>
+        <%= link_to t("aktuell"), posts_path, class:"nav-link #{'active' unless @posts.nil?}"  %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle new-home-request-or-offer-nav <%= 'active' unless @animals.nil? %>" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Unsere Tiere
+          <%= t("our_animals") %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Alle Tiere im Überblick", animals_path, class:"dropdown-item"  %>
@@ -29,7 +29,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle tiervermittlung-nav <%= 'active' if (action_name == 'newhome') || (action_name == 'new') %>" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Tiervermittlung
+          <%= t("tiervermittlung") %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Informationen Tiervermittlung", newhome_path, class:"dropdown-item"  %>
@@ -41,7 +41,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle about-nav  <%= 'active' if (action_name == 'about') || (action_name == 'internship') || (action_name == 'testimonials') || (!@team_members.nil?) %>" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Über STINAH
+          <%= t("about_stinah") %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Über Stinah", about_path, class:"dropdown-item"  %>
@@ -54,13 +54,13 @@
         </div>
       </li>
       <li class="nav-item">
-        <%= link_to "Unterstützen!", support_path, class:"nav-link #{'active' if action_name == 'support'}"  %>
+        <%= link_to t("support"), support_path, class:"nav-link #{'active' if action_name == 'support'}"  %>
       </li>
       <li class="nav-item">
-        <%= link_to "FAQ",  faq_path, class:"nav-link #{'active' if action_name == 'faq'}"  %>
+        <%= link_to t("faq"),  faq_path, class:"nav-link #{'active' if action_name == 'faq'}"  %>
       </li>
       <li class="nav-item">
-        <%= link_to "Kontakt",  contact_path, class:"nav-link  #{'active' if action_name == 'contact'}"  %>
+        <%= link_to t("contact"),  contact_path, class:"nav-link  #{'active' if action_name == 'contact'}"  %>
       </li>
     </ul>
     </ul>
