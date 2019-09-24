@@ -95,6 +95,23 @@ class HomeOffersController < ApplicationController
     redirect_to home_offer_path(@home_offer)
   end
 
+  def search_home_offers
+    if params[:search_inputs].present?
+      @search_inputs = OpenStruct.new(params[:search_inputs])
+    else
+      @search_inputs = OpenStruct.new()
+    end
+  @home_offers = HomeOffersSearch.new(@search_inputs).search
+  @home_offers = @home_offers.page(params[:page])
+
+  #@records = Search.new(model: klass, search_term: search_term, tag_list: tag_list, institutions: institutions, assigned_to_user_id: assigned_to_user_id, page: params[:page]).search
+  #@search_inputs = params[:search_inputs]
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_home_offer
