@@ -37,4 +37,4 @@ require("@rails/actiontext")
 require("chartkick")
 require("chart.js")
 
-require("packs/scroll_to_anchor")
+//require("packs/scroll_to_anchor")
