@@ -57,6 +57,7 @@ de:
   without_sponsorship: "Ohne Paten"
   with_sponsorship: "Mit Paten"
   routes:
+    calendar: "kalender"
     work_calendar: "kalender"
     newhome: "tiervermittlung"
     about: "über-stinah"

@@ -36,3 +36,5 @@ require("@rails/actiontext")
 //import ahoy from "ahoy.js";
 require("chartkick")
 require("chart.js")
+
+require("packs/scroll_to_anchor")
