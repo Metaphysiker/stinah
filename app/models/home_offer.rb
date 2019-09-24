@@ -10,7 +10,7 @@ class HomeOffer < ApplicationRecord
   scope :archived, -> { where(archived: true) }
   scope :unarchived, -> { where(archived: false) }
 
-    scope :home_offers_ilike, ->(search_term) { where("search_field ILIKE ?", search_term) }
+  scope :home_offers_ilike, ->(search_term) { where("search_field ILIKE ?", search_term) }
 
   def name
     "#{firstname} #{lastname}"
