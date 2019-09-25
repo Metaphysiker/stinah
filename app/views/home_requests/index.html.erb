@@ -5,7 +5,39 @@
       <%= render "home_requests/search_form", home_requests: @home_requests %>
       <br />
       <div class="home_requests">
-        <%= render "home_requests/home_requests", home_requests: @home_requests %>
+        <%#= render "home_requests/home_requests", home_requests: @home_requests %>
+        <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>
+              ID
+            </th>
+            <th>Anbieter</th>
+            <th>
+              Erstellt
+            </th>
+            <th>
+              Matches
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @home_requests.each do |home_request| %>
+            <tr>
+              <td>
+                <%= link_to home_request.id, home_request_path(home_request) %>
+              </td>
+              <td>
+                <%= link_to "#{home_request.messenger_or_owner}", home_request_path(home_request) %>
+              </td>
+              <td><%= link_to "#{l(home_request.created_at)}", home_request_path(home_request) %></td>
+              <td>
+                <%= render "home_requests/matches", home_request: home_request %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        </table>
       </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <% home_requests.each do |home_request| %>
   <div class="card my-4">
     <div class="card-header">
-      <%= home_request.messenger_or_owner %> - <%= l(home_request.created_at) %>
+      <%= link_to "#{home_request.messenger_or_owner} - #{l(home_request.created_at)}", home_request_path(home_request) %>
     </div>
     <div class="card-body">
       <% if local_assigns.has_key?(:search_term) %>

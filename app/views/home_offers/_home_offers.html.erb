@@ -1,7 +1,7 @@
 <% home_offers.each do |home_offer| %>
   <div class="card my-4">
     <div class="card-header">
-      <%= home_offer.name %> - <%= l(home_offer.created_at) %>
+      <%= link_to "#{home_offer.name} - #{l(home_offer.created_at)}", home_offer_path(home_offer) %>
     </div>
     <div class="card-body">
       <% if local_assigns.has_key?(:search_term) %>
