@@ -9,9 +9,9 @@
     <div class="text-justify">
       <p class="card-text"><%= post.content %></p>
       <% unless post.video_src.blank? %>
-        <p class="text-center">
-          <%= get_video_iframe(post.video_src) %>
-        </p>
+      <div class="embed-responsive embed-responsive-16by9">
+        <%= get_video_iframe(post.video_src) %>
+      </div>
       <% end %>
 
       <% if post.video.attached? %>

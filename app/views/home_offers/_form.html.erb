@@ -49,12 +49,13 @@
     <hr />
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :race, placeholder: 'z.B. "Araber" oder "egal"', required: true %>
+    <%#= f.input :age, as: :boolean, label: " egal", :input_html => { :checked => true } %>
     <div class="row">
       <div class="col-6">
-        <%= f.input :min_age, input_html: {  value: 0 }, required: true %>
+        <%= f.input :min_age, input_html: {  value: 0 }, required: true, disabled: false %>
       </div>
       <div class="col-6">
-        <%= f.input :max_age, input_html: {  value: 100 }, required: true %>
+        <%= f.input :max_age, input_html: {  value: 100 }, required: true, disabled: false %>
       </div>
     </div>
     <div class="row">
