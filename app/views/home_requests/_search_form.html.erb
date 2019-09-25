@@ -10,7 +10,8 @@
   </p>
 <div class="collapse <%= "show" unless @search_inputs.nil? || true %> mb-2" id="search_options">
   <div class="card card-body">
-    <%= f.input :archived, as: :boolean, label: "Archiv", required: false %>
+    <%= f.input :archived, as: :select, label: "Archiv", collection: [["Nicht archiviert", 0],["Archiviert", 1]], required: false %>
+    <%#= f.input :archived, as: :boolean, label: "Archiv", required: false %>
     <%#= f.input :species, label: Animal.human_attribute_name("species"), required: false, collection: Animal.species.map {|p| [t("#{p}"), p]} %>
     <br />
   </div>

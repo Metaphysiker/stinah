@@ -14,6 +14,7 @@
     <%#= f.input :active, as: :boolean, label: "Active", required: false %>
     <%#= f.input :species, label: Animal.human_attribute_name("species"), required: false, collection: Animal.species.map {|p| [t("#{p}"), p]} %>
     <br />
+    <%= f.input :control, as: :select, label: "Kontrolle", collection: [["fällig", 1],["nicht fällig", 0]] %>
   </div>
 </div>
   <%= f.submit "Suchen", id: "trigger_search", class: "btn btn-primary" %>

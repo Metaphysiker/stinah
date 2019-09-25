@@ -8,7 +8,13 @@ class HomeOffersController < ApplicationController
   # GET /home_offers
   # GET /home_offers.json
   def index
-    @home_offers = HomeOffer.unarchived.order(:created_at)
+    #@home_offers = HomeOffer.unarchived.order(:created_at)
+    if params[:search_inputs].present?
+      @search_inputs = OpenStruct.new(params[:search_inputs])
+    else
+      @search_inputs = OpenStruct.new(archived: false)
+    end
+  @home_offers = HomeOffersSearch.new(@search_inputs).search
   end
 
   # GET /home_offers/1
