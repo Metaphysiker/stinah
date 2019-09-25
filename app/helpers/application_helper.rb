@@ -18,4 +18,8 @@ module ApplicationHelper
     !current_user.nil? && current_user.roles.where(role: "admin").exists?
   end
 
+  def is_current_user_volunteer?
+    !current_user.nil? && current_user.roles.where(role: "volunteer").exists?
+  end
+
 end

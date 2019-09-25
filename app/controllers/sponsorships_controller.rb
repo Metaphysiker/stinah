@@ -1,6 +1,6 @@
 class SponsorshipsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :activate_sponsorship, :deactivate_sponsorship]
-  before_action :is_user_allowed?, only: [:index, :activate_sponsorship, :deactivate_sponsorship]
+  before_action :is_user_allowed?, only: [:index, :activate_sponsorship, :deactivate_sponsorship, :check_payment, :search_sponsorships]
   before_action :set_sponsorship, only: [:activate_sponsorship, :deactivate_sponsorship, :check_payment]
 
   include ApplicationHelper
@@ -62,7 +62,7 @@ class SponsorshipsController < ApplicationController
     end
 
     @sponsorships = SponsorshipsSearch.new(@search_inputs).search
-    
+
     respond_to do |format|
       format.js
     end

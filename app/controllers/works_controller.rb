@@ -1,6 +1,9 @@
 class WorksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_work, only: [:show, :edit, :update, :destroy, :delete_for_calendar]
+  before_action :is_user_allowed?
+
+  include ApplicationHelper
 
   # GET /works
   # GET /works.json
@@ -90,5 +93,14 @@ class WorksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
       params.require(:work).permit(:date, :shift_start, :shift_end, :food)
+    end
+
+    def is_user_allowed?
+      if !(is_current_user_admin? || is_current_user_volunteer?)
+        #raise "not authorized"
+        sign_out current_user
+        flash[:notice] = "Sie sind nicht authorisiert!"
+        redirect_to root_path
+      end
     end
 end
