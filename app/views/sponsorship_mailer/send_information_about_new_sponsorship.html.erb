@@ -1,0 +1,13 @@
+<h1>Neue Patenschaft</h1>
+<p>
+  <b>Name: </b> <%= @sponsorship.firstname %> <%= @sponsorship.lastname %>
+  <br />
+  <b>e-Mail: </b> <%= @sponsorship.email %>
+  <br />
+  <b>Spendenbetrag: </b> <%= @sponsorship.donation %>
+  <br />
+  <b>Tier: </b> <%= @sponsorship.animal.name %>
+</p>
+<p>
+  Alle Patenschaften sind hier zu finden: <%= link_to "Patenschaften", sponsorships_url %>.
+</p>

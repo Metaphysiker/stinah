@@ -18,18 +18,18 @@ class SponsorshipsController < ApplicationController
     #user = User.find(params[:user_id])
     #animal = Animal.find(params[:animal_id])
     #donation = params[:donation].to_d
-    Sponsorship.create(sponsorship_params)
+    sponsorship = Sponsorship.create(sponsorship_params)
     redirect_back(fallback_location: root_path)
     #redirect_to my_sponsorships_path
 
     #mail to sponsor
-    SponsorshipMailer.bank_information(sponsorship_params[:email]).deliver_now
+    SponsorshipMailer.send_bank_information_to_sponsor(sponsorship_params[:email]).deliver_now
 
     #mail to Admin
-    SponsorshipMailer.bank_information("s.raess@me.com").deliver_later
+    SponsorshipMailer.send_information_about_new_sponsorship("s.raess@me.com", sponsorship).deliver_later
 
     #mail to Claudia Steiger
-    #SponsorshipMailer.bank_information("steiger@stinah.ch").deliver_now
+    #SponsorshipMailer.send_information_about_new_sponsorship("steiger@stinah.ch").deliver_now
 
   end
 
