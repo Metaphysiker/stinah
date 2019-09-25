@@ -10,8 +10,8 @@ class SponsorshipsController < ApplicationController
   end
 
   def index
-    #@sponsorships = Sponsorship.all
-    @animals_with_sponsorships = Animal.joins(:sponsorships).distinct
+    @sponsorships = Sponsorship.all
+    #@animals_with_sponsorships = Animal.joins(:sponsorships).distinct
   end
 
   def add_sponsorship
@@ -52,6 +52,20 @@ class SponsorshipsController < ApplicationController
   def check_payment
     @sponsorship.update( last_check_of_payment: Date.today)
     redirect_back(fallback_location: root_path)
+  end
+
+  def search_sponsorships
+    if params[:search_inputs].present?
+      @search_inputs = OpenStruct.new(params[:search_inputs])
+    else
+      @search_inputs = OpenStruct.new()
+    end
+
+    @sponsorships = SponsorshipsSearch.new(@search_inputs).search
+    
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

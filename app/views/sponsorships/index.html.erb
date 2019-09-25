@@ -2,7 +2,11 @@
   <div class="jumbotron bg-white">
     <h1>Patenschaften</h1>
     <hr>
+    <%= render "sponsorships/search_form", sponsorships: @sponsorships %>
+    <br />
     <%#= render partial: "sponsorships/animals_with_sponsorships", collection: @animals_with_sponsorships, as: :animals_with_sponsorships %>
-    <%= render "sponsorships/animals_with_sponsorships", animals_with_sponsorships: @animals_with_sponsorships %>
+    <div class="sponsorships">
+        <%= render "sponsorships/animals_with_sponsorships", sponsorships: @sponsorships %>
+    </div>
   </div>
 </div>

@@ -8,14 +8,7 @@ class HomeRequestsController < ApplicationController
   # GET /home_requests
   # GET /home_requests.json
   def index
-    #@home_requests = HomeRequest.unarchived.order(:created_at)
-    @archived = params[:archived]
-    puts @archived
-    if @archived.blank? || @archived == "false"
-      @home_requests = HomeRequest.unarchived.order(:created_at)
-    else
-      @home_requests = HomeRequest.archived.order(:created_at)
-    end
+    @home_requests = HomeRequest.unarchived.order(:created_at)
   end
 
   # GET /home_requests/1

@@ -8,13 +8,7 @@ class HomeOffersController < ApplicationController
   # GET /home_offers
   # GET /home_offers.json
   def index
-    @archived = params[:archived]
-    puts @archived
-    if @archived.blank? || @archived == "false"
-      @home_offers = HomeOffer.unarchived.order(:created_at)
-    else
-      @home_offers = HomeOffer.archived.order(:created_at)
-    end
+    @home_offers = HomeOffer.unarchived.order(:created_at)
   end
 
   # GET /home_offers/1

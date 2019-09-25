@@ -1,3 +1,6 @@
+<% animal_ids = sponsorships.pluck(:animal_id) %>
+<% sponsorship_ids = sponsorships.pluck(:id) %>
+<% animals_with_sponsorships = Animal.where(id: animal_ids) %>
 <% animals_with_sponsorships.each do |animal| %>
 <div class="card my-4">
 
@@ -10,7 +13,7 @@
     </div>
   <div class="card-body">
     <p class="card-text">
-      <% animal.sponsorships.each_with_index do |sponsorship, i| %>
+      <% animal.sponsorships.where(id: sponsorship_ids).each_with_index do |sponsorship, i| %>
       <div class="row">
         <div class="col-6 border-right">
           <b>Pate: </b> <%= "#{sponsorship.firstname} #{sponsorship.lastname}" %>

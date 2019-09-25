@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get 'animals/search_animals', to: 'animals#search_animals', as: 'search_animals'
   get 'home_offers/search_home_offers', to: 'home_offers#search_home_offers', as: 'search_home_offers'
   get 'home_requests/search_home_requests', to: 'home_requests#search_home_requests', as: 'search_home_requests'
+  get 'sponsorships/search_sponsorships', to: 'sponsorships#search_sponsorships', as: 'search_sponsorships'
 
   #visits
   get '/visits', to: 'static_pages#visits', as: "visits"
