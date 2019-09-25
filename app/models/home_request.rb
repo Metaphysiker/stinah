@@ -1,4 +1,18 @@
 class HomeRequest < ApplicationRecord
+  validates :owner_firstname, :owner_lastname,
+            :owner_street, :owner_plz, :owner_city, :owner_phone, :owner_email,
+            :species, :race, :age, :size, :color,
+            :gender, :castrated, :features, :stable_owner_firstname,
+            :stable_owner_lastname, :stable_street, :stable_plz, :stable_city,
+            :stable_phone, :how_was_animal_held, :how_was_animal_used,
+            :reason_of_request, :is_animal_healthy, :privacy_statement, presence: true
+
+validates :messenger_firstname, :messenger_lastname,
+          :messenger_plz, :messenger_street, :messenger_city,
+          :messenger_phone, :messenger_mail, presence: true,  if: ->(o) { o.are_you_owner == false }
+
+validates :date_of_killing, presence: true, if: ->(o) { o.killing_of_animal_intended == true }
+
   has_many_attached :pictures
 
   scope :archived, -> { where(archived: true) }
