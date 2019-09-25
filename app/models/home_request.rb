@@ -20,11 +20,45 @@ class HomeRequest < ApplicationRecord
 
   def update_search_field
 
-    # Animal.find_each(&:save)
+    # HomeRequest.find_each(&:save)
+
+    #killing_of_animal_intended
+    date_of_killing_string = ""
+    unless date_of_killing.blank?
+      date_of_killing_string = I18n.l(date_of_killing)
+    end
+
     self.search_field =
     [
       owner_firstname,
       owner_lastname,
+      owner_street,
+      owner_plz,
+      owner_city,
+      owner_phone,
+      owner_email,
+      messenger_firstname,
+      messenger_lastname,
+      messenger_street,
+      messenger_plz,
+      messenger_city,
+      messenger_phone,
+      messenger_mail,
+      I18n.t(species),
+      race,
+      color,
+      features,
+      date_of_killing_string,
+      stable_owner_firstname,
+      stable_owner_lastname,
+      stable_street,
+      stable_plz,
+      stable_city,
+      stable_phone,
+      how_was_animal_held,
+      how_was_animal_used,
+      reason_of_request,
+      is_animal_healthy
     ].compact.join(' ')
 
   end

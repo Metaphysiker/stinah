@@ -1,0 +1,11 @@
+var records_div = ".home_requests";
+
+$( records_div ).fadeOut( "fast", function() {
+
+    content = $("<%= escape_javascript( render 'home_requests', home_requests: @home_requests, search_term: @search_inputs[:search_term] ) %>")
+
+    $(records_div).fadeOut("fast", function(){
+      $(records_div).empty().append(content).fadeIn("fast");
+    });
+
+});

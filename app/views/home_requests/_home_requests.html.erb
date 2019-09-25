@@ -1,0 +1,26 @@
+<% home_requests.each do |home_request| %>
+  <div class="card my-4">
+    <div class="card-header">
+      <%= home_request.messenger_or_owner %> - <%= l(home_request.created_at) %>
+    </div>
+    <div class="card-body">
+      <% if local_assigns.has_key?(:search_term) %>
+        <%= highlight(home_request.search_field, search_term, highlighter: '<span style="background-color: #FFFF00"><strong>\1</strong></span>') %>
+      <% else %>
+      <p class="card-text">
+        <%= truncate(home_request.search_field, length: 200) %>
+      </p>
+      <% end %>
+      <hr />
+      <%= link_to "Zum Eintrag", home_request_path(home_request), class: "btn btn-success m-2" %>
+      <%= render "home_requests/matches", home_request: home_request %>
+      <%= link_to 'Eintrag bearbeiten', edit_home_request_path(home_request), class: "btn btn-primary m-2" %>
+      <%= link_to 'Eintrag löschen', home_request_path(home_request), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+      <% if home_request.archived %>
+        <%= link_to 'Eintrag aus dem Archiv holen', archive_home_request_path(home_request), method: :post, class: "btn btn-warning m-2" %>
+      <% else %>
+        <%= link_to 'Eintrag ins Archiv verschieben', archive_home_request_path(home_request), method: :post, class: "btn btn-warning m-2" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

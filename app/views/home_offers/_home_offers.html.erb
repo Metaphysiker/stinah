@@ -1,34 +1,26 @@
-<table class="table table-striped table-bordered">
-<thead>
-  <tr>
-    <th>
-      ID
-    </th>
-    <th>Anbieter</th>
-    <th>
-      Erstellt
-    </th>
-    <th>
-      Matches
-    </th>
-  </tr>
-</thead>
-<tbody>
-  <% home_offers.each do |home_offer| %>
-    <tr>
-      <td>
-        <%= link_to home_offer.id, home_offer_path(home_offer) %>
-      </td>
-      <td>
-        <%= link_to "#{home_offer.firstname} #{home_offer.lastname}", home_offer_path(home_offer) %>
-      </td>
-      <td><%= link_to "#{l(home_offer.created_at)}", home_offer_path(home_offer) %></td>
-      <td>
-        <%= render "home_offers/matches", home_offer: home_offer %>
-      </td>
-    </tr>
-  <% end %>
-</tbody>
-</table>
-<%#= render partial: "home_offers/show", collection: @home_offers, as: :home_offer %>
-<br />
+<% home_offers.each do |home_offer| %>
+  <div class="card my-4">
+    <div class="card-header">
+      <%= home_offer.name %> - <%= l(home_offer.created_at) %>
+    </div>
+    <div class="card-body">
+      <% if local_assigns.has_key?(:search_term) %>
+        <%= highlight(home_offer.search_field, search_term, highlighter: '<span style="background-color: #FFFF00"><strong>\1</strong></span>') %>
+      <% else %>
+      <p class="card-text">
+        <%= truncate(home_offer.search_field, length: 200) %>
+      </p>
+      <% end %>
+      <hr />
+      <%= link_to "Zum Eintrag", home_offer_path(home_offer), class: "btn btn-success m-2" %>
+      <%= render "home_offers/matches", home_offer: home_offer %>
+      <%= link_to 'Eintrag bearbeiten', edit_home_offer_path(home_offer), class: "btn btn-primary m-2" %>
+      <%= link_to 'Eintrag löschen', home_offer_path(home_offer), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+      <% if home_offer.archived %>
+        <%= link_to 'Eintrag aus dem Archiv holen', archive_home_offer_path(home_offer), method: :post, class: "btn btn-warning m-2" %>
+      <% else %>
+        <%= link_to 'Eintrag ins Archiv verschieben', archive_home_offer_path(home_offer), method: :post, class: "btn btn-warning m-2" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

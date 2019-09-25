@@ -102,7 +102,7 @@ class HomeOffersController < ApplicationController
       @search_inputs = OpenStruct.new()
     end
   @home_offers = HomeOffersSearch.new(@search_inputs).search
-  @home_offers = @home_offers.page(params[:page])
+  #@home_offers = @home_offers.page(params[:page])
 
   #@records = Search.new(model: klass, search_term: search_term, tag_list: tag_list, institutions: institutions, assigned_to_user_id: assigned_to_user_id, page: params[:page]).search
   #@search_inputs = params[:search_inputs]

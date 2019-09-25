@@ -7,10 +7,5 @@
       <div class="home_offers">
         <%= render "home_offers/home_offers", home_offers: @home_offers %>
       </div>
-      <% if @archived == "true" %>
-        <%= link_to "Nicht-archivierte Einträge anzeigen", home_offers_path(archived: false), class: "btn btn-primary m-2" %>
-      <% else %>
-        <%= link_to "Archivierte Einträge anzeigen", home_offers_path(archived: true), class: "btn btn-primary m-2" %>
-      <% end %>
   </div>
 </div>

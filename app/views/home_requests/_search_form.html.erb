@@ -1,4 +1,4 @@
-<%= simple_form_for :search_inputs, {url: search_home_offers_path, method: :get, remote: true} do |f| %>
+<%= simple_form_for :search_inputs, {url: search_home_requests_path, method: :get, remote: true} do |f| %>
   <%= f.text_field :search_term, placeholder: "Suchen", autocomplete: :off, class: "form-control" %>
   <%#= f.hidden_field :model, value: records.klass.to_s %>
   <%#= f.hidden_field :random_div, value: random_div %>
@@ -21,7 +21,7 @@
 
 <script>
     $(document).ready(function(){
-      var records_div = ".home_offers"
+      var records_div = ".home_requests"
       var search_records = "#search_inputs_search_term";
       var trigger_records = "#trigger_search";
 

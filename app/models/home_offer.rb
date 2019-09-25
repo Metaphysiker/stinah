@@ -5,6 +5,8 @@ class HomeOffer < ApplicationRecord
             :race, :gender, :castrated,
             :stable, :from_then_on, :privacy_statement, presence: true
 
+  validates :stable_alt, presence: true,  if: ->(o) { o.stable == "Anderes" }
+
   before_save :update_search_field
 
   scope :archived, -> { where(archived: true) }
@@ -18,7 +20,7 @@ class HomeOffer < ApplicationRecord
 
   def update_search_field
 
-    # Animal.find_each(&:save)
+    # HomeOffer.find_each(&:save)
 
     self.search_field =
     [
@@ -38,6 +40,7 @@ class HomeOffer < ApplicationRecord
       stable,
       stable_alt,
       I18n.l(from_then_on)
+      #I18n.l(created_at)
     ].compact.join(' ')
 
   end

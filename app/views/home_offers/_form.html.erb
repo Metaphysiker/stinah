@@ -77,7 +77,7 @@
     <h4>Angaben zum angebotenen Platz</h4>
     <hr />
     <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>
-    <div class="stable_alt_field"  style="display: none;">
+    <div class="stable_alt_field" class="d-none">
       <%= f.input :stable_alt %>
     </div>
     <%= f.input :from_then_on, required: true %>
