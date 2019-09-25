@@ -11,7 +11,8 @@ validates :messenger_firstname, :messenger_lastname,
           :messenger_plz, :messenger_street, :messenger_city,
           :messenger_phone, :messenger_mail, presence: true,  if: ->(o) { o.are_you_owner == false }
 
-validates :date_of_killing, presence: true, if: ->(o) { o.killing_of_animal_intended == true }
+#validates :killing_of_animal_scheduled, presence: true, if: ->(o) { o.killing_of_animal_intended == true }
+validates :date_of_killing, presence: true, if: ->(o) { o.killing_of_animal_scheduled == true }
 
   has_many_attached :pictures
 

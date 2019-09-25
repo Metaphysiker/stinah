@@ -48,6 +48,8 @@
       <p>
         <b><%= home_request.class.human_attribute_name("killing_of_animal_intended") %></b> <%= t(home_request.killing_of_animal_intended) %>
         <br />
+        <b><%= home_request.class.human_attribute_name("killing_of_animal_intended") %></b> <%= t(home_request.killing_of_animal_scheduled) %>
+        <br />
         <b><%= home_request.class.human_attribute_name("date_of_killing") %></b> <%= home_request.date_of_killing.is_a?(Date) ? l(home_request.date_of_killing) : "Kein Datum angegeben" %>
       </p>
       <hr />

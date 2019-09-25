@@ -83,8 +83,11 @@
     <h4>Angaben zur Dringlichkeit</h4>
     <hr />
     <%= f.input :killing_of_animal_intended %>
-    <div class="date_of_killing_field <%= 'hidden' if @home_request.killing_of_animal_intended != true %>">
-      <%= f.input :date_of_killing, label: true, include_blank: true %>
+    <div class="killing_of_animal_scheduled_field <%= 'hidden' if @home_request.killing_of_animal_intended != true %>">
+      <%= f.input :killing_of_animal_scheduled %>
+    </div>
+    <div class="date_of_killing_field <%= 'hidden' if @home_request.killing_of_animal_scheduled != true %>">
+      <%= f.input :date_of_killing, include_blank: true %>
     </div>
     <hr />
     <h4>Angaben zum Abgabetier</h4>
@@ -159,6 +162,10 @@
     });
 
     $("#home_request_killing_of_animal_intended").change(function(){
+      $(".killing_of_animal_scheduled_field").toggle();
+    });
+
+    $("#home_request_killing_of_animal_scheduled").change(function(){
       $(".date_of_killing_field").toggle();
     });
 
