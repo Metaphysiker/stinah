@@ -26,7 +26,7 @@ class SponsorshipsController < ApplicationController
     SponsorshipMailer.send_bank_information_to_sponsor(sponsorship_params[:email]).deliver_now
 
     #mail to Admin
-    SponsorshipMailer.send_information_about_new_sponsorship("s.raess@me.com", sponsorship).deliver_later
+    SponsorshipMailer.send_information_about_new_sponsorship("s.raess@me.com", sponsorship).deliver_now
 
     #mail to Claudia Steiger
     #SponsorshipMailer.send_information_about_new_sponsorship("steiger@stinah.ch").deliver_now
