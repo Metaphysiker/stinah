@@ -49,21 +49,22 @@
     <hr />
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]}, required: true %>
     <%= f.input :race, placeholder: 'z.B. "Araber" oder "egal"', required: true %>
-    <%#= f.input :age, as: :boolean, label: " egal", :input_html => { :checked => true } %>
+    <%= f.input :age, label: " egal" %>
     <div class="row">
       <div class="col-6">
-        <%= f.input :min_age, input_html: {  value: 0 }, required: true, disabled: false %>
+        <%= f.input :min_age, input_html: {  value: 0 }, required: true, disabled: @home_offer.age %>
       </div>
       <div class="col-6">
-        <%= f.input :max_age, input_html: {  value: 100 }, required: true, disabled: false %>
+        <%= f.input :max_age, input_html: {  value: 100 }, required: true, disabled: @home_offer.age %>
       </div>
     </div>
+    <%= f.input :size, label: " egal" %>
     <div class="row">
       <div class="col-6">
-        <%= f.input :min_size, input_html: {  value: 0 }, required: true %>
+        <%= f.input :min_size, input_html: {  value: 0 }, required: true, disabled: @home_offer.size %>
       </div>
       <div class="col-6">
-        <%= f.input :max_size, input_html: {  value: 300 }, required: true %>
+        <%= f.input :max_size, input_html: {  value: 300 }, required: true, disabled: @home_offer.size %>
       </div>
     </div>
 
@@ -101,5 +102,30 @@
         $(".stable_alt_field").hide();
       }
     });
+
+    $("#home_offer_age").change(function(){
+      if ($("#home_offer_age").is(':checked')) {
+        $("#home_offer_min_age").prop("disabled", true);
+        $("#home_offer_max_age").prop("disabled", true);
+        $("#home_offer_min_age").val(0);
+        $("#home_offer_max_age").val(100);
+      } else {
+        $("#home_offer_min_age").prop("disabled", false);
+        $("#home_offer_max_age").prop("disabled", false);
+      }
+    });
+
+    $("#home_offer_size").change(function(){
+      if ($("#home_offer_size").is(':checked')) {
+        $("#home_offer_min_size").prop("disabled", true);
+        $("#home_offer_max_size").prop("disabled", true);
+        $("#home_offer_min_size").val(0);
+        $("#home_offer_max_size").val(300);
+      } else {
+        $("#home_offer_min_size").prop("disabled", false);
+        $("#home_offer_max_size").prop("disabled", false);
+      }
+    });
+
   });
 </script>

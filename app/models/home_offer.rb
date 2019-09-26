@@ -7,6 +7,12 @@ class HomeOffer < ApplicationRecord
 
   validates :stable_alt, presence: true,  if: ->(o) { o.stable == "Anderes" }
 
+  validates :min_age, presence: true,  if: ->(o) { o.age == false }
+  validates :max_age, presence: true,  if: ->(o) { o.age == false }
+
+  validates :min_size, presence: true,  if: ->(o) { o.size == false }
+  validates :max_size, presence: true,  if: ->(o) { o.size == false }
+
   before_save :update_search_field
 
   scope :archived, -> { where(archived: true) }

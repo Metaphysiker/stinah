@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_175510) do
+ActiveRecord::Schema.define(version: 2019_09_26_185800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,8 +125,8 @@ ActiveRecord::Schema.define(version: 2019_09_23_175510) do
     t.date "from_then_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "age"
-    t.string "size"
+    t.boolean "age", default: true
+    t.boolean "size", default: true
     t.boolean "rideable"
     t.integer "min_age"
     t.integer "max_age"
