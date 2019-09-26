@@ -125,8 +125,6 @@ ActiveRecord::Schema.define(version: 2019_09_26_185800) do
     t.date "from_then_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "age", default: true
-    t.boolean "size", default: true
     t.boolean "rideable"
     t.integer "min_age"
     t.integer "max_age"
@@ -134,6 +132,8 @@ ActiveRecord::Schema.define(version: 2019_09_26_185800) do
     t.integer "max_size"
     t.boolean "archived", default: false
     t.text "search_field", default: ""
+    t.boolean "age", default: true
+    t.boolean "size", default: true
   end
 
   create_table "home_requests", force: :cascade do |t|
