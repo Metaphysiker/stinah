@@ -1,0 +1,9 @@
+<h1>Neue Tierabgabe</h1>
+<p>
+  <b>Name: </b> <%= @home_request.messenger_or_owner %>
+  <br />
+  <b>Tierart: </b> <%= t(@home_request.species) %>
+</p>
+<p>
+  Alle Tierabgaben sind hier zu finden: <%= link_to "Tierabgaben", home_requests_url %>.
+</p>

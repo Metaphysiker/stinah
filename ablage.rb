@@ -9,15 +9,15 @@ Angebot: Mehrere für verschiedene Formular 3 Tiere eingeben können.
 
 Mehrere Tiere hinzufügen können und Plus hinzufügen
 
-Neue Patenschaft: Neue Mail an Stinah und User
+#Neue Patenschaft: Neue Mail an Stinah und User
 
 Schön darstellung danke Bild vom Tier und schönes Bild.
 
 #Vierteljährlich: Bestätigung für Patenschaft anfragen: Patenschaften 2 Buttons: Bezahlt ja, oder nein -> Fällt er aus.
 
-Links: FAQ
+#Links: FAQ
 
-Kontakt:  rechts von Stinah
+#Kontakt:  rechts von Stinah
 
 
 ------------

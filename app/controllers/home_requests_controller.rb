@@ -34,6 +34,9 @@ class HomeRequestsController < ApplicationController
       if @home_request.save
         format.html { redirect_to @home_request, notice: 'Home request was successfully created.' }
         format.json { render :show, status: :created, location: @home_request }
+
+        #mail to Admin
+        OfferRequestMailer.send_information_about_new_home_request("s.raess@me.com", @home_request).deliver_now
       else
         format.html { render :new }
         format.json { render json: @home_request.errors, status: :unprocessable_entity }

@@ -40,6 +40,9 @@ class HomeOffersController < ApplicationController
       if @home_offer.save
         format.html { redirect_to @home_offer, notice: 'Home offer was successfully created.' }
         format.json { render :show, status: :created, location: @home_offer }
+
+        #mail to Admin
+        OfferRequestMailer.send_information_about_new_home_offer("s.raess@me.com", @home_offer).deliver_now
       else
         format.html { render :new }
         format.json { render json: @home_offer.errors, status: :unprocessable_entity }

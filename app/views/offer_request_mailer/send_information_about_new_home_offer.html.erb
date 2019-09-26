@@ -1,0 +1,9 @@
+<h1>Neues Platz-Angebot</h1>
+<p>
+  <b>Name: </b> <%= @home_offer.name %>
+  <br />
+  <b>Tierart: </b> <%= t(@home_offer.species) %>
+</p>
+<p>
+  Alle Platz-Angebote sind hier zu finden: <%= link_to "Platz-Angebote", home_offers_url %>.
+</p>
