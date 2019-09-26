@@ -57,6 +57,18 @@ class StaticPagesController < ApplicationController
     set_meta_tags noindex: true
   end
 
+  def impressum
+    set_meta_tags title: 'Impressum', reverse: true
+  end
+
+  def cookies
+    set_meta_tags title: 'Cookies', reverse: true
+  end
+
+  def privacy_statement
+    set_meta_tags title: 'Datenschutzerklärung', reverse: true
+  end
+
   private
 
   def is_user_allowed?

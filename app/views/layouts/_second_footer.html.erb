@@ -14,7 +14,7 @@
 
     <hr class="bg-lightgray">
     <div class="pb-5 pt-2 text-lightgray">
-        Impressum | Cookie-Richtlinie
+        <%= link_to "Impressum", impressum_path, class: "text-white" %> | <%= link_to "Cookie-Richtlinie", cookies_path, class: "text-white" %>
         <br />
         © <%= Date.today.year %> stinah.ch | Webdesign brigittekreisl.ch
     </div>

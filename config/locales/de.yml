@@ -81,6 +81,7 @@ de:
     animals: "unsere-tiere"
     works: "arbeit"
     sponsorships: "patenschaft"
+    privacy_statement: "datenschutzerklaerung"
   date:
     formats:
       default: "%d-%m-%Y"

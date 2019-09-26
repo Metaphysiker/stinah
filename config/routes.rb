@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     get '/internship', to: 'static_pages#internship', as: "internship"
     get '/testimonials', to: 'static_pages#testimonials', as: "testimonials"
     get '/support', to: 'static_pages#support', as: "support"
+    get '/privacy_statement', to: 'static_pages#privacy_statement', as: "privacy_statement"
   end
+
+  get '/impressum', to: 'static_pages#impressum', as: "impressum"
+  get '/cookies', to: 'static_pages#cookies', as: "cookies"
 
   post '/works/create_for_calendar/', to: "works#create_for_calendar", as: 'create_for_calendar'
   delete '/works/delete_for_calendar/:id', to: "works#delete_for_calendar", as: 'delete_for_calendar'
