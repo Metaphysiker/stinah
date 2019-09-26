@@ -146,7 +146,7 @@
     <h4>Bilder hochladen (optional)</h4>
     <%= f.file_field :pictures, multiple: true %>
     <hr />
-    <%= f.input :privacy_statement, required: true %>
+    <%= f.input :privacy_statement, label: "Ich bin mit der #{link_to 'Datenschutzerklärung', privacy_statement_path, target: '_blank'} einverstanden".html_safe, required: true %>
     <hr />
   </div>
 

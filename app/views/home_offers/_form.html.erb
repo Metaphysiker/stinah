@@ -84,7 +84,7 @@
     </div>
     <%= f.input :from_then_on, required: true %>
     <hr />
-    <%= f.input :privacy_statement, required: true %>
+    <%= f.input :privacy_statement, label: "Ich bin mit der #{link_to 'Datenschutzerklärung', privacy_statement_path, target: '_blank'} einverstanden".html_safe, required: true %>
   </div>
   <hr />
   <div class="form-actions">
