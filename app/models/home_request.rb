@@ -14,6 +14,8 @@ validates :messenger_firstname, :messenger_lastname,
 #validates :killing_of_animal_scheduled, presence: true, if: ->(o) { o.killing_of_animal_intended == true }
 validates :date_of_killing, presence: true, if: ->(o) { o.killing_of_animal_scheduled == true }
 
+  validates :age, :size, numericality: true
+
   has_many_attached :pictures
 
   scope :archived, -> { where(archived: true) }

@@ -13,6 +13,8 @@ class HomeOffer < ApplicationRecord
   validates :min_size, presence: true,  if: ->(o) { o.size == false }
   validates :max_size, presence: true,  if: ->(o) { o.size == false }
 
+  validates :min_age, :max_age, :min_size, :max_size, numericality: true
+
   before_save :update_search_field
 
   scope :archived, -> { where(archived: true) }

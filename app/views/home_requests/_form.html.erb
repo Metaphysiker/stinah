@@ -44,7 +44,7 @@
     </div>
     <%= f.input :do_you_own_authority_of_mediation %>
     <hr />
-    <div class="messenger_fields <%= 'hidden' if @home_request.are_you_owner != false %>">
+    <div class="messenger_fields <%= 'hidden' if @home_request.are_you_owner == true %>">
       <h4>Angaben zum Melder</h4>
       <hr />
       <div class="row">
