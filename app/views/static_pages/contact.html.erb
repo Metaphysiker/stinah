@@ -8,27 +8,40 @@
       <h1 class="my-4 text-darker-base-color">Kontakt</h1>
     </div>
     <div class="text-justify text-darker-base-color">
-      <p align="center">Bitte lesen Sie zuerst unsere <a href="https://www.stinah.ch/faq-links/">FAQ's</a>
+      <p align="center">Bitte lesen Sie zuerst unsere <%= link_to "FAQ's", faq_path %>
   </p>
   <p align="center">Sollten Sie weitere Fragen oder Anregungen haben,
-  freuen wir uns über Ihre Kontaktaufnahme
+  freuen wir uns über Ihre Kontaktaufnahme.
   </p>
-  <p align="center">&nbsp;
+  <p class="text-center">
+    <ul>
+      <li>
+        Für Tieraufnahmen nutzen Sie bitte das
+        entsprechende Formular für <%= link_to "Tieraufnahme", new_home_offer_path %>
+      </li>
+      <li>
+        Für Tierabgaben nutzen Sie bitte das entsprechende
+        Formular für <%= link_to "Tierabgabe", new_home_request_path %>
+      </li>
+      <li>
+        Patenschaften können Sie abschliessen, indem Sie sich <%= link_to "unsere Tiere", animals_path %>
+        anschauen und bei einem Tier, von dem Sie gerne ein Pate werden möchten, auf das Feld "Pate werden!" drücken.
+      </li>
+    </ul>
   </p>
-  <p align="center">&nbsp;
+  <hr />
+  <p class="text-center">
+    Für anderweitige Anfragen können Sie uns wie folgt kontaktieren:
   </p>
-  <p align="center">Für Tieraufnahmen nutzen Sie bitte das
-  entsprechende Formular für <a href="https://www.stinah.ch/neues-zuhause-gesucht/ich-biete-einem-tier-ein-neues-zuhause/">Tieraufnahme</a>
+  <p class="text-center">
+    Stiftung Tiere in Not - Animal Help <br />
+    c/o Krepper Spring Partner <br />
+    Sophienstrasse 2<br />
+    8032 Zürich
   </p>
-  <p align="center">&nbsp;
-  </p>
-  <p align="center">Für Tierabgaben nutzen Sie bitte das entsprechende
-  Formular für <a href="https://www.stinah.ch/neues-zuhause-gesucht/ich-suche-ein-neues-zuhause-f%C3%BCr-mein-tier/">Tierabgabe</a>
-  </p>
-  <p align="center">&nbsp;
-  </p>
-  <p align="center">Für Patenschaftsanfragen finden Sie das Formular
-  unter Spenden&nbsp;<a href="https://www.stinah.ch/faq-links/spenden/patenschaft/">Patenschaft</a>
+  <p class="text-center">
+    Festanschluss: 0041 (0)52 654 33 33 <br />
+    <%= mail_to "info@stinah.ch" %>
   </p>
     </div>
   </div>
