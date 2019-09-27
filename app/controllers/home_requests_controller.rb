@@ -1,6 +1,6 @@
 class HomeRequestsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :successfully_added_home_request]
-  before_action :is_user_allowed?, except: [:new, :create, , :successfully_added_home_request]
+  before_action :is_user_allowed?, except: [:new, :create, :successfully_added_home_request]
   before_action :set_home_request, only: [:show, :edit, :update, :destroy, :archive]
 
   include ApplicationHelper
@@ -8,7 +8,7 @@ class HomeRequestsController < ApplicationController
   # GET /home_requests
   # GET /home_requests.json
   def index
-    @home_requests = HomeRequest.unarchived.order(:created_at)
+    @home_requests = HomeRequest.unarchived.order(:created_at).reverse_order
   end
 
   # GET /home_requests/1

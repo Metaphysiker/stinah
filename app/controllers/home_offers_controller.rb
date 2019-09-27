@@ -14,7 +14,7 @@ class HomeOffersController < ApplicationController
     else
       @search_inputs = OpenStruct.new(archived: false)
     end
-  @home_offers = HomeOffersSearch.new(@search_inputs).search
+  @home_offers = HomeOffersSearch.new(@search_inputs).search.order(:created_at).reverse_order
   end
 
   # GET /home_offers/1

@@ -17,6 +17,8 @@ class HomeOffer < ApplicationRecord
 
   before_save :update_search_field
 
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+
   scope :archived, -> { where(archived: true) }
   scope :unarchived, -> { where(archived: false) }
 
