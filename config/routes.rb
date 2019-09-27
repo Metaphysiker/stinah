@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     get '/privacy_statement', to: 'static_pages#privacy_statement', as: "privacy_statement"
   end
 
+  get 'home_offers/successfully_added_home_offer', to: 'home_offers#successfully_added_home_offer', as: "successfully_added_home_offer"
+  get 'home_requests/successfully_added_home_request', to: 'home_requests#successfully_added_home_request', as: "successfully_added_home_request"
+
   get '/impressum', to: 'static_pages#impressum', as: "impressum"
   get '/cookies', to: 'static_pages#cookies', as: "cookies"
 

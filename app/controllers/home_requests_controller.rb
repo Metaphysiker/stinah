@@ -32,7 +32,9 @@ class HomeRequestsController < ApplicationController
 
     respond_to do |format|
       if @home_request.save
-        format.html { redirect_to @home_request, notice: 'Home request was successfully created.' }
+        #format.html { redirect_to @home_request, notice: 'Home request was successfully created.' }
+        format.html { redirect_to successfully_added_home_request_path }
+
         format.json { render :show, status: :created, location: @home_request }
 
         #mail to Admin
@@ -100,6 +102,10 @@ class HomeRequestsController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def successfully_added_home_request
+
   end
 
   private

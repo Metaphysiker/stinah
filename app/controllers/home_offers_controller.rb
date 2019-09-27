@@ -38,7 +38,9 @@ class HomeOffersController < ApplicationController
 
     respond_to do |format|
       if @home_offer.save
-        format.html { redirect_to @home_offer, notice: 'Home offer was successfully created.' }
+        #format.html { redirect_to @home_offer, notice: 'Home offer was successfully created.' }
+        format.html { redirect_to successfully_added_home_offer_path }
+
         format.json { render :show, status: :created, location: @home_offer }
 
         #mail to Admin
@@ -113,6 +115,10 @@ class HomeOffersController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def successfully_added_home_offer
+
   end
 
   private
