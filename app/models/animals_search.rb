@@ -34,9 +34,15 @@ class AnimalsSearch
 
     unless @sponsorship_status.nil? || @sponsorship_status.blank?
       if @sponsorship_status == "without_sponsorship"
-        query = query.left_outer_joins(:sponsorships).where( sponsorships: { id: nil } )
+        #query = query.left_outer_joins(:sponsorships).where( sponsorships: { id: nil } )
+        #nil_ids = Animal.left_outer_joins(:sponsorships).where( sponsorships: { id: nil } ).pluck(:id)
+        #false_ids = Animal.left_outer_joins(:sponsorships).where.not(sponsorships: { active: true}).pluck(:id)
+        animal_ids = Animal.left_outer_joins(:sponsorships).where(sponsorships: { active: true})
+
+        query = query.where.not(id: animal_ids)
       elsif @sponsorship_status == "with_sponsorship"
-        query = query.joins(:sponsorships)
+        #query = query.joins(:sponsorships)
+        query = query.left_outer_joins(:sponsorships).where(sponsorships: { active: true})
       end
     end
     #unless @race.nil? || @race.blank?
