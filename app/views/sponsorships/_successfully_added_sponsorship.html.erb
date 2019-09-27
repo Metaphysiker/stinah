@@ -1,0 +1,46 @@
+<% if sponsorship.animal.cover.attached? %>
+  <div class="card-header text-center">
+    <%= link_to animal_path(animal) do %>
+      <%= image_tag animal.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
+    <% end %>
+  </div>
+<% end %>
+<br />
+<h3 class="animated infinite pulse text-center">Vielen Dank für Ihre Patenschaft!</h3>
+<br />
+<p>
+  <b>Monatliche Spende:</b> <%= sponsorship.donation %> Franken
+</p>
+<p>
+  Bitte richten Sie einen Dauerauftrag für die folgende Bankverbindung ein:
+</p>
+<p>
+  <b>Kontoverbindung: PC-Konto: 90-153438-8</b>
+</p>
+<p>
+    <br/>
+    <span>Adresse:</span><br/>
+    <span>Stiftung Tiere in Not - Animal Help (Stinah)</span><br/>
+    <span>c/o Krepper Spring Partner</span><br/>
+    Sophienstrasse 2
+</p>
+
+<p>
+    <span>CH-8032 Zürich</span><br/>
+    <br/>
+    <span>IBAN Nummer elektronisch:</span><br/>
+    <span>CH0309000000901534388</span><br/>
+    <br/>
+    <span>IBAN Nummer in Papierform:</span><br/>
+    <span>IBAN CH03 0900 0000 9015 3438 8</span><br/>
+    <br/>
+    <span>SWIFT Code / BIC PostFinance:</span><br/>
+    <span>POFICHBEXXX</span><br/>
+    <br/>
+    <span>Clearing Nummer PostFinance:</span><br/>
+    <span>09000</span><br/>
+    <br/>
+    <span>Name des Finanzinstituts:</span><br/>
+    <span>SWISS POST - PostFinance,</span><br/>
+    <span>Nordring 8, 3030 Bern, Schweiz</span>
+</p>

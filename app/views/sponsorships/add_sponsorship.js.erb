@@ -1,0 +1,24 @@
+var record_id = ".<%= @sponsorship.class.to_s.downcase%>-<%= @sponsorship.id || "" %>";
+var record_id_edit_form = ".<%= @sponsorship.class.to_s.downcase%>-<%= @sponsorship.id || "" %>-edit-modal";
+var record = "<%= @sponsorship.inspect %>";
+var errors = <%= raw @sponsorship.errors.full_messages %>;
+
+console.log(record_id);
+console.log(record_id_edit_form);
+
+if (jQuery.isEmptyObject(errors)) {
+  console.log("keine Fehler");
+
+  content = $("<%= escape_javascript( render 'sponsorships/successfully_added_sponsorship', sponsorship: @sponsorship, animal: @sponsorship.animal ) %>");
+  $("#new_sponsorship").replaceWith(function(){
+    return $(content).hide().fadeIn("slow");
+  });
+
+} else {
+  console.log("Fehler vorhanden");
+
+    content = $("<%= escape_javascript( render 'sponsorships/form', sponsorship: @sponsorship, animal: @sponsorship.animal ) %>");
+    $("#new_sponsorship").replaceWith(function(){
+      return $(content).hide().fadeIn("slow");
+    });
+}

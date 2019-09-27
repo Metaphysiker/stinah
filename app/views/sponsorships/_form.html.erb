@@ -1,10 +1,14 @@
 <%# user_id = current_user.nil? ? 0 : current_user.id %>
+<%# sponsorship = sponsorship || @sponsorship %>
 
-<%= simple_form_for sponsorship, url: add_sponsorship_path, method: :post do |f| %>
+<%= simple_form_for(sponsorship, url: add_sponsorship_path, remote: true) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <%#= f.hidden_field :user_id, value: current_user.id %>
+  <div class="form-inputs">
   <%= f.hidden_field :animal_id, value: animal.id %>
   <%= f.label :donation, "Meine monatliche Spende an #{animal.name}: " %>
-  <%= f.input :donation, label: false, input_html: {value: '200'} %>
+  <%= f.input :donation, label: false, input_html: {value: sponsorship.donation || 200} %>
   <div class="alert alert-info">
     Ihre Zuwendung kommt voll und ganz den Tieren zu und ist steuerlich absetzbar!
   </div>
@@ -23,6 +27,7 @@
   <%= f.input :public, label: " Ich möchte namentlich als Pate für #{animal.name} erwähnt werden." %>
   <%#= label :q, "Laaabel" %>
   <%#= text_field_tag :q, nil, class: 'form-control' %>
+</div>
   <br />
   <%= f.button :submit, class: "btn btn-success" %>
 <% end %>

@@ -18,18 +18,28 @@ class SponsorshipsController < ApplicationController
     #user = User.find(params[:user_id])
     #animal = Animal.find(params[:animal_id])
     #donation = params[:donation].to_d
-    sponsorship = Sponsorship.create(sponsorship_params)
-    redirect_back(fallback_location: root_path)
+
+    @sponsorship = Sponsorship.new(sponsorship_params)
+
+    respond_to do |format|
+      if @sponsorship.save
+        #format.json { render :show, status: :created, location: @post }
+        format.js
+        #mail to sponsor
+        SponsorshipMailer.send_bank_information_to_sponsor(sponsorship_params[:email]).deliver_now
+        #mail to Admin
+        SponsorshipMailer.send_information_about_new_sponsorship("s.raess@me.com", @sponsorship).deliver_now
+        #mail to Claudia Steiger
+        #SponsorshipMailer.send_information_about_new_sponsorship("steiger@stinah.ch").deliver_now
+      else
+        format.js
+        #format.html { render :new}
+        #format.json { render json: @sponsorship.errors, status: :unprocessable_entity }
+      end
+    end
+
+    #redirect_back(fallback_location: root_path)
     #redirect_to my_sponsorships_path
-
-    #mail to sponsor
-    SponsorshipMailer.send_bank_information_to_sponsor(sponsorship_params[:email]).deliver_now
-
-    #mail to Admin
-    SponsorshipMailer.send_information_about_new_sponsorship("s.raess@me.com", sponsorship).deliver_now
-
-    #mail to Claudia Steiger
-    #SponsorshipMailer.send_information_about_new_sponsorship("steiger@stinah.ch").deliver_now
 
   end
 

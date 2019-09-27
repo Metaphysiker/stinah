@@ -4,7 +4,9 @@ class Sponsorship < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :animal
 
-  #validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :firstname, :lastname, :email, :donation, presence: true
+  validates :donation, numericality: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   scope :sponsorships_ilike, ->(search_term) { joins(:animal).where("sponsorships.firstname ILIKE ? OR sponsorships.lastname ILIKE ? OR sponsorships.email ILIKE ? OR animals.name ILIKE ?", search_term, search_term, search_term, search_term) }
 
