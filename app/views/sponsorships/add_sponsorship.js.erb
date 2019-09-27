@@ -1,4 +1,4 @@
-var record_id = ".<%= @sponsorship.class.to_s.downcase%>-<%= @sponsorship.id || "" %>";
+var record_id = "#new_sponsorship_animal_<%= @sponsorship.animal.id %>";
 var record_id_edit_form = ".<%= @sponsorship.class.to_s.downcase%>-<%= @sponsorship.id || "" %>-edit-modal";
 var record = "<%= @sponsorship.inspect %>";
 var errors = <%= raw @sponsorship.errors.full_messages %>;
@@ -10,7 +10,7 @@ if (jQuery.isEmptyObject(errors)) {
   console.log("keine Fehler");
 
   content = $("<%= escape_javascript( render 'sponsorships/successfully_added_sponsorship', sponsorship: @sponsorship, animal: @sponsorship.animal ) %>");
-  $("#new_sponsorship").replaceWith(function(){
+  $(record_id).replaceWith(function(){
     return $(content).hide().fadeIn("slow");
   });
 
@@ -18,7 +18,7 @@ if (jQuery.isEmptyObject(errors)) {
   console.log("Fehler vorhanden");
 
     content = $("<%= escape_javascript( render 'sponsorships/form', sponsorship: @sponsorship, animal: @sponsorship.animal ) %>");
-    $("#new_sponsorship").replaceWith(function(){
+    $(record_id).replaceWith(function(){
       return $(content).hide().fadeIn("slow");
     });
 }
