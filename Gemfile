@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#friendly_id
+gem 'friendly_id', '~> 5.2.4'
 #translate routes
 gem 'route_translator'
 #charts

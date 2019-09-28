@@ -128,6 +128,8 @@ GEM
     ffi (1.11.1-x86-mingw32)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     fuzzy-string-match (1.0.1)
       RubyInline (>= 3.8.6)
     geocoder (1.5.1)
@@ -328,6 +330,7 @@ DEPENDENCIES
   devise-i18n
   faker!
   font-awesome-rails
+  friendly_id (~> 5.2.4)
   fuzzy-string-match
   groupdate
   jbuilder (~> 2.7)

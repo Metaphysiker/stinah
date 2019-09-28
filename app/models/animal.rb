@@ -3,6 +3,9 @@ class Animal < ApplicationRecord
   has_rich_text :description
   has_many_attached :pictures
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :sponsorships
   has_many :users, through: :sponsorships, dependent: :destroy
 

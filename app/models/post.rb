@@ -4,4 +4,7 @@ class Post < ApplicationRecord
   has_one_attached :video
   has_many_attached :pictures
   belongs_to :user
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 end
