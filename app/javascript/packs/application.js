@@ -37,4 +37,7 @@ require("@rails/actiontext")
 require("chartkick")
 require("chart.js")
 
+//import 'social-share-button'
+//require("packs/social_share_button")
+
 //require("packs/scroll_to_anchor")
