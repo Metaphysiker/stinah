@@ -55,7 +55,7 @@
       <hr />
       <h4>Angaben zur Abgabgetier</h4>
       <hr />
-      <b><%= home_request.class.human_attribute_name("species") %></b>: <%= t(home_request.species) %>
+      <b><%= home_request.class.human_attribute_name("species") %></b>: <%= t(home_request.species, count: 1) %>
       <br />
       <b><%= home_request.class.human_attribute_name("race") %></b>: <%= t(home_request.race) %>
       <br />

@@ -10,7 +10,7 @@
   </p>
 <div class="collapse <%= "show" unless @search_inputs.nil? || true %> mb-2" id="search_options">
   <div class="card card-body">
-    <%= f.input :species, label: Animal.human_attribute_name("species"), required: false, collection: Animal.species.map {|p| [t("#{p}"), p]} %>
+    <%= f.input :species, label: Animal.human_attribute_name("species"), required: false, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]} %>
     <br />
     <%= f.input :gender, label: Animal.human_attribute_name("gender"), required: false, collection: Animal.genders.reject{|a| a == "whatever"}.map {|p| [t("#{p}"), p]} %>
     <br>

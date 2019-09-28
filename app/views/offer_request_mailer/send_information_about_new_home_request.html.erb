@@ -2,7 +2,7 @@
 <p>
   <b>Name: </b> <%= @home_request.messenger_or_owner %>
   <br />
-  <b>Tierart: </b> <%= t(@home_request.species) %>
+  <b>Tierart: </b> <%= t(@home_request.species, count: 1) %>
 </p>
 <p>
   Alle Tierabgaben sind hier zu finden: <%= link_to "Tierabgaben", home_requests_url %>.

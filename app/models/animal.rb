@@ -55,7 +55,7 @@ class Animal < ApplicationRecord
 
     species_string = ""
     unless species.blank?
-      species_string = species + " " + I18n.t(species)
+      species_string = species + " " + I18n.t(species, count: 1)
     end
 
     gender_string = ""

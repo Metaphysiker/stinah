@@ -32,18 +32,42 @@
 
 de:
   hello: "Hallo Welt!"
-  pig: "Schwein"
-  donkey: "Esel"
-  cow: "Kuh"
-  sheep: "Schaf"
-  chicken: "Huhn"
-  horse: "Pferd"
-  dog: "Hund"
-  cat: "Katze"
-  goat: "Ziege"
-  camelid: "Kamelid"
-  rabbit: "Kaninchen"
-  cavy: "Meerschweinchen"
+  pig:
+    one: "Schwein"
+    other: "Schweine"
+  donkey:
+    one: "Esel"
+    other: "Esel"
+  cow:
+    one: "Kuh"
+    other: "Kühe"
+  sheep:
+    one: "Schaf"
+    other: "Schafe"
+  chicken:
+    one: "Huhn"
+    other: "Hühner"
+  horse:
+    one: "Pferd"
+    other: "Pferde"
+  dog:
+    one: "Hund"
+    other: "Hunde"
+  cat:
+    one: "Katze"
+    other: "Katzen"
+  goat:
+    one: "Ziege"
+    other: "Ziegen"
+  camelid:
+    one: "Kamelid"
+    other: "Kameliden"
+  rabbit:
+    one: "Kaninchen"
+    other: "Kaninchen"
+  cavy:
+    one: "Meerschweinchen"
+    other: "Meerschweinchen"
   other: "Anderes"
   male: "männlich"
   female: "weiblich"

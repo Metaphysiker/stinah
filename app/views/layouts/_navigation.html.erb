@@ -21,7 +21,7 @@
           <%= link_to "Tiere, die deine Unterstützung brauchen!", animals_path(params: {search_inputs: {sponsorship_status: "without_sponsorship"}}), class:"dropdown-item"  %>
           <% Animal.species.each do |species| %>
             <div class="dropdown-divider"></div>
-            <%= link_to t(species), animals_path(params: {search_inputs: {species: species}}), class:"dropdown-item"  %>
+            <%= link_to t(species, count: 2), animals_path(params: {search_inputs: {species: species}}), class:"dropdown-item"  %>
           <% end %>
           <div class="dropdown-divider"></div>
           <%= link_to "Nachruf", animals_path(params: {search_inputs: {health_status: "dead"}}), class:"dropdown-item"  %>

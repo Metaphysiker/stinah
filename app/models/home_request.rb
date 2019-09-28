@@ -63,7 +63,7 @@ class HomeRequest < ApplicationRecord
       messenger_city,
       messenger_phone,
       messenger_mail,
-      I18n.t(species),
+      I18n.t(species, count: 1),
       race,
       color,
       features,

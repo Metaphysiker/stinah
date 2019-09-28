@@ -12,7 +12,7 @@
       <p class="card-text"><%= animal.description %></p>
       <hr />
       <% unless animal.species.blank? %>
-      <p class="card-text"><b>Tierart: </b><%= t(animal.species) %></p>
+      <p class="card-text"><b>Tierart: </b><%= t(animal.species, count: 1) %></p>
       <% end %>
       <% unless animal.race.blank? %>
       <p class="card-text"><b>Rasse: </b><%= animal.race %></p>

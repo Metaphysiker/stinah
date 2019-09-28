@@ -45,7 +45,7 @@ class HomeOffer < ApplicationRecord
       experience,
       motivation,
       plans,
-      I18n.t(species),
+      I18n.t(species, count: 1),
       race,
       stable,
       stable_alt,

@@ -92,7 +92,7 @@
     <hr />
     <h4>Angaben zum Abgabetier</h4>
     <hr />
-    <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}"), p]}, required: true %>
+    <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]}, required: true %>
     <%= f.input :race, placeholder: "Araber", required: true %>
     <%= f.input :age, placeholder: "4", required: true %>
     <%= f.input :size, placeholder: "145", required: true  %>

@@ -12,7 +12,7 @@
   <div class="card card-body">
     <%= f.input :active, as: :select, label: "Status", collection: [["Aktiv", 1],["In-Aktiv", 0]] %>
     <%#= f.input :active, as: :boolean, label: "Active", required: false %>
-    <%#= f.input :species, label: Animal.human_attribute_name("species"), required: false, collection: Animal.species.map {|p| [t("#{p}"), p]} %>
+    <%#= f.input :species, label: Animal.human_attribute_name("species"), required: false, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]} %>
     <br />
     <%= f.input :control, as: :select, label: "Kontrolle", collection: [["fällig", 1],["nicht fällig", 0]] %>
   </div>

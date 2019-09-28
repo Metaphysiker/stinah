@@ -87,8 +87,8 @@ class RequestOfferComparison
     comparison_result.push(
       [
         HomeOffer.human_attribute_name("species"),
-        I18n.t(home_request.species),
-        I18n.t(home_offer.species),
+        I18n.t(home_request.species, count: 1),
+        I18n.t(home_offer.species, count: 1),
         species_match
       ]
     )

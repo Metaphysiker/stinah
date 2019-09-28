@@ -40,7 +40,7 @@
       <h4>Angaben zum gewünschten Tier</h4>
       <hr />
       <p>
-        <b><%= home_offer.class.human_attribute_name("species") %></b>: <%= t(home_offer.species) %>
+        <b><%= home_offer.class.human_attribute_name("species") %></b>: <%= t(home_offer.species, count: 1) %>
         <br />
         <b><%= home_offer.class.human_attribute_name("race") %></b>: <%= t(home_offer.race) %>
         <br />
