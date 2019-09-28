@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_many_attached :pictures
   belongs_to :user
 
+  validates :title, :content, presence: true
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 end
