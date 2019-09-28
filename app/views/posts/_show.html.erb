@@ -53,7 +53,7 @@
   </div>
   <div class="card-footer text-muted">
     von <%= post.user.username %> - <%= post.created_at.strftime("%d-%m-%Y") %>
-    <%= social_share_button_tag(post.title, :url => post_path(post), desc: post.content, :image => post.cover) %>
+    <%#= social_share_button_tag(post.title, :url => post_path(post), desc: post.content, :image => post.cover) %>
 
   <% if is_current_user_admin? %>
     <div class="text-center m-2">
