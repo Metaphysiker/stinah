@@ -8,7 +8,7 @@ class TeamMembersController < ApplicationController
   # GET /team_members
   # GET /team_members.json
   def index
-    @team_members = TeamMember.all
+    @team_members = TeamMember.all.order(:updated_at)
 
     set_meta_tags title: 'Das Team von STINAH', reverse: true,
               description: 'Auf dieser Seite finden Sie das Team von Stinah.',
