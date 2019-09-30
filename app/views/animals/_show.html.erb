@@ -55,6 +55,12 @@
       </ul>
       <% end %>
     </div>
+    <% if local_assigns.has_key?(:show_gallery) %>
+    <hr />
+    <div class="text-center">
+      <%= render "shared/social_media_buttons", random_id: SecureRandom.hex(10), text: truncate(animal.description.to_plain_text.squish, length: 140), url: animal_url(animal) %>
+    </div>
+    <% end %>
   </div>
   <div class="card-footer text-muted">
 

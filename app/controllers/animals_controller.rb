@@ -24,6 +24,16 @@ class AnimalsController < ApplicationController
   # GET /animals/1
   # GET /animals/1.json
   def show
+    image = @animal.cover.attached? ? rails_blob_path(@animal.cover) : ActionController::Base.helpers.asset_url("main-picture.png", type: :image)
+
+    set_meta_tags title: @animal.name, reverse: true,
+              description: Animal.last.description.to_plain_text.truncate(300),
+              keywords: I18n.t(Animal.last.species, count: 1),
+              og: {
+                title: :title,
+                url: animal_url(@animal),
+                image: image
+              }
   end
 
   # GET /animals/new
