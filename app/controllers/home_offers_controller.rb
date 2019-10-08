@@ -27,6 +27,30 @@ class HomeOffersController < ApplicationController
     @home_offer = HomeOffer.new
   end
 
+  # GET /home_offers/easy_form
+  def new_for_multiple_animals
+    @home_offer = HomeOffer.new
+  end
+
+  def create_for_multiple_animals
+    @home_offer = HomeOffer.new(home_offer_params)
+
+    respond_to do |format|
+      if @home_offer.save
+        #format.html { redirect_to @home_offer, notice: 'Home offer was successfully created.' }
+        format.html { redirect_to successfully_added_home_offer_path }
+
+        #format.json { render :show, status: :created, location: @home_offer }
+
+        #mail to Admin
+        OfferRequestMailer.send_information_about_new_home_offer("s.raess@me.com", @home_offer).deliver_now
+      else
+        format.html { render :new_for_multiple_animals }
+        #format.json { render json: @home_offer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /home_offers/1/edit
   def edit
   end

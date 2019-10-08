@@ -48,6 +48,10 @@ Rails.application.routes.draw do
   #redirects
   #get '/team', to: redirect('/team_members')
 
+  #easy_form
+  get 'home_offers/new_for_multiple_animals', to: 'home_offers#new_for_multiple_animals', as: 'new_for_multiple_animals'
+  post 'home_offers/create_for_multiple_animals', to: 'home_offers#create_for_multiple_animals', as: 'create_for_multiple_animals'
+
   devise_for :users
   localized do
     resources :team_members
