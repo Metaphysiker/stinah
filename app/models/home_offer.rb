@@ -17,6 +17,12 @@ class HomeOffer < ApplicationRecord
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  #validates :animal_0, :presence => true,:inclusion => { :in => COUNTRY_CODES.keys.map(&:to_s) }
+  #validates :animal_0, inclusion: { in: %w(small medium large),
+  #  message: "%{value} is not a valid size" }
+
+  #accepts_nested_attributes_for :animal_0, reject_if: proc { |attributes| attributes['race'].blank? }
+
   before_save :update_search_field
 
   scope :archived, -> { where(archived: true) }

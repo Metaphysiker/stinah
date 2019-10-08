@@ -34,6 +34,7 @@ class HomeOffersController < ApplicationController
 
   def create_for_multiple_animals
     @home_offer = HomeOffer.new(home_offer_params)
+    #byebug
 
     respond_to do |format|
       if @home_offer.save

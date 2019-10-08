@@ -47,7 +47,7 @@
     <hr />
     <h4>Angaben zum gewünschten Tier</h4>
       <% 2.times.each_with_index do |i| %>
-        <%= f.simple_fields_for :animal_2 do |animal| %>
+        <%= f.simple_fields_for "animal_#{i}".to_sym do |animal| %>
           <%= render 'form_for_animal', f: animal %>
         <% end %>
       <% end %>
