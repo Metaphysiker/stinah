@@ -1,0 +1,34 @@
+<hr />
+<%= f.input :species, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]}, required: true %>
+<%= f.input :race, placeholder: 'z.B. "Araber" oder "egal"', required: true %>
+
+<div class="form-inline pb-3">
+    <span class="pr-3">Alter: *</span>
+    <%= f.input :age, as: :boolean, label: "egal" %>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <%= f.input :min_age, input_html: {  value: @home_offer.min_age || 0 }, required: true, readonly: @home_offer.age %>
+  </div>
+  <div class="col-6">
+    <%= f.input :max_age, input_html: {  value: @home_offer.max_age || 100 }, required: true, readonly: @home_offer.age %>
+  </div>
+</div>
+<div class="form-inline pb-3">
+    <span class="pr-3">Grösse: *</span>
+    <%= f.input :size, as: :boolean, label: " egal" %>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <%= f.input :min_size, input_html: {  value: @home_offer.min_size || 0 }, required: true, readonly: @home_offer.size %>
+  </div>
+  <div class="col-6">
+    <%= f.input :max_size, input_html: {  value: @home_offer.max_size || 300 }, required: true, readonly: @home_offer.size %>
+  </div>
+</div>
+<%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+<%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+<%= f.input :rideable, as: :boolean, required: true %>
+<hr />
