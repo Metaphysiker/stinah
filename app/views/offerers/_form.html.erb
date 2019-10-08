@@ -15,10 +15,9 @@
     <%= f.input :experience %>
     <%= f.input :motivation %>
     <%= f.input :plans %>
-      <%= f.simple_fields_for :home_offers do |p| %>
-        <%= p.input :firstname %>
-        <%= p.input :lastname %>
-      <% end %>
+
+    <%= render 'home_offers/form_for_desired_animal', p:f %>
+
   </div>
 
   <div class="form-actions">

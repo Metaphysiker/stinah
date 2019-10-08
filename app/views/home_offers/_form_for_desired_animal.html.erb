@@ -1,0 +1,93 @@
+<%= p.simple_fields_for :home_offers do |f| %>
+  <h4>Angaben zum gewünschten Tier</h4>
+  <hr />
+  <%= f.index %>
+  <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]}, required: true %>
+  <%= f.input :race, placeholder: 'z.B. "Araber" oder "egal"', required: true %>
+
+  <div class="form-inline pb-3">
+      <span class="pr-3">Alter: *</span>
+      <%= f.input :age, label: "egal" %>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.input :min_age, input_html: {  value: 0 }, required: true, readonly: true %>
+    </div>
+    <div class="col-6">
+      <%= f.input :max_age, input_html: {  value: 100 }, required: true, readonly: true %>
+    </div>
+  </div>
+  <div class="form-inline pb-3">
+      <span class="pr-3">Grösse: *</span>
+      <%= f.input :size, label: " egal" %>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.input :min_size, input_html: {  value: 0 }, required: true, readonly: true %>
+    </div>
+    <div class="col-6">
+      <%= f.input :max_size, input_html: {  value: 300 }, required: true, readonly: true %>
+    </div>
+  </div>
+
+  <%#= f.input :age, placeholder: '1-5', required: true %>
+  <%#= f.input :size, placeholder: '145cm - 155cm', required: true %>
+  <%#= f.collection_check_boxes :size, [[true, 'Yes'], [false, 'No'],[true, 'Kant']], :first, :last %>
+  <%#= f.input :size, :collection => ["Asian","Black", "Hispanic/Latino", "Indian", "Middle Eastern", "Native American", "Pacific Islander", "White", "Other"], :include_blank => "Anything", wrapper_html: { class: 'form-group' }, :as => :check_boxes, include_hidden: false, :input_html => {:name => "search[ethnicity][]", :multiple => true} %>
+  <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+  <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+  <%= f.input :rideable, required: true %>
+  <hr />
+  <h4>Angaben zum angebotenen Platz</h4>
+  <hr />
+  <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>
+
+  <div class="stable_alt_field <%= 'hidden' if true %>">
+    <%= f.input :stable_alt %>
+  </div>
+  <%= f.input :from_then_on, required: true %>
+  <hr />
+<% end %>
+
+<script>
+  $( document ).ready(function() {
+
+    let form_id = "#offerer_home_offers_attributes_<%= p.index %>";
+    console.log("form_id: " + form_id);
+
+    $(form_id + "_age").change(function(){
+      if ($(form_id + "_age").is(':checked')) {
+        $(form_id + "_min_age").prop("readonly", true);
+        $(form_id + "_max_age").prop("readonly", true);
+        $(form_id + "_min_age").val(0);
+        $(form_id + "_max_age").val(100);
+      } else {
+        $(form_id + "_min_age").prop("readonly", false);
+        $(form_id + "_max_age").prop("readonly", false);
+      }
+    });
+
+    $(form_id + "_size").change(function(){
+      if ($(form_id + "_size").is(':checked')) {
+        $(form_id + "_min_size").prop("readonly", true);
+        $(form_id + "_max_size").prop("readonly", true);
+        $(form_id + "_min_size").val(0);
+        $(form_id + "_max_size").val(300);
+      } else {
+        $(form_id + "_min_size").prop("readonly", false);
+        $(form_id + "_max_size").prop("readonly", false);
+      }
+    });
+
+    $(form_id + "_stable").change(function(){
+      if ($(this).val().toLowerCase() === "anderes") {
+        $(".stable_alt_field").toggle();
+      } else {
+        $(".stable_alt_field").hide();
+      }
+    });
+
+  });
+</script>
