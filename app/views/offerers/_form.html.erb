@@ -4,21 +4,47 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :firstname %>
-    <%= f.input :lastname %>
-    <%= f.input :street %>
-    <%= f.input :city %>
-    <%= f.input :plz %>
-    <%= f.input :phone %>
-    <%= f.input :email %>
-    <%= f.input :year %>
-    <%= f.input :experience %>
-    <%= f.input :motivation %>
-    <%= f.input :plans %>
-
-    <%= f.simple_fields_for :home_offers do |p| %>
-      <%= render 'home_offers/form_for_desired_animal', f:p %>
-    <% end %>
+    <h4>Angaben zur Person</h4>
+    <hr />
+      <div class="row">
+        <div class="col-12">
+            <p>
+              Name *
+            </p>
+        </div>
+        <div class="col-6">
+          <%= f.input :firstname, label: false, placeholder: "Vorname", required: true %>
+        </div>
+        <div class="col-6">
+          <%= f.input :lastname, label: false, placeholder: "Nachname", required: true %>
+        </div>
+        <div class="col-12">
+          <hr />
+            Adresse *
+        </div>
+        <div class="col-12">
+          <p>
+            <%= f.input :street, label: false, placeholder: "Hauptstrasse 5" %>
+          </p>
+        </div>
+        <div class="col-6">
+          <%= f.input :city, label: false, placeholder: "Zürich", required: true  %>
+        </div>
+        <div class="col-6">
+          <%= f.input :plz, label: false, placeholder: "8000", required: true  %>
+        </div>
+      </div>
+      <hr />
+    <%= f.input :phone, placeholder: "0791234567", required: true %>
+    <%= f.input :email, placeholder: "beispiel@email.com", required: true %>
+    <%= f.input :year, placeholder: '1988', required: true %>
+    <hr />
+    <h4>Angaben zur Erfahrung und Motivation</h4>
+    <hr />
+    <%= f.input :experience, placeholder: 'z.B. Ausbildung als Pferdefachfrau', required: true %>
+    <%= f.input :motivation, placeholder: '', required: true  %>
+    <%= f.input :plans, placeholder: '', required: true %>
+    <hr />
 
     <%= f.simple_fields_for :home_offers do |p| %>
       <%= render 'home_offers/form_for_desired_animal', f:p %>

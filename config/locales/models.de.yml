@@ -1,6 +1,9 @@
 de:
   activerecord:
     models:
+      offerer:
+        one: "Anbieter"
+        other: "Anbieter"
       home_request:
         one: "Tier-Abgabe" #Platz-Anfrage
         other: "Tier-Abgaben" #Platz-Anfragen
@@ -127,3 +130,15 @@ de:
         description: "Beschreibung"
         phone: "Telefon"
         email: "e-Mail"
+      offerer:
+        firstname: "Vorname"
+        lastname: "Nachname"
+        street: "Strasse"
+        plz: "Postleitzahl"
+        city: "Ort"
+        phone: "Telefon"
+        email: "e-Mail"
+        year: "Jahrgang"
+        experience: "Verfügen Sie über eine Ausbildung oder gleichwertige Erfahrung mit der gewünschten Tierart?"
+        motivation: "Was bewegt Sie dazu, ein Tier aufzunehmen?"
+        plans: "Was sind Ihre Pläne mit dem Tier?"
