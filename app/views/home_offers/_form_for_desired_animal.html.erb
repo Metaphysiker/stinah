@@ -1,4 +1,4 @@
-  <%= home_offer = f.object %>
+  <% home_offer = f.object %>
   <h4>Angaben zum gewünschten Tier</h4>
   <hr />
   <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]}, required: true %>
@@ -39,7 +39,7 @@
   <hr />
   <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>
 
-  <div class="stable_alt_field <%= 'hidden' if home_offer.stable != 'Anderes' %>">
+  <div id="<%= "offerer_home_offers_attributes_#{f.index}" %>_stable_alt_field" class="<%= 'hidden' if home_offer.stable != 'Anderes' %>">
     <%= f.input :stable_alt %>
   </div>
   <%= f.input :from_then_on, required: true %>
@@ -76,9 +76,9 @@
 
       $(form_id + "_stable").change(function(){
         if ($(this).val().toLowerCase() === "anderes") {
-          $(".stable_alt_field").toggle();
+          $(form_id + "_stable_alt_field").toggle();
         } else {
-          $(".stable_alt_field").hide();
+          $(form_id + "_stable_alt_field").hide();
         }
       });
 
