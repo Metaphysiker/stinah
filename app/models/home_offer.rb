@@ -15,9 +15,9 @@ class HomeOffer < ApplicationRecord
 
   validates :min_age, :max_age, :min_size, :max_size, numericality: true
 
-  before_save :update_search_field
-
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  before_save :update_search_field
 
   scope :archived, -> { where(archived: true) }
   scope :unarchived, -> { where(archived: false) }

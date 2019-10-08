@@ -46,7 +46,7 @@
     <%= f.input :plans, placeholder: '', required: true %>
     <hr />
     <h4>Angaben zum gewünschten Tier</h4>
-      <% 5.times.each_with_index do |i| %>
+      <% 2.times.each_with_index do |i| %>
         <%= f.simple_fields_for :animal_2 do |animal| %>
           <%= render 'form_for_animal', f: animal %>
         <% end %>
