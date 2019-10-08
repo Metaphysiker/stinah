@@ -36,6 +36,7 @@ class OfferersController < ApplicationController
         format.json { render json: @offerer.errors, status: :unprocessable_entity }
       end
     end
+    #byebug
   end
 
   # PATCH/PUT /offerers/1
@@ -70,6 +71,6 @@ class OfferersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offerer_params
-      params.require(:offerer).permit(:firstname, :lastname, :street, :city, :plz, :phone, :email, :year, :experience, :motivation, :plans, home_offers_attributes: [:firstname, :lastname])
+      params.require(:offerer).permit(:firstname, :lastname, :street, :city, :plz, :phone, :email, :year, :experience, :motivation, :plans, home_offers_attributes: [:species, :race, :age, :min_age, :max_age, :size, :min_size, :max_size, :gender, :castrated, :rideable, :stable, :stable_alt, :from_then_on])
     end
 end

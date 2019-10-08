@@ -16,7 +16,13 @@
     <%= f.input :motivation %>
     <%= f.input :plans %>
 
-    <%= render 'home_offers/form_for_desired_animal', p:f %>
+    <%= f.simple_fields_for :home_offers do |p| %>
+      <%= render 'home_offers/form_for_desired_animal', f:p %>
+    <% end %>
+
+    <%= f.simple_fields_for :home_offers do |p| %>
+      <%= render 'home_offers/form_for_desired_animal', f:p %>
+    <% end %>
 
   </div>
 
