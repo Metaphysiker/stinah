@@ -24,6 +24,8 @@ class HomeOffer < ApplicationRecord
 
   scope :home_offers_ilike, ->(search_term) { where("search_field ILIKE ?", search_term) }
 
+  belongs_to :offerer#, optional: true
+
   def name
     "#{firstname} #{lastname}"
   end

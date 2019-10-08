@@ -1,0 +1,27 @@
+
+<%= simple_form_for(@offerer) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :street %>
+    <%= f.input :city %>
+    <%= f.input :plz %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :year %>
+    <%= f.input :experience %>
+    <%= f.input :motivation %>
+    <%= f.input :plans %>
+      <%= f.simple_fields_for :home_offers do |p| %>
+        <%= p.input :firstname %>
+        <%= p.input :lastname %>
+      <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

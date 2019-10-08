@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_143410) do
+ActiveRecord::Schema.define(version: 2019_10_08_170901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,8 @@ ActiveRecord::Schema.define(version: 2019_09_28_143410) do
     t.text "search_field", default: ""
     t.boolean "age", default: true
     t.boolean "size", default: true
+    t.bigint "offerer_id"
+    t.index ["offerer_id"], name: "index_home_offers_on_offerer_id"
   end
 
   create_table "home_requests", force: :cascade do |t|
@@ -194,6 +196,22 @@ ActiveRecord::Schema.define(version: 2019_09_28_143410) do
     t.boolean "rideable"
     t.boolean "archived", default: false
     t.text "search_field", default: ""
+  end
+
+  create_table "offerers", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "street"
+    t.string "city"
+    t.string "plz"
+    t.string "phone"
+    t.string "email"
+    t.string "year"
+    t.text "experience"
+    t.text "motivation"
+    t.text "plans"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
