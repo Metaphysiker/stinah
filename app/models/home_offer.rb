@@ -26,8 +26,11 @@ class HomeOffer < ApplicationRecord
 
     # HomeOffer.find_each(&:save)
 
+    self.offerer.update_search_field
+
     self.search_field =
     [
+      self.offerer.search_field,
       I18n.t(species, count: 1),
       race,
       stable,

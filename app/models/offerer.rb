@@ -9,13 +9,17 @@ class Offerer < ApplicationRecord
   has_many :home_offers
   accepts_nested_attributes_for :home_offers
 
+  scope :offerers_ilike, ->(search_term) { where("search_field ILIKE ?", search_term) }
+
   def name
     "#{firstname} #{lastname}"
   end
 
+    before_save :update_search_field
+
   def update_search_field
 
-    # HomeOffer.find_each(&:save)
+    # Offerer.find_each(&:save)
 
     self.search_field =
     [
@@ -29,13 +33,7 @@ class Offerer < ApplicationRecord
       year,
       experience,
       motivation,
-      plans,
-      I18n.t(species, count: 1),
-      race,
-      stable,
-      stable_alt,
-      I18n.l(from_then_on)
-      #I18n.l(created_at)
+      plans
     ].compact.join(' ')
 
   end
