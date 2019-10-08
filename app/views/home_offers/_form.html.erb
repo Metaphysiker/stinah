@@ -83,7 +83,7 @@
     <%#= f.input :size, :collection => ["Asian","Black", "Hispanic/Latino", "Indian", "Middle Eastern", "Native American", "Pacific Islander", "White", "Other"], :include_blank => "Anything", wrapper_html: { class: 'form-group' }, :as => :check_boxes, include_hidden: false, :input_html => {:name => "search[ethnicity][]", :multiple => true} %>
     <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
     <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
-    <%= f.input :rideable, required: true %>
+    <%= f.input :rideable %>
     <hr />
     <h4>Angaben zum angebotenen Platz</h4>
     <hr />

@@ -10,9 +10,9 @@
           <li class="list-group-item"><b>Anzahl Matches: </b><%= @matches.count %></li>
           <% @matches.each do |match| %>
             <% if match.id == @home_offer.id %>
-              <%= link_to match.name, home_requests_compare_path(@home_request, match), class: "list-group-item list-group-item-action list-group-item-primary" %>
+              <%= link_to match.offerer.name, home_requests_compare_path(@home_request, match), class: "list-group-item list-group-item-action list-group-item-primary" %>
             <% else %>
-              <%= link_to match.name, home_requests_compare_path(@home_request, match), class: "list-group-item list-group-item-action" %>
+              <%= link_to match.offerer.name, home_requests_compare_path(@home_request, match), class: "list-group-item list-group-item-action" %>
             <% end %>
 
           <% end %>

@@ -1,7 +1,5 @@
 class HomeOffer < ApplicationRecord
-  validates :firstname, :lastname, :street, :plz, :city,
-            :phone, :email, :year, :experience,
-            :motivation, :plans, :species,
+  validates :species,
             :race, :gender, :castrated,
             :stable, :from_then_on, :privacy_statement, presence: true
 
@@ -17,8 +15,6 @@ class HomeOffer < ApplicationRecord
 
   before_save :update_search_field
 
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-
   scope :archived, -> { where(archived: true) }
   scope :unarchived, -> { where(archived: false) }
 
@@ -26,27 +22,12 @@ class HomeOffer < ApplicationRecord
 
   belongs_to :offerer#, optional: true
 
-  def name
-    "#{firstname} #{lastname}"
-  end
-
   def update_search_field
 
     # HomeOffer.find_each(&:save)
 
     self.search_field =
     [
-      firstname,
-      lastname,
-      street,
-      plz,
-      city,
-      phone,
-      email,
-      year,
-      experience,
-      motivation,
-      plans,
       I18n.t(species, count: 1),
       race,
       stable,

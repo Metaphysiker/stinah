@@ -27,7 +27,7 @@
                 <%= link_to home_offer.id, home_offer_path(home_offer) %>
               </td>
               <td>
-                <%= link_to "#{home_offer.firstname} #{home_offer.lastname}", home_offer_path(home_offer) %>
+                <%= link_to home_offer.offerer.name, home_offer_path(home_offer) %>
               </td>
               <td><%= link_to "#{l(home_offer.created_at)}", home_offer_path(home_offer) %></td>
               <td>
