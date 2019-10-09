@@ -35,7 +35,6 @@ class HomeOffersController < ApplicationController
   # POST /home_offers.json
   def create
     @home_offer = HomeOffer.new(home_offer_params)
-
     respond_to do |format|
       if @home_offer.save
         #format.html { redirect_to @home_offer, notice: 'Home offer was successfully created.' }

@@ -28,12 +28,16 @@ class OfferersController < ApplicationController
   # POST /offerers.json
   def create
     @offerer = Offerer.new(offerer_params)
+    #byebug
 
     respond_to do |format|
       if @offerer.save
         format.html { redirect_to @offerer, notice: 'Offerer was successfully created.' }
         format.json { render :show, status: :created, location: @offerer }
       else
+        5.times do
+          @offerer.home_offers.build
+        end
         format.html { render :new }
         format.json { render json: @offerer.errors, status: :unprocessable_entity }
       end

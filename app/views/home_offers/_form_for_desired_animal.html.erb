@@ -58,8 +58,6 @@
         let form_id = "#offerer_home_offers_attributes_" + f_index;
         var home_offer_changed = "<%= (f.index == 0 || home_offer.changed?).to_s %>";
 
-        console.log(home_offer_changed === "false");
-
         if(home_offer_changed === "false"){
           $(form_id + " :input").prop("disabled", true);
           $(form_id).hide();
