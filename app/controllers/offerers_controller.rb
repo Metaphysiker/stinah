@@ -15,12 +15,27 @@ class OfferersController < ApplicationController
   # GET /offerers/new
   def new
     @offerer = Offerer.new
-    @offerer.home_offers.build
+    #@offerer.home_offers.build
   end
 
   # GET /offerers/1/edit
   def edit
 
+  end
+
+  def process_to_create_home_offer
+    @offerer = Offerer.new
+  end
+
+  def add_offerer
+    @offerer = Offerer.new(offerer_params)
+    respond_to do |format|
+      if @offerer.save
+        format.js { redirect_to offerer_path(@offerer) }
+      else
+        format.js
+      end
+    end
   end
 
   # POST /offerers
@@ -34,9 +49,6 @@ class OfferersController < ApplicationController
         format.html { redirect_to @offerer, notice: 'Offerer was successfully created.' }
         format.json { render :show, status: :created, location: @offerer }
       else
-        5.times do
-          @offerer.home_offers.build
-        end
         format.html { render :new }
         format.json { render json: @offerer.errors, status: :unprocessable_entity }
       end

@@ -1,0 +1,20 @@
+var record_id = "#process_to_create_home_offer";
+var errors = <%= raw @offerer.errors.full_messages %>;
+
+if (jQuery.isEmptyObject(errors)) {
+  console.log("keine Fehler");
+
+  content = $("<%= escape_javascript( render 'offerers/show', offerer: @offerer ) %>");
+  $(record_id).fadeOut("fast", function(){
+    $(record_id).empty().append(content).fadeIn("fast");
+  });
+
+} else {
+  console.log("Fehler vorhanden");
+
+    content = $("<%= escape_javascript( render 'offerers/form_for_process_to_create_home_offer', offerer: @offerer ) %>");
+    $(record_id).fadeOut("fast", function(){
+      $(record_id).empty().append(content).fadeIn("fast");
+    });
+
+}

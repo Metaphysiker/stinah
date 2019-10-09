@@ -1,0 +1,37 @@
+<div class="card my-3">
+  <div class="card-body">
+    <h4>Tier-Aufnahme</h4>
+
+    <hr />
+    <div class="text-justify">
+      <h4>Angaben zur Person</h4>
+      <hr />
+      <p>
+        <%= offerer.name %>
+        <br />
+        <%= offerer.street %>
+        <br />
+        <%= offerer.city %> <%= offerer.plz %>
+        <br />
+        <%= offerer.phone %>
+        <br />
+        <%= mail_to offerer.email %>
+      </p>
+      <hr />
+      <h4>Angaben zur Erfahrung und Motivation</h4>
+      <hr />
+      <p>
+        <b><%= offerer.class.human_attribute_name("experience") %></b> <br />
+        <%= offerer.experience %>
+      </p>
+      <p>
+        <b><%= offerer.class.human_attribute_name("motivation") %></b> <br />
+        <%= offerer.motivation %>
+      </p>
+      <p>
+        <b><%= offerer.class.human_attribute_name("plans") %></b> <br />
+        <%= offerer.plans %>
+      </p>
+    </div>
+  </div>
+</div>

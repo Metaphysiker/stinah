@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :offerers
   root 'static_pages#welcome'
 
   localized do
@@ -46,6 +45,10 @@ Rails.application.routes.draw do
   #visits
   get '/visits', to: 'static_pages#visits', as: "visits"
 
+  #offerer
+  get '/offerers/process_to_create_home_offer', to: 'offerers#process_to_create_home_offer', as: "process_to_create_home_offer"
+  post '/add_offerer', to: "offerers#add_offerer", as: 'add_offerer'
+
   #redirects
   #get '/team', to: redirect('/team_members')
 
@@ -58,6 +61,7 @@ Rails.application.routes.draw do
     resources :animals
     resources :works
     resources :sponsorships
+    resources :offerers
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

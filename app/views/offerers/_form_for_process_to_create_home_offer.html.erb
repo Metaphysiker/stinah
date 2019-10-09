@@ -1,4 +1,4 @@
-<%= simple_form_for(@offerer) do |f| %>
+<%= simple_form_for(offerer, url: add_offerer_path, method: :post, remote: true) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -49,6 +49,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Weiter" %>
   </div>
 <% end %>
