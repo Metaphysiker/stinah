@@ -15,7 +15,9 @@ class OfferersController < ApplicationController
   # GET /offerers/new
   def new
     @offerer = Offerer.new
-    @offerer.home_offers.build
+    2.times do
+      @offerer.home_offers.build
+    end
   end
 
   # GET /offerers/1/edit
@@ -71,6 +73,6 @@ class OfferersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offerer_params
-      params.require(:offerer).permit(:firstname, :lastname, :street, :city, :plz, :phone, :email, :year, :experience, :motivation, :plans, home_offers_attributes: [:species, :race, :age, :min_age, :max_age, :size, :min_size, :max_size, :gender, :castrated, :rideable, :stable, :stable_alt, :from_then_on, :privacy_statement])
+      params.require(:offerer).permit(:firstname, :lastname, :street, :city, :plz, :phone, :email, :year, :experience, :motivation, :plans, home_offers_attributes: [:id, :species, :race, :age, :min_age, :max_age, :size, :min_size, :max_size, :gender, :castrated, :rideable, :stable, :stable_alt, :from_then_on, :privacy_statement])
     end
 end
