@@ -1,7 +1,7 @@
 class HomeOffer < ApplicationRecord
   validates :species,
             :race, :gender, :castrated,
-            :stable, :from_then_on, :privacy_statement, presence: true
+            :stable, :from_then_on, presence: true
 
   validates :stable_alt, presence: true,  if: ->(o) { o.stable == "Anderes" }
 

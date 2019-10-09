@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_215637) do
+ActiveRecord::Schema.define(version: 2019_10_09_075400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,7 +123,6 @@ ActiveRecord::Schema.define(version: 2019_10_08_215637) do
     t.string "castrated"
     t.string "stable"
     t.text "stable_alt"
-    t.boolean "privacy_statement"
     t.date "from_then_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -202,6 +201,7 @@ ActiveRecord::Schema.define(version: 2019_10_08_215637) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "search_field", default: ""
+    t.boolean "privacy_statement"
   end
 
   create_table "posts", force: :cascade do |t|

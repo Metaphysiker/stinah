@@ -2,7 +2,7 @@ class Offerer < ApplicationRecord
 
   validates :firstname, :lastname, :street, :plz, :city,
             :phone, :email, :year, :experience,
-            :motivation, :plans, presence: true
+            :motivation, :plans,:privacy_statement, presence: true
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 

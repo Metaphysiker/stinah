@@ -50,7 +50,7 @@
       <%= render 'home_offers/form_for_desired_animal', f:p %>
     <% end %>
 
-
+    <%= f.input :privacy_statement, label: "Ich bin mit der #{link_to 'Datenschutzerklärung', privacy_statement_path, target: '_blank'} einverstanden".html_safe, required: true %>
   </div>
 
   <div class="form-actions">

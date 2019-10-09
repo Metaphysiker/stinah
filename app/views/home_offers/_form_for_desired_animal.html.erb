@@ -1,4 +1,6 @@
   <% home_offer = f.object %>
+  <%= home_offer.changed? %>
+  <%= home_offer.new_record? %>
   <div id="<%= "offerer_home_offers_attributes_#{f.index}" %>">
     <h4>Angaben zum gewünschten Tier</h4>
     <hr />
@@ -45,20 +47,27 @@
     </div>
     <%= f.input :from_then_on, required: true %>
     <hr />
-    <%= f.input :privacy_statement, label: "Ich bin mit der #{link_to 'Datenschutzerklärung', privacy_statement_path, target: '_blank'} einverstanden".html_safe, required: true %>
+    <button id="<%= "offerer_home_offers_attributes_#{f.index}" %>_add" type="button" class="btn btn-primary"><%= fa_icon "plus" %> Weiteres Wunsch-Tier hinzufügen</button>
     <hr />
     <script>
       $( document ).ready(function() {
 
         let f_index = "<%= f.index %>";
-
         let form_id = "#offerer_home_offers_attributes_" + f_index;
-        console.log("form_id: " + form_id);
+
 
         if(f_index !== "0"){
           $(form_id + " :input").prop("disabled", true);
           $(form_id).toggle();
         }
+
+        $( form_id + "_add" ).click(function() {
+          var f_index_next = parseInt(f_index) + 1;
+          var form_id_next = "#offerer_home_offers_attributes_" + f_index_next;
+          $(form_id_next + " :input").prop("disabled", false);
+          $(form_id_next).toggle();
+          $(this).toggle();
+        });
 
         $(form_id + "_age").change(function(){
           if ($(form_id + "_age").is(':checked')) {
