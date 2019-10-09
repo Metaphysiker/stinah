@@ -15,7 +15,7 @@ class OfferersController < ApplicationController
   # GET /offerers/new
   def new
     @offerer = Offerer.new
-    10.times do
+    5.times do
       @offerer.home_offers.build
     end
   end
