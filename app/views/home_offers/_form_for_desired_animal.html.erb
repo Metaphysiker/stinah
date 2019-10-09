@@ -1,88 +1,98 @@
   <% home_offer = f.object %>
-  <h4>Angaben zum gewünschten Tier</h4>
-  <hr />
-  <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]}, required: true %>
-  <%= f.input :race, placeholder: 'z.B. "Araber" oder "egal"', required: true %>
+  <div id="<%= "offerer_home_offers_attributes_#{f.index}" %>">
+    <h4>Angaben zum gewünschten Tier</h4>
+    <hr />
+    <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]}, required: true %>
+    <%= f.input :race, placeholder: 'z.B. "Araber" oder "egal"', required: true %>
 
-  <div class="form-inline pb-3">
-      <span class="pr-3">Alter: *</span>
-      <%= f.input :age, label: "egal" %>
-  </div>
-
-  <div class="row">
-    <div class="col-6">
-      <%= f.input :min_age, input_html: {  value: home_offer.min_age || 0 }, required: true, readonly: home_offer.age %>
+    <div class="form-inline pb-3">
+        <span class="pr-3">Alter: *</span>
+        <%= f.input :age, label: "egal" %>
     </div>
-    <div class="col-6">
-      <%= f.input :max_age, input_html: {  value: home_offer.max_age || 100 }, required: true, readonly: home_offer.age %>
+
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :min_age, input_html: {  value: home_offer.min_age || 0 }, required: true, readonly: home_offer.age %>
+      </div>
+      <div class="col-6">
+        <%= f.input :max_age, input_html: {  value: home_offer.max_age || 100 }, required: true, readonly: home_offer.age %>
+      </div>
     </div>
-  </div>
-  <div class="form-inline pb-3">
-      <span class="pr-3">Grösse: *</span>
-      <%= f.input :size, label: " egal" %>
-  </div>
-
-  <div class="row">
-    <div class="col-6">
-      <%= f.input :min_size, input_html: {  value: home_offer.min_size || 0 }, required: true, readonly: home_offer.size %>
+    <div class="form-inline pb-3">
+        <span class="pr-3">Grösse: *</span>
+        <%= f.input :size, label: " egal" %>
     </div>
-    <div class="col-6">
-      <%= f.input :max_size, input_html: {  value: home_offer.max_size || 300 }, required: true, readonly: home_offer.size %>
+
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :min_size, input_html: {  value: home_offer.min_size || 0 }, required: true, readonly: home_offer.size %>
+      </div>
+      <div class="col-6">
+        <%= f.input :max_size, input_html: {  value: home_offer.max_size || 300 }, required: true, readonly: home_offer.size %>
+      </div>
     </div>
-  </div>
 
-  <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
-  <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
-  <%= f.input :rideable %>
-  <hr />
-  <h4>Angaben zum angebotenen Platz</h4>
-  <hr />
-  <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>
+    <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+    <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+    <%= f.input :rideable %>
+    <hr />
+    <h4>Angaben zum angebotenen Platz</h4>
+    <hr />
+    <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>
 
-  <div id="<%= "offerer_home_offers_attributes_#{f.index}" %>_stable_alt_field" class="<%= 'hidden' if home_offer.stable != 'Anderes' %>">
-    <%= f.input :stable_alt %>
-  </div>
-  <%= f.input :from_then_on, required: true %>
-  <hr />
-  <%= f.input :privacy_statement, label: "Ich bin mit der #{link_to 'Datenschutzerklärung', privacy_statement_path, target: '_blank'} einverstanden".html_safe, required: true %>
-  <hr />
-  <script>
-    $( document ).ready(function() {
+    <div id="<%= "offerer_home_offers_attributes_#{f.index}" %>_stable_alt_field" class="<%= 'hidden' if home_offer.stable != 'Anderes' %>">
+      <%= f.input :stable_alt %>
+    </div>
+    <%= f.input :from_then_on, required: true %>
+    <hr />
+    <%= f.input :privacy_statement, label: "Ich bin mit der #{link_to 'Datenschutzerklärung', privacy_statement_path, target: '_blank'} einverstanden".html_safe, required: true %>
+    <hr />
+    <script>
+      $( document ).ready(function() {
 
-      let form_id = "#offerer_home_offers_attributes_<%= f.index %>";
-      console.log("form_id: " + form_id);
+        let f_index = "<%= f.index %>";
 
-      $(form_id + "_age").change(function(){
-        if ($(form_id + "_age").is(':checked')) {
-          $(form_id + "_min_age").prop("readonly", true);
-          $(form_id + "_max_age").prop("readonly", true);
-          $(form_id + "_min_age").val(0);
-          $(form_id + "_max_age").val(100);
-        } else {
-          $(form_id + "_min_age").prop("readonly", false);
-          $(form_id + "_max_age").prop("readonly", false);
+        let form_id = "#offerer_home_offers_attributes_" + f_index;
+        console.log("form_id: " + form_id);
+
+        if(f_index !== "0"){
+          $(form_id + " :input").prop("disabled", true);
+          $(form_id).toggle();
         }
-      });
 
-      $(form_id + "_size").change(function(){
-        if ($(form_id + "_size").is(':checked')) {
-          $(form_id + "_min_size").prop("readonly", true);
-          $(form_id + "_max_size").prop("readonly", true);
-          $(form_id + "_min_size").val(0);
-          $(form_id + "_max_size").val(300);
-        } else {
-          $(form_id + "_min_size").prop("readonly", false);
-          $(form_id + "_max_size").prop("readonly", false);
-        }
-      });
+        $(form_id + "_age").change(function(){
+          if ($(form_id + "_age").is(':checked')) {
+            $(form_id + "_min_age").prop("readonly", true);
+            $(form_id + "_max_age").prop("readonly", true);
+            $(form_id + "_min_age").val(0);
+            $(form_id + "_max_age").val(100);
+          } else {
+            $(form_id + "_min_age").prop("readonly", false);
+            $(form_id + "_max_age").prop("readonly", false);
+          }
+        });
 
-      $(form_id + "_stable").change(function(){
-        if ($(this).val().toLowerCase() === "anderes") {
-          $(form_id + "_stable_alt_field").toggle();
-        } else {
-          $(form_id + "_stable_alt_field").hide();
-        }
-      });
+        $(form_id + "_size").change(function(){
+          if ($(form_id + "_size").is(':checked')) {
+            $(form_id + "_min_size").prop("readonly", true);
+            $(form_id + "_max_size").prop("readonly", true);
+            $(form_id + "_min_size").val(0);
+            $(form_id + "_max_size").val(300);
+          } else {
+            $(form_id + "_min_size").prop("readonly", false);
+            $(form_id + "_max_size").prop("readonly", false);
+          }
+        });
 
-    });
-  </script>
+        $(form_id + "_stable").change(function(){
+          if ($(this).val().toLowerCase() === "anderes") {
+            $(form_id + "_stable_alt_field").toggle();
+          } else {
+            $(form_id + "_stable_alt_field").hide();
+          }
+        });
+
+      });
+    </script>
+
+  </div>
