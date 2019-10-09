@@ -1,1 +1,18 @@
-alert("eeeeeh!");
+
+var record_id = "#new_home_offer";
+var errors = <%= raw @home_offer.errors.full_messages %>;
+
+if (jQuery.isEmptyObject(errors)) {
+  console.log("keine Fehler");
+
+
+} else {
+  console.log("Fehler vorhanden");
+
+    content = $("<%= escape_javascript( render 'home_offers/form_for_offerer', home_offer: @home_offer, offerer: @home_offer.offerer ) %>");
+
+    $(record_id).replaceWith(function(){
+      return $(content).hide().fadeIn("slow");
+    });
+
+}
