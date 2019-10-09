@@ -1,8 +1,5 @@
   <% home_offer = f.object %>
 
-  <% if home_offer.errors.any? %>
-    <%= home_offer.errors.full_messages %>
-  <% end %>
   <div id="<%= "offerer_home_offers_attributes_#{f.index}" %>">
     <h4>Angaben zum gewünschten Tier</h4>
     <hr />
