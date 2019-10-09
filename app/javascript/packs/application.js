@@ -32,6 +32,7 @@ require("trix")
 require("@rails/actiontext")
 //require("packs/jssor")
 //require("plyr")
+require("packs/add_nested")
 
 //import ahoy from "ahoy.js";
 require("chartkick")
