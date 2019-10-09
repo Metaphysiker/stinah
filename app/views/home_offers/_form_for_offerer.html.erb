@@ -1,8 +1,9 @@
-<div class="jumbotron">
+
   <%= simple_form_for(home_offer, url: add_home_offer_to_offerer_path, method: :post, remote: true) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <%= f.hidden_field :offerer_id, value: offerer.id %>
+  <div class="jumbotron">
     <div class="form-inputs">
       <h4>Angaben zum gewünschten Tier</h4>
       <hr />
@@ -53,6 +54,7 @@
     <div class="form-actions">
       <%= f.button :submit, "Tier hinzufügen", class: "btn btn-primary" %>
     </div>
+  </div>
   <% end %>
 
   <script>
@@ -91,4 +93,3 @@
 
     });
   </script>
-</div>
