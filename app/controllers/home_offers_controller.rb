@@ -120,6 +120,17 @@ class HomeOffersController < ApplicationController
 
   end
 
+  def add_home_offer_to_offerer
+    @home_offer = HomeOffer.new(home_offer_params)
+    respond_to do |format|
+      if @home_offer.save
+        format.js
+      else
+        format.js
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_home_offer
@@ -128,7 +139,7 @@ class HomeOffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_offer_params
-      params.require(:home_offer).permit(:firstname, :lastname, :street, :plz, :city, :phone, :email, :year, :experience, :motivation, :plans, :species, :age, :gender, :castrated, :stable, :stable_alt, :privacy_statement, :from_then_on, :race, :rideable, :min_age, :max_age, :size, :min_size, :max_size)
+      params.require(:home_offer).permit(:firstname, :lastname, :street, :plz, :city, :phone, :email, :year, :experience, :motivation, :plans, :species, :age, :gender, :castrated, :stable, :stable_alt, :privacy_statement, :from_then_on, :race, :rideable, :min_age, :max_age, :size, :min_size, :max_size, :offerer_id)
     end
 
     def is_user_allowed?

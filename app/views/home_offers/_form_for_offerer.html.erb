@@ -1,0 +1,93 @@
+
+<%= simple_form_for(home_offer, url: add_home_offer_to_offerer_path, method: :post, remote: true) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.hidden_field :offerer_id, value: offerer.id %>
+  <div class="form-inputs">
+    <h4>Angaben zum gewünschten Tier</h4>
+    <hr />
+    <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]}, required: true %>
+    <%= f.input :race, placeholder: 'z.B. "Araber" oder "egal"', required: true %>
+
+    <div class="form-inline pb-3">
+        <span class="pr-3">Alter: *</span>
+        <%= f.input :age, label: "egal" %>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :min_age, input_html: {  value: home_offer.min_age || 0 }, required: true, readonly: home_offer.age %>
+      </div>
+      <div class="col-6">
+        <%= f.input :max_age, input_html: {  value: home_offer.max_age || 100 }, required: true, readonly: home_offer.age %>
+      </div>
+    </div>
+    <div class="form-inline pb-3">
+        <span class="pr-3">Grösse: *</span>
+        <%= f.input :size, label: " egal" %>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :min_size, input_html: {  value: home_offer.min_size || 0 }, required: true, readonly: home_offer.size %>
+      </div>
+      <div class="col-6">
+        <%= f.input :max_size, input_html: {  value: home_offer.max_size || 300 }, required: true, readonly: home_offer.size %>
+      </div>
+    </div>
+
+    <%= f.input :gender, collection: Animal.genders.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+    <%= f.input :castrated, collection: Animal.castrated.map {|p| [t("#{p}"), p]}, selected: :whatever, required: true %>
+    <%= f.input :rideable %>
+    <hr />
+    <h4>Angaben zum angebotenen Platz</h4>
+    <hr />
+    <%= f.input :stable, collection: Animal.stables.map {|p| [p, p]}, required: true %>
+
+    <div class="stable_alt_field <%= 'hidden' if home_offer.stable != 'Anderes' %>">
+      <%= f.input :stable_alt %>
+    </div>
+    <%= f.input :from_then_on, required: true %>
+  </div>
+  <hr />
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<script>
+  $( document ).ready(function() {
+    $("#home_offer_stable").change(function(){
+      if ($(this).val().toLowerCase() === "anderes") {
+        $(".stable_alt_field").toggle();
+      } else {
+        $(".stable_alt_field").hide();
+      }
+    });
+
+    $("#home_offer_age").change(function(){
+      if ($("#home_offer_age").is(':checked')) {
+        $("#home_offer_min_age").prop("readonly", true);
+        $("#home_offer_max_age").prop("readonly", true);
+        $("#home_offer_min_age").val(0);
+        $("#home_offer_max_age").val(100);
+      } else {
+        $("#home_offer_min_age").prop("readonly", false);
+        $("#home_offer_max_age").prop("readonly", false);
+      }
+    });
+
+    $("#home_offer_size").change(function(){
+      if ($("#home_offer_size").is(':checked')) {
+        $("#home_offer_min_size").prop("readonly", true);
+        $("#home_offer_max_size").prop("readonly", true);
+        $("#home_offer_min_size").val(0);
+        $("#home_offer_max_size").val(300);
+      } else {
+        $("#home_offer_min_size").prop("readonly", false);
+        $("#home_offer_max_size").prop("readonly", false);
+      }
+    });
+
+  });
+</script>

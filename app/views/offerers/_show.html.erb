@@ -33,5 +33,14 @@
         <%= offerer.plans %>
       </p>
     </div>
+
+    <%= offerer.home_offers.count %>
+    <% offerer.home_offers.each do |home_offer| %>
+      <%= home_offer.species %>
+    <% end %>
   </div>
+</div>
+
+<div class="jumbotron bg-white">
+  <%= render 'home_offers/form_for_offerer', home_offer: HomeOffer.new, offerer: offerer %>
 </div>

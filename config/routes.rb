@@ -49,6 +49,9 @@ Rails.application.routes.draw do
   get '/offerers/process_to_create_home_offer', to: 'offerers#process_to_create_home_offer', as: "process_to_create_home_offer"
   post '/add_offerer', to: "offerers#add_offerer", as: 'add_offerer'
 
+  #home_offer
+  post 'home_offers/add_home_offer_to_offerer', to: "home_offers#add_home_offer_to_offerer", as: 'add_home_offer_to_offerer'
+
   #redirects
   #get '/team', to: redirect('/team_members')
 
