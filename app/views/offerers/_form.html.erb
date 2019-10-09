@@ -45,12 +45,12 @@
     <%= f.input :motivation, placeholder: '', required: true  %>
     <%= f.input :plans, placeholder: '', required: true %>
     <hr />
+    <%= f.input :privacy_statement, label: "Ich bin mit der #{link_to 'Datenschutzerklärung', privacy_statement_path, target: '_blank'} einverstanden".html_safe, required: true %>
 
     <%= f.simple_fields_for :home_offers do |p| %>
       <%= render 'home_offers/form_for_desired_animal', f:p %>
     <% end %>
 
-    <%= f.input :privacy_statement, label: "Ich bin mit der #{link_to 'Datenschutzerklärung', privacy_statement_path, target: '_blank'} einverstanden".html_safe, required: true %>
   </div>
 
   <div class="form-actions">

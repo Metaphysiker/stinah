@@ -22,6 +22,10 @@ class HomeOffer < ApplicationRecord
 
   belongs_to :offerer#, optional: true
 
+  def empty?
+    self.attributes.except("age", "size").values.all?(&:blank?)
+  end
+
   def update_search_field
 
     # HomeOffer.find_each(&:save)
