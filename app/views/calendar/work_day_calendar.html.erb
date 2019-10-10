@@ -18,8 +18,23 @@
       <tr>
         <td class="text-center"><%= i %></td>
         <% users.each do |user| %>
-          <% if i.between?(works.where(user_id: user.id).first.shift_start.strftime('%H').to_i, works.where(user_id: user.id).first.shift_end.strftime('%H').to_i) %>
-            <td class="table-primary">...</td>
+        <% work = works.where(user_id: user.id).first %>
+        <% shift_start = work.shift_start.strftime('%H').to_i %>
+        <% shift_end = work.shift_end.strftime('%H').to_i %>
+          <% if shift_start == i %>
+            <td class="table-primary text-center" rowspan="<%= (shift_start..shift_end).size %>">
+              <strong><%= work.user.username %></strong>
+              <br />
+              Von <%= work.shift_start.strftime("%H:%M") %> bis <%= work.shift_end.strftime("%H:%M") %>
+              <br />
+              <% unless work.food.blank? %>
+                <hr />
+                <%= work.food %>
+                <br />
+              <% end %>
+            </td>
+          <% elsif i.between?(shift_start,shift_end) %>
+
           <% else %>
             <td></td>
           <% end %>
