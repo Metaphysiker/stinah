@@ -1,25 +1,19 @@
-<div class="container bg-white">
-  <div class="jumbotron bg-white text-justify">
-    <div class="text-darker-base-color">
-    <h2 class="text-center">Ich will ein Tier abgeben</h2>
-    <p>
-      Leider müssen wir darauf hinweisen, dass die Stiftung keine Gewähr dafür bieten kann, einem Tier einen neuen Lebensplatz bieten oder vermitteln zu können. Je mehr Informationen Sie uns weiterleiten und je früher wir uns engagieren können, desto grösser sind die Erfolgsaussichten.
+<div class="container-fluid">
+  <div class="jumbotron bg-white text-justify text-darker-base-color">
+      <h2 class="text-center">Ich will ein Tier abgeben</h2>
+      <p>
+        Leider müssen wir darauf hinweisen, dass die Stiftung keine Gewähr dafür bieten kann, einem Tier einen neuen Lebensplatz bieten oder vermitteln zu können. Je mehr Informationen Sie uns weiterleiten und je früher wir uns engagieren können, desto grösser sind die Erfolgsaussichten.
+      </p>
+      <p>
+        Zeichnet sich eine Vermittlungsmöglichkeit ab, bleibt der Eigentümer des Tieres in der Verantwortung, die vorab von ihm erstellte und geprüfte Qualität des neuen Lebensplatzes abzusichern. Stinah hilft soweit gewünscht bei der Erstellung entsprechender Vereinbarungen. Stinah übernimmt auch mit dieser Dienstleistung keinerlei Garantien und tritt in keine Haftung ein.
     </p>
-    <p>
-      Zeichnet sich eine Vermittlungsmöglichkeit ab, bleibt der Eigentümer des Tieres in der Verantwortung, die vorab von ihm erstellte und geprüfte Qualität des neuen Lebensplatzes abzusichern. Stinah hilft soweit gewünscht bei der Erstellung entsprechender Vereinbarungen. Stinah übernimmt auch mit dieser Dienstleistung keinerlei Garantien und tritt in keine Haftung ein.
-  </p>
-    <p>
-      Die von Stinah angebotene Vermittlungshilfe erfolgt unentgeltlich und ausschliesslich zur Platzierung von Tieren in Not. Sie darf nicht zum Zwecke des Tierhandels oder zur Erzielung eines Gewinns in Anspruch genommen werden.
-      Übernimmt die Stiftung selbst ein abzugebendes Tier, so geht dieses in ihr Eigentum über.
-    </p>
-<p><b>
-  Bitte beachten Sie, dass nur vollständig ausgefüllte Formulare berücksichtigt werden können.
-</b></p></div>
-</div>
-    <div class="jumbotron">
-      <%= render 'form', home_request: @home_request %>
-    </div>
-    <p class="p-2">
-
-    </p>
+      <p>
+        Die von Stinah angebotene Vermittlungshilfe erfolgt unentgeltlich und ausschliesslich zur Platzierung von Tieren in Not. Sie darf nicht zum Zwecke des Tierhandels oder zur Erzielung eines Gewinns in Anspruch genommen werden.
+        Übernimmt die Stiftung selbst ein abzugebendes Tier, so geht dieses in ihr Eigentum über.
+      </p>
+    <p><b>
+      Bitte beachten Sie, dass nur vollständig ausgefüllte Formulare berücksichtigt werden können.
+    </b></p>
+    <%= render 'form', home_request: @home_request %>
+  </div>
 </div>
