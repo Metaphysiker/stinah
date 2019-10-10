@@ -77,9 +77,6 @@
       </div>
       <% only_month_days.to_a.each do |day| %>
       <div class="my-3 text-center rounded border">
-        <u>
-          <%= I18n.l(day, format: '%A') %> - <%= day.strftime("%d/%m/%Y") %>
-        </u>
         <%= render "calendar/day-lg", day: day %>
       </div>
       <% end %>
