@@ -31,7 +31,7 @@ class OfferersController < ApplicationController
     @offerer = Offerer.new(offerer_params)
     respond_to do |format|
       if @offerer.save
-        flash[:success] = "Angeben wurde eingetragen!"
+        flash[:notice] = "Angaben wurde eingetragen!"
         format.js { redirect_to offerer_path(@offerer) }
       else
         format.js
