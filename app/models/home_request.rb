@@ -26,13 +26,17 @@ class HomeRequest < ApplicationRecord
   before_save :update_search_field
 
   def messenger_or_owner
-    s = ""
-    unless messenger_firstname.blank? || messenger_lastname.blank?
-      s = "#{messenger_firstname} #{messenger_lastname}"
-    else
-      s = "#{owner_firstname} #{owner_lastname}"
+    string = ""
+
+    unless owner_firstname.blank? || owner_lastname.blank?
+      string = string + "#{owner_firstname} #{owner_lastname} "
     end
-    s
+
+    unless messenger_firstname.blank? || messenger_lastname.blank?
+      string = string + "/ #{messenger_firstname} #{messenger_lastname} "
+    end
+
+    string
   end
 
   scope :home_requests_ilike, ->(search_term) { where("search_field ILIKE ?", search_term) }
