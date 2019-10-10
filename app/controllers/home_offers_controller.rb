@@ -124,6 +124,7 @@ class HomeOffersController < ApplicationController
     @home_offer = HomeOffer.new(home_offer_params)
     respond_to do |format|
       if @home_offer.save
+        flash[:success] = "Tier wurde eingetragen!"
         format.js { redirect_to offerer_path(@home_offer.offerer) }
       else
         format.js

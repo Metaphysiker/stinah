@@ -1,46 +1,73 @@
-<div class="card my-3 <%= dom_id(offerer) %>">
-  <div class="card-body">
-    <h4>Tier-Aufnahme</h4>
+<div class="jumbotron bg-white text-justify text-darker-base-color">
+  <h2 class="text-center">Ich möchte folgende Tiere aufnehmen</h2>
+  <p>
+    Mit dem Formular unten können Sie angeben, welche Tiere Sie aufnehmen möchten.
+  </p>
+  <p>
+    <strong>Sie können mehrere Tiere eintragen!</strong>
+  </p>
 
-    <hr />
-    <div class="text-justify">
-      <h4>Angaben zur Person</h4>
-      <hr />
-      <p>
-        <%= offerer.name %>
-        <br />
-        <%= offerer.street %>
-        <br />
-        <%= offerer.city %> <%= offerer.plz %>
-        <br />
-        <%= offerer.phone %>
-        <br />
-        <%= mail_to offerer.email %>
-      </p>
-      <hr />
-      <h4>Angaben zur Erfahrung und Motivation</h4>
-      <hr />
-      <p>
-        <b><%= offerer.class.human_attribute_name("experience") %></b> <br />
-        <%= offerer.experience %>
-      </p>
-      <p>
-        <b><%= offerer.class.human_attribute_name("motivation") %></b> <br />
-        <%= offerer.motivation %>
-      </p>
-      <p>
-        <b><%= offerer.class.human_attribute_name("plans") %></b> <br />
-        <%= offerer.plans %>
-      </p>
-    </div>
-
-    <%= offerer.home_offers.count %>
-    <% offerer.home_offers.each do |home_offer| %>
-      <%= home_offer.species %>
-    <% end %>
+  <div class="jumbotron">
+    <%= render 'home_offers/form_for_offerer', home_offer: HomeOffer.new, offerer: offerer %>
   </div>
-</div>
 
-<div class="jumbotron bg-white">
-  <%= render 'home_offers/form_for_offerer', home_offer: HomeOffer.new, offerer: offerer %>
+  <% offerer.home_offers.each_with_index do |home_offer, i| %>
+    <div class="card my-3">
+      <div class="card-body text-justify">
+          <h4>Tier <%= i + 1 %></h4>
+          <hr />
+          <b><%= home_offer.class.human_attribute_name("species") %></b>: <%= t(home_offer.species, count: 1) %>
+          <br />
+          <b><%= home_offer.class.human_attribute_name("race") %></b>: <%= t(home_offer.race) %>
+          <br />
+          <b>Alter (in Jahren)</b>: <%= home_offer.min_age %> - <%= home_offer.max_age %>
+          <br />
+          <b>Grösse (in Centimeter)</b>: <%= home_offer.min_size %> - <%= home_offer.max_size %>
+          <br />
+          <b><%= home_offer.class.human_attribute_name("gender") %></b>: <%= t(home_offer.gender) %>
+          <br />
+          <b><%= home_offer.class.human_attribute_name("castrated") %></b>: <%= t(home_offer.castrated) %>
+          <br />
+          <br />
+      </div>
+    </div>
+  <% end %>
+
+  <div class="card my-3 <%= dom_id(offerer) %>">
+    <div class="card-body">
+      <div class="text-justify">
+        <h4>Angaben zur Person</h4>
+        <hr />
+        <p>
+          <%= offerer.name %>
+          <br />
+          <%= offerer.street %>
+          <br />
+          <%= offerer.city %> <%= offerer.plz %>
+          <br />
+          <%= offerer.phone %>
+          <br />
+          <%= mail_to offerer.email %>
+        </p>
+        <hr />
+        <h4>Angaben zur Erfahrung und Motivation</h4>
+        <hr />
+        <p>
+          <b><%= offerer.class.human_attribute_name("experience") %></b> <br />
+          <%= offerer.experience %>
+        </p>
+        <p>
+          <b><%= offerer.class.human_attribute_name("motivation") %></b> <br />
+          <%= offerer.motivation %>
+        </p>
+        <p>
+          <b><%= offerer.class.human_attribute_name("plans") %></b> <br />
+          <%= offerer.plans %>
+        </p>
+      </div>
+
+
+    </div>
+  </div>
+
 </div>
