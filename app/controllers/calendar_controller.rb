@@ -13,6 +13,15 @@ class CalendarController < ApplicationController
     end
   end
 
+  def work_day_calendar
+    date = params[:date]
+    if date.nil? || date.empty?
+      @date = Date.today
+    else
+      @date = Date.parse(date)
+    end
+  end
+
   private
 
   def is_user_allowed?

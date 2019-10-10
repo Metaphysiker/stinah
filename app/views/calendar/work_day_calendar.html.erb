@@ -1,0 +1,33 @@
+<% works = Work.where(date: @date) %>
+<% users = Work.get_users(works) %>
+
+<div class="container-fluid">
+  <div class="jumbotron bg-white">
+    <h2 class="text-center"><%= @date.strftime("%d-%m-%Y") %></h2>
+    <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center">Uhr</th>
+        <% users.each do |user| %>
+          <th class="text-center"><%= user.username %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% (6..18).each do |i| %>
+      <tr>
+        <td class="text-center"><%= i %></td>
+        <% users.each do |user| %>
+          <% if i.between?(works.where(user_id: user.id).first.shift_start.strftime('%H').to_i, works.where(user_id: user.id).first.shift_end.strftime('%H').to_i) %>
+            <td class="table-primary">...</td>
+          <% else %>
+            <td></td>
+          <% end %>
+
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
