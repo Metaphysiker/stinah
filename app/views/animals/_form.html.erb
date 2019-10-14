@@ -12,6 +12,12 @@
     <%= f.input :name %>
     <%= f.label :description %>
     <%= f.rich_text_area :description %>
+
+    <% if f.object.errors.messages[:description].present? %>
+      <div class="alert alert-danger">
+        <%= f.object.errors.messages[:description].first.to_s %>
+      </div>
+    <% end %>
     <br />
     <%#= f.input :species %>
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]} %>

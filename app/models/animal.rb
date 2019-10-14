@@ -16,6 +16,16 @@ class Animal < ApplicationRecord
 
   before_save :update_search_field
 
+  validates :name, :species, presence: true
+
+  validate :description_cannot_be_blank
+
+  def description_cannot_be_blank
+    if description.to_plain_text.blank?
+      errors.add(:description, "Beschreibung darf nicht leer sein!")
+    end
+  end
+
   def self.species
     ['pig', 'donkey', 'cow', 'sheep', 'chicken', 'horse', "goat", "rabbit", "cavy", "camelid", "other"] #cat dog
   end
