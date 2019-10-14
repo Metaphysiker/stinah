@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     image = @post.cover.attached? ? rails_blob_path(@post.cover) : ActionController::Base.helpers.asset_url("main-picture.jpeg", type: :image)
 
     set_meta_tags title: @post.name, reverse: true,
-              description: @post.description.to_plain_text.truncate(300),
+              description: @post.content.to_plain_text.truncate(300),
               og: {
                 title: :title,
                 description: :description,
