@@ -17,8 +17,17 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    set_meta_tags title: @post.title, reverse: true,
-              description: ActionController::Base.helpers.strip_tags(@post.content.to_s).squish.split(/(?<=[?.!])\s*/).first
+    image = @post.cover.attached? ? rails_blob_path(@post.cover) : ActionController::Base.helpers.asset_url("main-picture.jpeg", type: :image)
+
+    set_meta_tags title: @post.name, reverse: true,
+              description: @post.description.to_plain_text.truncate(300),
+              og: {
+                title: :title,
+                description: :description,
+                url: post_url(@post),
+                image: image
+              }
+
   end
 
   # GET /posts/new
