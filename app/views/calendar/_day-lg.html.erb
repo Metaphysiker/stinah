@@ -19,7 +19,7 @@
        </small>
      </p>
    <% end %>
-   <% if !work.food.blank? && !is_current_user_external_professional? %>
+   <% if !work.food.blank? && !work.user.roles.where(role: "external_professional").exists? %>
      <p class="border-top">
        <small>
          <%= work.food %>

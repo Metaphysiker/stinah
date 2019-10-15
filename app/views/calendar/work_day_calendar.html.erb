@@ -44,10 +44,19 @@
               <br />
               Von <%= work.shift_start.strftime("%H:%M") %> bis <%= work.shift_end.strftime("%H:%M") %>
               <br />
-              <% unless work.food.blank? %>
-                <hr />
-                <%= work.food %>
-                <br />
+              <% unless work.comment.blank? %>
+                <p class="border-top">
+                  <small>
+                    <%= work.comment %>
+                  </small>
+                </p>
+              <% end %>
+              <% if !work.food.blank? && !work.user.roles.where(role: "external_professional").exists? %>
+                <p class="border-top">
+                  <small>
+                    <%= work.food %>
+                  </small>
+                </p>
               <% end %>
             </td>
           <% elsif i.between?(shift_start,shift_end) %>
