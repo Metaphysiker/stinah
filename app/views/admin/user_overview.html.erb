@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="jumbotron bg-white">
 
     <% roles = Role.roles %>
@@ -12,6 +12,7 @@
             <th scope="col">Nachname</th>
             <th scope="col">e-Mail</th>
             <th scope="col">Rolle</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
               <td><%= user.lastname %></td>
               <td><%= user.email %></td>
               <td><%= user.roles.pluck(:role).to_sentence(last_word_connector: ', ') %></td>
+              <td><%= link_to 'User löschen', delete_user_path(user), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %></td>
             </tr>
           <% end %>
         </tbody>

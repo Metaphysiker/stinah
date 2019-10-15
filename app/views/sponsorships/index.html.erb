@@ -8,5 +8,9 @@
     <div class="sponsorships">
         <%= render "sponsorships/animals_with_sponsorships", sponsorships: @sponsorships %>
     </div>
+
+    <hr />
+    <h5>Patenschaft erstellen (keine Mail wird versandt)</h5>
+    <%= render 'sponsorships/form_without_sending_mail', sponsorship: Sponsorship.new %>
   </div>
 </div>

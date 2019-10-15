@@ -1,0 +1,31 @@
+<%# user_id = current_user.nil? ? 0 : current_user.id %>
+<%# sponsorship = sponsorship || @sponsorship %>
+
+<%= simple_form_for(sponsorship, url: add_sponsorship_without_sending_mail_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%#= f.hidden_field :user_id, value: current_user.id %>
+  <div class="form-inputs">
+  <%#= f.hidden_field :animal_id, value: animal.id %>
+  <%= f.input :animal_id, label: "Patenkind", collection: Animal.alive.map {|p| [p.name, p.id]} %>
+  <%= f.label :donation, "Monatliche Spende" %>
+  <%= f.input :donation, label: false, input_html: {value: sponsorship.donation || 200} %>
+  <p>
+    Name
+  </p>
+  <div class="row">
+    <div class="col-6">
+      <%= f.input :firstname, label: false, placeholder: "Vorname", required: true %>
+    </div>
+    <div class="col-6">
+      <%= f.input :lastname, label: false, placeholder: "Nachname", required: true %>
+    </div>
+  </div>
+  <%= f.input :email, placeholder: "beispiel@gmail.com" %>
+  <%= f.input :public, label: " Möchte namentlich als Pate erwähnt werden." %>
+  <%#= label :q, "Laaabel" %>
+  <%#= text_field_tag :q, nil, class: 'form-control' %>
+</div>
+  <br />
+  <%= f.button :submit, class: "btn btn-success" %>
+<% end %>

@@ -3,6 +3,6 @@ class Role < ApplicationRecord
   has_many :users, through: :user_roles, dependent: :destroy
 
   def self.roles
-    ['admin', 'sponsor', 'volunteer', 'external_professional']
+    ['admin', 'volunteer', 'external_professional']
   end
 end

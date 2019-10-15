@@ -25,12 +25,14 @@ Rails.application.routes.draw do
   post '/works/create_for_calendar/', to: "works#create_for_calendar", as: 'create_for_calendar'
   delete '/works/delete_for_calendar/:id', to: "works#delete_for_calendar", as: 'delete_for_calendar'
 
-  get '/my_sponsorships', to: "sponsorships#my_sponsorships", as: 'my_sponsorships'
-  post '/add_sponsorship', to: "sponsorships#add_sponsorship", as: 'add_sponsorship'
-  post '/add_sponsorship_with_new_user', to: "sponsorships#add_sponsorship_with_new_user", as: 'add_sponsorship_with_new_user'
+  #sponsorship
+  get '/sponsorships/my_sponsorships', to: "sponsorships#my_sponsorships", as: 'my_sponsorships'
+  post '/sponsorships/add_sponsorship', to: "sponsorships#add_sponsorship", as: 'add_sponsorship'
+  post '/sponsorships/add_sponsorship_with_new_user', to: "sponsorships#add_sponsorship_with_new_user", as: 'add_sponsorship_with_new_user'
   get '/sponsorships/activate_sponsorship/:id', to: "sponsorships#activate_sponsorship", as: 'activate_sponsorship'
   get '/sponsorships/deactivate_sponsorship/:id', to: "sponsorships#deactivate_sponsorship", as: 'deactivate_sponsorship'
   post '/sponsorships/check_payment/:id', to: "sponsorships#check_payment", as: 'check_payment'
+  post '/sponsorships/add_sponsorship_without_sending_mail', to: "sponsorships#add_sponsorship_without_sending_mail", as: 'add_sponsorship_without_sending_mail'
 
   post '/home_requests/archive/:id', to: "home_requests#archive", as: "archive_home_request"
   post '/home_offers/archive/:id', to: "home_offers#archive", as: "archive_home_offer"
@@ -48,6 +50,7 @@ Rails.application.routes.draw do
   get 'admin/visits', to: 'admin#visits', as: "visits"
   get 'admin/user_overview', to: 'admin#user_overview', as: "user_overview"
   post '/admin/create_user', to: 'admin#create_user', as: "create_user"
+  delete '/admin/delete_user/:user_id', to: 'admin#delete_user', as: "delete_user"
 
   #offerer
   get '/offerers/process_to_create_home_offer', to: 'offerers#process_to_create_home_offer', as: "process_to_create_home_offer"

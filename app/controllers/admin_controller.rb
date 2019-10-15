@@ -33,11 +33,15 @@ class AdminController < ApplicationController
 
   end
 
-  def add_role_to_user
+  def delete_user
+    user_id = params[:user_id]
+    User.find(user_id).delete
 
+    flash[:notice] = "User wurde gelöscht!"
+    redirect_to user_overview_path
   end
 
-  def remove_role_to_user
+  def add_role_to_user
 
   end
 

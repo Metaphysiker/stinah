@@ -15,15 +15,10 @@ class SponsorshipsController < ApplicationController
   end
 
   def add_sponsorship
-    #user = User.find(params[:user_id])
-    #animal = Animal.find(params[:animal_id])
-    #donation = params[:donation].to_d
-
     @sponsorship = Sponsorship.new(sponsorship_params)
 
     respond_to do |format|
       if @sponsorship.save
-        #format.json { render :show, status: :created, location: @post }
         format.js
         #mail to sponsor
         SponsorshipMailer.send_bank_information_to_sponsor(sponsorship_params[:email]).deliver_now
@@ -33,14 +28,22 @@ class SponsorshipsController < ApplicationController
         #SponsorshipMailer.send_information_about_new_sponsorship("steiger@stinah.ch").deliver_now
       else
         format.js
-        #format.html { render :new}
-        #format.json { render json: @sponsorship.errors, status: :unprocessable_entity }
       end
     end
+  end
 
-    #redirect_back(fallback_location: root_path)
-    #redirect_to my_sponsorships_path
+  def add_sponsorship_without_sending_mail
+    @sponsorship = Sponsorship.new(sponsorship_params)
 
+    respond_to do |format|
+      if @sponsorship.save
+        flash[:notice] = "Patenschaft erstellt!"
+        format.html { redirect_to sponsorships_path }
+      else
+        flash[:notice] = "Fehler! Patenschaft wurde nicht erstellt."
+        format.html { redirect_to sponsorships_path }
+      end
+    end
   end
 
   def add_sponsorship_with_new_user
