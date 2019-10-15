@@ -26,6 +26,8 @@
           <br />
           <b>Aktiv:</b> <%= t(sponsorship.active) %>
           <br />
+          <%= link_to 'Eintrag löschen', sponsorship_path(sponsorship), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+          <br />
         </div>
         <div class="col-3 text-center border-right">
           <% if sponsorship.active == true %>

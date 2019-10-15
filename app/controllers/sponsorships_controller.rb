@@ -1,7 +1,7 @@
 class SponsorshipsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :activate_sponsorship, :deactivate_sponsorship]
   before_action :is_user_allowed?, only: [:index, :activate_sponsorship, :deactivate_sponsorship, :check_payment, :search_sponsorships]
-  before_action :set_sponsorship, only: [:activate_sponsorship, :deactivate_sponsorship, :check_payment]
+  before_action :set_sponsorship, only: [:activate_sponsorship, :deactivate_sponsorship, :check_payment, :destroy]
 
   include ApplicationHelper
 
@@ -78,6 +78,13 @@ class SponsorshipsController < ApplicationController
 
     respond_to do |format|
       format.js
+    end
+  end
+
+  def destroy
+    @sponsorship.destroy
+    respond_to do |format|
+      format.html { redirect_to sponsorships_path, notice: 'Patenschaft entfernt!' }
     end
   end
 
