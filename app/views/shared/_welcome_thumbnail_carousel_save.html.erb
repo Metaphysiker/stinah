@@ -2,17 +2,21 @@
   <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
-      <% image_names.each_with_index do |image_name, i| %>
-        <div class="carousel-item <%= 'active' if i == 0 %>">
-          <%= image_tag(image_name, class: "d-block w-100") %>
-        </div>
-      <% end %>
+      <div class="carousel-item active">
+        <%= image_tag("chicken.png", class: "d-block w-100") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("goat.png", class: "d-block w-100") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("pig.jpg", class: "d-block w-100") %>
+      </div>
     </div>
     <div class="carousel-outer">
       <ol class="carousel-indicators">
-        <% image_names.each_with_index do |image_name, i| %>
-        <li data-target="#carousel-thumb" data-slide-to="<%= i %>" class="<%= 'active' if i == 0 %>"></li>
-        <% end %>
+        <li data-target="#carousel-thumb" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-thumb" data-slide-to="1"></li>
+        <li data-target="#carousel-thumb" data-slide-to="2"></li>
       </ol>
     </div>
     <!--/.Slides-->

@@ -74,6 +74,12 @@ class StaticPagesController < ApplicationController
     set_meta_tags title: 'Datenschutzerklärung', reverse: true
   end
 
+  def save_the_chicken
+    set_meta_tags title: 'Rettet das Huhn!', reverse: true,
+                  description: "Auf diesen Seiten dreht sich alles um die Hühner. Mit unserem Motto Wegschauen war gestern! möchten wir auch möglichst viele Menschen erreichen und aufzeigen, was für ein schreckliches Leiden Legehennen tagtäglich durchleben und dass jeder einen Beitrag dazu leisten kann, diesem Wahnsinn ein Ende zu setzen.",
+                  keywords: 'Tierschutz, Hühnerrettung, Huhn, Hühner, Legehennen, Lebensplatz'
+  end
+
   private
 
   def is_user_allowed?

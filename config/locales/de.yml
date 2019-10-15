@@ -106,6 +106,7 @@ de:
     works: "arbeit"
     sponsorships: "patenschaft"
     privacy_statement: "datenschutzerklaerung"
+    save_the_chicken: "rettet-das-huhn"
   date:
     formats:
       default: "%d-%m-%Y"
