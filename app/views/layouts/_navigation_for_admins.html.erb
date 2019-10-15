@@ -18,9 +18,11 @@
         <%= link_to "Alle #{Sponsorship.model_name.human(count: 2)}", sponsorships_path, class:"nav-link"  %>
       </li>
       <li class="nav-item">
-        <%= link_to "Besucher-Statistik", visits_path, class:"nav-link"  %>
+        <%= link_to "Alle User", user_overview_path, class:"nav-link" %>
       </li>
-    </ul>
+      <li class="nav-item">
+        <%= link_to "Besucher-Statistik", visits_path, class:"nav-link" %>
+      </li>
     </ul>
   </div>
 </nav>

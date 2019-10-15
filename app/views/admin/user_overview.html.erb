@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="jumbotron bg-white">
+
+    <% roles = Role.roles %>
+    <% roles.each do |role| %>
+      <h5><%= role %></h5>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Benutzername</th>
+            <th scope="col">Vorname</th>
+            <th scope="col">Nachname</th>
+            <th scope="col">e-Mail</th>
+            <th scope="col">Rolle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% User.with_role(role).each do |user| %>
+            <tr>
+              <td><%= user.username %></td>
+              <td><%= user.firstname %></td>
+              <td><%= user.lastname %></td>
+              <td><%= user.email %></td>
+              <td><%= user.roles.pluck(:role).to_sentence(last_word_connector: ', ') %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+    <hr />
+    <h5>User erstellen</h5>
+    <%= simple_form_for :new_user, {url: create_user_path, method: :post} do |f| %>
+      <%= f.input :username, label: "Username zum Anmelden", placeholder: "z.B. monika" %>
+      <%= f.input :firstname, label: "Vorname", placeholder: "z.B. Monika" %>
+      <%= f.input :lastname, label: "Nachname", placeholder: "z.B. Müller" %>
+      <%= f.input :email, label: "e-Mail", placeholder: "monika.mueller@me.com" %>
+      <%= f.input :password, label: "Passwort" %>
+      <%= f.input :role, label: "Rolle", collection: Role.roles.map {|p| [p, p]} %>
+      <%= f.submit "User erstellen", id: "trigger_search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -58,10 +58,6 @@ class StaticPagesController < ApplicationController
               keywords: "Spende, Patenschaft, Tierschutz, Gönnerbeitrag, Naturalspende"
   end
 
-  def visits
-    set_meta_tags noindex: true
-  end
-
   def impressum
     set_meta_tags title: 'Impressum', reverse: true
   end

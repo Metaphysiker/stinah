@@ -44,8 +44,10 @@ Rails.application.routes.draw do
   get 'home_requests/search_home_requests', to: 'home_requests#search_home_requests', as: 'search_home_requests'
   get 'sponsorships/search_sponsorships', to: 'sponsorships#search_sponsorships', as: 'search_sponsorships'
 
-  #visits
-  get '/visits', to: 'static_pages#visits', as: "visits"
+  #admin
+  get 'admin/visits', to: 'admin#visits', as: "visits"
+  get 'admin/user_overview', to: 'admin#user_overview', as: "user_overview"
+  post '/admin/create_user', to: 'admin#create_user', as: "create_user"
 
   #offerer
   get '/offerers/process_to_create_home_offer', to: 'offerers#process_to_create_home_offer', as: "process_to_create_home_offer"
