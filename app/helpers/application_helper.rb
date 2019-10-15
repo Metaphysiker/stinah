@@ -22,6 +22,10 @@ module ApplicationHelper
     !current_user.nil? && current_user.roles.where(role: "volunteer").exists?
   end
 
+  def is_current_user_external_professional?
+    !current_user.nil? && current_user.roles.where(role: "external_professional").exists?
+  end
+
   def link_to_add_row(name, f, association, **args)
     new_object = f.object.send(association).klass.new
     id = new_object.object_id

@@ -1,4 +1,4 @@
-<% works = Work.where(date: @date) %>
+<% works = @works.where(date: @date) %>
 <% users = Work.get_users(works) %>
 
 <div class="container-fluid">

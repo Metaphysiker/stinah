@@ -92,11 +92,11 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params.require(:work).permit(:date, :shift_start, :shift_end, :food)
+      params.require(:work).permit(:date, :shift_start, :shift_end, :food, :comment)
     end
 
     def is_user_allowed?
-      if !(is_current_user_admin? || is_current_user_volunteer?)
+      if !(is_current_user_admin? || is_current_user_volunteer? || is_current_user_external_professional?)
         #raise "not authorized"
         sign_out current_user
         flash[:notice] = "Sie sind nicht authorisiert!"

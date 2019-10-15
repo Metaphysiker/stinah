@@ -10,4 +10,8 @@ class Work < ApplicationRecord
     User.where(id: user_ids)
   end
 
+  def self.from_users_with_role(role)
+    Work.where(user_id: User.with_role(role).pluck(:id))
+  end
+
 end

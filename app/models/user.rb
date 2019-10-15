@@ -6,10 +6,11 @@ class User < ApplicationRecord
 
   attr_writer :login
 
+ scope :with_role, ->(role) { left_outer_joins(:roles).where(roles: {role: role}) }
+
   def login
     @login || self.username || self.email
   end
-
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -44,6 +45,10 @@ class User < ApplicationRecord
     message = "Noch kein Einsatz geplant."
     message = works.where("date >= ?", Date.today).order(:date).first.date unless works.where("date >= ?", Date.today).empty?
     message
+  end
+
+  def add_role_to_user(role)
+    roles << Role.create(role: role) unless roles.where(role: role).exists?
   end
 
   def create_sponsor_role

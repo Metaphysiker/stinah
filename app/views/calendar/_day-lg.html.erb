@@ -1,6 +1,6 @@
 <div class="float-right small-text"><small><%= link_to day.strftime("%d"), work_day_calendar_path(day) %></small></div>
 <br>
-<% works = Work.where(date: day)%>
+<% works = works.where(date: day)%>
 <% works.each do |work| %>
 <div class="m-2">
   <div class="border border-primary rounded p-1">
@@ -12,11 +12,19 @@
    <small>
      <%= work.shift_start.strftime("%H:%M") %> - <%= work.shift_end.strftime("%H:%M") %>
    </small>
-   <% unless work.food.blank? %>
-     <br />
-     <small>
-       <%= work.food unless work.food.blank? %>
-     </small>
+   <% unless work.comment.blank? %>
+     <p class="border-top">
+       <small>
+         <%= work.comment %>
+       </small>
+     </p>
+   <% end %>
+   <% if !work.food.blank? && !is_current_user_external_professional? %>
+     <p class="border-top">
+       <small>
+         <%= work.food %>
+       </small>
+     </p>
    <% end %>
  </div>
 </div>
