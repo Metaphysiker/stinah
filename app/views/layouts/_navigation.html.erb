@@ -56,13 +56,20 @@
         <%= link_to t("support"), support_path, class:"nav-link #{'active' if action_name == 'support'}"  %>
       </li>
       <li class="nav-item">
-        <%= link_to t("faq"),  faq_path, class:"nav-link #{'active' if action_name == 'faq'}"  %>
+        <%= link_to t("faq"),  faq_path, class:"nav-link #{'active' if (controller_name == "static_pages" && action_name == 'faq')}"  %>
       </li>
       <li class="nav-item">
         <%= link_to t("contact"),  contact_path, class: "nav-link  #{'active' if action_name == 'contact'}"  %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Rettet das Huhn!",  save_the_chicken_path, class: "nav-link  #{'active' if action_name == 'save_the_chicken'}"  %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle about-nav  <%= 'active' if controller_name == "save_the_chicken" %>" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Rettet das Huhn!
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Rettet das Huhn!",  save_the_chicken_path, class:"dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Fragen & Antworten",  save_the_chicken_faq_path, class:"dropdown-item" %>
+        </div>
       </li>
     </ul>
   </div>

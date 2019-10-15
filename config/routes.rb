@@ -13,7 +13,12 @@ Rails.application.routes.draw do
     get '/testimonials', to: 'static_pages#testimonials', as: "testimonials"
     get '/support', to: 'static_pages#support', as: "support"
     get '/privacy_statement', to: 'static_pages#privacy_statement', as: "privacy_statement"
-    get '/save_the_chicken', to: 'static_pages#save_the_chicken', as: "save_the_chicken"
+  end
+
+  #save_the_chicken
+  localized do
+    get '/save_the_chicken', to: 'save_the_chicken#welcome', as: "save_the_chicken"
+    get '/save_the_chicken/faq', to: 'save_the_chicken#faq', as: "save_the_chicken_faq"
   end
 
   get 'home_offers/successfully_added_home_offer', to: 'home_offers#successfully_added_home_offer', as: "successfully_added_home_offer"
