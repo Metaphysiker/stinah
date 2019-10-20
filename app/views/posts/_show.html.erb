@@ -52,7 +52,7 @@
     </div>
   </div>
   <div class="card-footer text-muted">
-    von <%= post.user.username %> - <%= post.created_at.strftime("%d-%m-%Y") %>
+    von <%= post.user.firstname %> <%= post.user.lastname %> - <%= post.created_at.strftime("%d-%m-%Y") %>
     <%#= social_share_button_tag(post.title, :url => post_path(post), desc: post.content, :image => post.cover) %>
       <%= render "shared/social_media_buttons", random_id: SecureRandom.hex(10), text: truncate(post.content.to_plain_text.squish, length: 140), url: post_url(post) %>
   <% if is_current_user_admin? %>

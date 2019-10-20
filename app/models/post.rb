@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_one_attached :video
   has_many_attached :pictures
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   extend FriendlyId
   friendly_id :title, use: :slugged
