@@ -9,9 +9,11 @@
 
       var array_of_animal_ids = <%= animals_without_sponsorship.pluck(:id) %>;
       var card_div = "#animal_in_need_of_sponsorship";
+      console.log(array_of_animal_ids);
 
       // get new animal
       function get_new_animal(){
+        console.log(array_of_animal_ids[Math.floor(Math.random()*array_of_animal_ids.length)]);
         $.ajax({
           url: "/animals/animal_in_need_of_sponsorship/" + array_of_animal_ids[Math.floor(Math.random()*array_of_animal_ids.length)],
           method: 'GET'
@@ -22,7 +24,7 @@
       });
       }
 
-      // loop 
+      // loop
       window.setInterval(function(){
             get_new_animal();
       }, 6000);
