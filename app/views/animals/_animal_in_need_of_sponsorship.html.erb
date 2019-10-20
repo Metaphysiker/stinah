@@ -1,0 +1,18 @@
+<div class="card m-3 p-3">
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><%= animal.name %> sucht noch einen Paten!</h2>
+      <p class="lead">Möchtest du eine Patenschaft für <%= animal.name %> übernehmen?</p>
+      <p>
+        <%= link_to animal_path(animal), class: "btn btn-success my-2" do %>
+          Hier kannst mehr über <%= animal.name %> erfahren!
+        <% end %>
+      </p>
+    </div>
+    <div class="col-md-5">
+      <% if animal.cover.attached? %>
+        <%= image_tag animal.cover, class: "featurette-image img-fluid mx-auto" %>
+      <% end %>
+    </div>
+  </div>
+</div>

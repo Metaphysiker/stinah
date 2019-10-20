@@ -51,6 +51,9 @@ Rails.application.routes.draw do
   get 'home_requests/search_home_requests', to: 'home_requests#search_home_requests', as: 'search_home_requests'
   get 'sponsorships/search_sponsorships', to: 'sponsorships#search_sponsorships', as: 'search_sponsorships'
 
+  #animals
+  get 'animals/animal_in_need_of_sponsorship/:id', to: 'animals#animal_in_need_of_sponsorship', as: 'animal_in_need_of_sponsorship'
+
   #admin
   get 'admin/visits', to: 'admin#visits', as: "visits"
   get 'admin/user_overview', to: 'admin#user_overview', as: "user_overview"

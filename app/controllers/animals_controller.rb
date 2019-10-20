@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_in_need_of_sponsorship]
   before_action :is_user_allowed?, only: [:new, :edit, :update, :destroy]
 
   include ApplicationHelper
@@ -99,6 +99,12 @@ class AnimalsController < ApplicationController
     #@records = Search.new(model: klass, search_term: search_term, tag_list: tag_list, institutions: institutions, assigned_to_user_id: assigned_to_user_id, page: params[:page]).search
     #@search_inputs = params[:search_inputs]
 
+      respond_to do |format|
+        format.js
+      end
+    end
+
+    def animal_in_need_of_sponsorship
       respond_to do |format|
         format.js
       end
