@@ -11,7 +11,7 @@
     <%= render "shared/welcome_thumbnail_carousel", image_names: ["cow.png", "chicken.png", "goat.png", "pig_cute.png", "three_horses.jpeg"] %>
     <%#= render "shared/simple_gallery" %>
     <br />
-    <%= render 'animals/animals_in_need_of_sponsorship' %>
+    <%= render 'animals/animals_in_need_of_sponsorship' unless AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search.empty? %>
 </div>
 
   <div class="jumbotron bg-white my-4">
