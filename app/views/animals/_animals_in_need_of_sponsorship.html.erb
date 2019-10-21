@@ -10,7 +10,6 @@
 
       if(window.myInterval != undefined && window.myInterval != 'undefined'){
           window.clearInterval(window.myInterval);
-          console.log('Timer cleared with id'+window.myInterval);
       }
 
       window.myInterval = setInterval(function() { getNewAnimalInNeedOfSponsorship(); }, 6000);
