@@ -88,6 +88,10 @@ de:
   faq: "FAQ"
   homepage: "Startseite"
   contact: "Kontakt"
+  exception_handler:
+    not_found: "Diese Seite existiert nicht mehr" # -> 404 page
+    unauthorized: "Sie sind nicht authorisiert"
+    internal_server_error:  "Interner Server Fehler"
   routes:
     calendar: "kalender"
     work_calendar: "kalender"
