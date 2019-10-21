@@ -6,6 +6,14 @@
 
 <script>
     $(document).ready(function(){
-      setTimeout(function(){ getNewAnimalInNeedOfSponsorship() }, 12000);
+      //setTimeout(function(){ getNewAnimalInNeedOfSponsorship() }, 12000);
+
+      if(window.myInterval != undefined && window.myInterval != 'undefined'){
+          window.clearInterval(window.myInterval);
+          console.log('Timer cleared with id'+window.myInterval);
+      }
+
+      window.myInterval = setInterval(function() { getNewAnimalInNeedOfSponsorship(); }, 6000);
+
     });
 </script>
