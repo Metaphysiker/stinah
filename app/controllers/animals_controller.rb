@@ -106,6 +106,7 @@ class AnimalsController < ApplicationController
 
     def animal_in_need_of_sponsorship
       respond_to do |format|
+        format.html
         format.js
       end
     end

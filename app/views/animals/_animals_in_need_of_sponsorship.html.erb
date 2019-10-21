@@ -1,7 +1,7 @@
 <% animals_without_sponsorship = AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search %>
 
 <div id="animal_in_need_of_sponsorship">
-  <%= render 'animals/animal_in_need_of_sponsorship', animal: animals_without_sponsorship.first %>
+  <%= render 'animals/animal_in_need_of_sponsorship', animal: animals_without_sponsorship.sample %>
 </div>
 
 <script>
@@ -13,20 +13,12 @@
 
       // get new animal
       function get_new_animal(){
-        console.log(array_of_animal_ids[Math.floor(Math.random()*array_of_animal_ids.length)]);
         $.ajax({
-          url: "/animals/animal_in_need_of_sponsorship/" + array_of_animal_ids[Math.floor(Math.random()*array_of_animal_ids.length)],
+          url: "/animals/animal_in_need_of_sponsorship/" + array_of_animal_ids[Math.floor(Math.random()*array_of_animal_ids.length)] + ".js",
           method: 'GET'
-        }).done(function(response) {
-          $(card_div).fadeOut("fast", function(){
-            $(card_div).empty().append(response).fadeIn("fast");
-          });
-      });
+        });
       }
 
-      // loop
-      window.setInterval(function(){
-            get_new_animal();
-      }, 6000);
+       setTimeout(function(){ get_new_animal }, 6000);
     });
 </script>
