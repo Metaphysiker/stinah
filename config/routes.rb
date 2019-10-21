@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get '/faq', to: 'static_pages#faq', as: "faq"
     get '/contact', to: 'static_pages#contact', as: "contact"
     get '/internship', to: 'static_pages#internship', as: "internship"
-    get '/testimonials', to: 'static_pages#testimonials', as: "testimonials"
+    # get '/testimonials', to: 'static_pages#testimonials', as: "testimonials"
     get '/support', to: 'static_pages#support', as: "support"
     get '/privacy_statement', to: 'static_pages#privacy_statement', as: "privacy_statement"
   end
