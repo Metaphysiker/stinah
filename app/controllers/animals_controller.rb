@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_in_need_of_sponsorship]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy]
   before_action :is_user_allowed?, only: [:new, :edit, :update, :destroy]
 
   include ApplicationHelper
@@ -105,6 +105,9 @@ class AnimalsController < ApplicationController
     end
 
     def animal_in_need_of_sponsorship
+
+      @animal = AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search.sample
+
       respond_to do |format|
         format.html
         format.js

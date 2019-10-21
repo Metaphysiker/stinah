@@ -1,24 +1,11 @@
-<% animals_without_sponsorship = AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search %>
+<% animal_without_sponsorship = AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search.sample %>
 
 <div id="animal_in_need_of_sponsorship">
-  <%= render 'animals/animal_in_need_of_sponsorship', animal: animals_without_sponsorship.sample %>
+  <%= render 'animals/animal_in_need_of_sponsorship', animal: animal_without_sponsorship %>
 </div>
 
 <script>
     $(document).ready(function(){
-
-      var array_of_animal_ids = <%= animals_without_sponsorship.pluck(:id) %>;
-      var card_div = "#animal_in_need_of_sponsorship";
-      console.log(array_of_animal_ids);
-
-      // get new animal
-      function get_new_animal(){
-        $.ajax({
-          url: "/animals/animal_in_need_of_sponsorship/" + array_of_animal_ids[Math.floor(Math.random()*array_of_animal_ids.length)] + ".js",
-          method: 'GET'
-        });
-      }
-
-       setTimeout(function(){ get_new_animal }, 6000);
+      setTimeout(function(){ getNewAnimalInNeedOfSponsorship() }, 12000);
     });
 </script>

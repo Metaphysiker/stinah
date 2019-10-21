@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   get 'sponsorships/search_sponsorships', to: 'sponsorships#search_sponsorships', as: 'search_sponsorships'
 
   #animals
-  get 'animals/animal_in_need_of_sponsorship/:id', to: 'animals#animal_in_need_of_sponsorship', as: 'animal_in_need_of_sponsorship'
+  get 'animals/animal_in_need_of_sponsorship', to: 'animals#animal_in_need_of_sponsorship', as: 'animal_in_need_of_sponsorship'
 
   #admin
   get 'admin/visits', to: 'admin#visits', as: "visits"

@@ -33,6 +33,7 @@ require("@rails/actiontext")
 //require("packs/jssor")
 //require("plyr")
 require("packs/add_nested")
+require("packs/custom")
 
 //import ahoy from "ahoy.js";
 require("chartkick")

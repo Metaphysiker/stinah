@@ -6,6 +6,7 @@ $( card_div ).fadeOut( "fast", function() {
 
     $(card_div).fadeOut("fast", function(){
       $(card_div).empty().append(content).fadeIn("fast");
+      setTimeout(function(){ getNewAnimalInNeedOfSponsorship() }, 6000);
     });
 
 });
