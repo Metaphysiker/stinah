@@ -37,7 +37,7 @@ gem 'devise-i18n'
 # rails I18n
 gem 'rails-i18n'
 #simple form
-gem 'simple_form'
+gem "simple_form", ">= 5.0.0"
 #devise
 #gem 'devise', '~> 4.6.2' REMOVED BECAUSE OF VULNERABILITY
 gem "devise", ">= 4.7.1"
@@ -66,6 +66,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'exception_handler', '~> 0.8.0.0'
 gem 'sitemap_generator'
 
+gem "rubyzip", ">= 1.3.0"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
