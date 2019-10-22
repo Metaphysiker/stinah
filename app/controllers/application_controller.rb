@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  after_action :track_action
+  #after_action :track_action
 
   protected
 

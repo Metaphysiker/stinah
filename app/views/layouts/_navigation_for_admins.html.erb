@@ -20,9 +20,11 @@
       <li class="nav-item">
         <%= link_to "Alle User", user_overview_path, class:"nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Besucher-Statistik", visits_path, class:"nav-link" %>
-      </li>
+      <% if false %>
+        <li class="nav-item">
+          <%= link_to "Besucher-Statistik", visits_path, class:"nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
