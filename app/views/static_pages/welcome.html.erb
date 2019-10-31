@@ -83,7 +83,13 @@
   <div class="my-4">
 
   </div>
-  
+
+  <%= render 'animals/animals_in_need_of_sponsorship' unless AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search.empty? %>
+
+  <div class="my-4">
+
+  </div>
+
     <% if is_current_user_admin? %>
       <div class="text-center">
         <%= link_to 'Neuer Eintrag', new_post_path, class: "btn btn-primary" %>
