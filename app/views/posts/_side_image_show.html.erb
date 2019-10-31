@@ -1,0 +1,16 @@
+<div class="card mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <% if post.cover.attached? %>
+        <%= image_tag post.cover, class: "card-img" %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><small class="text-muted"><%= post.created_at.strftime("%d/%m/%Y") %> - von <%= post.user.firstname %> <%= post.user.lastname %></small></p>
+        <p class="card-text"><%= post.content %></p>
+      </div>
+    </div>
+  </div>
+</div>

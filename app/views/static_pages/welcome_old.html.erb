@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="jumbotron bg-white my-4">
+    <div class="text-center">
+      <%= link_to root_path do %>
+        <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      <% end %>
+      <h1 class="my-4 text-darker-base-color"><%= title %></h1>
+      <p class="lead text-darker-base-color my-4">Hier finden Sie Informationen über die Stiftung, ihre Zielsetzung und ihr Engagement.</p>
+      <p class="lead text-darker-base-color my-4">Für Ihr Interesse und Ihren Einsatz zugunsten der Tiere danken wir Ihnen herzlich!</p>
+    </div>
+    <%= render 'animals/animals_in_need_of_sponsorship' unless AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search.empty? %>
+    <br />
+    <%= render "shared/welcome_thumbnail_carousel", image_names: ["cow.png", "chicken.png", "goat.png", "pig_cute.png", "three_horses.jpeg"] %>
+</div>
+
+  <div class="jumbotron bg-white my-4">
+    <% if is_current_user_admin? %>
+      <div class="text-center">
+        <%= link_to 'Neuer Eintrag', new_post_path, class: "btn btn-primary" %>
+      </div><hr />
+    <% end %>
+    <h1 class="text-center text-darker-base-color">Aktuell</h1>
+    <%= render partial: "posts/show", collection: @posts, as: :post %>
+  </div>
+
+</div>
