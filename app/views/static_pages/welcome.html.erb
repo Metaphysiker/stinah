@@ -3,48 +3,82 @@
   <%#= render "shared/news_images", posts: @posts %>
   <%#= render "posts/card_with_overlay", post: @posts.first %>
 
-  <div class="row">
-    <%= link_to about_path do %>
-      <div class="col-md-6 col-sm-12">
-        <div class="card">
-          <div class="hovereffect">
-              <%= image_tag "stiftungsgruender.png", class: "card-img" %>
-              <div class="card-img-overlay d-flex align-items-end">
-                <h3 class="card-title text-white">Über STINAH</h3>
-              </div>
-              <div class="overlay">
-                 <h2>Über STINAH</h2>
-                 <%= link_to "Lesen", about_path, class: "info" %>
-              </div>
-          </div>
+  <div class="row no-gutters">
+    <div class="col-6">
+      <div class="card h-100">
+        <div class="hovereffect">
+            <%= image_tag "pig_cute.png", class: "card-img h-100" %>
+            <div class="card-img-overlay d-flex align-items-end">
+              <h3 class="card-title text-white">Unsere Tiere</h3>
+            </div>
+            <div class="overlay">
+               <h2>Unsere Tiere</h2>
+               <%= link_to "Entdecken", animals_path, class: "info" %>
+            </div>
         </div>
       </div>
-      <% end %>
-
-      <div class="row">
-
-      </div>
-      <%= link_to animals_path do %>
-        <div class="col-md-6 col-sm-12">
-          <div class="card">
+    </div>
+    <div class="col-6">
+      <div class="row no-gutters">
+        <div class="col-6">
+          <div class="card h-100">
             <div class="hovereffect">
-                <%= image_tag "threehorses.jpeg", class: "card-img" %>
+                <%= image_tag "stiftungsgruender.png", class: "card-img h-100" %>
                 <div class="card-img-overlay d-flex align-items-end">
-                  <h3 class="card-title text-white">Unsere Tiere</h3>
+                  <h3 class="card-title text-white">Über STINAH</h3>
                 </div>
                 <div class="overlay">
-                   <h2>Unsere Tiere</h2>
-                   <%= link_to "Stöbern", animals_path, class: "info" %>
+                   <h2>Über STINAH</h2>
+                   <%= link_to "Mehr erfahren", about_path, class: "info" %>
                 </div>
             </div>
           </div>
         </div>
-        <% end %>
-
+        <div class="col-6">
+          <div class="card h-100">
+            <div class="hovereffect">
+                <%= image_tag "chicken_free.jpg", class: "card-img h-100" %>
+                <div class="card-img-overlay d-flex align-items-end">
+                  <h3 class="card-title text-white">STINAH unterstützen!</h3>
+                </div>
+                <div class="overlay">
+                   <h2>STINAH unterstützen!</h2>
+                   <%= link_to "Mithelfen", support_path, class: "info" %>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card h-100">
+            <div class="hovereffect">
+                <%= image_tag "cow.png", class: "card-img h-100" %>
+                <div class="card-img-overlay d-flex align-items-end">
+                  <h3 class="card-title text-white">Tiervermittlung</h3>
+                </div>
+                <div class="overlay">
+                   <h2>Tiervermittlung</h2>
+                   <%= link_to "Tiere abgeben oder aufnehmen", newhome_path, class: "info" %>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card h-100">
+            <div class="hovereffect">
+                <%= image_tag "chicken_eating.jpeg", class: "card-img h-100" %>
+                <div class="card-img-overlay d-flex align-items-end">
+                  <h3 class="card-title text-white">Rettet das Huhn!</h3>
+                </div>
+                <div class="overlay">
+                   <h2>Rettet das Huhn!</h2>
+                   <%= link_to "Informieren", save_the_chicken_path, class: "info" %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-
 
   <div class="jumbotron bg-white my-4">
     <% if is_current_user_admin? %>
