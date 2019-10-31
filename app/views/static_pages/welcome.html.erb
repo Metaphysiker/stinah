@@ -1,7 +1,50 @@
 <div class="container-fluid">
 
   <%#= render "shared/news_images", posts: @posts %>
-  <%= render "posts/card_with_overlay", post: @posts.first %>
+  <%#= render "posts/card_with_overlay", post: @posts.first %>
+
+  <div class="row">
+    <%= link_to about_path do %>
+      <div class="col-md-6 col-sm-12">
+        <div class="card">
+          <div class="hovereffect">
+              <%= image_tag "stiftungsgruender.png", class: "card-img" %>
+              <div class="card-img-overlay d-flex align-items-end">
+                <h3 class="card-title text-white">Über STINAH</h3>
+              </div>
+              <div class="overlay">
+                 <h2>Über STINAH</h2>
+                 <%= link_to "Lesen", about_path, class: "info" %>
+              </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <div class="row">
+
+      </div>
+      <%= link_to animals_path do %>
+        <div class="col-md-6 col-sm-12">
+          <div class="card">
+            <div class="hovereffect">
+                <%= image_tag "threehorses.jpeg", class: "card-img" %>
+                <div class="card-img-overlay d-flex align-items-end">
+                  <h3 class="card-title text-white">Unsere Tiere</h3>
+                </div>
+                <div class="overlay">
+                   <h2>Unsere Tiere</h2>
+                   <%= link_to "Stöbern", animals_path, class: "info" %>
+                </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+  </div>
+
+
+
 
   <div class="jumbotron bg-white my-4">
     <% if is_current_user_admin? %>

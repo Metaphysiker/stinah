@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="hovereffect">
+      <%= image_tag image, class: "card-img" %>
+      <div class="card-img-overlay d-flex align-items-end">
+        <h3 class="card-title text-white"><%= title %></h3>
+      </div>
+      <div class="overlay">
+         <h2><%= post.title %></h2>
+         <%= link_to "Lesen!", post_path(post), class: "info" %>
+      </div>
+  </div>
+</div>
