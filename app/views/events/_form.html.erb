@@ -1,0 +1,21 @@
+
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.label :cover %>
+    <br />
+    <%= f.file_field :cover %>
+    <br />
+    <br />
+    <%= f.input :start %>
+    <%= f.input :end %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

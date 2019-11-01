@@ -15,6 +15,7 @@ class StaticPagesController < ApplicationController
               }
 
     @posts = Post.all.order("created_at").reverse_order.first(5)
+    @events = Event.where("start > ?", DateTime.now).order("start")
   end
 
   def newhome
