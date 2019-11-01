@@ -1,6 +1,6 @@
 <div class="card mb-3">
   <div class="row no-gutters">
-    <div class="col-sm-4 col-3">
+    <div class="col-3 col-md-4 ">
       <% if event.cover.attached? %>
         <%= link_to event_path(event), class: "text-dark" do %>
           <%= image_tag event.cover, class: "card-img" %>
@@ -14,14 +14,14 @@
         <%= event.start.strftime("%b") %>
       </p>
     </div>
-    <div class="d-none d-sm-block col-sm-6">
+    <div class="d-none d-md-block col-md-6">
       <div class="card-body">
 
         <h5 class="card-title"><%= link_to event.name, event_path(event), class: "text-dark" %></h5>
         <p class="card-text"><%= event.description.truncate(75) %></p>
       </div>
     </div>
-    <div class="d-sm-none col-7">
+    <div class="d-md-none col-7">
       <div class="card-body small">
         <h5 class="card-title"><%= link_to event.name, event_path(event), class: "text-dark" %></h5>
       </div>
