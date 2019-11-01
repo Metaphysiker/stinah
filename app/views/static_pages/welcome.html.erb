@@ -91,7 +91,7 @@
   </div>
 
   <div class="row">
-      <div class="col-12 col-md-8">
+      <div class="col-12 col-lg-8">
         <% if is_current_user_admin? %>
           <div class="text-center">
             <%= link_to 'Neuer Eintrag', new_post_path, class: "btn btn-primary" %>
@@ -100,7 +100,7 @@
         <h3 class="text-darker-base-color">Aktuell</h3>
         <%= render partial: "posts/side_image_show", collection: @posts, as: :post %>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-lg-4">
         <% if is_current_user_admin? %>
           <div class="text-center">
             <%= link_to 'Neuer Eintrag', new_event_path, class: "btn btn-primary" %>
