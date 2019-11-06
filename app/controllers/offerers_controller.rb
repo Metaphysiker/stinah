@@ -33,8 +33,10 @@ class OfferersController < ApplicationController
       if @offerer.save
         flash[:notice] = "Angaben wurde eingetragen!"
         format.js { redirect_to offerer_path(@offerer) }
+        #format.html { redirect_to offerer_path(@offerer) }
       else
         format.js
+        #format.html { render :process_to_create_home_offer }
       end
     end
   end

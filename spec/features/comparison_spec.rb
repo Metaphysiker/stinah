@@ -9,12 +9,14 @@ RSpec.describe "comparisons", :type => :feature do
     admin = User.create!(:username => Faker::Internet.username, :email => Faker::Internet.email, :password => "secret")
     Role.create(role: "admin")
     admin.roles << Role.find_by_role("admin")
-    #login_with(first_user)
+    #login_with(admin)
   end
 
   it "creates an offer and a request" do
 
     create_request
+
+    create_offer
 
   end
 
@@ -23,6 +25,7 @@ end
 def create_request
   visit(root_path)
   #find('.new-home-request-or-offer-nav').click
+  save_screenshot("echo.png")
   click_link('Ich will ein Tier abgeben')
 
   firstname = Faker::Name.first_name
@@ -123,10 +126,51 @@ def create_request
 
   expect(page).to have_content("Bestätigung")
 
-  #save_screenshot("request.png")
+  visit(home_requests_path)
+
+  expect(page).to have_content("Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.")
 end
 
 def create_offer
+  visit(root_path)
+  #find('.new-home-request-or-offer-nav').click
+  click_link('Ich biete einem Tier ein neues Zuhause')
+
+  firstname = Faker::Name.first_name
+  lastname = Faker::Name.last_name
+  street = Faker::Address.street_address
+  city = Faker::Address.city
+  plz = Faker::Address.zip_code
+  phone = Faker::PhoneNumber.cell_phone
+  email = Faker::Internet.email
+  year = rand(1950..2010)
+
+  fill_in "offerer_firstname", :with => firstname
+  fill_in "offerer_lastname", :with => lastname
+  fill_in "offerer_street", :with => street
+  fill_in "offerer_city", :with => city
+  fill_in "offerer_plz", :with => plz
+  fill_in "offerer_phone", :with => phone
+  fill_in "offerer_email", :with => email
+  fill_in "offerer_year", :with => year
+
+
+  offerer_experience = Faker::Lorem.paragraph
+  fill_in "offerer_experience", :with => offerer_experience
+
+  offerer_motivation = Faker::Lorem.paragraph
+  fill_in "offerer_motivation", :with => offerer_motivation
+
+  offerer_plans = Faker::Lorem.paragraph
+  fill_in "offerer_plans", :with => offerer_plans
+
+  #find(:css, "#offerer_privacy_statement").set(true)
+
+  click_button "Weiter"
+
+  expect(page).to have_content("Bitte folgende Probleme beachten:")
+
+  #expect(page).to have_content("Ich möchte folgende Tiere aufnehmen")
 
 end
 
