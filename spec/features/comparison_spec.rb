@@ -23,10 +23,13 @@ RSpec.describe "comparisons", :type => :feature do
 end
 
 def create_request
-  visit(root_path)
-  #find('.new-home-request-or-offer-nav').click
-  save_screenshot("echo.png")
-  click_link('Ich will ein Tier abgeben')
+  #visit(root_path)
+
+  #find("#tiervermittlung-nav-button").click
+  #save_screenshot("echo.png")
+  #click_link('Ich will ein Tier abgeben')
+
+  visit(new_home_request_path)
 
   firstname = Faker::Name.first_name
   lastname = Faker::Name.last_name
@@ -132,9 +135,11 @@ def create_request
 end
 
 def create_offer
-  visit(root_path)
+  #visit(root_path)
   #find('.new-home-request-or-offer-nav').click
-  click_link('Ich biete einem Tier ein neues Zuhause')
+  #click_link('Ich biete einem Tier ein neues Zuhause')
+
+  visit(process_to_create_home_offer_path)
 
   firstname = Faker::Name.first_name
   lastname = Faker::Name.last_name
@@ -164,13 +169,13 @@ def create_offer
   offerer_plans = Faker::Lorem.paragraph
   fill_in "offerer_plans", :with => offerer_plans
 
-  #find(:css, "#offerer_privacy_statement").set(true)
+  find(:css, "#offerer_privacy_statement").set(true)
 
   click_button "Weiter"
 
-  expect(page).to have_content("Bitte folgende Probleme beachten:")
-
-  #expect(page).to have_content("Ich möchte folgende Tiere aufnehmen")
+  #expect(page).to have_content("Bitte folgende Probleme beachten:")
+  #save_screenshot("echo.png")
+  expect(page).to have_content("Ich möchte folgende Tiere aufnehmen")
 
 end
 
