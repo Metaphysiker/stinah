@@ -10,6 +10,8 @@ RSpec.describe "comparisons", :type => :feature do
     Role.create(role: "admin")
     admin.roles << Role.find_by_role("admin")
     #login_with(admin)
+
+    @admin = admin
   end
 
   it "creates an offer and a request" do
@@ -80,18 +82,22 @@ def create_request
   select_option("#home_request_species", species)
 
   race = Faker::Movies::LordOfTheRings.character
-
   fill_in "home_request_race", :with => race
 
-  fill_in "home_request_age", :with => rand(0..50)
+  age = rand(0..50)
+  fill_in "home_request_age", :with => age
 
-  fill_in "home_request_size", :with => rand(100..300)
+  size = rand(100..300)
+  fill_in "home_request_size", :with => size
 
-  fill_in "home_request_color", :with => "Braun"
+  color = "Braun"
+  fill_in "home_request_color", :with => color
 
-  select_option("#home_request_gender", I18n.t(Animal.genders[rand(2)], count: 1))
+  gender = I18n.t(Animal.genders[rand(2)], count: 1)
+  select_option("#home_request_gender", gender)
 
-  select_option("#home_request_castrated", ["Ja","Nein"].sample)
+  castrated = ["Ja","Nein"].sample
+  select_option("#home_request_castrated", castrated)
 
   find(:css, "#home_request_rideable").set(true)
 
@@ -133,6 +139,56 @@ def create_request
   visit(home_requests_path)
 
   expect(page).to have_content("Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.")
+
+  login_with(@admin)
+
+  visit(home_requests_path)
+
+  expect(page).to have_content(firstname)
+  expect(page).to have_content(lastname)
+
+  find("a", :text => firstname).click
+
+  expect(page).to have_content(firstname)
+  expect(page).to have_content(lastname)
+  expect(page).to have_content(street)
+  expect(page).to have_content(city)
+  expect(page).to have_content(plz)
+  expect(page).to have_content(phone)
+  expect(page).to have_content(email)
+
+  expect(page).to have_content(messenger_firstname)
+  expect(page).to have_content(messenger_lastname)
+  expect(page).to have_content(messenger_street)
+  expect(page).to have_content(messenger_city)
+  expect(page).to have_content(messenger_plz)
+  expect(page).to have_content(messenger_phone)
+  expect(page).to have_content(messenger_email)
+
+  expect(page).to have_content(I18n.l(date))
+
+  expect(page).to have_content(species)
+  expect(page).to have_content(race)
+  expect(page).to have_content(features)
+  expect(page).to have_content(age)
+  expect(page).to have_content(size)
+  expect(page).to have_content(color)
+  expect(page).to have_content(castrated)
+  expect(page).to have_content(gender)
+
+  expect(page).to have_content(stable_owner_firstname)
+  expect(page).to have_content(stable_owner_lastname)
+  expect(page).to have_content(stable_owner_street)
+  expect(page).to have_content(stable_owner_city)
+  expect(page).to have_content(stable_owner_plz)
+  expect(page).to have_content(stable_owner_phone)
+
+  expect(page).to have_content(how_was_animal_held)
+  expect(page).to have_content(how_was_animal_used)
+  expect(page).to have_content(reason_of_request)
+  expect(page).to have_content(is_animal_healthy)
+
+  logout
 end
 
 def create_offer
@@ -185,23 +241,33 @@ def create_offer
   select_option("#home_offer_species", species)
 
   race = Faker::Movies::LordOfTheRings.character
-
   fill_in "home_offer_race", :with => race
 
   find(:css, "#home_offer_age").set(false)
-  fill_in "home_offer_min_age", :with => rand(0..10)
-  fill_in "home_offer_max_age", :with => rand(10..50)
+  min_age = rand(0..10)
+  max_age = rand(10..50)
+  fill_in "home_offer_min_age", :with => min_age
+  fill_in "home_offer_max_age", :with => max_age
 
   find(:css, "#home_offer_size").set(false)
-  fill_in "home_offer_min_size", :with => rand(0..10)
-  fill_in "home_offer_max_size", :with => rand(10..50)
+  min_size = rand(0..10)
+  max_size = rand(10..50)
+  fill_in "home_offer_min_size", :with => min_size
+  fill_in "home_offer_max_size", :with => max_size
 
-  select_option("#home_offer_gender", I18n.t(Animal.genders[rand(3)], count: 1))
-  select_option("#home_offer_castrated", ["Ja","Nein", "egal"].sample)
+  gender = I18n.t(Animal.genders[rand(3)], count: 1)
+  select_option("#home_offer_gender", gender)
+
+  castrated = ["Ja","Nein", "egal"].sample
+  select_option("#home_offer_castrated", castrated)
 
   find(:css, "#home_offer_rideable").set(true)
 
-  select_option("#home_offer_stable", Animal.stables.sample)
+  stable = "Anderes"
+  select_option("#home_offer_stable", stable)
+
+  stable_alt = Faker::Lorem.paragraph
+  fill_in "home_offer_stable_alt", :with => stable_alt
 
   date = Date.today + rand(1..700).days
 
@@ -211,17 +277,63 @@ def create_offer
 
   click_button "Tier hinzufügen"
 
+  expect(page).to have_content("Tier wurde eingetragen!")
 
+  visit(home_offers_path)
 
+  expect(page).to have_content("Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.")
+
+  login_with(@admin)
+
+  visit(home_offers_path)
+
+  expect(page).to have_content(firstname)
+  expect(page).to have_content(lastname)
+
+  find("a", :text => firstname).click
+
+  expect(page).to have_content(firstname)
+  expect(page).to have_content(lastname)
+  expect(page).to have_content(street)
+  expect(page).to have_content(city)
+  expect(page).to have_content(plz)
+  expect(page).to have_content(phone)
+  expect(page).to have_content(email)
+  expect(page).to have_content(year)
+  expect(page).to have_content(offerer_experience)
+  expect(page).to have_content(offerer_motivation)
+  expect(page).to have_content(offerer_plans)
+
+  expect(page).to have_content(species)
+  expect(page).to have_content(race)
+  expect(page).to have_content(min_age)
+  expect(page).to have_content(max_age)
+  expect(page).to have_content(min_size)
+  expect(page).to have_content(max_size)
+
+  expect(page).to have_content(gender)
+  expect(page).to have_content(castrated)
+
+  expect(page).to have_content(stable)
+  expect(page).to have_content(stable_alt)
+
+  expect(page).to have_content(I18n.l(date))
+  logout
 end
 
 def login_with(user)
   visit "/users/sign_in"
-  fill_in "Login", :with => user.username
-  fill_in "Passwort", :with => "secret"
+  fill_in "user_login", :with => user.username
+  fill_in "user_password", :with => "secret"
   click_button "Log in"
 
-  expect(page).to have_selector(".navbar-brand", :text => user.username)
+  #expect(page).to have_selector(".navbar-brand", :text => user.username)
+end
+
+def logout
+  visit(root_path)
+  find("a", :text => "Logout").click
+  #expect(page).to have_selector(".navbar-brand", :text => user.username)
 end
 
 def select_option(css_selector, value)
