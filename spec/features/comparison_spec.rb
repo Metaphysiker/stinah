@@ -121,7 +121,7 @@ def create_request
 
   click_button "Tier-Abgabe erstellen"
 
-  expect(page).to have_content(firstname)
+  expect(page).to have_content("Bestätigung")
 
   #save_screenshot("request.png")
 end

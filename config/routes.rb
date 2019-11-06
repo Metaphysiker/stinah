@@ -71,6 +71,9 @@ Rails.application.routes.draw do
   #redirects
   #get '/team', to: redirect('/team_members')
 
+  #download custom files
+  get "/download_vermittlungsbedingungen", to: 'home_requests#download_vermittlungsbedingungen', as: 'download_vermittlungsbedingungen'
+
   devise_for :users
   localized do
     resources :team_members
