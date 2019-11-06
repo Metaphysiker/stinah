@@ -31,16 +31,16 @@ def create_request
 
   visit(new_home_request_path)
 
-  firstname = Faker::Name.first_name
-  lastname = Faker::Name.last_name
+  firstname = Faker::Name.unique.first_name
+  lastname = Faker::Name.unique.last_name
   street = Faker::Address.street_address
   city = Faker::Address.city
   plz = Faker::Address.zip_code
   phone = Faker::PhoneNumber.cell_phone
   email = Faker::Internet.email
 
-  messenger_firstname = Faker::Name.first_name
-  messenger_lastname = Faker::Name.last_name
+  messenger_firstname = Faker::Name.unique.first_name
+  messenger_lastname = Faker::Name.unique.last_name
   messenger_street = Faker::Address.street_address
   messenger_city = Faker::Address.city
   messenger_plz = Faker::Address.zip_code
@@ -76,7 +76,8 @@ def create_request
   select_option("#home_request_date_of_killing_2i", I18n.t("date.month_names")[date.month])
   select_option("#home_request_date_of_killing_1i", date.year)
 
-  select_option("#home_request_species", I18n.t(Animal.species.sample, count: 1))
+  species = I18n.t(Animal.species.sample, count: 1)
+  select_option("#home_request_species", species)
 
   race = Faker::Movies::LordOfTheRings.character
 
@@ -97,8 +98,8 @@ def create_request
   features = Faker::Lorem.paragraph
   fill_in "home_request_features", :with => features
 
-  stable_owner_firstname = Faker::Name.first_name
-  stable_owner_lastname = Faker::Name.last_name
+  stable_owner_firstname = Faker::Name.unique.first_name
+  stable_owner_lastname = Faker::Name.unique.last_name
   stable_owner_street = Faker::Address.street_address
   stable_owner_city = Faker::Address.city
   stable_owner_plz = Faker::Address.zip_code
@@ -141,8 +142,11 @@ def create_offer
 
   visit(process_to_create_home_offer_path)
 
-  firstname = Faker::Name.first_name
-  lastname = Faker::Name.last_name
+  #sleep 5
+  #save_screenshot("echo1.png")
+
+  firstname = Faker::Name.unique.first_name
+  lastname = Faker::Name.unique.last_name
   street = Faker::Address.street_address
   city = Faker::Address.city
   plz = Faker::Address.zip_code
@@ -176,6 +180,38 @@ def create_offer
   #expect(page).to have_content("Bitte folgende Probleme beachten:")
   #save_screenshot("echo.png")
   expect(page).to have_content("Ich möchte folgende Tiere aufnehmen")
+
+  species = I18n.t(Animal.species.sample, count: 1)
+  select_option("#home_offer_species", species)
+
+  race = Faker::Movies::LordOfTheRings.character
+
+  fill_in "home_offer_race", :with => race
+
+  find(:css, "#home_offer_age").set(false)
+  fill_in "home_offer_min_age", :with => rand(0..10)
+  fill_in "home_offer_max_age", :with => rand(10..50)
+
+  find(:css, "#home_offer_size").set(false)
+  fill_in "home_offer_min_size", :with => rand(0..10)
+  fill_in "home_offer_max_size", :with => rand(10..50)
+
+  select_option("#home_offer_gender", I18n.t(Animal.genders[rand(3)], count: 1))
+  select_option("#home_offer_castrated", ["Ja","Nein", "egal"].sample)
+
+  find(:css, "#home_offer_rideable").set(true)
+
+  select_option("#home_offer_stable", Animal.stables.sample)
+
+  date = Date.today + rand(1..700).days
+
+  select_option("#home_offer_from_then_on_3i", date.day)
+  select_option("#home_offer_from_then_on_2i", I18n.t("date.month_names")[date.month])
+  select_option("#home_offer_from_then_on_1i", date.year)
+
+  click_button "Tier hinzufügen"
+
+
 
 end
 
