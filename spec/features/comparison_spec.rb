@@ -101,9 +101,6 @@ RSpec.describe "comparisons", :type => :feature do
     expect(page).to have_content(I18n.l(date))
     expect(page).to have_content(I18n.l(date_from_then_on))
 
-    sleep 2
-    save_screenshot("echo.png")
-
   end
 
 end
