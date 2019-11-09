@@ -48,9 +48,7 @@ class SaveTheChickenController < ApplicationController
 
   def requirements
     set_meta_tags title: 'Voraussetzungen', reverse: true,
-                  description: "
-Die Vermittlungsstelle geht davon aus, dass das Tier bis zu seinem natürlichen Lebensende oder der –wenn dringend nötig-
-beim Tierarzt durchgeführten Euthanasie beim Eigentümer liebevoll umsorgt wird."
+                  description: "Die Vermittlungsstelle geht davon aus, dass das Tier bis zu seinem natürlichen Lebensende oder der –wenn dringend nötig- beim Tierarzt durchgeführten Euthanasie beim Eigentümer liebevoll umsorgt wird."
   end
 
 end
