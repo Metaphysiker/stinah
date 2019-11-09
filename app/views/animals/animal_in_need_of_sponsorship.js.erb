@@ -1,11 +1,11 @@
 var card_div = "#animal_in_need_of_sponsorship";
 
-$( card_div ).fadeOut( "fast", function() {
+$( card_div ).fadeOut( "slow", function() {
 
     content = $("<%= escape_javascript( render 'animals/animal_in_need_of_sponsorship', animal: @animal ) %>")
 
-    $(card_div).fadeOut("fast", function(){
-      $(card_div).empty().append(content).fadeIn("fast");
+    $(card_div).fadeOut("slow", function(){
+      $(card_div).empty().append(content).fadeIn("slow");
     });
 
 });
