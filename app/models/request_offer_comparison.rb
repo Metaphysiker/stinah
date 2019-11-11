@@ -77,10 +77,7 @@ class RequestOfferComparison
 
     #Comparison of species
     species_match = "table-warning"
-    if home_offer.species == "egal"
-      species_match = "table-success"
-      matches += 1
-    elsif home_offer.species == home_request.species
+    if home_offer.species == home_request.species
       species_match = "table-success"
       matches += 1
     else
