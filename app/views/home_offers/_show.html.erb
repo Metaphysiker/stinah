@@ -44,7 +44,7 @@
       <p>
         <b><%= home_offer.class.human_attribute_name("species") %></b>: <%= t(home_offer.species, count: 1) %>
         <br />
-        <b><%= home_offer.class.human_attribute_name("race") %></b>: <%= t(home_offer.race) %>
+        <b><%= home_offer.class.human_attribute_name("race") %></b>: <%= home_offer.race %>
         <br />
         <b>Alter (in Jahren)</b>: <%= home_offer.min_age %> - <%= home_offer.max_age %>
         <br />
