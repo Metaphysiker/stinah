@@ -4,7 +4,7 @@
     <h4>Angaben zum gewünschten Tier</h4>
     <hr />
     <%= f.input :species, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]}, required: true %>
-    <%= f.input :race, placeholder: 'z.B. "Araber" oder "egal"', required: true %>
+      <%= f.input :race, input_html: {  value: home_offer.race || "egal" }, required: true %>
 
     <div class="form-inline pb-3">
         <span class="pr-3">Alter: *</span>
