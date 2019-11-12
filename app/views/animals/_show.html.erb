@@ -74,7 +74,7 @@
     <!-- Button trigger modal -->
 
     <% if animal.alive? %>
-      <button type="button" class="btn btn-success m-2 float-right <%= dom_id(animal) %>_sponsorship_modal_button" data-toggle="modal" data-target=".<%= dom_id(animal) %>_sponsorship_modal">
+      <button type="button" class="btn base-color m-2 float-right <%= dom_id(animal) %>_sponsorship_modal_button" data-toggle="modal" data-target=".<%= dom_id(animal) %>_sponsorship_modal">
         Pate von <%= animal.name %> werden!
       </button>
     <% end %>
