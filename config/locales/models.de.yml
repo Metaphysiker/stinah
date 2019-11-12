@@ -25,6 +25,9 @@ de:
       team_member:
         one: "Team-Mitglied"
         other: "Team-Mitglieder"
+      newsletter:
+        one: "Newsletter"
+        other: "Newsletter"
     attributes:
       user:
         firstname: "Vorname"
@@ -143,3 +146,5 @@ de:
         motivation: "Was bewegt Sie dazu, ein Tier aufzunehmen?"
         plans: "Was sind Ihre Pläne mit dem Tier?"
         privacy_statement: "Ich bin mit der Datenschutzerklärung einverstanden."
+      newsletter:
+        email: "e-Mail"

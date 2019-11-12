@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :newsletters
   resources :events
   root 'static_pages#welcome'
 
