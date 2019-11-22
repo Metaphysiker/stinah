@@ -6,6 +6,7 @@ class ChickenAdoption < ApplicationRecord
             :size_of_chicken_coop, :size_of_outdoor_area, :adoption_of_a_rooster_possible,  presence: true
 
   validates :number_of_chickens_for_adoption, numericality: { other_than: 0 }
+  validates :size_of_outdoor_area, numericality: { other_than: 0 }
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
