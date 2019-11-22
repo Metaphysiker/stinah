@@ -15,7 +15,7 @@ RSpec.describe "chicken_adoption", :type => :feature do
   end
 
   it "it completes the form and expects a message" do
-    visit(root_path)
+    visit(save_the_chicken_contact_path)
 
     firstname = Faker::Name.unique.first_name
     lastname = Faker::Name.unique.last_name
@@ -25,6 +25,10 @@ RSpec.describe "chicken_adoption", :type => :feature do
     phone = Faker::PhoneNumber.cell_phone
     email = Faker::Internet.email
     year = rand(1950..2010)
+    number_of_chickens_for_adoption = rand(2..150)
+    number_of_chickens_currently = rand(2..150)
+    description_of_home = Faker::Lorem.paragraph
+
 
     fill_in "chicken_adoption_firstname", :with => firstname
     fill_in "chicken_adoption_lastname", :with => lastname
@@ -33,6 +37,9 @@ RSpec.describe "chicken_adoption", :type => :feature do
     fill_in "chicken_adoption_plz", :with => plz
     fill_in "chicken_adoption_phone", :with => phone
     fill_in "chicken_adoption_email", :with => email
+    fill_in "chicken_adoption_number_of_chickens_for_adoption", :with => number_of_chickens_for_adoption
+    fill_in "chicken_adoption_number_of_chickens_currently", :with => number_of_chickens_currently
+    fill_in "chicken_adoption_description_of_home", :with => description_of_home
   end
 
 end

@@ -7,6 +7,7 @@ class CreateChickenAdoptions < ActiveRecord::Migration[6.0]
       t.string :plz, default: ""
       t.string :city, default: ""
       t.string :phone, default: ""
+      t.string :email, default: ""
       t.integer :number_of_chickens_for_adoption, default: 0
       t.integer :number_of_chickens_currently, default: 0
       t.text :description_of_home, default: ""

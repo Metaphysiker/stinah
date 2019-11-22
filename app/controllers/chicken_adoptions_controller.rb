@@ -69,6 +69,6 @@ class ChickenAdoptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chicken_adoption_params
-      params.require(:chicken_adoption).permit(:firstname, :lastname, :street, :plz, :city, :phone, :number_of_chickens_for_adoption, :number_of_chickens_currently, :description_of_home, :size_of_chicken_coop, :size_of_outdoor_area, :adoption_of_a_rooster_possible, :acceptance_statement, :privacy_statement, :message)
+      params.require(:chicken_adoption).permit(:firstname, :lastname, :street, :plz, :city, :phone, :email, :number_of_chickens_for_adoption, :number_of_chickens_currently, :description_of_home, :size_of_chicken_coop, :size_of_outdoor_area, :adoption_of_a_rooster_possible, :acceptance_statement, :privacy_statement, :message)
     end
 end
