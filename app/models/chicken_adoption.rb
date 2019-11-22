@@ -1,0 +1,2 @@
+class ChickenAdoption < ApplicationRecord
+end

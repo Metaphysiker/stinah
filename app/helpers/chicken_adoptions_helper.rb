@@ -1,0 +1,2 @@
+module ChickenAdoptionsHelper
+end

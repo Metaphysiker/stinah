@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :chicken_adoptions
   resources :newsletters
   resources :events
   root 'static_pages#welcome'
