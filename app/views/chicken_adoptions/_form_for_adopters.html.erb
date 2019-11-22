@@ -1,5 +1,4 @@
-
-<%= simple_form_for(@chicken_adoption) do |f| %>
+<%= simple_form_for(chicken_adoption, url: create_for_adopters_path, method: :post, remote: true) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :chicken_adoptions
-  resources :newsletters
-  resources :events
   root 'static_pages#welcome'
 
   localized do
@@ -26,6 +23,9 @@ Rails.application.routes.draw do
       get '/contact', to: 'save_the_chicken#contact', as: "save_the_chicken_contact"
     end
   end
+
+  post '/save_the_chicken/create_for_adopters', to: "chicken_adoptions#create_for_adopters", as: "create_for_adopters"
+  get '/save_the_chicken/successfully_added_chicken_adoption', to: "chicken_adoptions#successfully_added_chicken_adoption", as: "successfully_added_chicken_adoption"
 
   get 'home_offers/successfully_added_home_offer', to: 'home_offers#successfully_added_home_offer', as: "successfully_added_home_offer"
   get 'home_requests/successfully_added_home_request', to: 'home_requests#successfully_added_home_request', as: "successfully_added_home_request"
@@ -79,6 +79,7 @@ Rails.application.routes.draw do
   #download custom files
   get "/download_vermittlungsbedingungen", to: 'home_requests#download_vermittlungsbedingungen', as: 'download_vermittlungsbedingungen'
 
+
   devise_for :users
   localized do
     resources :team_members
@@ -89,6 +90,9 @@ Rails.application.routes.draw do
     resources :works
     resources :sponsorships
     resources :offerers
+    resources :chicken_adoptions
+    resources :newsletters
+    resources :events
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

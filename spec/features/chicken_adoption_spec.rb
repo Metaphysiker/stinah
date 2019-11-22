@@ -28,6 +28,10 @@ RSpec.describe "chicken_adoption", :type => :feature do
     number_of_chickens_for_adoption = rand(2..150)
     number_of_chickens_currently = rand(2..150)
     description_of_home = Faker::Lorem.paragraph
+    size_of_chicken_coop = "5m x 4m"
+    size_of_outdoor_area = rand(10..100)
+    adoption_of_a_rooster_possible = ["Ja","Nein"].sample
+    message = Faker::Lorem.paragraph
 
 
     fill_in "chicken_adoption_firstname", :with => firstname
@@ -40,6 +44,17 @@ RSpec.describe "chicken_adoption", :type => :feature do
     fill_in "chicken_adoption_number_of_chickens_for_adoption", :with => number_of_chickens_for_adoption
     fill_in "chicken_adoption_number_of_chickens_currently", :with => number_of_chickens_currently
     fill_in "chicken_adoption_description_of_home", :with => description_of_home
+    fill_in "chicken_adoption_size_of_chicken_coop", :with => size_of_chicken_coop
+    fill_in "chicken_adoption_size_of_outdoor_area", :with => size_of_outdoor_area
+    select_option("#chicken_adoption_adoption_of_a_rooster_possible", adoption_of_a_rooster_possible)
+    find(:css, "#chicken_adoption_acceptance_statement").set(true)
+    fill_in "chicken_adoption_message", :with => message
+    find(:css, "#chicken_adoption_privacy_statement").set(true)
+
+    click_button "Formular einreichen"
+
+    expect(page).to have_content("Formular wurde eingereicht!")
+
   end
 
 end

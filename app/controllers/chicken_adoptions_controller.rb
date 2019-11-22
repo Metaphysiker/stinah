@@ -37,6 +37,23 @@ class ChickenAdoptionsController < ApplicationController
     end
   end
 
+  def successfully_added_chicken_adoption
+
+  end
+
+  def create_for_adopters
+    @chicken_adoption = ChickenAdoption.new(chicken_adoption_params)
+
+    respond_to do |format|
+      if @chicken_adoption.save
+        flash[:notice] = "Das Formular wurde eingereicht!"
+        format.js { redirect_to successfully_added_chicken_adoption_path }
+      else
+        format.js
+      end
+    end
+  end
+
   # PATCH/PUT /chicken_adoptions/1
   # PATCH/PUT /chicken_adoptions/1.json
   def update
