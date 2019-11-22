@@ -18,6 +18,10 @@ RSpec.describe "newsletter", :type => :feature do
     visit(root_path)
 
     expect(page).to have_content("Abonniere unseren Newsletter!")
+
+    #email = open_email('test@example.com')
+    #expect(email.subject).to eq('SUBJECT')
+    #expect(email.to).to eq(['test@example.com'])
   end
 
 end
