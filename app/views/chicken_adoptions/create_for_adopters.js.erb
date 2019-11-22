@@ -1,0 +1,17 @@
+var record_id = "#new_chicken_adoption";
+var errors = <%= raw @chicken_adoption.errors.full_messages %>;
+
+if (jQuery.isEmptyObject(errors)) {
+  console.log("keine Fehler");
+
+
+} else {
+  console.log("Fehler vorhanden");
+
+    content = $("<%= escape_javascript( render 'chicken_adoptions/form_for_adopters', chicken_adoption: @chicken_adoption ) %>");
+
+    $(record_id).replaceWith(function(){
+      return $(content).hide().fadeIn("slow");
+    });
+
+}

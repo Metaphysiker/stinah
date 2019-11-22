@@ -31,7 +31,7 @@ RSpec.describe "comparisons", :type => :feature do
     login_with(@admin)
 
     species = I18n.t(Animal.species.sample, count: 1)
-    race = Faker::Movies::LordOfTheRings.character
+    race = Faker::Artist.name
     age = rand(0..50)
     min_age = age - 2
     max_age = age + 2
@@ -162,7 +162,7 @@ def create_request
   species = I18n.t(Animal.species.sample, count: 1)
   select_option("#home_request_species", species)
 
-  race = Faker::Movies::LordOfTheRings.character
+  race = Faker::Artist.name
   fill_in "home_request_race", :with => race
 
   age = rand(0..50)
@@ -323,7 +323,7 @@ def create_offer
   species = I18n.t(Animal.species.sample, count: 1)
   select_option("#home_offer_species", species)
 
-  race = Faker::Movies::LordOfTheRings.character
+  race = Faker::Artist.name
   fill_in "home_offer_race", :with => race
 
   find(:css, "#home_offer_age").set(false)

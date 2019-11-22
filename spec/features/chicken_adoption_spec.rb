@@ -14,6 +14,7 @@ RSpec.describe "chicken_adoption", :type => :feature do
     @admin = admin
   end
 
+
   it "it completes the form and expects a message" do
     visit(save_the_chicken_contact_path)
 
@@ -57,6 +58,14 @@ RSpec.describe "chicken_adoption", :type => :feature do
 
   end
 
+    it "it leaves form empty and expects an error" do
+
+      visit(save_the_chicken_contact_path)
+
+      click_button "Formular einreichen"
+
+      expect(page).to have_content("Bitte folgende Probleme beachten:")
+    end
 end
 
 def login_with(user)
