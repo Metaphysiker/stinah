@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="jumbotron bg-white my-4">
+    <div class="text-center">
+      <%= link_to root_path do %>
+        <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      <% end %>
+      <h1 class="my-4 text-darker-base-color"><%= title %></h1>
+      <p class="lead text-darker-base-color my-4">
+        Willkommen bei "Rettet das Huhn!", ein Engagement von Stiftung Tiere in Not - Animal Help
+      </p>
+      <div class="text-darker-base-color text-justify">
+        <p>
+          Wir freuen uns, dass Sie uns hier besuchen und danken Ihnen für das Interesse. Wenn Sie ausrangierten Legehennen einen schönen Lebensplatz schenken möchten, kontaktieren Sie uns am besten über unser Kontaktformular.
+        </p>
+        <%= render 'chicken_adoptions/form', chicken_adoption: ChickenAdoption.new %>
+      </div>
+    </div>
+  </div>
+</div>

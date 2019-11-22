@@ -20,8 +20,11 @@ Rails.application.routes.draw do
 
   #save_the_chicken
   localized do
-    get '/save_the_chicken', to: 'save_the_chicken#welcome', as: "save_the_chicken"
-    get '/save_the_chicken/faq', to: 'save_the_chicken#faq', as: "save_the_chicken_faq"
+    scope "/save_the_chicken" do
+      get '/', to: 'save_the_chicken#welcome', as: "save_the_chicken"
+      get '/faq', to: 'save_the_chicken#faq', as: "save_the_chicken_faq"
+      get '/contact', to: 'save_the_chicken#contact', as: "save_the_chicken_contact"
+    end
   end
 
   get 'home_offers/successfully_added_home_offer', to: 'home_offers#successfully_added_home_offer', as: "successfully_added_home_offer"

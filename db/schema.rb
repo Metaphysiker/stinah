@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_121319) do
+ActiveRecord::Schema.define(version: 2019_11_22_133129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,26 @@ ActiveRecord::Schema.define(version: 2019_11_12_121319) do
     t.string "health_status", default: "healthy"
     t.string "slug"
     t.index ["slug"], name: "index_animals_on_slug", unique: true
+  end
+
+  create_table "chicken_adoptions", force: :cascade do |t|
+    t.string "firstname", default: ""
+    t.string "lastname", default: ""
+    t.string "street", default: ""
+    t.string "plz", default: ""
+    t.string "city", default: ""
+    t.string "phone", default: ""
+    t.integer "number_of_chickens_for_adoption", default: 0
+    t.integer "number_of_chickens_currently", default: 0
+    t.text "description_of_home", default: ""
+    t.string "size_of_chicken_coop", default: ""
+    t.integer "size_of_outdoor_area", default: 0
+    t.string "adoption_of_a_rooster_possible", default: "no"
+    t.boolean "acceptance_statement", default: false
+    t.boolean "privacy_statement", default: false
+    t.text "message", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "events", force: :cascade do |t|

@@ -28,6 +28,9 @@ de:
       newsletter:
         one: "Newsletter"
         other: "Newsletter"
+      chicken_adoption:
+        one: "Huhn-Aufnahme"
+        other: "Huhn-Aufnahmen"
     attributes:
       user:
         firstname: "Vorname"
@@ -148,3 +151,23 @@ de:
         privacy_statement: "Ich bin mit der Datenschutzerklärung einverstanden."
       newsletter:
         email: "e-Mail"
+      chicken_adoption:
+        firstname: "Vorname"
+        lastname: "Nachname"
+        street: "Strasse"
+        plz: "Postleitzahl"
+        city: "Ort"
+        phone: "Telefon"
+        email: "e-Mail"
+        number_of_chickens_for_adoption: "Ich biete soviel Hühnern ein Zuhause: "
+        number_of_chickens_currently: "Anzahl bestehende Hühner: "
+        description_of_home: "Bitte beschreiben Sie kurz Ihr Hühnerzuhause: "
+        size_of_chicken_coop: "Abmessung Hühnerstall / Länge x Breite"
+        size_of_outdoor_area: "Auslauf Fläche in m2: "
+        adoption_of_a_rooster_possible: "Aufnahme eines Hahnes möglich?"
+        privacy_statement: "Ich bin mit der Datenschutzerklärung einverstanden."
+        acceptance_statement: "Hiermit bestätige ich, dass ich die
+          Voraussetzungen (siehe «Link») erfülle.
+          (Lebensplatz, keine Schlachtung, artgerechte
+          Haltung, usw.)."
+        message: "Nachricht"
