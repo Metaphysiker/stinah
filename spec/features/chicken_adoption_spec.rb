@@ -56,6 +56,17 @@ RSpec.describe "chicken_adoption", :type => :feature do
 
     expect(page).to have_content("Formular wurde eingereicht!")
 
+    visit(chicken_adoptions_path)
+
+    expect(page).to have_content("Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.")
+
+    login_with(@admin)
+
+    visit(chicken_adoptions_path)
+
+    expect(page).to have_content(firstname)
+    expect(page).to have_content(lastname)
+
   end
 
     it "it leaves form empty and expects an error" do

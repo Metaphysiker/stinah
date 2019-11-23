@@ -21,6 +21,12 @@ Rails.application.routes.draw do
       get '/', to: 'save_the_chicken#welcome', as: "save_the_chicken"
       get '/faq', to: 'save_the_chicken#faq', as: "save_the_chicken_faq"
       get '/contact', to: 'save_the_chicken#contact', as: "save_the_chicken_contact"
+      get '/keeping', to: 'save_the_chicken#keeping', as: "save_the_chicken_keeping"
+      get '/act_sustainable', to: 'save_the_chicken#act_sustainable', as: "save_the_chicken_act_sustainable"
+      get '/new_home', to: 'save_the_chicken#new_home', as: "save_the_chicken_new_home"
+      get '/donation', to: 'save_the_chicken#donation', as: "save_the_chicken_donation"
+      get '/picture_gallery', to: 'save_the_chicken#picture_gallery', as: "save_the_chicken_picture_gallery"
+      get '/requirements', to: 'save_the_chicken#requirements', as: "save_the_chicken_requirements"
     end
   end
 

@@ -1,5 +1,9 @@
 class ChickenAdoptionsController < ApplicationController
   before_action :set_chicken_adoption, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:create_for_adopters, :successfully_added_chicken_adoption]
+  before_action :is_user_allowed?, except: [:create_for_adopters, :successfully_added_chicken_adoption]
+
+  include ApplicationHelper
 
   # GET /chicken_adoptions
   # GET /chicken_adoptions.json
@@ -80,6 +84,16 @@ class ChickenAdoptionsController < ApplicationController
   end
 
   private
+
+  def is_user_allowed?
+    if !is_current_user_admin?
+      #raise "not authorized"
+      sign_out current_user
+      flash[:notice] = "Sie sind nicht authorisiert!"
+      redirect_to root_path
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_chicken_adoption
       @chicken_adoption = ChickenAdoption.find(params[:id])
