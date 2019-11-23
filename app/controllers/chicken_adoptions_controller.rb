@@ -52,13 +52,10 @@ class ChickenAdoptionsController < ApplicationController
       if @chicken_adoption.save
         flash[:notice] = "Das Formular wurde eingereicht!"
         format.js { redirect_to successfully_added_chicken_adoption_path }
+        ChickenAdoptionMailer.send_information_about_new_chicken_adoption("s.raess@me.com", @chicken_adoption).deliver_now
       else
         format.js
       end
-    end
-
-    if @chicken_adoption.save
-      ChickenAdoptionMailer.send_information_about_new_chicken_adoption("s.raess@me.com", @chicken_adoption).deliver_now
     end
   end
 
