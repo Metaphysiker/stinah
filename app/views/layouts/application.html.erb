@@ -23,7 +23,8 @@
   </head>
 
   <body>
-    <%= render "layouts/navigation" %>
+    <%= render "layouts/navigation" unless controller_name == "save_the_chicken" %>
+    <%= render "layouts/navigation_for_save_the_chicken" if controller_name == "save_the_chicken" %>
     <%= render "layouts/navigation_for_volunteers" if is_current_user_admin? || is_current_user_volunteer? || is_current_user_external_professional? %>
     <%#= render "layouts/navigation_for_sponsors" if current_user %>
     <%= render "layouts/navigation_for_admins" if is_current_user_admin? %>

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light base-color height-200">
+  <%= link_to root_path, class: "navbar-brand" do %>
+      STINAH
+  <% end %>
+  <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarMain">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+      <%= link_to "Rettet das Huhn!",  save_the_chicken_path, class:"nav-link #{'active' if action_name == 'welcome'}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Fragen & Antworten",  save_the_chicken_faq_path, class:"nav-link #{'active' if action_name == 'faq'}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Hühnerhaltung",  save_the_chicken_keeping_path, class:"nav-link #{'active' if action_name == 'keeping'}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Nachhaltig Handeln",  save_the_chicken_act_sustainable_path, class:"nav-link #{'active' if action_name == 'act_sustainable'}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Fotogalerie",  save_the_chicken_picture_gallery_path, class:"nav-link #{'active' if action_name == 'picture_gallery'}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Spenden",  save_the_chicken_donation_path, class:"nav-link #{'active' if action_name == 'donation'}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Kontakt",  save_the_chicken_contact_path, class:"nav-link #{'active' if action_name == 'contact'}" %>
+      </li>
+    </ul>
+  </div>
+</nav>
