@@ -89,7 +89,7 @@ class ChickenAdoptionsController < ApplicationController
     else
       @search_inputs = OpenStruct.new()
     end
-  @chicken_adoptions = ChickenAdoptionsSearch.new(@search_inputs).search
+    @chicken_adoptions = ChickenAdoptionsSearch.new(@search_inputs).search
 
     respond_to do |format|
       format.js
