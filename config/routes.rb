@@ -79,6 +79,10 @@ Rails.application.routes.draw do
   #home_offer
   post 'home_offers/add_home_offer_to_offerer', to: "home_offers#add_home_offer_to_offerer", as: 'add_home_offer_to_offerer'
 
+  #chicken_adoptions
+  get 'chicken_adoptions/search_chicken_adoptions', to: 'chicken_adoptions#search_chicken_adoptions', as: 'search_chicken_adoptions'
+  post '/chicken_adoptions/archive/:id', to: "chicken_adoptions#archive", as: "archive_chicken_adoption"
+
   #redirects
   #get '/team', to: redirect('/team_members')
 

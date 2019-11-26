@@ -1,0 +1,81 @@
+<div class="card my-3">
+  <div class="card-body">
+    <h4><%= chicken_adoption.class.model_name.human %></h4>
+    <b>ID: </b> <%= chicken_adoption.id %><br />
+    <b>Anbieter: </b> <%= chicken_adoption.name %><br />
+    <b>Erstellt: </b> <%= l(chicken_adoption.created_at) %><br />
+    <b>Im Archiv: </b> <%= t(chicken_adoption.archived) %><br />
+
+    <hr />
+    <div class="text-justify">
+      <h4>Angaben zur Person</h4>
+      <hr />
+      <p>
+        <%= chicken_adoption.name %>
+        <br />
+        <%= chicken_adoption.street %>
+        <br />
+        <%= chicken_adoption.city %> <%= chicken_adoption.plz %>
+        <br />
+        <%= chicken_adoption.phone %>
+        <br />
+        <%= mail_to chicken_adoption.email %>
+      </p>
+      <hr />
+      <h4>Angaben zu den Hühnern</h4>
+      <hr />
+      <p>
+        <b><%= chicken_adoption.class.human_attribute_name("number_of_chickens_for_adoption") %></b> <br />
+        <%= chicken_adoption.number_of_chickens_for_adoption %>
+      </p>
+      <p>
+        <b><%= chicken_adoption.class.human_attribute_name("number_of_chickens_currently") %></b> <br />
+        <%= chicken_adoption.number_of_chickens_currently %>
+      </p>
+      <p>
+        <b><%= chicken_adoption.class.human_attribute_name("description_of_home") %></b> <br />
+        <%= chicken_adoption.description_of_home %>
+      </p>
+      <p>
+        <b><%= chicken_adoption.class.human_attribute_name("size_of_chicken_coop") %></b> <br />
+        <%= chicken_adoption.size_of_chicken_coop %>
+      </p>
+      <p>
+        <b><%= chicken_adoption.class.human_attribute_name("size_of_outdoor_area") %></b> <br />
+        <%= chicken_adoption.size_of_outdoor_area %>
+      </p>
+      <p>
+        <b><%= chicken_adoption.class.human_attribute_name("adoption_of_a_rooster_possible") %></b> <br />
+        <%= t(chicken_adoption.adoption_of_a_rooster_possible) %>
+      </p>
+      <p>
+        <b><%= chicken_adoption.class.human_attribute_name("acceptance_statement") %></b> <br />
+        <%= t(chicken_adoption.acceptance_statement) %>
+      </p>
+      <p>
+        <b><%= chicken_adoption.class.human_attribute_name("privacy_statement") %></b> <br />
+        <%= t(chicken_adoption.privacy_statement) %>
+      </p>
+      <p>
+        <b><%= chicken_adoption.class.human_attribute_name("message") %></b> <br />
+        <%= chicken_adoption.message %>
+      </p>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <%= chicken_adoption.created_at.strftime("%d-%m-%Y") %>
+  <% if is_current_user_admin? %>
+    <div class="text-center m-2">
+      <hr />
+      <%= link_to 'Eintrag bearbeiten', edit_chicken_adoption_path(chicken_adoption), class: "btn btn-primary m-2" %>
+      <%= link_to 'Eintrag löschen', chicken_adoption_path(chicken_adoption), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+      <% if chicken_adoption.archived %>
+        <%= link_to 'Eintrag aus dem Archiv holen', archive_chicken_adoption_path(chicken_adoption), method: :post, class: "btn btn-warning m-2" %>
+      <% else %>
+        <%= link_to 'Eintrag ins Archiv verschieben', archive_chicken_adoption_path(chicken_adoption), method: :post, class: "btn btn-warning m-2" %>
+      <% end %>
+
+    </div>
+  <% end %>
+  </div>
+</div>

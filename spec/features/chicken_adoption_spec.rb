@@ -64,8 +64,30 @@ RSpec.describe "chicken_adoption", :type => :feature do
 
     visit(chicken_adoptions_path)
 
+    find("a", :text => firstname).click
+
     expect(page).to have_content(firstname)
     expect(page).to have_content(lastname)
+
+    expect(page).to have_content(firstname)
+    expect(page).to have_content(lastname)
+    expect(page).to have_content(street)
+    expect(page).to have_content(city)
+    expect(page).to have_content(plz)
+    expect(page).to have_content(phone)
+    expect(page).to have_content(email)
+
+    visit(chicken_adoptions_path)
+
+    fill_in "search_inputs_search_term", :with => firstname + " " + lastname
+
+    expect(page).to have_content(firstname)
+    expect(page).to have_content(lastname)
+
+    fill_in "search_inputs_search_term", :with => firstname + " " + lastname + " xyz"
+
+    expect(page).to_not have_content(firstname)
+    expect(page).to_not have_content(lastname)
 
   end
 

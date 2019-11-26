@@ -271,6 +271,18 @@ def create_request
   expect(page).to have_content(reason_of_request)
   expect(page).to have_content(is_animal_healthy)
 
+  visit(home_requests_path)
+
+  fill_in "search_inputs_search_term", :with => firstname + " " + lastname
+
+  expect(page).to have_content(firstname)
+  expect(page).to have_content(lastname)
+
+  fill_in "search_inputs_search_term", :with => firstname + " " + lastname + " xyz"
+
+  expect(page).to_not have_content(firstname)
+  expect(page).to_not have_content(lastname)
+
   logout
 end
 
@@ -403,6 +415,19 @@ def create_offer
   expect(page).to have_content(stable_alt)
 
   expect(page).to have_content(I18n.l(date))
+
+  visit(home_offers_path)
+
+  fill_in "search_inputs_search_term", :with => firstname + " " + lastname
+
+  expect(page).to have_content(firstname)
+  expect(page).to have_content(lastname)
+
+  fill_in "search_inputs_search_term", :with => firstname + " " + lastname + " xyz"
+
+  expect(page).to_not have_content(firstname)
+  expect(page).to_not have_content(lastname)
+
   logout
 end
 

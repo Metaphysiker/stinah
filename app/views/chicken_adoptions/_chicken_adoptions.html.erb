@@ -1,0 +1,25 @@
+<% chicken_adoptions.each do |chicken_adoption| %>
+  <div class="card my-4">
+    <div class="card-header">
+      <%= link_to "#{chicken_adoption.name} - #{l(chicken_adoption.created_at)}", chicken_adoption_path(chicken_adoption) %>
+    </div>
+    <div class="card-body">
+      <% if local_assigns.has_key?(:search_term) %>
+        <%= highlight(chicken_adoption.search_field, search_term, highlighter: '<span style="background-color: #FFFF00"><strong>\1</strong></span>') %>
+      <% else %>
+      <p class="card-text">
+        <%= truncate(chicken_adoption.search_field, length: 200) %>
+      </p>
+      <% end %>
+      <hr />
+      <%= link_to "Zum Eintrag", chicken_adoption_path(chicken_adoption), class: "btn btn-success m-2" %>
+      <%= link_to 'Eintrag bearbeiten', edit_chicken_adoption_path(chicken_adoption), class: "btn btn-primary m-2" %>
+      <%= link_to 'Eintrag löschen', chicken_adoption_path(chicken_adoption), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+      <% if chicken_adoption.archived %>
+        <%= link_to 'Eintrag aus dem Archiv holen', archive_chicken_adoption_path(chicken_adoption), method: :post, class: "btn btn-warning m-2" %>
+      <% else %>
+        <%= link_to 'Eintrag ins Archiv verschieben', archive_chicken_adoption_path(chicken_adoption), method: :post, class: "btn btn-warning m-2" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

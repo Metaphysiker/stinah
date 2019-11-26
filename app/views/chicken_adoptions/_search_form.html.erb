@@ -1,0 +1,44 @@
+<%= simple_form_for :search_inputs, {url: search_chicken_adoptions_path, method: :get, remote: true} do |f| %>
+  <%= f.text_field :search_term, placeholder: "Suchen", autocomplete: :off, class: "form-control" %>
+  <%#= f.hidden_field :model, value: records.klass.to_s %>
+  <%#= f.hidden_field :random_div, value: random_div %>
+  <br>
+  <p>
+    <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#search_options" aria-expanded="false" aria-controls="collapseExample">
+      <%= fa_icon "plus" %> Weitere Optionen
+    </button>
+  </p>
+<div class="collapse <%= "show" unless @search_inputs.nil? || true %> mb-2" id="search_options">
+  <div class="card card-body">
+    <%= f.input :archived, as: :select, label: "Archiv", collection: [["Nicht archiviert", 0],["Archiviert", 1]], required: false %>
+    <%#= f.input :archived, as: :boolean, label: "Archiv", required: false %>
+    <%#= f.input :species, label: Animal.human_attribute_name("species"), required: false, collection: Animal.species.map {|p| [t("#{p}", count: 1), p]} %>
+    <br />
+  </div>
+</div>
+  <%= f.submit "Suchen", id: "trigger_search", class: "btn btn-primary" %>
+<% end %>
+
+
+<script>
+    $(document).ready(function(){
+      var records_div = ".chicken_adoptions"
+      var search_records = "#search_inputs_search_term";
+      var trigger_records = "#trigger_search";
+
+      $( trigger_records ).click(function() {
+        if ($( records_div ).html() != "<div class=\"mx-auto loader\"></div>"){
+          $( records_div ).html( "<div class=\"mx-auto loader\"></div>" );
+        }
+      });
+
+        $( search_records ).keyup(function() {
+          if ($( search_records ).val().length > 3){
+            if ($( records_div ).html() != "<div class=\"mx-auto loader\"></div>"){
+              $( records_div ).html( "<div class=\"mx-auto loader\"></div>" );
+            }
+            $(trigger_records).click();
+          }
+        });
+    });
+</script>

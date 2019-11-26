@@ -1,5 +1,5 @@
 class ChickenAdoptionsController < ApplicationController
-  before_action :set_chicken_adoption, only: [:show, :edit, :update, :destroy]
+  before_action :set_chicken_adoption, only: [:show, :edit, :update, :destroy, :archive]
   before_action :authenticate_user!, except: [:create_for_adopters, :successfully_added_chicken_adoption]
   before_action :is_user_allowed?, except: [:create_for_adopters, :successfully_added_chicken_adoption]
 
@@ -81,6 +81,30 @@ class ChickenAdoptionsController < ApplicationController
       format.html { redirect_to chicken_adoptions_url, notice: 'Chicken adoption was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def search_chicken_adoptions
+    if params[:search_inputs].present?
+      @search_inputs = OpenStruct.new(params[:search_inputs])
+    else
+      @search_inputs = OpenStruct.new()
+    end
+  @chicken_adoptions = ChickenAdoptionsSearch.new(@search_inputs).search
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def archive
+    if @chicken_adoption.archived
+      flash[:notice] = "Eintrag wurde de-archiviert!"
+      @chicken_adoption.update(archived: false)
+    else
+      flash[:notice] = "Eintrag wurde archiviert!"
+      @chicken_adoption.update(archived: true)
+    end
+    redirect_to chicken_adoption_path(@chicken_adoption)
   end
 
   private
