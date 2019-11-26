@@ -32,7 +32,7 @@
       <%= flash_messages %>
     </div>
     <%= yield %>
-    <%= render "layouts/footer" %>
+    <%= render "layouts/footer" unless controller_name == "save_the_chicken" %>
     <%= render "layouts/second_footer" %>
   </body>
 </html>

@@ -2,6 +2,10 @@ $base-color: #D0E2D7;
 $darker-base-color: darken($base-color, 50%);
 $even-darker-base-color: darken($base-color, 65%);
 
+$second-base-color: #F0D9D0;
+$darker-second-base-color: darken($base-color, 50%);
+$even-darker-second-base-color: darken($base-color, 65%);
+
 
 body {
   //background-color: $base-color;
@@ -9,6 +13,10 @@ body {
 
 .base-color {
   background-color: $base-color;
+}
+
+.second-base-color {
+  background-color: $second-base-color;
 }
 
 .text-base-color {
