@@ -3,8 +3,8 @@ $darker-base-color: darken($base-color, 50%);
 $even-darker-base-color: darken($base-color, 65%);
 
 $second-base-color: #F0D9D0;
-$darker-second-base-color: darken($base-color, 50%);
-$even-darker-second-base-color: darken($base-color, 65%);
+$darker-second-base-color: darken($second-base-color, 50%);
+$even-darker-second-base-color: darken($second-base-color, 65%);
 
 
 body {
@@ -27,12 +27,20 @@ body {
   background-color: $darker-base-color;
 }
 
+.darker-second-base-color {
+  background-color: $darker-second-base-color;
+}
+
 .text-darker-base-color {
   color: $darker-base-color;
 }
 
 .even-darker-base-color {
   background-color: $even-darker-base-color;
+}
+
+.even-darker-second-base-color {
+  background-color: $even-darker-second-base-color;
 }
 
 .text-even-darker-base-color {

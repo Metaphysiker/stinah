@@ -88,6 +88,14 @@ de:
   faq: "FAQ"
   homepage: "Startseite"
   contact: "Kontakt"
+  save_the_chicken_welcome: "Rettet das Huhn!"
+  save_the_chicken_faq: "Fragen & Antworten"
+  save_the_chicken_keeping: "Hühnerhaltung"
+  save_the_chicken_act_sustainable: "Nachhaltig Handeln"
+  save_the_chicken_new_home: "Platz gesucht!"
+  save_the_chicken_picture_gallery: "Foto-Galerie"
+  save_the_chicken_donation: "Spenden"
+  save_the_chicken_contact: "Kontakt"
   exception_handler:
     not_found: "Diese Seite existiert nicht mehr" # -> 404 page
     unauthorized: "Sie sind nicht authorisiert"

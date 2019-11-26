@@ -9,25 +9,28 @@
   <div class="collapse navbar-collapse" id="navbarMain">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-      <%= link_to "Rettet das Huhn!",  save_the_chicken_path, class:"nav-link #{'active' if action_name == 'welcome'}" %>
+      <%= link_to t("save_the_chicken_welcome"),  save_the_chicken_path, class:"nav-link #{'active' if action_name == 'welcome'}" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Fragen & Antworten",  save_the_chicken_faq_path, class:"nav-link #{'active' if action_name == 'faq'}" %>
+        <%= link_to t("save_the_chicken_faq"),  save_the_chicken_faq_path, class:"nav-link #{'active' if action_name == 'faq'}" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Hühnerhaltung",  save_the_chicken_keeping_path, class:"nav-link #{'active' if action_name == 'keeping'}" %>
+        <%= link_to t("save_the_chicken_keeping"),  save_the_chicken_keeping_path, class:"nav-link #{'active' if action_name == 'keeping'}" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Nachhaltig Handeln",  save_the_chicken_act_sustainable_path, class:"nav-link #{'active' if action_name == 'act_sustainable'}" %>
+        <%= link_to t("save_the_chicken_act_sustainable"),  save_the_chicken_act_sustainable_path, class:"nav-link #{'active' if action_name == 'act_sustainable'}" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Fotogalerie",  save_the_chicken_picture_gallery_path, class:"nav-link #{'active' if action_name == 'picture_gallery'}" %>
+        <%= link_to t("save_the_chicken_new_home"),  save_the_chicken_new_home_path, class:"nav-link #{'active' if action_name == 'new_home'}" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Spenden",  save_the_chicken_donation_path, class:"nav-link #{'active' if action_name == 'donation'}" %>
+        <%= link_to t("save_the_chicken_picture_gallery"),  save_the_chicken_picture_gallery_path, class:"nav-link #{'active' if action_name == 'picture_gallery'}" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Kontakt",  save_the_chicken_contact_path, class:"nav-link #{'active' if action_name == 'contact'}" %>
+        <%= link_to t("save_the_chicken_donation"),  save_the_chicken_donation_path, class:"nav-link #{'active' if action_name == 'donation'}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t("save_the_chicken_contact"),  save_the_chicken_contact_path, class:"nav-link #{'active' if action_name == 'contact'}" %>
       </li>
     </ul>
   </div>

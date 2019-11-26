@@ -1,0 +1,25 @@
+<footer class="footer text-muted even-darker-second-base-color">
+  <div class="container even-darker-second-base-color">
+    <div class="p-3">
+
+    </div>
+    <div class="text-center">
+      <%= link_to t("homepage"), root_path, class: "h4 p-2 text-white" %>
+      <%= link_to t("save_the_chicken_welcome"), save_the_chicken_path, class: "h4 p-2 text-white" %>
+      <%= link_to t("save_the_chicken_faq"),  save_the_chicken_faq_path, class: "h4 p-2 text-white" %>
+      <%= link_to t("save_the_chicken_keeping"),  save_the_chicken_keeping_path, class: "h4 p-2 text-white" %>
+      <%= link_to t("save_the_chicken_act_sustainable"),  save_the_chicken_act_sustainable_path, class: "h4 p-2 text-white" %>
+      <%= link_to t("save_the_chicken_new_home"),  save_the_chicken_new_home_path, class: "h4 p-2 text-white" %>
+      <%= link_to t("save_the_chicken_picture_gallery"),  save_the_chicken_picture_gallery_path, class: "h4 p-2 text-white" %>
+      <%= link_to t("save_the_chicken_donation"),  save_the_chicken_donation_path, class: "h4 p-2 text-white" %>
+      <%= link_to t("save_the_chicken_contact"),  save_the_chicken_contact_path, class: "h4 p-2 text-white" %>
+    </div>
+
+    <hr class="bg-lightgray">
+    <div class="pb-5 pt-2 text-lightgray">
+        <%= link_to "Impressum", impressum_path, class: "text-white" %> | <%= link_to "Cookie-Richtlinie", cookies_path, class: "text-white" %>
+        <br />
+        © <%= Date.today.year %> stinah.ch | Webdesign brigittekreisl.ch
+    </div>
+  </div>
+</footer>

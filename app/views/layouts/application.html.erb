@@ -33,6 +33,9 @@
     </div>
     <%= yield %>
     <%= render "layouts/footer" unless controller_name == "save_the_chicken" %>
-    <%= render "layouts/second_footer" %>
+    <%= render "layouts/second_footer" unless controller_name == "save_the_chicken" %>
+
+    <%= render "layouts/footer_for_save_the_chicken" if controller_name == "save_the_chicken" %>
+    <%= render "layouts/second_footer_for_save_the_chicken" if controller_name == "save_the_chicken" %>
   </body>
 </html>
