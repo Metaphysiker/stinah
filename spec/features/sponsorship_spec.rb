@@ -64,6 +64,8 @@ RSpec.describe "sponsorship", :type => :feature do
     expect(page).to have_content(lastname)
     expect(page).to have_content(email)
 
+    logout
+
   end
 
 end
