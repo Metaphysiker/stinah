@@ -5,6 +5,10 @@ class TestimonialsController < ApplicationController
   # GET /testimonials.json
   def index
     @testimonials = Testimonial.all
+
+    set_meta_tags title: 'Testimonials', reverse: true,
+              description: 'Erfahrungsberichte und Testimonials zu STINAH'
+
   end
 
   # GET /testimonials/1
