@@ -14,8 +14,8 @@ class StaticPagesController < ApplicationController
                 image: ActionController::Base.helpers.asset_url("main-picture.jpeg", type: :image)
               }
 
-    @posts = Post.all.order("created_at").reverse_order.first(5)
-    @events = Event.where("start > ?", DateTime.now).order("start")
+    #@posts = Post.all.order("created_at").reverse_order.first(5)
+    #@events = Event.where("start > ?", DateTime.now).order("start")
   end
 
   def newhome
