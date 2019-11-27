@@ -11,6 +11,7 @@
     <br />
     <%= f.input :title %>
     <%= f.rich_text_area :content, size: "30x10" %>
+    <%= f.input :category, collection: Testimonial.categories.map {|p| [t("#{p}"), p]} %>
   </div>
 
   <div class="form-actions">

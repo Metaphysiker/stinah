@@ -31,6 +31,9 @@ de:
       chicken_adoption:
         one: "Huhn-Aufnahme"
         other: "Huhn-Aufnahmen"
+      testimonial:
+        one: "Testimonial"
+        other: "Testimonials"
     attributes:
       user:
         firstname: "Vorname"
@@ -171,3 +174,7 @@ de:
           (Lebensplatz, keine Schlachtung, artgerechte
           Haltung, usw.)."
         message: "Nachricht"
+      testimonial:
+        title: "Titel"
+        content: "Inhalt"
+        category: "Kategorie"

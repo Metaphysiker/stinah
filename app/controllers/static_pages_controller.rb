@@ -38,7 +38,7 @@ class StaticPagesController < ApplicationController
   end
 
   def internship
-    @testimonials = Testimonial.all
+    @testimonials = Testimonial.where(category: "interns")
 
     set_meta_tags title: 'Praktikum bei Stinah', reverse: true,
               description: 'Ein Praktikum bei Stinah machen! Wohnung ist im Praktikum inklusive.',

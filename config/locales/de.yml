@@ -98,6 +98,10 @@ de:
   save_the_chicken_contact: "Kontakt"
   testimonial: "Testimonial"
   testimonials: "Testimonials"
+  interns: "Praktikantinnen und Praktikanten"
+  volunteers: "Freiwillige"
+  workers: "Angestellte"
+  sponsors: "Paten"
   exception_handler:
     not_found: "Diese Seite existiert nicht mehr" # -> 404 page
     unauthorized: "Sie sind nicht authorisiert"
