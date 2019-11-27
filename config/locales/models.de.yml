@@ -34,6 +34,9 @@ de:
       testimonial:
         one: "Testimonial"
         other: "Testimonials"
+      event:
+        one: "Event"
+        other: "Events"
     attributes:
       user:
         firstname: "Vorname"
@@ -177,4 +180,10 @@ de:
       testimonial:
         title: "Titel"
         content: "Inhalt"
+        category: "Kategorie"
+      event:
+        start: "Beginn des Events"
+        end: "Ende des Events"
+        name: "Name oder Titel des Events"
+        description: "Beschreibung"
         category: "Kategorie"
