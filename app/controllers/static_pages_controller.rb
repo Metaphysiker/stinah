@@ -38,6 +38,8 @@ class StaticPagesController < ApplicationController
   end
 
   def internship
+    @testimonials = Testimonial.all
+
     set_meta_tags title: 'Praktikum bei Stinah', reverse: true,
               description: 'Ein Praktikum bei Stinah machen! Wohnung ist im Praktikum inklusive.',
               keywords: "Praktikum bei Stinah, Tierschutzarbeit"

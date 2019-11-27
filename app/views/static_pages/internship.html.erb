@@ -22,6 +22,14 @@ Weitere
 	unter 052 654 33 33.
 	</p>
 </div>
+
+<% if is_current_user_admin? %>
+  <div class="text-center">
+    <%= link_to 'Neuer Eintrag', new_testimonial_path, class: "btn btn-primary my-2" %>
+  </div>
+<% end %>
+<%= render partial: "testimonials/show", collection: @testimonials, as: :testimonial %>
+
 <p style="margin-bottom: 0cm; line-height: 100%"><br/>
 
 </p>

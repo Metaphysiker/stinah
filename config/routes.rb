@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :testimonials
   root 'static_pages#welcome'
 
   localized do

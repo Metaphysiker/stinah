@@ -96,6 +96,8 @@ de:
   save_the_chicken_picture_gallery: "Foto-Galerie"
   save_the_chicken_donation: "Spenden"
   save_the_chicken_contact: "Kontakt"
+  testimonial: "Testimonial"
+  testimonials: "Testimonials"
   exception_handler:
     not_found: "Diese Seite existiert nicht mehr" # -> 404 page
     unauthorized: "Sie sind nicht authorisiert"
@@ -119,6 +121,7 @@ de:
     sponsorships: "patenschaft"
     privacy_statement: "datenschutzerklaerung"
     save_the_chicken: "rettet-das-huhn"
+    testimonials: "testimonials"
   date:
     formats:
       default: "%d-%m-%Y"

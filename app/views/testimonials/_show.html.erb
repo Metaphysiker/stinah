@@ -1,0 +1,19 @@
+  <hr />
+  <div class="text-center">
+    <% if testimonial.picture.attached? %>
+      <%= image_tag testimonial.picture, class: "img-fluid mb-4  max-height-300" %> <br />
+    <% end %>
+    <p>
+      <strong><%= testimonial.title %></strong>
+    </p>
+    
+  </div>
+  <div class="text-justify">
+    <%= testimonial.content %>
+  </div>
+  <% if is_current_user_admin? %>
+    <div class="text-center m-2">
+      <%= link_to 'Eintrag bearbeiten', edit_testimonial_path(testimonial), class: "btn btn-primary m-2" %>
+      <%= link_to 'Eintrag löschen', testimonial_path(testimonial), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+    </div>
+  <% end %>
