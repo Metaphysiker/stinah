@@ -1,20 +1,20 @@
-<div class="card mb-3">
+<div class="card mb-3 d-none d-md-block">
   <div class="row no-gutters">
-    <div class="col-12 col-md-4 ">
+    <div class="col-4 ">
       <% if event.cover.attached? %>
         <%= link_to event_path(event), class: "text-dark" do %>
           <%= image_tag event.cover, class: "card-img" %>
         <% end %>
       <% end %>
     </div>
-    <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
+    <div class="col-2 d-flex justify-content-center align-items-center">
       <p class="lead">
         <%= l(event.start, format: "%d") %>
         <br />
         <%= l(event.start, format: "%b") %>
       </p>
     </div>
-    <div class="d-none d-md-block col-md-6">
+    <div class="d-none d-md-block col-6">
       <div class="card-body">
 
         <h5 class="card-title"><%= link_to event.name, event_path(event), class: "text-dark" %></h5>
@@ -24,8 +24,6 @@
         </p>
         <p class="card-text"><%= event.description %></p>
         <% if is_current_user_admin? %>
-        <br />
-        <br />
         <hr />
           <div class="text-center m-2">
             <%= link_to 'Eintrag bearbeiten', edit_event_path(event), class: "btn btn-primary m-2" %>
@@ -34,21 +32,41 @@
         <% end %>
       </div>
     </div>
-    <div class="d-md-none col-12">
-      <div class="card-body">
+  </div>
+</div>
 
-        <h5 class="card-title"><%= link_to event.name, event_path(event), class: "text-dark" %></h5>
-        <p class="card-text"><%= event.description %></p>
-        <% if is_current_user_admin? %>
-        <br />
-        <br />
-        <hr />
-          <div class="text-center m-2">
-            <%= link_to 'Eintrag bearbeiten', edit_event_path(event), class: "btn btn-primary m-2" %>
-            <%= link_to 'Eintrag löschen', event_path(event), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
-          </div>
+<div class="card h-100 my-3 <%= dom_id(event) %> d-block d-md-none">
+
+
+    <div class="card-header text-center">
+      <strong><%= l(event.start, format: "%d %b") %></strong>
+      <br />
+      <% if event.cover.attached? %>
+        <%= link_to event_path(event) do %>
+          <%= image_tag event.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
         <% end %>
-      </div>
+      <% end %>
     </div>
+
+  <br />
+  <p class="text-center">
+
+  </p>
+
+  <div class="card-body">
+
+    <h5 class="card-title"><%= link_to event.name, event_path(event), class: "text-dark" %></h5>
+    <p>
+        <small><b>Von: </b><%= l(event.start) %><br />
+          <b>Bis: </b><%= l(event.end) %></small>
+    </p>
+    <p class="card-text"><%= event.description %></p>
+    <% if is_current_user_admin? %>
+    <hr />
+      <div class="text-center m-2">
+        <%= link_to 'Eintrag bearbeiten', edit_event_path(event), class: "btn btn-primary m-2" %>
+        <%= link_to 'Eintrag löschen', event_path(event), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+      </div>
+    <% end %>
   </div>
 </div>
