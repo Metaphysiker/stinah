@@ -21,7 +21,7 @@
   <br />
   <br />
   <h3 class="text-center text-darker-base-color">Vergangene Events</h3>
-  <% past_events = Event.where("start < ?", DateTime.now).order("start") %>
-  <%= render partial: "events/show", collection: events, as: :event %>
+  <% past_events = Event.where("start < ?", DateTime.now).order("start").reverse_order %>
+  <%= render partial: "events/show", collection: past_events, as: :event %>
 
 </div>
