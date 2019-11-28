@@ -1,6 +1,15 @@
-<div class="card mb-3">
-  <div class="card-header">Abonniere unseren Newsletter!</div>
-  <div class="card-body">
-    <%= render "newsletters/form", newsletter: Newsletter.new %>
+
+  <div class="jumbotron p-4 p-md-5 text-center rounded base-color">
+    <div class="px-0">
+      <h1 class="display-5">Abonniere unseren Newsletter!</h1>
+      <p class="lead">
+        Trage deine Email ein und erhalte regelmässig (1-3 Mal im Monat) ein Update von uns!
+      </p>
+      <p>
+        <%= render "newsletters/form", newsletter: Newsletter.new %>
+      </p>
+      <p class="small">
+        Deine e-Mail-Adresse wird niemandem weitergegeben und man kann sich bei jedem Mailing wieder aus der Liste austragen.
+      </p>
+    </div>
   </div>
-</div>
