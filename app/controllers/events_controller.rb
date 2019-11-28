@@ -3,6 +3,8 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_user_allowed?, except: [:show, :index]
 
+  include ApplicationHelper
+
   # GET /events
   # GET /events.json
   def index
