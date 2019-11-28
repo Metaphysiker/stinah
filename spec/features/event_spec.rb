@@ -15,60 +15,49 @@ RSpec.describe "event", :type => :feature do
   end
 
   it "creates an event and expects it to see on the main page and in index" do
-
-  end
-
-  it "it looks up an animal and wants to sponsor an animal" do
-
-    name = Faker::Name.unique.first_name
-    description = Faker::Lorem.paragraph
-    species = Animal.species.sample
-
-    Animal.create(
-      name: name,
-      description: description,
-      species: species
-    )
-
-    visit(animals_path)
-
-    expect(page).to have_content(name)
-
-    sponsorship_button_name = "Pate von " + name + " werden!"
-
-    expect(page).to have_content(sponsorship_button_name)
-
-    click_button sponsorship_button_name
-
-    donation = rand(30...900)
-    firstname = Faker::Name.unique.first_name
-    lastname = Faker::Name.unique.last_name
-    email = Faker::Internet.email
-    fill_in "sponsorship_donation", :with => donation
-    fill_in "sponsorship_firstname", :with => firstname
-    fill_in "sponsorship_lastname", :with => lastname
-    fill_in "sponsorship_email", :with => email
-    find(:css, "#sponsorship_public").set(true)
-
-    click_button "Patenschaft erstellen"
-
-    expect(page).to have_content("Vielen Dank für Ihre Patenschaft!")
-    expect(page).to have_content("PC-Konto: 90-153438-8")
-    expect(page).to have_content(donation)
-
-    visit(sponsorships_path)
+    visit(new_event_path)
 
     expect(page).to have_content("Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.")
 
     login_with(@admin)
 
-    visit(sponsorships_path)
-    expect(page).to have_content(donation)
-    expect(page).to have_content(firstname)
-    expect(page).to have_content(lastname)
-    expect(page).to have_content(email)
+    visit(new_event_path)
+
+    date_start = DateTime.now + rand(1..100).days
+    date_end = date_start + 5.hours
+    name = Faker::Book.title
+    description = Faker::Lorem.paragraph
+
+    select_option("#event_start_3i", date_start.day)
+    select_option("#event_start_2i", I18n.t("date.month_names")[date_start.month])
+    select_option("#event_start_1i", date_start.year)
+    select_option("#event_start_4i", date_start.minute)
+    select_option("#event_start_5i", date_start.second)
+
+    select_option("#event_end_3i", date_end.day)
+    select_option("#event_end_2i", I18n.t("date.month_names")[date_end.month])
+    select_option("#event_end_1i", date_end.year)
+    #select_option("#event_end_4i", date_end.minute)
+    select_option("#event_end_5i", date_end.second)
+
+    fill_in "event_name", :with => name
+
+    fill_in "event_description", :with => description
+
+    click_button "Event erstellen"
 
     logout
+
+    visit(root_path)
+
+    expect(page).to have_content(name)
+
+    visit(events_path)
+
+    expect(page).to have_content(name)
+    expect(page).to have_content(description)
+    expect(page).to have_content(I18n.l(date_start))
+    expect(page).to have_content(I18n.l(date_end))
 
   end
 
