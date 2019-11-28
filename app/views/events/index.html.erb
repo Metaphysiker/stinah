@@ -1,33 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h3 class="text-center text-darker-base-color">Kommende Events</h3>
+  <% events = Event.where("start > ?", DateTime.now).order("start") %>
+  <%= render partial: "events/show", collection: events, as: :event %>
+  <% if events.empty? %>
+    <p>
+      Zurzeit gibt es keine kommenden Events.
+    </p>
+    <p>
+      Abonnieren Sie unseren Newsletter, um auf dem Laufenden zu bleiben!
+    </p>
+    <p>
+      -> Newsletter
+    </p>
+  <% end %>
+  <br />
+  <br />
+  <h3 class="text-center text-darker-base-color">Vergangene Events</h3>
+  <% past_events = Event.where("start < ?", DateTime.now).order("start") %>
+  <%= render partial: "events/show", collection: events, as: :event %>
 
-<h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Start</th>
-      <th>End</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.start %></td>
-        <td><%= event.end %></td>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+</div>

@@ -1,0 +1,31 @@
+<div class="card h-100 my-3 <%= dom_id(event) %>">
+  <% if event.cover.attached? %>
+    <div class="card-header text-center">
+      <%= link_to event_path(event) do %>
+        <%= image_tag event.cover, class: "img-fluid mx-auto max-height-300 rounded" %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="card-body text-darker-base-color">
+    <h3 class="card-title"><%= event.name %></h3>
+    <p>
+        <small><%= l(event.start) %> - <%= l(event.end) %></small>
+    </p>
+    <div class="text-justify">
+      <p class="card-text"><%= event.description %></p>
+    </div>
+
+  </div>
+  <div class="card-footer text-muted">
+
+  <% if is_current_user_admin? %>
+  <br />
+  <br />
+  <hr />
+    <div class="text-center m-2">
+      <%= link_to 'Eintrag bearbeiten', edit_event_path(event), class: "btn btn-primary m-2" %>
+      <%= link_to 'Eintrag löschen', event_path(event), method: :delete, data: {confirm: 'Bist du sicher?'}, class: "btn btn-danger m-2" %>
+    </div>
+  <% end %>
+  </div>
+</div>
