@@ -14,6 +14,16 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    image = @event.cover.attached? ? rails_blob_path(@event.cover) : ActionController::Base.helpers.asset_url("main-picture.jpeg", type: :image)
+
+    set_meta_tags title: @event.name, reverse: true,
+              description: @event.description.to_plain_text.truncate(300),
+              og: {
+                title: :title,
+                description: :description,
+                url: event_url(@event),
+                image: image
+              }
   end
 
   # GET /events/new
@@ -68,7 +78,7 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

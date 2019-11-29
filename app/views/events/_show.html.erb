@@ -23,6 +23,8 @@
               <b>Bis: </b><%= l(event.end) %></small>
         </p>
         <p class="card-text"><%= event.description %></p>
+        <hr />
+        <%= render "shared/social_media_buttons", random_id: SecureRandom.hex(10), text: truncate(event.description.to_plain_text.squish, length: 140), url: event_url(event) %>
         <% if is_current_user_admin? %>
         <hr />
           <div class="text-center m-2">
