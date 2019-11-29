@@ -20,4 +20,8 @@ class Post < ApplicationRecord
     end
   end
 
+  def self.categories
+    ['save_the_chicken']
+  end
+
 end

@@ -13,6 +13,7 @@
     </div>
   <% end %>
   <br />
+  <%= f.input :category, collection: Post.categories.map {|p| [t("#{p}"), p]} %>
   <%= f.input :video_src %>
   <br />
   <%= f.label :video %>

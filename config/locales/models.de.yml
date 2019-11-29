@@ -52,6 +52,7 @@ de:
         video_src: "Youtube- oder Vimeo-Video einbinden"
         video: "Eigenes Video hochladen"
         gallery: "Bilder-Gallerie einfügen"
+        category: "Kategorie"
       animal:
         name: "Name"
         race: "Rasse"
