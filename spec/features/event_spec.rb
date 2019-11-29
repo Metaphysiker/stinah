@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "event", :type => :feature do
+RSpec.describe "event", :type => :feature, js: true do
 
   before(:each) do
     #requester = User.create!(:username => Faker::Internet.username, :email => Faker::Internet.email, :password => "secret")
@@ -31,14 +31,14 @@ RSpec.describe "event", :type => :feature do
     select_option("#event_start_3i", date_start.day)
     select_option("#event_start_2i", I18n.t("date.month_names")[date_start.month])
     select_option("#event_start_1i", date_start.year)
-    select_option("#event_start_4i", date_start.minute)
-    select_option("#event_start_5i", date_start.second)
+    select_option("#event_start_4i", date_start.strftime('%H'))
+    select_option("#event_start_5i", date_start.minute)
 
     select_option("#event_end_3i", date_end.day)
     select_option("#event_end_2i", I18n.t("date.month_names")[date_end.month])
     select_option("#event_end_1i", date_end.year)
-    #select_option("#event_end_4i", date_end.minute)
-    select_option("#event_end_5i", date_end.second)
+    select_option("#event_end_4i", date_end.strftime('%H'))
+    select_option("#event_end_5i", date_end.minute)
 
     fill_in "event_name", :with => name
 
