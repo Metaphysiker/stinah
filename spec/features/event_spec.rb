@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "event", :type => :feature, js: true do
+RSpec.describe "event", :type => :feature do
 
   before(:each) do
     #requester = User.create!(:username => Faker::Internet.username, :email => Faker::Internet.email, :password => "secret")
