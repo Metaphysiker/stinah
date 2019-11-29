@@ -9,6 +9,9 @@
             </div><hr />
           <% end %>
           <h3 class="text-darker-base-color">Aktuell</h3>
+          <p>
+              <%= link_to ">> Alle Nachrichten anzeigen", posts_path %>
+          </p>
           <%= render partial: "posts/side_image_show", collection: Post.all.order("created_at").reverse_order.first(5), as: :post %>
         </div>
         <div class="col-12 col-lg-4">
@@ -19,7 +22,7 @@
           <% end %>
           <h3 class="text-darker-base-color">Kommende Events</h3>
           <p>
-              <%= link_to ">> Alle Events anzeigen", events_path %>
+            <%= link_to ">> Alle Events anzeigen", events_path %>
           </p>
           <% events = Event.where("start > ?", DateTime.now).order("start") %>
           <%= render partial: "events/side_image_show", collection: events, as: :event %>

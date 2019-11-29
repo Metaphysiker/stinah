@@ -26,7 +26,7 @@ RSpec.describe "event", :type => :feature do
     date_start = DateTime.now + rand(1..100).days
     date_end = date_start + 5.hours
     name = Faker::Book.title
-    description = Faker::Lorem.sentence(word_count: 20)
+    description = Faker::Lorem.sentence(word_count: 100)
 
     select_option("#event_start_3i", date_start.day)
     select_option("#event_start_2i", I18n.t("date.month_names")[date_start.month])
@@ -73,7 +73,7 @@ RSpec.describe "event", :type => :feature do
     date_start = DateTime.now + rand(1..100).days
     date_end = date_start + 5.hours
     name = Faker::Book.title
-    description = Faker::Lorem.sentence(word_count: 20)
+    description = Faker::Lorem.sentence(word_count: 100)
 
     select_option("#event_start_3i", date_start.day)
     select_option("#event_start_2i", I18n.t("date.month_names")[date_start.month])
