@@ -6,6 +6,23 @@
     <% end %>
   </div>
 
+  <div class="jumbotron p-4 p-md-5 text-center rounded second-base-color">
+    <div class="px-0">
+      <h1 class="display-5"><%= title %></h1>
+      <p class="lead my-4">
+        Willkommen bei "Rettet das Huhn!", ein Engagement von Stiftung Tiere in Not - Animal Help
+      </p>
+        <div class="text-justify">
+          <p>
+            Wir freuen uns, dass Sie uns hier besuchen und danken Ihnen für das Interesse. Wenn Sie ausrangierten Legehennen einen schönen Lebensplatz schenken möchten, kontaktieren Sie uns am besten über unser Kontaktformular.
+          </p>
+          <p>
+            Auf diesen Seiten dreht sich alles um die Hühner. Mit unserem Motto "Wegschauen war gestern!" möchten wir auch möglichst viele Menschen erreichen und aufzeigen, was für ein schreckliches Leiden Legehennen tagtäglich durchleben und dass jeder einen Beitrag dazu leisten kann, diesem Wahnsinn ein Ende zu setzen.
+          </p>
+      </div>
+    </div>
+  </div>
+
   <div class="my-4">
 
   </div>
@@ -87,22 +104,26 @@
     </div>
   </div>
 
-
-  <div class="jumbotron bg-white my-4">
-      <h1 class="my-4 text-darker-base-color"><%= title %></h1>
-      <p class="lead text-darker-base-color my-4">
-        Willkommen bei "Rettet das Huhn!", ein Engagement von Stiftung Tiere in Not - Animal Help
-      </p>
-      <div class="text-darker-base-color text-justify">
-        <p>
-          Wir freuen uns, dass Sie uns hier besuchen und danken Ihnen für das Interesse. Wenn Sie ausrangierten Legehennen einen schönen Lebensplatz schenken möchten, kontaktieren Sie uns am besten über unser Kontaktformular.
-        </p>
-        <p>
-          Auf diesen Seiten dreht sich alles um die Hühner. Mit unserem Motto "Wegschauen war gestern!" möchten wir auch möglichst viele Menschen erreichen und aufzeigen, was für ein schreckliches Leiden Legehennen tagtäglich durchleben und dass jeder einen Beitrag dazu leisten kann, diesem Wahnsinn ein Ende zu setzen.
-        </p>
-      </div>
-    </div>
-    <%= render "shared/welcome_thumbnail_carousel", image_names: ["chicken.png", "chicken_eating.jpeg", "chicken_free.jpg"] %>
-    <%#= render "shared/simple_gallery" %>
-  </div>
+<div class="my-4">
+  <% if is_current_user_admin? %>
+    <div class="text-center">
+      <%= link_to 'Neuer Eintrag', new_event_path, class: "btn btn-primary" %>
+    </div><hr />
+  <% end %>
+  <h3 class="text-center text-darker-base-color">Kommende Events von "Rettet das Huhn!"</h3>
+  <% events = Event.where("start > ?", DateTime.now).order("start").where(category: "save_the_chicken") %>
+  <%= render partial: "events/show", collection: events, as: :event %>
+  <% if events.empty? %>
+    <p>
+      Zurzeit gibt es keine kommenden Events.
+    </p>
+    <p>
+      Abonnieren Sie unseren Newsletter, um auf dem Laufenden zu bleiben!
+    </p>
+    <p>
+      -> Newsletter
+    </p>
+  <% end %>
 </div>
+
+  </div>
