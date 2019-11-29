@@ -1,0 +1,26 @@
+
+var record_id = "#new_newsletter";
+var errors = <%= raw @newsletter.errors.full_messages %>;
+
+if (jQuery.isEmptyObject(errors)) {
+  console.log("keine Fehler");
+
+  content = `
+  <p><strong>Newsletter wurde abonniert!</strong></p>
+  `;
+
+
+  $(record_id).replaceWith(function(){
+    return $(content).hide().fadeIn("slow");
+  });
+
+} else {
+  console.log("Fehler vorhanden");
+
+    content = $("<%= escape_javascript( render "newsletters/form_for_newsletter_box", newsletter: @newsletter ) %>");
+
+    $(record_id).replaceWith(function(){
+      return $(content).hide().fadeIn("slow");
+    });
+
+}

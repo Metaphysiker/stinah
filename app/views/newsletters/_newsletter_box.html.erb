@@ -1,12 +1,12 @@
 
-  <div class="jumbotron p-4 p-md-5 text-center rounded base-color">
+  <div id="newsletter_box" class="jumbotron p-4 p-md-5 text-center rounded base-color">
     <div class="px-0">
       <h1 class="display-5">Abonniere unseren Newsletter!</h1>
       <p class="lead">
         Trage deine Email ein und erhalte regelmässig (1-3 Mal im Monat) ein Update von uns!
       </p>
       <p>
-        <%= render "newsletters/form", newsletter: Newsletter.new %>
+        <%= render "newsletters/form_for_newsletter_box", newsletter: Newsletter.new %>
       </p>
       <p class="small">
         Deine e-Mail-Adresse wird niemandem weitergegeben und man kann sich bei jedem Mailing wieder aus der Liste austragen.

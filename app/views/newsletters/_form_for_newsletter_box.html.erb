@@ -1,0 +1,13 @@
+<% newsletter = newsletter || @newsletter %>
+<%= simple_form_for(newsletter, url: add_newsletter_to_list_path, method: :post, remote: true) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :email %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Newsletter abonnieren!", class: "btn btn-light" %>
+  </div>
+<% end %>

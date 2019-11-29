@@ -87,6 +87,9 @@ Rails.application.routes.draw do
   #redirects
   #get '/team', to: redirect('/team_members')
 
+  #newsletters
+  post '/newsletters/add_newsletter_to_list', to: "newsletters#add_newsletter_to_list", as: "add_newsletter_to_list"
+
   #download custom files
   get "/download_vermittlungsbedingungen", to: 'home_requests#download_vermittlungsbedingungen', as: 'download_vermittlungsbedingungen'
 

@@ -14,17 +14,59 @@ RSpec.describe "newsletter", :type => :feature do
     @admin = admin
   end
 
+  it "it leaves the form empty, adds invalid inputs and expects an error" do
+    visit(root_path)
+
+    expect(page).to have_content("Abonniere unseren Newsletter!")
+
+    fill_in "newsletter_email", :with => ""
+
+    click_button "Newsletter abonnieren!"
+
+    expect(page).to have_content("Bitte folgende Probleme beachten")
+
+    visit(root_path)
+
+    expect(page).to have_content("Abonniere unseren Newsletter!")
+
+    fill_in "newsletter_email", :with => "abcdefgh"
+
+    click_button "Newsletter abonnieren!"
+
+    expect(page).to have_content("Bitte folgende Probleme beachten")
+
+
+  end
+
   it "it adds email address and expects a response" do
     visit(root_path)
 
     expect(page).to have_content("Abonniere unseren Newsletter!")
 
-    #email = open_email('test@example.com')
-    #expect(email.subject).to eq('SUBJECT')
-    #expect(email.to).to eq(['test@example.com'])
+    email = Faker::Internet.email
+
+    fill_in "newsletter_email", :with => email
+
+    click_button "Newsletter abonnieren!"
+
+    expect(page).to have_content("Newsletter wurde abonniert!")
+
+    visit(newsletters_path)
+
+    expect(page).to have_content("Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.")
+
+    login_with(@admin)
+
+    visit(newsletters_path)
+
+    expect(page).to have_content(email)
   end
 
 end
+
+#email = open_email('test@example.com')
+#expect(email.subject).to eq('SUBJECT')
+#expect(email.to).to eq(['test@example.com'])
 
 def login_with(user)
   visit "/users/sign_in"

@@ -1,6 +1,9 @@
 class NewslettersController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :add_newsletter_to_list]
+  before_action :is_user_allowed?, except: [:new, :add_newsletter_to_list]
   before_action :set_newsletter, only: [:show, :edit, :update, :destroy]
 
+  include ApplicationHelper
   # GET /newsletters
   # GET /newsletters.json
   def index
@@ -61,6 +64,18 @@ class NewslettersController < ApplicationController
     end
   end
 
+  def add_newsletter_to_list
+    @newsletter = Newsletter.new(newsletter_params)
+
+    respond_to do |format|
+      if @newsletter.save
+        format.js
+      else
+        format.js
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_newsletter
@@ -70,5 +85,14 @@ class NewslettersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def newsletter_params
       params.require(:newsletter).permit(:email)
+    end
+
+    def is_user_allowed?
+      if !is_current_user_admin?
+        #raise "not authorized"
+        sign_out current_user
+        flash[:notice] = "Sie sind nicht authorisiert!"
+        redirect_to root_path
+      end
     end
 end
