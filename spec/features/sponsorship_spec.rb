@@ -59,12 +59,77 @@ RSpec.describe "sponsorship", :type => :feature do
     login_with(@admin)
 
     visit(sponsorships_path)
+
+    fill_in "search_inputs_search_term", :with => email
+
+
+    expect(page).to have_content(name)
     expect(page).to have_content(donation)
     expect(page).to have_content(firstname)
     expect(page).to have_content(lastname)
     expect(page).to have_content(email)
 
     logout
+
+  end
+
+  it "it looks up an animal, wants to publicly sponsor an animal, admin allows it and expects name on animal" do
+    name = Faker::Name.unique.first_name
+    description = Faker::Lorem.paragraph
+    species = Animal.species.sample
+
+    Animal.create(
+      name: name,
+      description: description,
+      species: species
+    )
+
+    visit(animals_path)
+
+    expect(page).to have_content(name)
+
+    sponsorship_button_name = "Pate von " + name + " werden!"
+
+    expect(page).to have_content(sponsorship_button_name)
+
+    click_button sponsorship_button_name
+
+    donation = rand(30...900)
+    firstname = Faker::Name.unique.first_name
+    lastname = Faker::Name.unique.last_name
+    email = Faker::Internet.email
+    fill_in "sponsorship_donation", :with => donation
+    fill_in "sponsorship_firstname", :with => firstname
+    fill_in "sponsorship_lastname", :with => lastname
+    fill_in "sponsorship_email", :with => email
+    find(:css, "#sponsorship_public").set(true)
+
+    click_button "Patenschaft erstellen"
+
+    login_with(@admin)
+
+    visit(sponsorships_path)
+
+    fill_in "search_inputs_search_term", :with => email
+
+    expect(page).to have_content(name)
+    expect(page).to have_content(donation)
+    expect(page).to have_content(firstname)
+    expect(page).to have_content(lastname)
+    expect(page).to have_content(email)
+
+    expect(page).to have_content("In-Aktiv")
+    click_link "In-Aktiv"
+
+    logout
+
+    visit(animals_path)
+
+    fill_in "search_inputs_search_term", :with => name
+
+    expect(page).to have_content(name)
+    expect(page).to have_content(firstname)
+    expect(page).to have_content(lastname)
 
   end
 

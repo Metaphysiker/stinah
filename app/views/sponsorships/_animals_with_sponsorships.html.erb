@@ -1,6 +1,7 @@
 <% animal_ids = sponsorships.pluck(:animal_id) %>
 <% sponsorship_ids = sponsorships.pluck(:id) %>
 <% animals_with_sponsorships = Animal.where(id: animal_ids) %>
+
 <% animals_with_sponsorships.each do |animal| %>
 <div class="card my-4">
 
