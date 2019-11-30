@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :emergencies
   resources :testimonials
   root 'static_pages#welcome'
 
