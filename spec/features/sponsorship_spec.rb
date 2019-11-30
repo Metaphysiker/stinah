@@ -73,7 +73,7 @@ RSpec.describe "sponsorship", :type => :feature do
 
   end
 
-  it "it looks up an animal, wants to publicly sponsor an animal, admin allows it and expects name on animal" do
+  it "it looks up an animal, wants to publicly sponsor an animal, admin activates it and expects name on animal" do
     name = Faker::Name.unique.first_name
     description = Faker::Lorem.paragraph
     species = Animal.species.sample
@@ -130,6 +130,10 @@ RSpec.describe "sponsorship", :type => :feature do
     expect(page).to have_content(name)
     expect(page).to have_content(firstname)
     expect(page).to have_content(lastname)
+
+  end
+
+  it "looks up an animal, wants to sponsor it, admin activates it and marks it full-sponsorship" do
 
   end
 
