@@ -106,6 +106,18 @@
 
   <%= render 'animals/animals_in_need_of_sponsorship' unless AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search.empty? %>
 
+  <div class="jumbotron p-4 p-md-5 text-center rounded base-color">
+    <div class="px-0">
+      <h1 class="display-5">Eine Patenschaft übernehmen!</h1>
+      <p class="lead">
+        Mit einer <strong>Patenschaft</strong> helfen Sie, einzelnen Tieren <strong>Zuflucht</strong> zu bieten und ihnen ein <strong>gesichertes Dasein</strong> zu gewährleisten.
+      </p>
+      <p class="lead">
+        <%= link_to "Schau dir alle #{AnimalsSearch.new(sponsorship_status: "without_sponsorship").search.count} Tiere an, die deine Unterstützung brauchen!", animals_path(params: {search_inputs: {sponsorship_status: "without_sponsorship"}}), class:"btn btn-light btn-lg btn-block"  %>
+      </p>
+    </div>
+  </div>
+
   <%= render 'newsletters/newsletter_box' %>
   <div class="my-4">
 
