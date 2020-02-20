@@ -98,14 +98,23 @@ body {
 }
 
 .horse-enter-bg{
+
+  height:100vh;
+  min-height:600px;
   /* The image used */
-background-image: image-url("horse-enter.png");
+  background-image: image-url("horse-enter.png");
 
 /* Full height */
-height: 600px;
+height: 800px;
 
 /* Center and scale the image nicely */
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
+}
+
+.blur-background{
+  //backdrop-filter: blur(10px);
+  //backdrop-filter: brightness(50%);
+  background-color: rgba(255, 255, 255, .2) !important;
 }
