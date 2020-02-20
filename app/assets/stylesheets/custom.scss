@@ -88,3 +88,24 @@ body {
 .hidden {
   display: none;
 }
+
+.blur {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+
+.horse-enter-bg{
+  /* The image used */
+background-image: image-url("horse-enter.png");
+
+/* Full height */
+height: 600px;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
