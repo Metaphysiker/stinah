@@ -2,23 +2,15 @@
 <section class="horse-enter-bg">
   <%= render "layouts/navigation" unless controller_name == "save_the_chicken" %>
     <div class="container d-flex align-items-end h-75">
-      <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      <div class="d-none d-md-block">
+        <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      </div>
     </div>
 </section>
 
-<div class="container-fluid">
-  <div class="blur-background w-100">
-      text!
-  </div>
-
-  <div class="container">
-
-  </div>
-</div>
-
   <div class="container-fluid">
 
-  <div class="text-center">
+  <div class="text-center d-block d-md-none">
     <%= link_to root_path do %>
       <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
     <% end %>
