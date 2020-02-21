@@ -1,0 +1,15 @@
+<div class="card b-color">
+  <%= image_tag post.cover, class: "card-img" %>
+  <div class="card-body">
+    <p class="card-text">
+      <small><%= l(post.created_at, format: "%d.%m.%y") %> Mitteilung</small>
+    </p>
+    <h5 class="card-title spaced-letters"><%= post.title.upcase %></h5>
+    <p class="card-text"><%= post.content.to_plain_text.truncate(150) %></p>
+    <p>
+      <%= link_to post_path(post) do %>
+        <button type="button" class="btn btn-c-color btn-sm spaced-letters text-nowrap">MEHR ERFAHREN <%= fa_icon "chevron-right", class: "ml-2" %></button>
+      <% end %>
+    </p>
+  </div>
+</div>
