@@ -6,6 +6,8 @@ $second-base-color: #F0D9D0;
 $darker-second-base-color: darken($second-base-color, 50%);
 $even-darker-second-base-color: darken($second-base-color, 65%);
 
+$a-color: #554732;
+
 
 body {
   //background-color: $base-color;
@@ -13,6 +15,10 @@ body {
 
 .base-color {
   background-color: $base-color;
+}
+
+.a-color {
+  background-color: $a-color;
 }
 
 .second-base-color {
@@ -99,13 +105,13 @@ body {
 
 .horse-enter-bg{
 
-  height:100vh;
-  min-height:600px;
+  //height:600px;
+  //max-height:600px;
   /* The image used */
   background-image: image-url("horse-enter.png");
 
 /* Full height */
-height: 800px;
+height: 700px;
 
 /* Center and scale the image nicely */
 background-position: center;
