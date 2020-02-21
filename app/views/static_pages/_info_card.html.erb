@@ -1,0 +1,12 @@
+<div class="card rounded-0 text-white">
+  <%= image_tag("goat.png", class: "card-img") %>
+  <div class="card-img-overlay overlay-dark d-flex flex-column justify-content-center">
+      <p class="card-text text-center"><%= "Bei uns leben unter anderem".capitalize %></p>
+      <h3 class="card-title text-center mt-n3"><strong>11 Kühe und Ochsen</strong></h3>
+    <p class="card-text text-center mt-3">
+      <%= link_to root_path do %>
+        <button type="button" class="btn btn-c-color btn-sm spaced-letters text-nowrap">MEHR ERFAHREN <%= fa_icon "chevron-right", class: "ml-2" %></button>
+      <% end %>
+    </p>
+  </div>
+</div>
