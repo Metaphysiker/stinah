@@ -10,6 +10,7 @@ $a-color: #554732;
 $b-color: #f2ede8;
 $c-color: #ec7d22;
 $d-color: #9a76a3;
+$e-color: #9a7e59;
 
 
 body {
@@ -34,6 +35,9 @@ body {
 
 .d-color {
   background-color: $d-color;
+}
+.e-color {
+  background-color: $e-color;
 }
 
 .border-d-color{
@@ -329,6 +333,55 @@ fieldset[disabled] .btn-d-color.active {
   background-color: #ffffff;
 }
 
+//Button e-color
+.btn-e-color {
+  color: #ffffff;
+  background-color: $e-color;
+  //border-color: #FFFFFF;
+}
+
+.btn-e-color:hover,
+.btn-e-color:focus,
+.btn-e-color:active,
+.btn-e-color.active,
+.open .dropdown-toggle.btn-e-color {
+  color: #ffffff;
+  background-color: darken($e-color, 20%);
+  //border-color: #FFFFFF;
+}
+
+.btn-e-color:active,
+.btn-e-color.active,
+.open .dropdown-toggle.btn-d-color {
+  background-image: none;
+}
+
+.btn-e-color.disabled,
+.btn-e-color[disabled],
+fieldset[disabled] .btn-e-color,
+.btn-e-color.disabled:hover,
+.btn-e-color[disabled]:hover,
+fieldset[disabled] .btn-e-color:hover,
+.btn-e-color.disabled:focus,
+.btn-e-color[disabled]:focus,
+fieldset[disabled] .btn-e-color:focus,
+.btn-e-color.disabled:active,
+.btn-e-color[disabled]:active,
+fieldset[disabled] .btn-e-color:active,
+.btn-e-color.disabled.active,
+.btn-e-color[disabled].active,
+fieldset[disabled] .btn-e-color.active {
+  background-color: $e-color;
+  //border-color: #FFFFFF;
+}
+
+.btn-e-color .badge {
+  color: $e-color;
+  background-color: #ffffff;
+}
+
+
+//overlay
 .overlay-dark {
   background-color: rgba(black, 0.4);
 }
