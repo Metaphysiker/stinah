@@ -11,6 +11,7 @@ $b-color: #f2ede8;
 $c-color: #ec7d22;
 $d-color: #9a76a3;
 $e-color: #9a7e59;
+$f-color: #5fa778;
 
 
 body {
@@ -38,6 +39,10 @@ body {
 }
 .e-color {
   background-color: $e-color;
+}
+
+.f-color {
+  background-color: $f-color;
 }
 
 .border-d-color{
