@@ -8,6 +8,7 @@ $even-darker-second-base-color: darken($second-base-color, 65%);
 
 $a-color: #554732;
 $b-color: #f2ede8;
+$c-color: #ec7d22;
 
 
 body {
@@ -24,6 +25,10 @@ body {
 
 .b-color {
   background-color: $b-color;
+}
+
+.c-color {
+  background-color: $c-color;
 }
 
 .second-base-color {
@@ -177,4 +182,29 @@ background-size: cover;
 
 .container-small, .container-large {
     max-width: 100%;
+}
+
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 8px;
+    text-align: center;
+}
+.btn-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 10px;
+    text-align: center;
+}
+.btn-circle.btn-xl {
+    width: 125px;
+    height: 125px;
+    padding: 10px 16px;
+    border-radius: 65px;
+    font-size: 16px;
+    text-align: center;
 }
