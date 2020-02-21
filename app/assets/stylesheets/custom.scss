@@ -7,6 +7,7 @@ $darker-second-base-color: darken($second-base-color, 50%);
 $even-darker-second-base-color: darken($second-base-color, 65%);
 
 $a-color: #554732;
+$b-color: #f2ede8;
 
 
 body {
@@ -19,6 +20,10 @@ body {
 
 .a-color {
   background-color: $a-color;
+}
+
+.b-color {
+  background-color: $b-color;
 }
 
 .second-base-color {
@@ -141,4 +146,35 @@ background-size: cover;
 
 .navbar-dark .navbar-nav .nav-link {
     color: white;
+}
+
+.navbar { padding-top: 0.4rem; padding-bottom: 0.4rem; }
+
+@media (min-width: 768px) {
+    .container-small {
+        width: 300px;
+    }
+    .container-large {
+        width: 970px;
+    }
+}
+@media (min-width: 992px) {
+    .container-small {
+        width: 800px;
+    }
+    .container-large {
+        width: 1170px;
+    }
+}
+@media (min-width: 1200px) {
+    .container-small {
+        width: 1000px;
+    }
+    .container-large {
+        width: 1500px;
+    }
+}
+
+.container-small, .container-large {
+    max-width: 100%;
 }
