@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-8">
+
+      <%= image_tag post.cover, class: "card-img" %>
+    </div>
+    <div class="col-md-4  b-color">
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= post.content %></p>
+        <p>
+          <button type="button" class="btn btn-primary btn-sm spaced-letters">MEHR ERFAHREN <%= fa_icon "chevron-right", class: "ml-2" %></button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
