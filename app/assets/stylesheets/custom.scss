@@ -34,6 +34,11 @@ body {
   background-color: $c-color;
 }
 
+.btn.c-color:hover {
+  background-color: darken($c-color, 20%);
+}
+
+
 .d-color {
   background-color: $d-color;
 }

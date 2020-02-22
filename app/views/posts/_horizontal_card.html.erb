@@ -7,7 +7,7 @@
     <div class="col-md-4">
       <div class="card-body">
         <p class="card-text">
-          <small><%= l(post.created_at, format: "%d.%m.%y") %> Mitteilung</small>
+          <small><%= l(post.created_at, format: "%d.%m.%Y") %> Mitteilung</small>
         </p>
         <h5 class="card-title spaced-letters"><%= post.title.upcase %></h5>
         <p class="card-text"><%= post.content.to_plain_text.truncate(150) %></p>
