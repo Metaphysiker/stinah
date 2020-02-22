@@ -33,10 +33,12 @@
       <div class="col-12 mb-5">
         <div class="mt-n7 p-2">
           <div class="float-right mr-5">
-            <button type="button" class="btn c-color btn-circle btn-xl text-white spaced-letters">
-              <strong>JETZT<br /> SPENDEN <br /></strong>
-              <hr align="center" width="20px" class="bg-light">
-            </button>
+            <%= link_to support_path do %>
+              <button type="button" class="btn c-color btn-circle btn-xl text-white spaced-letters">
+                <strong>JETZT<br /> SPENDEN <br /></strong>
+                <hr align="center" width="20px" class="bg-light">
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -56,130 +58,19 @@
 
   <%= render "static_pages/card_columns" %>
 
-  <div class="container-fluid">
-
-  <div class="text-center d-block d-md-none">
-    <%= link_to root_path do %>
-      <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
-    <% end %>
-  </div>
-
-  <div class="jumbotron p-4 p-md-5 text-center rounded base-color">
-    <div class="px-0">
-      <h1 class="display-5">Herzlich Willkommen!</h1>
-      <p class="lead">
-        Hier finden Sie alle Informationen über die Stiftung <strong>Tiere in Not- Animal Help</strong>, ihre Tiere, ihre Zielsetzung und ihr Engagement.
-      </p>
-    </div>
-  </div>
-
-
-  <div class="my-4">
+  <div class="container-fluid pate-bg">
 
   </div>
 
-  <%#= render "shared/news_images", posts: @posts %>
-  <%#= render "posts/card_with_overlay", post: @posts.first %>
+  <div class="container-fluid f-color pt-5">
+    <div class="container">
+      <h5 class="spaced-letters text-white mb-4"><%= "Wie Sie uns auch noch unterstützen können".upcase %></h5>
 
-  <div class="row no-gutters">
-    <div class="col-lg-6 col-md-12 mb-2 mb-lg-0 pr-lg-1">
-      <div class="card h-100">
-        <div class="hovereffect">
-            <%= image_tag "pig_cute.png", class: "card-img h-100" %>
-            <div class="card-img-overlay d-flex align-items-end">
-              <h3 class="card-title text-white">Unsere Tiere</h3>
-            </div>
-            <div class="overlay">
-               <h2>Unsere Tiere</h2>
-               <%= link_to "Entdecken", animals_path, class: "info" %>
-            </div>
-        </div>
+      <div class="card-deck">
+        <%= render "static_pages/info_card3" %>
+        <%= render "static_pages/info_card3" %>
+        <%= render "static_pages/info_card3" %>
       </div>
     </div>
-    <div class="col-lg-6 col-md-12">
-      <div class="row no-gutters">
-        <div class="col-md-6 col-sm-12 mb-2 mb-md-0">
-          <div class="card h-100">
-            <div class="hovereffect">
-                <%= image_tag "stiftungsgruender.png", class: "card-img h-100" %>
-                <div class="card-img-overlay d-flex align-items-end">
-                  <h3 class="card-title text-white">Über STINAH</h3>
-                </div>
-                <div class="overlay">
-                   <h2>Über STINAH</h2>
-                   <%= link_to "Mehr erfahren", about_path, class: "info" %>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-2 mb-md-0">
-          <div class="card h-100">
-            <div class="hovereffect">
-                <%= image_tag "chicken_free.jpg", class: "card-img h-100" %>
-                <div class="card-img-overlay d-flex align-items-end">
-                  <h3 class="card-title text-white">STINAH unterstützen!</h3>
-                </div>
-                <div class="overlay">
-                   <h2>STINAH unterstützen!</h2>
-                   <%= link_to "Mithelfen", support_path, class: "info" %>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-2 mb-md-0">
-          <div class="card h-100">
-            <div class="hovereffect">
-                <%= image_tag "cow.png", class: "card-img h-100" %>
-                <div class="card-img-overlay d-flex align-items-end">
-                  <h3 class="card-title text-white">Tier - Vermittlung</h3>
-                </div>
-                <div class="overlay">
-                   <h2>Tiervermittlung</h2>
-                   <%= link_to "Tiere abgeben oder aufnehmen", newhome_path, class: "info" %>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-2 mb-md-0">
-          <div class="card h-100">
-            <div class="hovereffect">
-                <%= image_tag "chicken_eating.jpeg", class: "card-img h-100" %>
-                <div class="card-img-overlay d-flex align-items-end">
-                  <h3 class="card-title text-white">Rettet das Huhn!</h3>
-                </div>
-                <div class="overlay">
-                   <h2>Rettet das Huhn!</h2>
-                   <%= link_to "Informieren", save_the_chicken_path, class: "info" %>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="my-4">
 
   </div>
-
-  <%= render 'animals/animals_in_need_of_sponsorship' unless AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search.empty? %>
-
-  <div class="jumbotron p-4 p-md-5 text-center rounded base-color">
-    <div class="px-0">
-      <h1 class="display-5">Eine Patenschaft übernehmen!</h1>
-      <p class="lead">
-        Mit einer <strong>Patenschaft</strong> helfen Sie, einzelnen Tieren <strong>Zuflucht</strong> zu bieten und ihnen ein <strong>gesichertes Dasein</strong> zu gewährleisten.
-      </p>
-      <p class="lead">
-        <%= link_to "Schau dir alle #{AnimalsSearch.new(sponsorship_status: "without_sponsorship").search.count} Tiere an, die deine Unterstützung brauchen!", animals_path(params: {search_inputs: {sponsorship_status: "without_sponsorship"}}), class:"btn btn-light btn-lg btn-block"  %>
-      </p>
-    </div>
-  </div>
-
-  <%= render 'newsletters/newsletter_box' %>
-  <div class="my-4">
-
-  </div>
-
-
-</div>

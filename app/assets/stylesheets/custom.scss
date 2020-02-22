@@ -157,6 +157,19 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
+.pate-bg{
+
+  background-image: image-url("pate-bg.png");
+
+/* Full height */
+height: 685px;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
 .blur-background{
   //backdrop-filter: blur(5px);
   //backdrop-filter: brightness(50%);

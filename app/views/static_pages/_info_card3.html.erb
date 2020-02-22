@@ -1,0 +1,14 @@
+<div class="card bg-light mb-3">
+  <div class="card-body">
+    <p>
+        <%= fa_icon("comment", class: "fa-5x") %>
+    </p>
+    <h5 class="card-title"><%= "Haben Sie gewusst?".upcase %></h5>
+    <p class="card-text">Wir bieten auch Beratung an für Tierhalter*innen, Behörden, Schulen und Interessierte</p>
+    <p>
+      <%= link_to root_path do %>
+        <button type="button" class="btn btn-light btn-sm spaced-letters text-nowrap">MEHR ERFAHREN <%= fa_icon "chevron-right", class: "ml-2" %></button>
+      <% end %>
+    </p>
+  </div>
+</div>
