@@ -1,59 +1,53 @@
-<footer class="footer text-muted darker-base-color">
-  <div class="container darker-base-color">
-    <div class="row pt-4 mb-n4">
-      <div class="col-sm-12 col-md-4">
-      </div>
-      <div class="col-sm-12 col-md-4">
-      </div>
-      <div class="col-sm-12 col-md-4 text-white">
-        <% if user_signed_in? %>
-          <%= link_to 'Profil bearbeiten', edit_user_registration_path, class: "text-white" %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white"  %>
-        <% else %>
-          <%= link_to "Login", new_user_session_path, class: "text-white"  %> |
-          <%= link_to "Registrieren", new_user_registration_path, class: "text-white"  %>
-        <% end %>
-      </div>
-    </div>
-    <br />
-    <hr class="bg-lightgray">
+<footer class="footer a-color">
+  <div class="container-fluid a-color">
     <div class="row">
-      <div class="col-sm-12 col-md-4">
-        <h3 class="text-lightgray">Laufend:</h3>
-        <p class="text-lightgray">
-          <b>Bestellplätze gesucht!</b><br />
-          Haben Sie einen freien Platz für ein Beistellpferd? <br />
-          Wir freuen uns auf Ihre <%= link_to "Kontaktaufnahme", new_home_offer_path, class: "text-white" %>.
+      <div class="col-sm-12 col-md-3" style="background-size: cover; background-repeat: no-repeat; background-image: url('<%= image_url("chicken-on-fence.png") %>'); background-position: center;">
+        <%#= image_path("chicken-on-fence.png") %>
+        <%#= image_tag("chicken-on-fence.png", class: "img-fluid w-100") %>
+      </div>
+      <div class="col-sm-12 col-md-3 pt-5">
+        <p class="spaced-letters">
+          <strong><%= "Kontakt".upcase %></strong>
+        </p>
+        <p class="text-white border-right">
+          <b>Stiftung Tiere in Not - Animal Help</b><br />
+          c/o Krepper Spring Partner <br />
+          Sophienstrasse 2<br />
+          8032 Zürich <br />
+          <br />
+          +41 (0)52 654 33 33<br />
+          <%= mail_to "info@stinah.ch", "info@stinah.ch", class: "text-white" %><br />
+          www.stinah.ch
         </p>
       </div>
-      <div class="col-sm-12 col-md-4 pt-2">
-        <h3 class="text-lightgray">Patenschaft</h3>
-        <p class="text-lightgray">
-          Sie möchten die Patenschaft für ein Tier übernehmen?
-          <%= link_to "Hier", support_path, class: "text-white" %> finden Sie alle Informationen dazu.
+      <div class="col-sm-12 col-md-3">
+        <p class="spaced-letters pt-5">
+          <strong><%= "Spendenkonto".upcase %></strong>
         </p>
-      </div>
-      <div class="col-sm-12 col-md-4 pt-2">
-        <h3 class="text-lightgray">Spenden</h3>
-        <p class="text-lightgray">
-          Sie möchten unsere Arbeit mit einer Spende unterstützen? Mit Ihrer Hilfe können auch wir weiter helfen.
+        <p class="text-white border-right">
+          Postkonto: 90-153438-8<br />
+          IBAN CH03 0900 0000 9015 3438 8<br />
+          BIC POFICHBEXXX
+
+          <br /><br />
+        <span class="spaced-letters">
+          <strong><%= "Newsletter".upcase %></strong>
+        </span>
         </p>
-        <p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_s-xclick"/> <input type="hidden" name="hosted_button_id" value="GX2LCP65Y62TG"/> <input type="image" name="submit" src="https://www.paypalobjects.com/de_DE/CH/i/btn/btn_donateCC_LG.gif" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal."/> <img src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" alt="" width="1" height="1" border="0"/>
-          </form>
+        <p class="text-white">
+          Newsletter Anmelden
         </p>
       </div>
 
-      <div class="col-sm-12 col-md-4 pt-2">
-        <h3 class="text-lightgray">Praktikum</h3>
-        <p class="text-lightgray">
-          <%= link_to "Freier Praktikumsplatz", internship_path, class: "text-white" %> bei Stinah
+
+      <div class="col-sm-12 col-md-3">
+        <p class="spaced-letters pt-5">
+          <strong><%= "Social Media".upcase %></strong>
+        </p>
+        <p class="text-white">
+          Folgen Sie uns auf Facebook und Instagram!
         </p>
       </div>
-      <p class="p-2">
-
-      </p>
     </div>
   </div>
 </footer>
