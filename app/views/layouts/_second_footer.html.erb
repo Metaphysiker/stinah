@@ -1,14 +1,14 @@
-<footer class="footer text-muted bg-dark p-4">
-  <div class="container bg-dark">
+<footer class="footer text-muted bg-second-footer p-4">
+  <div class="container bg-second-footer">
     <div class="text-lightgray text-center">
-        <%= link_to "Impressum", impressum_path, class: "text-white" %> -
-        <%= link_to "Cookie-Richtlinie", cookies_path, class: "text-white" %> -
-        © <%= Date.today.year %> Stiftung Tiere in Not - Animal Help -
+        <%= link_to "Impressum", impressum_path, class: "text-white" %> ·
+        <%= link_to "Cookie-Richtlinie", cookies_path, class: "text-white" %> ·
+        © <%= Date.today.year %> Stiftung Tiere in Not - Animal Help ·
         <% if user_signed_in? %>
-          <%= link_to 'Account bearbeiten', edit_user_registration_path, class: "text-white" %> |
+          <%= link_to 'Account bearbeiten', edit_user_registration_path, class: "text-white" %> ·
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white"  %>
         <% else %>
-          <%= link_to "Login", new_user_session_path, class: "text-white"  %> |
+          <%= link_to "Login", new_user_session_path, class: "text-white"  %> ·
           <%= link_to "Registrieren", new_user_registration_path, class: "text-white"  %>
         <% end %>
     </div>
