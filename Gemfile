@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#inline svg
+gem 'inline_svg'
 #social share buttons
 gem 'social-share-button'
 #friendly_id
