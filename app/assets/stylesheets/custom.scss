@@ -187,7 +187,7 @@ background-size: cover;
 .blur-background{
   //backdrop-filter: blur(5px);
   //backdrop-filter: brightness(50%);
-  background-color: rgba(255, 255, 255, .2) !important;
+  background-color: rgba(0, 0, 0, .4) !important;
 
 	backdrop-filter: blur(30px);
 	-webkit-backdrop-filter: blur(30px);
@@ -460,4 +460,9 @@ fieldset[disabled] .btn-e-color.active {
 
 .nav-logo{
 	height: 60px;
+}
+
+.info-card-icon.svg {
+	display: block;
+  fill: red;
 }
