@@ -42,35 +42,18 @@
           </div>
         </div>
       </div>
-
-      <div class="align-self-end">
-        <div class="col-12">
-            <%= render "posts/horizontal_card", post: Post.last %>
+        <div class="align-self-end">
+          <div class="col-12">
+              <%= render "posts/horizontal_card", post: Post.last %>
+          </div>
         </div>
       </div>
-
-
-      </div>
-
     </div>
   </div>
 </div>
 
   <%= render "static_pages/card_columns" %>
 
-  <div class="container-fluid pate-bg">
+  <%= render "static_pages/patenschaft" %>
 
-  </div>
-
-  <div class="container-fluid f-color pt-5">
-    <div class="container">
-      <h5 class="spaced-letters text-white mb-4"><%= "Wie Sie uns auch noch unterstützen können".upcase %></h5>
-
-      <div class="card-deck">
-        <%= render "static_pages/info_card3" %>
-        <%= render "static_pages/info_card3" %>
-        <%= render "static_pages/info_card3" %>
-      </div>
-    </div>
-
-  </div>
+  <%= render "static_pages/support-cards" %>
