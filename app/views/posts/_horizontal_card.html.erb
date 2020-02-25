@@ -1,8 +1,9 @@
 <div class="card b-color">
   <div class="row no-gutters">
     <div class="col-md-8">
-
-      <%= image_tag post.cover, class: "card-img" %>
+      <% if post.cover.attached? %>
+        <%= image_tag post.cover, class: "card-img" %>
+      <% end %>
     </div>
     <div class="col-md-4">
       <div class="card-body">

@@ -1,10 +1,23 @@
 <div class="container my-2">
   <div class="card-columns">
-    <%= render "events/card", event: Event.last%>
+    <% events = Event.where("start > ?", DateTime.now).order("start").first(3) %>
+    <% posts = Post.last(3) %>
+
+    <%= render "events/card", event: events.first %>
     <%= render "static_pages/info_card" %>
-    <%= render "posts/vertical_card", post: Post.last %>
+    <%= render "posts/vertical_card", post: posts.first %>
+
+
+    <%= render "events/card", event: events.second if events.second.present? %>
     <%= render "static_pages/info_card" %>
+    <%= render "posts/vertical_card", post: posts.second %>
+
+
+    <%= render "events/card", event: events.third if events.third.present? %>
     <%= render "static_pages/info_card2" %>
+    <%= render "posts/vertical_card", post: posts.third %>
+
+
 
   </div>
 

@@ -24,7 +24,7 @@
   </head>
 
   <body class="bg-light">
-    <%#= render "layouts/navigation" unless controller_name == "save_the_chicken" %>
+    <%= render "layouts/navigation" unless controller_name == "save_the_chicken" %>
     <%= render "layouts/navigation_for_save_the_chicken" if controller_name == "save_the_chicken" %>
     <%= render "layouts/navigation_for_volunteers" if is_current_user_admin? || is_current_user_volunteer? || is_current_user_external_professional? %>
     <%#= render "layouts/navigation_for_sponsors" if current_user %>
@@ -34,6 +34,13 @@
     </div>
     <%= yield %>
     <%#= render 'shared/general_information' %>
+
+    <%= render "static_pages/card_columns" %>
+
+    <%= render "static_pages/patenschaft" %>
+
+    <%= render "static_pages/info-cards" %>
+    
     <%= render "layouts/footer" unless controller_name == "save_the_chicken" %>
     <%= render "layouts/second_footer" unless controller_name == "save_the_chicken" %>
 

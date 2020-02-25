@@ -1,5 +1,8 @@
 <div class="card b-color">
-  <%= image_tag post.cover, class: "card-img" %>
+  <% if post.cover.attached? %>
+    <%= image_tag post.cover, class: "card-img" %>
+  <% end %>
+
   <div class="card-body">
     <p class="card-text">
       <small><%= l(post.created_at, format: "%d.%m.%Y") %> Mitteilung</small>
