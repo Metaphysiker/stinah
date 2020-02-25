@@ -489,6 +489,30 @@ fieldset[disabled] .btn-e-color.active {
   fill: lighten($a-color, 20%) !important;
 }
 
+.social-media-icon svg {
+	//display: inline-block;
+  //fill: #3498db;
+  width: 5em;
+  height: 5em;
+}
+
+.social-media-icon svg path{
+  fill: lighten($a-color, 20%) !important;
+}
+.social-media-icon svg text{
+  fill: lighten($a-color, 20%) !important;
+}
+
+.social-media-icon svg path:hover {
+  background-color: red !important;
+	fill: lighten($a-color, 10%) !important;
+}
+
+.social-media-icon svg text:hover {
+  background-color: red !important;
+	fill: lighten($a-color, 10%) !important;
+}
+
 .navbar-brand svg path{
   fill: white !important;
 }
