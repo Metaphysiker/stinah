@@ -3,21 +3,19 @@
     <% events = Event.where("start > ?", DateTime.now).order("start").first(3) %>
     <% posts = Post.last(3) %>
 
-    <%= render "events/card", event: events.first %>
+    <%= render "events/card", event: events.first if events.first.present?  %>
     <%= render "static_pages/info_card" %>
-    <%= render "posts/vertical_card", post: posts.first %>
+    <%= render "posts/vertical_card", post: posts.first if posts.first.present? %>
 
 
     <%= render "events/card", event: events.second if events.second.present? %>
     <%= render "static_pages/info_card" %>
-    <%= render "posts/vertical_card", post: posts.second %>
+    <%= render "posts/vertical_card", post: posts.second if posts.second.present? %>
 
 
     <%= render "events/card", event: events.third if events.third.present? %>
     <%= render "static_pages/info_card2" %>
-    <%= render "posts/vertical_card", post: posts.third %>
-
-
+    <%= render "posts/vertical_card", post: posts.third if posts.third.present? %>
 
   </div>
 
