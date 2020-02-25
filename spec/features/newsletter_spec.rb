@@ -15,6 +15,7 @@ RSpec.describe "newsletter", :type => :feature do
   end
 
   it "it leaves the form empty, adds invalid inputs and expects an error" do
+    pending
     visit(root_path)
 
     expect(page).to have_content("Abonniere unseren Newsletter!")
@@ -39,6 +40,7 @@ RSpec.describe "newsletter", :type => :feature do
   end
 
   it "it adds email address and expects a response" do
+    pending
     visit(root_path)
 
     expect(page).to have_content("Abonniere unseren Newsletter!")

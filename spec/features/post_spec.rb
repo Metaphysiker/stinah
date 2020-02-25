@@ -35,12 +35,12 @@ RSpec.describe "post", :type => :feature do
 
     visit(root_path)
 
-    expect(page).to have_content(title)
+    expect(page).to have_content_i(title)
     #expect(page).to have_content(content)
 
     visit(posts_path)
 
-    expect(page).to have_content(title)
+    expect(page).to have_content_i(title)
     expect(page).to have_content(content)
 
   end
@@ -68,16 +68,16 @@ RSpec.describe "post", :type => :feature do
 
     visit(root_path)
 
-    expect(page).to have_content(title)
+    expect(page).to have_content_i(title)
     #expect(page).to have_content(content)
 
     visit(posts_path)
 
-    expect(page).to have_content(title)
+    expect(page).to have_content_i(title)
     #expect(page).to have_content(content)
 
     visit(save_the_chicken_path)
-    expect(page).to have_content(title)
+    expect(page).to have_content_i(title)
     save_screenshot("content.png")
     expect(page).to have_content(content)
   end

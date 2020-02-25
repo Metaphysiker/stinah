@@ -1,3 +1,5 @@
+Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
+
 require 'capybara/rspec'
 
 Capybara.server = :puma # Until your setup is working

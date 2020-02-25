@@ -50,11 +50,14 @@ RSpec.describe "event", :type => :feature do
 
     visit(root_path)
 
-    expect(page).to have_content(name)
+
+    #save_screenshot("eventname.png")
+    expect(page).to have_content_i(name)
+    #expect(page).to match(/#{name}/i)
 
     visit(events_path)
 
-    expect(page).to have_content(name)
+    expect(page).to have_content_i(name)
     expect(page).to have_content(description)
     expect(page).to have_content(I18n.l(date_start))
     expect(page).to have_content(I18n.l(date_end))
@@ -101,18 +104,18 @@ RSpec.describe "event", :type => :feature do
 
     visit(root_path)
 
-    expect(page).to have_content(name)
+    expect(page).to have_content_i(name)
 
     visit(events_path)
 
-    expect(page).to have_content(name)
+    expect(page).to have_content_i(name)
     expect(page).to have_content(description)
     expect(page).to have_content(I18n.l(date_start))
     expect(page).to have_content(I18n.l(date_end))
 
     visit(save_the_chicken_path)
 
-    expect(page).to have_content(name)
+    expect(page).to have_content_i(name)
     expect(page).to have_content(description)
     expect(page).to have_content(I18n.l(date_start))
     expect(page).to have_content(I18n.l(date_end))
