@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#sanitize gem
+gem 'sanitize'
 #tiny mce
 gem 'tinymce-rails'
 #inline svg

@@ -16,13 +16,9 @@
 </p>
 
 <p>
-  <strong>Search field:</strong>
-  <%= @page.search_field %>
-</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @page.content %>
+  <%= raw Sanitize.fragment(@page.content, Sanitize::Config::RELAXED) %>
+
 </p>
 
 <%= link_to 'Edit', edit_page_path(@page) %> |
