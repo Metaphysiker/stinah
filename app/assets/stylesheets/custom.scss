@@ -12,6 +12,7 @@ $c-color: #ec7d22;
 $d-color: #9a76a3;
 $e-color: #9a7e59;
 $f-color: #5fa778;
+$g-color: #B4C760;
 
 body {
   //background-color: $base-color;
@@ -485,6 +486,17 @@ fieldset[disabled] .btn-e-color.active {
 }
 .info-card-icon svg text{
   fill: lighten($a-color, 20%) !important;
+}
+
+.info-card2-icon svg {
+	height: 10em;
+}
+
+.info-card2-icon svg path{
+  fill: $g-color !important;
+}
+.info-card2-icon svg text{
+  fill: $g-color !important;
 }
 
 .social-media-icon svg {
