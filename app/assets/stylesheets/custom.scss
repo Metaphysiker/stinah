@@ -30,6 +30,11 @@ body {
   }
 }
 
+.text-a-color{
+  color: lighten($a-color, 20%);
+}
+
+
 .bg-second-footer{
   background-color: #272520;
 }
@@ -462,7 +467,21 @@ fieldset[disabled] .btn-e-color.active {
 	height: 60px;
 }
 
-.info-card-icon.svg {
+.info-card-iconx{
 	display: block;
-  fill: red;
+	stroke: $a-color;
+  fill: red !important;
+	height: 150px;
+	margin: auto;
+}
+
+.info-card-icon svg {
+
+}
+
+.info-card-icon svg path{
+  fill: lighten($a-color, 20%) !important;
+}
+.info-card-icon svg text{
+  fill: lighten($a-color, 20%) !important;
 }
