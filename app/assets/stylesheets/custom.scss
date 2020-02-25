@@ -15,7 +15,7 @@ $f-color: #5fa778;
 
 body {
   //background-color: $base-color;
-	font-family: Nunito;
+	//font-family: Nunito;
 }
 
 .base-color {
@@ -192,7 +192,9 @@ background-size: cover;
 .blur-background{
   //backdrop-filter: blur(5px);
   //backdrop-filter: brightness(50%);
-  background-color: rgba(0, 0, 0, .4) !important;
+  background-color: rgba(0, 0, 0, .75) !important;
+	//background-color: rgba(0, 97, 58, .7) !important;
+	//background: #00613A 0% 0% no-repeat padding-box;
 
 	backdrop-filter: blur(30px);
 	-webkit-backdrop-filter: blur(30px);
@@ -204,11 +206,12 @@ background-size: cover;
 }
 
 
-.navbar-dark .navbar-nav .nav-link {
-    color: white;
-}
 
-.navbar { padding-top: 0rem; padding-bottom: 0rem; }
+.navbarx {
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+	height: 75px;
+}
 
 @media (min-width: 768px) {
     .container-small {
@@ -423,9 +426,8 @@ fieldset[disabled] .btn-e-color.active {
   background-color: rgba(black, 0.4);
 }
 
-.no-top-margin{
-  margin-top: 0px !important;
-  padding-top: 0px !important;
+.nav-no-margin{
+	//height: 55px;
 }
 
 
@@ -464,7 +466,8 @@ fieldset[disabled] .btn-e-color.active {
 }
 
 .nav-logo{
-	height: 60px;
+	//height: 60px;
+	width: 250px;
 }
 
 .info-card-iconx{
@@ -476,7 +479,7 @@ fieldset[disabled] .btn-e-color.active {
 }
 
 .info-card-icon svg {
-
+	height: 10em;
 }
 
 .info-card-icon svg path{
@@ -484,4 +487,11 @@ fieldset[disabled] .btn-e-color.active {
 }
 .info-card-icon svg text{
   fill: lighten($a-color, 20%) !important;
+}
+
+.navbar-brand svg path{
+  fill: white !important;
+}
+.navbar-brand svg text{
+  fill: white !important;
 }
