@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load', function() {
+//$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   console.log("add nested");
   $('form').on('click', '.remove_record', function(event) {
     $(this).prev('input[type=hidden]').val('1');

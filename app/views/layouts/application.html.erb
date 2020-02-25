@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 
     <%= favicon_link_tag asset_path('favicon.png') %>
@@ -40,7 +40,7 @@
     <%= render "static_pages/patenschaft" %>
 
     <%= render "static_pages/info-cards" %>
-    
+
     <%= render "layouts/footer" unless controller_name == "save_the_chicken" %>
     <%= render "layouts/second_footer" unless controller_name == "save_the_chicken" %>
 

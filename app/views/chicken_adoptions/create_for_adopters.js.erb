@@ -3,7 +3,7 @@ var errors = <%= raw @chicken_adoption.errors.full_messages %>;
 
 if (jQuery.isEmptyObject(errors)) {
   console.log("keine Fehler");
-
+  window.location.href = "<%= successfully_added_chicken_adoption_path %>";
 
 } else {
   console.log("Fehler vorhanden");

@@ -32,7 +32,7 @@ class ChickenAdoptionsController < ApplicationController
 
     respond_to do |format|
       if @chicken_adoption.save
-        format.html { redirect_to @chicken_adoption, notice: 'Chicken adoption was successfully created.' }
+        format.html { redirect_to @chicken_adoption, notice: 'Chicken adoption was successfully created.', turbolinks: false }
         format.json { render :show, status: :created, location: @chicken_adoption }
       else
         format.html { render :new }
@@ -51,7 +51,8 @@ class ChickenAdoptionsController < ApplicationController
     respond_to do |format|
       if @chicken_adoption.save
         flash[:notice] = "Das Formular wurde eingereicht!"
-        format.js { redirect_to successfully_added_chicken_adoption_path }
+        format.js
+        #format.js { redirect_to successfully_added_chicken_adoption_path, turbolinks: false }
         ChickenAdoptionMailer.send_information_about_new_chicken_adoption("s.raess@me.com", @chicken_adoption).deliver_now
       else
         format.js

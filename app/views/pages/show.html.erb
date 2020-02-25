@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @page.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @page.description %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @page.keywords %>
+</p>
+
+<p>
+  <strong>Search field:</strong>
+  <%= @page.search_field %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @page.content %>
+</p>
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

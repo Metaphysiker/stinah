@@ -4,6 +4,7 @@ var errors = <%= raw @home_offer.errors.full_messages %>;
 
 if (jQuery.isEmptyObject(errors)) {
   console.log("keine Fehler");
+  window.location.href = "<%= offerer_path(@home_offer.offerer) %>";
 
 
 } else {

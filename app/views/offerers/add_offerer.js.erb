@@ -4,6 +4,8 @@ var errors = <%= raw @offerer.errors.full_messages %>;
 if (jQuery.isEmptyObject(errors)) {
   console.log("keine Fehler");
 
+  window.location.href = "<%= offerer_path(@offerer) %>";
+
   content = $("<%= escape_javascript( render 'offerers/show', offerer: @offerer ) %>");
   $(record_id).fadeOut("fast", function(){
     $(record_id).empty().append(content).fadeIn("fast");
