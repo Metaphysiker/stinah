@@ -1,6 +1,5 @@
-
+<%= render "layouts/navigation" unless controller_name == "save_the_chicken" %>
 <section class="horse-enter-bg">
-  <%= render "layouts/navigation" unless controller_name == "save_the_chicken" %>
     <div class="container d-flex align-items-end h-75">
       <div class="d-none d-md-block">
         <%= image_tag("logo_stinah_ws_vektor.png", class: "img-fluid mb-4", style: "height: 180px;") %>
