@@ -2,18 +2,24 @@
   <div class="card-columns">
     <% events = Event.where("start > ?", DateTime.now).order("start").first(3) %>
     <% posts = Post.last(3) %>
+    <% animals_without_sponsorship = AnimalsSearch.new(search_inputs: {sponsorship_status: "without_sponsorship"}).search.sample(3) %>
+
 
     <%= render "events/card", event: events.first if events.first.present?  %>
     <%= render "posts/vertical_card", post: posts.first if posts.first.present? %>
     <%= render "static_pages/info_card2" %>
+    <%= render "animals/animal_card", animal: animals_without_sponsorship.first %>
+
 
     <%= render "posts/vertical_card", post: posts.second if posts.second.present? %>
+      <%= render "animals/animal_card", animal: animals_without_sponsorship.second %>
     <%= render "events/card", event: events.second if events.second.present? %>
     <%= render "static_pages/info_card" %>
 
     <%= render "static_pages/info_card2" %>
     <%= render "events/card", event: events.third if events.third.present? %>
     <%= render "posts/vertical_card", post: posts.third if posts.third.present? %>
+    <%= render "animals/animal_card", animal: animals_without_sponsorship.third %>
 
   </div>
 

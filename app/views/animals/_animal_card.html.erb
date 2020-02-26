@@ -1,0 +1,14 @@
+<div class="card a-color">
+  <div class="card-body">
+    <h5 class="card-title text-white"><%= animal.name %> sucht noch einen Paten!</h5>
+    <p class="card-text">Möchtest du eine Patenschaft für <%= animal.name %> übernehmen?</p>
+    <p>
+      <%= link_to animal_path(animal) do %>
+        <button type="button" class="btn btn-c-color btn-sm spaced-letters text-nowrap rounded-0"><%= "Patin / Pate werden".upcase %> <%= fa_icon "chevron-right", class: "ml-2" %></button>
+      <% end %>
+    </p>
+    </div>
+    <% if animal.cover.attached? %>
+      <%= image_tag animal.cover, class: "card-img-top" %>
+    <% end %>
+</div>
