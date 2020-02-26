@@ -7,3 +7,615 @@
           Für Ihr Interesse und Ihren Einsatz zugunsten der Tiere danken wir Ihnen herzlich!
   </p>
 </div>
+
+---
+
+<div class="container">
+  <div class="jumbotron bg-white my-4">
+
+    <div class="text-center">
+      <%= link_to root_path do %>
+        <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      <% end %>
+
+      <h1 class="my-4 text-darker-base-color"><%= title %></h1>
+    </div>
+    <!-- Anfang-->
+    <div class="text-justify text-darker-base-color">
+
+      <hr />
+      <ul>
+        <li>
+          <a id="help" href="#">Ich möchte helfen - wie kann ich Stinah unterstützen?</a>
+        </li>
+        <li>
+          <a id="umfeld" href="#">Was kann ich als Einzelperson in meinem Umfeld tun? </a>
+        </li>
+        <li>
+          <a id="paten" href="#">Das Tier, welches mir am meisten am Herzen liegt hat bereits einen Teilpaten - nutzt es dennoch, wenn ich auch noch ein Teilpate werde?</a>
+        </li>
+        <li>
+          <a id="steuer" href="#">Kann ich meine Spende von den Steuern absetzen?</a>
+        </li>
+        <li>
+          <a id="naturalien" href="#">Kann ich Naturalien spenden?</a>
+        </li>
+        <li>
+          <a id="visit" href="#">Kann ich Stinah besuchen?</a>
+        </li>
+      </ul>
+      <hr />
+      <!-- First row -->
+      <div class="py-3"></div>
+      <a name="help"></a>
+      <h4 class="text-center">Ich möchte helfen - wie kann ich Stinah unterstützen?</h4>
+      <p>
+        Die Stiftung Tiere in Not – Animal Help geniesst - abgesehen von der Steuerbefreiung aufgrund ihrer Gemeinnützigkeit - keinerlei staatliche Unterstützung.
+        Sie finanziert ihr Engagement alleine mit Spenden.
+      </p>
+      <hr />
+      <div class="py-3"></div>
+      <a name="umfeld"></a>
+      <h4 class="text-center">Was kann ich als Einzelperson in meinem Umfeld tun?</h4>
+      <p>
+        „Wenn ich das gewusst hätte, dann...“ oder „Ich habe gar nicht gewusst, dass....“ sind oft geäusserte Reaktionen von Personen, die mit Missständen im Bereich der menschlichen Tier- oder Umweltnutzung konfrontiert werden.
+
+        Ist Ihnen bewusst, dass Sie durch Änderung Ihres Konsumverhaltens aktiven Tier- und Umweltschutz betreiben können? Unter untenstehendem Link (www.vegi-tag.ch) erfahren Sie den Zusammenhang zwischen menschlichem Konsumverhalten und Tierelend bzw. Umweltzerstörung. Vielleicht gibt der eine oder andere Beitrag einen Ansporn, sein eigenes Konsumverhalten kritisch zu hinterfragen (und bestenfalls zu ändern).
+
+        Wollen Sie durch Ihre Ernährungsweise ein Zeichen setzen gegen die Missstände in der Tierhaltung und der Nahrungsmittelproduktion? Dann nehmen Sie Teil am Vegi-Tag:
+
+        www.vegi-tag.ch
+      </p>
+      <hr />
+      <div class="py-3"></div>
+      <a name="paten"></a>
+      <h4 class="text-center">Das Tier, welches mir am meisten am Herzen liegt hat bereits einen Teilpaten - nutzt es dennoch, wenn ich auch noch ein Teilpate werde?</h4>
+      <p>
+        Ja, auf jeden Fall. Eine Teilpatenschaft deckt meist knapp einen Zehntel der monatlichen Unterhaltskosten eines Tieres. Da es nicht jedem möglich ist, eine Vollpatenschaft zu übernehmen, besteht die Möglichkeit eine Teilpatenschaft mit einem individuellen monatlichen Betrag zu übernehmen. Weitere Informationen finden Sie unter Patenschaften.
+      </p>
+      <hr />
+      <div class="py-3"></div>
+      <a name="steuer"></a>
+      <h4 class="text-center">Kann ich meine Spende von den Steuern absetzen?</h4>
+      <p>
+        Zuwendungen an die Stiftung sind steuerlich absetzbar. Da die Stiftungsräte ehrenamtlich arbeiten, fliessen die Zuwendungen vollumfänglich der Tierschutzarbeit zu.
+      </p>
+      <hr />
+      <div class="py-3"></div>
+      <a name="naturalien"></a>
+      <h4 class="text-center">Kann ich Naturalien spenden?</h4>
+      <p>
+        Gerne können Sie die Arbeit von Stinah mit einer Naturalspende unterstützen. Die Stiftung braucht für ihre verschiedenen Projekte, für ihr Tierheim, für Anlässe etc. diverses Material, vom PC bis zur Pinwand, vom Striegel bis zur Einstreu, vom Pensionsplatz bis zum Verbandsmaterial. Mehr Informationen finden Sie unter Spenden Naturalspende.
+      </p>
+      <hr />
+      <div class="py-3"></div>
+      <a name="visit"></a>
+      <h4 class="text-center">Kann ich Stinah besuchen?</h4>
+      <p>
+        Wir freuen uns, wenn Sie uns besuchen, um sich vor Ort ein Bild über unsere Arbeit zu machen. Wir bitten Sie aber um Verständnis, dass wir uns nur zur Verfügung halten können, wenn Ihr Besuch vorangemeldet ist. Unser Zeithaushalt erlaubt es leider nicht, uneingeschränkt zur Verfügung zu stehen.
+Falls Sie unseren Hof unangemeldet besuchen, bitten wir Sie, zu akzeptieren, dass wir unter Umständen keine Führung vornehmen können und durch dringende Arbeiten absorbiert sind. Aus Haftpflichtgründen bitten wir, das Hofareal nicht unbegleitet zu betreten und insbesondere den Kontakt zu den Tieren zu meiden. Das Füttern der Tiere ist grundsätzlich untersagt.
+Anlässlich eines angemeldeten Besuchs zeigen wir Ihnen gerne den Hof und beantworten Ihre Fragen. Nehmen Sie mit uns Kontakt auf - wir freuen uns, Sie kennenzulernen!
+      </p>
+      <hr />
+
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+$( document ).ready(function() {
+
+  function scrollToAnchor(aid){
+    var aTag = $("a[name='"+ aid +"']");
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+  }
+
+  $("#help").click(function() {
+   scrollToAnchor('help');
+  });
+  $("#umfeld").click(function() {
+   scrollToAnchor('umfeld');
+  });
+  $("#paten").click(function() {
+   scrollToAnchor('paten');
+  });
+  $("#steuer").click(function() {
+   scrollToAnchor('steuer');
+  });
+  $("#naturalien").click(function() {
+   scrollToAnchor('naturalien');
+  });
+  $("#visit").click(function() {
+   scrollToAnchor('visit');
+  });
+});
+</script>
+
+---
+
+<div class="container">
+  <div class="jumbotron bg-white my-4">
+    <div class="text-center">
+      <%= link_to root_path do %>
+        <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      <% end %>
+      <h1 class="my-4 text-darker-base-color"><%= title %></h1>
+    </div>
+    <div class="text-justify text-darker-base-color">
+  <p><strong>Die Stiftung hat es sich zur Aufgabe gemacht,</strong>
+</p>
+<ul>
+	<li/>
+<p style="margin-bottom: 0cm">die Umsetzung des
+	verfassungsrechtlich verankerten Schutzes der Würde<br/>
+der
+	Kreatur voranzutreiben;
+	</p>
+	<li/>
+<p style="margin-bottom: 0cm">die Stellung des Tieres als
+	Mitgeschöpf zu festigen und
+	</p>
+	<li/>
+<p>als Konsequenz aus den ersten beiden Aufgaben die Tiere vor
+	Ausbeutung<br/>
+und Missbrauch zu schützen und ihnen - wo immer
+	nötig – beizustehen
+	</p>
+</ul>
+<p><br/>
+<strong>Zur Erfüllung dieser Aufgaben,</strong>
+</p>
+<ul>
+	<li/>
+<p style="margin-bottom: 0cm">nimmt die Stiftung politisch und
+	gesellschaftlich Einfluss, um die rechtlich<br/>
+oder faktisch dem
+	Tier zugewiesene Position den artspezifischen Bedürfnissen gemäss
+	zu verbessern und den Tieren aus der Abhängigkeit menschlicher
+	Nutzungsinteressen zu verhelfen;
+	</p>
+	<li/>
+<p style="margin-bottom: 0cm">setzt sie sich auch im
+	Einzelfall dafür ein, dass der dank der Bemühungen vieler
+	Mitmenschen bisher erreichte Tierschutzstandard nicht toter
+	Buchstabe bleibt oder dazu verkommt;
+	</p>
+	<li/>
+<p style="margin-bottom: 0cm">bietet sie Tierhaltern,
+	Behörden, Schulen und weiteren Interessierten<br/>
+Beratung an;
+	</p>
+	<li/>
+<p style="margin-bottom: 0cm">hält sie Kontakt mit Medien,
+	anderen Tierschutzorganisationen und Behörden, um Missstände
+	effizient und dauerhaft zu bekämpfen und
+	</p>
+	<li/>
+<p>verpflichtet sie sich, agil zu bleiben, um sich jederzeit
+	anderer der Zweckerreichung dienlicher Instrumente zu bedienen und
+	neue Wege bei der Bewältigung der gestellten Aufgaben zu gehen
+	</p>
+</ul>
+<hr />
+  <div class="text-center mt-4">
+    <h1>Die Stiftungsgründer</h1>
+    <%= image_tag("stiftungsgruender.png", class: "img-fluid mb-4") %>
+  </div>
+  <div>
+  	<div>
+  		<div>
+  			<p align="justify"><strong>Die Stiftungsgründer</strong>
+  			engagieren sich seit Jahren sowohl im institutionellen als auch im
+  			individuellen Tierschutz. Hierzu gehören Aufklärungs- und
+  			Beratungsarbeit, politische und juristische Vorstösse sowie die
+  			konkrete Hilfe in Notfällen. Zwar mag der Einsatz für Individuen
+  			vom Grundsatz her, dass ein Übel bei der Wurzel bekämpft werden
+  			sollte, zunächst wenig sinnvoll erscheinen, weil die Rettung
+  			eines einzelnen Lebewesens höchstens mittelbar, nämlich durch
+  			das Wirken als Botschafter seiner Art, Tierleid erzeugende
+  			Strukturen zu ändern vermag.
+  			</p>
+  			<p align="justify">Jedoch verlangt die gesamtheitliche Betrachtung
+  			nach Ansicht der Stiftungsgründer auch den Einsatz für den
+  			Einzelnen, was spätestens dann leicht erkennbar wird, wenn der
+  			Fokus des betroffenen Individuums zum Massstab wird.&nbsp;
+  			</p>
+  			<p align="justify">Im Übrigen ist es eine Binsenweisheit, dass
+  			der Mensch zumeist nur zu schützen bereit ist, was er kennt und
+  			insofern sind die Einzelschicksale eben tatsächlich
+  			unverzichtbare Quellen der Empathie.&nbsp;
+  			</p>
+  		</div>
+  	</div>
+  	<div>
+  		<div>
+  			<p align="justify" style="line-height: 150%">In der Schweiz setzen
+  			sich diverse Einrichtungen und Institutionen&nbsp;in
+  			verdankenswerter Weise für das Wohl von in Not geratenen
+  			Heimtieren ein.&nbsp;Für die Nutztiere hingegen stehen die
+  			Chancen um ein Vielfaches schlechter. Dies lässt sich zum einen
+  			leicht aus der Bezeichnung selbst erklären, sind diese Lebewesen
+  			doch dazu bestimmt, mit ihrem Fleisch oder (zuvor) ihrer
+  			Verwendung zu Sport-, Freizeit- und Prestigezwecken dem Menschen
+  			zu &quot;nützen&quot;.&nbsp;Zum anderen wachsen die
+  			Schwierigkeiten in punkto Unterbringung, Finanzierung und
+  			Wieder-Platzierung mit der Grösse des Tieres unweigerlich, so
+  			dass bei ökonomischer Betrachtung der Einsatz für ein Grosstier
+  			kaum zu rechtfertigen ist, könnte doch einer Vielzahl von kleinen
+  			Tieren an dessen statt geholfen werden.
+  			</p>
+  			<p align="justify">
+  Die Stiftungsgründer haben sich nichts
+  			desto trotz dafür entschieden, im Bereich des
+  			Individualtierschutzes das Augenmerk auf die Nutztiere zu legen,
+  			ohne aber die übrigen Geschöpfe aus dem Blickfeld zu verlieren.
+  			Sie sind zu 100% berufstätig und betreiben ihr
+  			Stiftungs-engagement nebenberuflich und ehrenamtlich.
+  			</p>
+  			<p align="justify">&nbsp;
+  			</p>
+  		</div>
+  	</div>
+  </div>
+  <hr />
+  <h1 class="text-center">Impressionen</h1>
+  <div class="text-center">
+    <div class="embed-responsive embed-responsive-16by9">
+      <%= get_video_iframe("https://www.youtube.com/watch?v=rRZ8ap_DMPE") %>
+    </div>
+  </div>
+  <hr />
+  <div>
+  	<h1 class="text-center">Stiftungsrat</h1>
+  </div>
+    <div id="cc-m-7856411986" dir="ltr">
+    	<div id="cc-matrix-1893807686" dir="ltr">
+    		<div id="cc-m-6760353586" dir="ltr">
+    			<p align="left">Stiftungsratsmitglieder sind derzeit gemäss
+    			Stiftungsurkunde die beiden Stiftungsgründer:<br/>
+          <br/>
+          <strong>Claudia
+    			Steiger</strong>, Rechtsanwältin und Mediatorin SAV
+    			(Stiftungsratspräsidentin)<br/>
+          <br/>
+          <strong>Christof Zimmerli</strong>,
+    			Jurist (Vizepräsident)
+    			</p>
+    		</div>
+    	</div>
+    </div>
+    </div>
+  </div>
+  <hr />
+  <%= render "team_members/index", team_members: TeamMember.all %>
+</div>
+
+---
+
+<div class="container">
+  <div class="jumbotron bg-white my-4">
+    <div class="text-center">
+      <%= link_to root_path do %>
+        <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      <% end %>
+
+      <h1 class="my-4 text-darker-base-color">Kontakt</h1>
+    </div>
+    <div class="text-justify text-darker-base-color">
+      <p align="center">Bitte lesen Sie zuerst unsere <%= link_to "FAQ's", faq_path %>
+  </p>
+  <p align="center">Sollten Sie weitere Fragen oder Anregungen haben,
+  freuen wir uns über Ihre Kontaktaufnahme.
+  </p>
+  <p class="text-center">
+    <ul>
+      <li>
+        Für Tieraufnahmen nutzen Sie bitte das
+        entsprechende Formular für <%= link_to "Tieraufnahme", process_to_create_home_offer_path %>
+      </li>
+      <li>
+        Für Tierabgaben nutzen Sie bitte das entsprechende
+        Formular für <%= link_to "Tierabgabe", new_home_request_path %>
+      </li>
+      <li>
+        Patenschaften können Sie abschliessen, indem Sie sich <%= link_to "unsere Tiere", animals_path %>
+        anschauen und bei einem Tier, von dem Sie gerne ein Pate werden möchten, auf das Feld "Pate werden!" drücken.
+      </li>
+    </ul>
+  </p>
+  <hr />
+  <p class="text-center">
+    <strong>Für anderweitige Anfragen können Sie uns wie folgt kontaktieren:</strong>
+  </p>
+  <p class="text-center">
+    Stiftung Tiere in Not - Animal Help <br />
+    c/o Krepper Spring Partner <br />
+    Sophienstrasse 2<br />
+    8032 Zürich
+  </p>
+  <p class="text-center">
+    Festanschluss: 0041 (0)52 654 33 33 <br />
+    <%= mail_to "info@stinah.ch" %>
+  </p>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="container">
+  <div class="jumbotron bg-white my-4">
+    <div class="text-center">
+      <%= link_to root_path do %>
+        <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
+      <% end %>
+
+    <h1 class="my-4 text-darker-base-color"><%= title %></h1>
+    </div>
+    <div class="text-justify text-darker-base-color">
+    <hr />
+    <ul>
+      <li>
+        <a id="spende" href="#">Spende</a>
+      </li>
+      <li>
+        <a id="goennerbeitrag" href="#">Gönnerbeitrag</a>
+      </li>
+      <li>
+        <a id="patenschaft" href="#">Patenschaft</a>
+      </li>
+      <li>
+        <a id="natural" href="#">Naturalspende / Zeitspende</a>
+      </li>
+      <li>
+        <a id="legat" href="#">Legat - Erbeinsetzung</a>
+      </li>
+    </ul>
+    <hr />
+      <a name="spende"></a>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+              <h3>Spende</h3>
+          		<p>Mit einer Spende helfen Sie der Stiftung, ihren täglichen
+          		Einsatz zugunsten der Tiere zu finanzieren.
+          		</p>
+              <div class="alert alert-info">
+                Ihre Zuwendung kommt voll und ganz den Tieren zu und ist steuerlich absetzbar.
+                <br /><br />
+                Sämtliche administrative Kosten der Stiftungstätigkeit werden von
+            		den Stiftungsräten getragen.
+              </div>
+              <p>
+                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick"/> <input type="hidden" name="hosted_button_id" value="GX2LCP65Y62TG"/> <input type="image" name="submit" src="https://www.paypalobjects.com/de_DE/CH/i/btn/btn_donateCC_LG.gif" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal."/> <img src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" alt="" width="1" height="1" border="0"/>
+                </form>
+              </p>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <h4>Kontoverbindung</h4>
+            <p>
+              <strong>PC-Konto:</strong> 90-153438-8
+            </p>
+            <p>
+          <strong>Adresse:</strong><br/>
+          Stiftung
+            Tiere in Not - Animal Help (Stinah)<br/>
+          c/o
+            Krepper Spring Partner<br/>
+          Sophienstrasse 2<br />
+          CH-8032 Zürich
+            </p>
+            <p>
+          <br/>
+          <strong>IBAN
+            Nummer elektronisch: </strong><br/>
+          CH0309000000901534388<br/>
+          <br/>
+          <strong>IBAN
+            Nummer in Papierform:</strong><br/>
+          IBAN CH03
+            0900 0000 9015 3438 8<br/>
+          <br/>
+          <strong>SWIFT
+            Code / BIC PostFinance:</strong><br/>
+          POFICHBEXXX<br/>
+          <br/>
+          <strong>Clearing
+            Nummer PostFinance:</strong><br/>
+          09000<br/>
+          <br/>
+          <strong>Name
+            des Finanzinstituts:</strong><br/>
+          SWISS POST -
+            PostFinance,<br/>
+          Nordring 8, 3030
+            Bern, Schweiz
+            </p>
+          </div>
+        </div>
+          <hr />
+          <a name="goennerbeitrag"></a>
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                    <h3>Gönnerbeitrag</h3>
+                		<p>
+                      Mit einem <b>jährlichen Gönnerbeitrag</b> helfen Sie der Stiftung,
+                      ihren täglichen Einsatz zugunsten der Tiere zu finanzieren.
+                		</p>
+                    <p>
+                      Mit Ihrer <b>Zusage</b>, diesen Beitrag auch im Folgejahr zu leisten, ermöglichen Sie der Stiftung, ein längerfristiges finanzielle Engagement - wie zum Beispiel die Aufnahme eines Stiftungstieres - zu planen und zu realisieren. Ihre Zuwendung kommt voll und ganz den Tieren zu. Sämtliche administrative Kosten der Stiftungstätigkeit werden von den Stiftungsräten getragen.
+                    </p>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div>
+                  <h4>Kontoverbindung</h4>
+                  </p>
+                  <p>
+                    <strong>PC-Konto:</strong> 90-153438-8
+                  </p>
+                  <p>
+                <strong>Adresse:</strong><br/>
+                Stiftung
+                  Tiere in Not - Animal Help (Stinah)<br/>
+                c/o Schuler Steiger Partner <br/>
+                Zeltweg 7 <br />
+                CH-8032 Zürich
+                  </p>
+                  <p>
+                <br/>
+                <strong>IBAN
+                  Nummer elektronisch: </strong><br/>
+                CH0309000000901534388<br/>
+                <br/>
+                <strong>IBAN
+                  Nummer in Papierform:</strong><br/>
+                IBAN CH03 0900 0000 9015 3438 8 <br/>
+                <br/>
+                <strong>SWIFT
+                  Code / BIC PostFinance:</strong><br/>
+                POFICHBEXXX<br/>
+                <br/>
+                <strong>Clearing
+                  Nummer PostFinance:</strong><br/>
+                09000<br/>
+                <br/>
+                <strong>Name
+                  des Finanzinstituts:</strong><br/>
+                SWISS POST -
+                  PostFinance,<br/>
+                Nordring 8, 3030
+                  Bern, Schweiz
+                  </p>
+                </div>
+                </div>
+              </div>
+              <hr />
+              <a name="patenschaft"/>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                      <h3>Patenschaft</h3>
+                      <p>
+                        Die doppelte Zwecksetzung der Stiftung Tiere in Not – Animal Help (institutioneller und individueller Tierschutz) bringt es mit sich, dass nicht nur im Detail überblickbare, finanziell abgeschlossene Projekte Inhalt unseres Engagements bilden. Durch den Einsatz für einzelne, in Not geratene Tiere entstehen auch nicht fix kalkulierbare Aufwendungen, die ohne Schaden für das betroffene Lebewesen nicht reduziert werden können. Dieser finanzielle Aufwand ist umso beträchtlicher, als sich Stinah im Individualtierschutz schwerpunktmässig für Grosstiere einsetzt.
+                      </p>
+                      <p>
+                        Die mit der Unterbringung und Pflege von Pferden, Kühen, Ziegen, Eseln, Schweinen etc. einhergehenden hohen Kosten und die Seltenheit guter Platzierungsmöglichkeiten sind die Hauptgründe dafür, dass zugunsten der Nutztiere nur sehr wenige Institutionen mit zumeist stark eingeschränkten Aufnahmemöglichkeiten existieren. Mit einer Patenschaft helfen Sie, einzelnen Tieren Zuflucht zu bieten und ihnen ein gesichertes Dasein zu gewährleisten.
+                      </p>
+                      <p>
+                        Aus einer die heutige Situation erfassenden Gesamtsicht heraus mag dieses Engagement für ein einzelnes Tier allenfalls als wenig effizient erscheinen. Jedoch übernimmt ein solches Individuum immer auch die Funktion eines Botschafters seiner Art, vermittelt den Wert des Wesens an sich und vermag zusammen mit seiner Geschichte einen gewichtigen tierschützerischen Beitrag zu leisten. Aus der Sicht des Individuums schliesslich ist ihm gegenüber geleistete Hilfe letztlich Leben an sich und in Form eines artgerechten Lebens das Höchste, was man für ein Mitlebewesen tun kann.
+                      </p>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <h5>Patenschaftsformen</h5>
+                  <p>
+                    Eine Patenschaft bedeutet die finanzielle Unterstützung eines bestimmten, von der Stiftung übernommenen Tieres. Das Patenschaftsprojekt der Stiftung Tiere in Not – Animal Help sieht vom finanziellen Engagement des Paten her zwei verschiedene Patenschaftsformen vor, nämlich:
+                  </p>
+                  <h5>Teil-Patenschaft</h5>
+                  <p>
+                    Die Teil-Patin/der Teil-Pate unterstützt ihr/sein Patentier mit einem regelmässigen, in der Höhe von ihr/ihm selbst festgesetzten Beitrag (minimaler Betrag CHF 30.- pro Monat).
+                  </p>
+                  <h5>Voll-Patenschaft</h5>
+                  <p>
+                    Die Voll-Patin/der Voll-Pate kommt für sämtliche monatlichen Unterbringungskosten ihres/seines Patentieres auf. Diese Form der Patenschaft ist insbesondere auch für Personen gedacht, die ihr Tier aus anderen als monetären Gründen nicht mehr halten können und denen ein Verkauf des Tieres nicht möglich (z.B. infolge Alters) oder nicht erwünscht ist (z.B. weil ausgeschlossen werden soll, dass das Tier weitergereicht wird).
+                  </p>
+                  <p>
+                    Es würde uns freuen, wenn Sie sich für die Übernahme einer Patenschaft entscheiden könnten. Für offengebliebene Frage betreffend Patenschaft stehen wir Ihnen natürlich jederzeit gerne zur Verfügung.
+                  </p>
+                  </div>
+                </div>
+              <hr />
+            <a name="natural"></a>
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                    <h3>Naturalspende</h3>
+                    <p>
+                      Gerne können Sie die Arbeit von Stinah mit einer Naturalspende unterstützen. Die Stiftung braucht für ihre verschiedenen Projekte, für ihr Tierheim, für Anlässe etc. diverses Material.
+                    </p>
+                    <p>
+                      <ul>
+                        <li>
+                          Vom PC bis zur Pinwand
+                        </li>
+                        <li>
+                          Striegel
+                        </li>
+                        <li>
+                          Decken
+                        </li>
+                        <li>
+                          Halfter
+                        </li>
+                        <li>
+                          Futternäpfe
+                        </li>
+                        <li>
+                          Einstreu
+                        </li>
+                        <li>
+                          Verbandsmaterial
+                        </li>
+                      </ul>
+                    </p>
+                    <p>
+                      Falls Sie Stinah ein Naturalspende zukommen lassen möchten, können Sie sich über das Kontaktformular an uns wenden. Herzlichen Dank!
+                    </p>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <h3>Zeitspende</h3>
+                <p>
+                  Spenden Sie uns Ihre Zeit. Sie haben an bestimmten Tagen freie Zeit zur Verfügung, die Sie sinnvoll für die Stinah Tiere spenden möchten? Wir freuen uns auf Ihre Kontaktaufnahme.
+                </p>
+                </div>
+              </div>
+              <hr />
+              <a name="legat"></a>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                      <h3>Legat - Erbeinsetzung</h3>
+                      <p>
+                        Mit einem Legat oder einer Erbeinsetzung können Sie über die Lebenszeit hinaus bestimmen, wie Ihr Vermögen verwendet werden, ja wo es Spuren hinterlassen soll.
+                      </p>
+                      <p>
+                        Eine solche Begünstigung ist ein wichtiger und sehr persönlicher Entscheid, der ein grosses Vertrauen in diejenigen verlangt, die das Vermächtnis hernach umsetzen sollen. Sie sind herzlich eingeladen, Stinah und uns, die wir für eine allfällige Umsetzung Ihres mit einer Begünstigung einhergehenden Auftrags verantwortlich zeichnen, kennen zu lernen. Zögern Sie nicht, zu prüfen und zu hinterfragen, nur durch vertiefte Kenntnis erlangen Sie letztlich die Gewissheit, sich verlässlich am richtigen Ort zu engagieren.
+                      </p>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <h3>&nbsp;</h3>
+                  <p>
+                    Für eine Begünstigung von Todes wegen bedarf es einer letztwilligen Verfügung. Die Möglichkeiten sind vielfältig, werden aber von einem rechtlichen Rahmen umgeben, den zu kennen für die Gültigkeit der Verfügung wichtig ist.
+                  </p>
+                  <p>
+                    Für Fragen im Zusammenhang mit einer Begünstigung von Stinah steht Ihnen Rechtsanwalt Roland Schaub, Limmatquai 72, 8001 Zürich (Tel. 044 268 30 30) gerne als Berater zur Verfügung.
+                  </p>
+                  </div>
+                </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$( document ).ready(function() {
+
+  function scrollToAnchor(aid){
+    var aTag = $("a[name='"+ aid +"']");
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+  }
+
+  $("#spende").click(function() {
+   scrollToAnchor('spende');
+  });
+  $("#goennerbeitrag").click(function() {
+   scrollToAnchor('goennerbeitrag');
+  });
+  $("#patenschaft").click(function() {
+   scrollToAnchor('patenschaft');
+  });
+  $("#natural").click(function() {
+   scrollToAnchor('natural');
+  });
+  $("#legat").click(function() {
+   scrollToAnchor('legat');
+  });
+});
+</script>

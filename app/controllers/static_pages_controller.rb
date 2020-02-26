@@ -25,16 +25,36 @@ class StaticPagesController < ApplicationController
   end
 
   def about
-    set_meta_tags title: 'Über STINAH', reverse: true,
-              description: 'Die Stiftung "Tiere in Not - Animal Help" hat es sich zur Aufgabe gemacht, die Umsetzung des verfassungsrechtlich verankerten Schutzes der Würde
-                            der Kreatur voranzutreiben, die Stellung des Tieres als Mitgeschöpf zu festigen und als Konsequenz aus den ersten beiden Aufgaben die Tiere vor Ausbeutung
-                            und Missbrauch zu schützen und ihnen - wo immer nötig – beizustehen.',
-              keywords: 'Stinah, Stiftung Tiere in Not Animal Help'
+
+    @page = Page.where(slug: "über-stinah")
+
+    @page = @page.first if @page.any?
+
+    unless @page.blank?
+      set_meta_tags title: @page.title, reverse: true,
+            description: @page.description,
+            keywords: @page.keywords
+    end
+    #set_meta_tags title: 'Über STINAH', reverse: true,
+    #          description: 'Die Stiftung "Tiere in Not - Animal Help" hat es sich zur Aufgabe gemacht, die Umsetzung des verfassungsrechtlich verankerten Schutzes der Würde
+    #                        der Kreatur voranzutreiben, die Stellung des Tieres als Mitgeschöpf zu festigen und als Konsequenz aus den ersten beiden Aufgaben die Tiere vor Ausbeutung
+    #                        und Missbrauch zu schützen und ihnen - wo immer nötig – beizustehen.',
+    #          keywords: 'Stinah, Stiftung Tiere in Not Animal Help'
   end
 
   def faq
-    set_meta_tags title: 'FAQ', reverse: true,
-              description: 'Antworten auf die häufigsten gestellten Fragen.'
+    @page = Page.where(slug: "faq")
+
+    @page = @page.first if @page.any?
+
+    unless @page.blank?
+      set_meta_tags title: @page.title, reverse: true,
+            description: @page.description,
+            keywords: @page.keywords
+    end
+
+    #set_meta_tags title: 'FAQ', reverse: true,
+    #          description: 'Antworten auf die häufigsten gestellten Fragen.'
   end
 
   def internship
@@ -46,8 +66,19 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
-    set_meta_tags title: 'Kontakt', reverse: true,
-              description: 'Hier können Sie Kontakt mit der Stinah aufnehmen.'
+
+    @page = Page.where(slug: "kontakt")
+
+    @page = @page.first if @page.any?
+
+    unless @page.blank?
+      set_meta_tags title: @page.title, reverse: true,
+            description: @page.description,
+            keywords: @page.keywords
+    end
+
+    #set_meta_tags title: 'Kontakt', reverse: true,
+    #          description: 'Hier können Sie Kontakt mit der Stinah aufnehmen.'
   end
 
   def testimonials
@@ -56,9 +87,21 @@ class StaticPagesController < ApplicationController
   end
 
   def support
-    set_meta_tags title: 'Stinah unterstützen!', reverse: true,
-              description: 'Mit einer Spende helfen Sie der Stiftung, ihren täglichen Einsatz zugunsten der Tiere zu finanzieren.',
-              keywords: "Spende, Patenschaft, Tierschutz, Gönnerbeitrag, Naturalspende"
+    @page = Page.where(slug: "unterstützen")
+
+    @page = @page.first if @page.any?
+
+    unless @page.blank?
+      set_meta_tags title: @page.title, reverse: true,
+            description: @page.description,
+            keywords: @page.keywords
+    end
+
+    #set_meta_tags title: 'Stinah unterstützen!', reverse: true,
+    #          description: 'Mit einer Spende helfen Sie der Stiftung, ihren täglichen Einsatz zugunsten der Tiere zu finanzieren.',
+    #          keywords: "Spende, Patenschaft, Tierschutz, Gönnerbeitrag, Naturalspende"
+
+
   end
 
   def impressum
