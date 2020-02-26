@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :pages
+
   resources :emergencies
   resources :testimonials
   root 'static_pages#welcome'
@@ -11,11 +11,17 @@ Rails.application.routes.draw do
     get '/newhome', to: 'static_pages#newhome', as: "newhome"
     get '/about', to: 'static_pages#about', as: "about"
     get '/faq', to: 'static_pages#faq', as: "faq"
-    get '/contact', to: 'static_pages#contact', as: "contact"
+    #get '/contact', to: 'static_pages#contact', as: "contact"
+
+
     get '/internship', to: 'static_pages#internship', as: "internship"
     # get '/testimonials', to: 'static_pages#testimonials', as: "testimonials"
-    get '/support', to: 'static_pages#support', as: "support"
+    #get '/support', to: 'static_pages#support', as: "support"
     get '/privacy_statement', to: 'static_pages#privacy_statement', as: "privacy_statement"
+
+
+    get '/contact', to: 'pages#show', as: "contact", id: "kontakt"
+    get '/support', to: 'pages#show', as: "support", id: "unterstuetzen"
   end
 
   #save_the_chicken
@@ -109,6 +115,7 @@ Rails.application.routes.draw do
     resources :chicken_adoptions
     resources :newsletters
     resources :events
+    resources :pages
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

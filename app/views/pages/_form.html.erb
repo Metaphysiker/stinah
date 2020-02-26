@@ -12,9 +12,25 @@
     </p>
 
     <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :keywords %>
+
+    <p>
+      Kurze Beschreibung (1-3 Sätze, wichtig für die Suchmaschinen)
+    </p>
+    <%= f.input :description, label: false %>
+
+    <p>
+      Keywords (3 - 8 Wörter, mit Komma abgetrennt. Hilfreich für Suchmaschinen, kann aber auch leer gelassen werden)<br />
+      Beispiel: "Schaf, Schafe, Pflege, artgerechte Haltung, Salbe"
+    </p>
+    <%= f.input :keywords, label: false %>
+    <h5>Inhalt</h5>
     <%= f.text_area :content, :class => "tinymce", :rows => 10 %>
+    <br />
+    <p>
+      Slug für die Web-Adresse (kann leer gelasse werden, wird automatisch erstellt) <br />
+      Beispiel: www.stinah.ch/seiten/<b>slug</b>
+    </p>
+    <%= f.input :slug, label: false %>
     <%#= f.input :search_field %>
   </div>
 

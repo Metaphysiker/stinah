@@ -10,6 +10,9 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+    set_meta_tags title: @page.title, reverse: true,
+          description: @page.description,
+          keywords: @page.keywords
   end
 
   # GET /pages/new
@@ -69,6 +72,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:title, :description, :keywords, :search_field, :content, :cover)
+      params.require(:page).permit(:title, :description, :keywords, :search_field, :content, :cover, :slug)
     end
 end

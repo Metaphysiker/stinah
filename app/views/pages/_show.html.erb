@@ -10,7 +10,7 @@
 
  <div class="container-fluid b-color">
 
-   <div class="container py-2">
+   <div class="container py-5 mb-5">
      <% if is_current_user_admin? %>
       <%= link_to "Eintrag bearbeiten", edit_page_path(page), class: "btn btn-primary" %>
      <% end %>
@@ -30,8 +30,8 @@
        <p class="text-center text-justify mx-2">
           <%= page.description %>
        </p>
-       <% unless page.keywords.blank? %>
-         <p class="text-center text-justify mx-2">
+       <% unless page.keywords.blank? || true %>
+         <p class="text-left text-justify mx-2">
            <small class="text-muted"><strong>Keywords: </strong><%= page.keywords %></small>
          </p>
        <% end %>
