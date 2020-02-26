@@ -1,17 +1,18 @@
 <% url_cover = page.cover.attached? ? rails_blob_url(page.cover) : image_url("man-holding-horse-face.jpg") %>
 
 <section class="page-cover-bg" style="background-image: url('<%= url_cover %>');">
-    <div class="container d-flex align-items-center justify-content-center h-100">
+    <div class="container d-flex align-items-start justify-content-center h-100 pt-2">
 
         <%= image_tag("logo_stinah_ws_vektor.png", class: "img-fluid mb-4 rounded overlay-darker", style: "height: 180px;") %>
 
     </div>
 </section>
 
- <div class="container">
+ <div class="container-fluid b-color">
 
+   <div class="container py-2">
      <% if is_current_user_admin? %>
-      <%= link_to "Eintrag bearbeiten", edit_page_path(page), class: "btn btn-primary my-2" %>
+      <%= link_to "Eintrag bearbeiten", edit_page_path(page), class: "btn btn-primary" %>
      <% end %>
 
      <!-- Preview Image -->
@@ -21,7 +22,7 @@
      <% end %>
 
      <!-- Title -->
-     <h1 class="mt-4 text-center"><%= page.title %></h1>
+     <h1 class="pt-4 text-center"><%= page.title %></h1>
      <hr>
 
      <!-- Description and Keywords -->
@@ -42,5 +43,8 @@
      <div class="text-justify">
            <%= raw Sanitize.fragment(page.content, Sanitize::Config::RELAXED) %>
       </div>
+   </div>
+
+
 
  </div>
