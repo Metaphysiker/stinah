@@ -37,6 +37,9 @@ de:
       event:
         one: "Event"
         other: "Events"
+      page:
+        one: "Seite"
+        other: "Seiten"
     attributes:
       user:
         firstname: "Vorname"
@@ -188,3 +191,8 @@ de:
         name: "Name oder Titel des Events"
         description: "Beschreibung"
         category: "Kategorie"
+      page:
+        title: "Titel"
+        description: "Beschreibung"
+        keywords: "Keywords"
+        content: "Inhalt"
