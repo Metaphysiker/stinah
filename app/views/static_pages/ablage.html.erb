@@ -137,6 +137,10 @@ $( document ).ready(function() {
 
 <div class="container">
   <div class="jumbotron bg-white my-4">
+
+
+
+
     <div class="text-center">
       <%= link_to root_path do %>
         <%= image_tag("stinah-logo.png", class: "img-fluid mb-4") %>
@@ -287,6 +291,8 @@ Beratung an;
     	</div>
     </div>
     </div>
+
+    
   </div>
   <hr />
   <%= render "team_members/index", team_members: TeamMember.all %>

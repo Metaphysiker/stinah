@@ -41,7 +41,7 @@
 
      <!-- Post Content -->
      <div class="text-justify">
-           <%= raw Sanitize.fragment(page.content, Sanitize::Config::RELAXED) %>
+       <%= raw sanitizing(page.content) %>
       </div>
    </div>
 
