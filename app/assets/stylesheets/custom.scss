@@ -171,6 +171,22 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
+.page-cover-bg{
+
+  //height:600px;
+  //max-height:600px;
+  /* The image used */
+  //background-image: image-url("horse-enter.png");
+
+/* Full height */
+height: 685px;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
 .pate-bg{
 
   background-image: image-url("pate-bg.png");
@@ -423,6 +439,10 @@ fieldset[disabled] .btn-e-color.active {
 //overlay
 .overlay-dark {
   background-color: rgba(black, 0.4);
+}
+
+.overlay-darker {
+  background-color: rgba(black, 0.6);
 }
 
 .nav-no-margin{
