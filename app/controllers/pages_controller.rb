@@ -1,6 +1,11 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!, except: [:show]
+  before_action :is_user_allowed?, except: [:show]
+
+  include ApplicationHelper
+
   # GET /pages
   # GET /pages.json
   def index
@@ -73,5 +78,14 @@ class PagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
       params.require(:page).permit(:title, :description, :keywords, :search_field, :content, :cover, :slug)
+    end
+
+    def is_user_allowed?
+      if !is_current_user_admin?
+        #raise "not authorized"
+        sign_out current_user
+        flash[:notice] = "Sie sind nicht authorisiert!"
+        redirect_to root_path
+      end
     end
 end
