@@ -1,25 +1,2 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @page.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @page.description %>
-</p>
-
-<p>
-  <strong>Keywords:</strong>
-  <%= @page.keywords %>
-</p>
-
-<p>
-
-  <%= raw Sanitize.fragment(@page.content, Sanitize::Config::RELAXED) %>
-
-</p>
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+  <%= render 'pages/show', page: @page %>
