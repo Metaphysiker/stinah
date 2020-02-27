@@ -104,13 +104,18 @@ RSpec.describe "sponsorship", :type => :feature do
     fill_in "sponsorship_email", :with => email
     find(:css, "#sponsorship_public").set(true)
 
+    #save_screenshot("spons1.png")
     click_button "Patenschaft erstellen"
+    #save_screenshot("spons2.png")
 
     login_with(@admin)
 
     visit(sponsorships_path)
 
     fill_in "search_inputs_search_term", :with => email
+
+    #sleep 1
+    #save_screenshot("spons.png")
 
     expect(page).to have_content(name)
     expect(page).to have_content(donation)
