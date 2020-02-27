@@ -1,6 +1,6 @@
 <% url_cover = page.cover.attached? ? rails_blob_url(page.cover) : image_url("man-holding-horse-face.jpg") %>
 
-<section class="page-cover-bg" style="background-image: url('<%= url_cover %>');">
+<section class="page-cover-bg" style="background-image: url('<%= url_cover %>'); height: <%= ActiveStorage::Analyzer::ImageAnalyzer.new(page.cover).metadata[:height] %>px;">
     <div class="container d-flex align-items-start justify-content-center h-100 pt-2">
 
         <%= image_tag("logo_stinah_ws_vektor.png", class: "img-fluid mb-4 rounded overlay-darker", style: "height: 180px;") %>
