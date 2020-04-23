@@ -18,15 +18,15 @@ require("channels")
 
 //import 'bootstrap'
 //import '../stylesheets/application'
-require("bootstrap")
+//require("bootstrap")
 //require("../stylesheets/application")
 
-window.jQuery = $;
-window.$ = $;
+//window.jQuery = $;
+//window.$ = $;
 
-document.addEventListener("load", () => {
-  $('[data-toggle="tooltip"]').tooltip();
-});
+//document.addEventListener("load", () => {
+//  $('[data-toggle="tooltip"]').tooltip();
+//});
 
 require("trix")
 require("@rails/actiontext")
