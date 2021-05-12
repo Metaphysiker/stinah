@@ -8,7 +8,7 @@
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "^4.2.2",
     "ahoy.js": "^0.3.4",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "chartkick": "^3.2.0",
     "jquery": "^3.4.1",
     "plyr": "^3.5.6",
