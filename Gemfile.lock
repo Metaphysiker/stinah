@@ -160,7 +160,7 @@ GEM
       nokogiri (>= 1.6)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     json (2.3.0)
     kaminari (1.2.0)
       activesupport (>= 4.1.0)
